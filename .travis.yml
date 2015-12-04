@@ -1,0 +1,8 @@
+language: ruby
+cache:
+  - bundler
+  - directories:
+    - build
+sudo: false
+script:
+- bundle exec middleman build
