@@ -4,5 +4,6 @@ cache:
   - directories:
     - build
 sudo: false
+before_install: gem install bundler -v '>= 1.8.4'
 script:
 - bundle exec middleman build

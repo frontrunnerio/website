@@ -261,7 +261,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (>= 1.8.4)
   execjs (~> 2.0)
   middleman-autoprefixer
   middleman-blog
