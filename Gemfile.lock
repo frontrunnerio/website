@@ -220,7 +220,8 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rails-assets-jquery (2.1.4)
+    rails-assets-jquery (1.11.3)
+    rails-assets-modernizr (2.8.3)
     rails-assets-normalize-css (3.0.3)
     rb-fsevent (0.9.6)
     rb-inotify (0.9.5)
@@ -273,7 +274,8 @@ DEPENDENCIES
   middleman-s3_sync (~> 3.x)
   middleman-sprockets (>= 3.1.2)
   middleman-syntax
-  rails-assets-jquery (~> 2.0)!
+  rails-assets-jquery (~> 1.0)!
+  rails-assets-modernizr (= 2.8.3)!
   rails-assets-normalize-css!
   redcarpet
   sassc (~> 1.8)
