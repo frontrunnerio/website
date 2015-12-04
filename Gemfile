@@ -28,8 +28,8 @@ gem "middleman-cloudfront"
 
 # bower assets
 source 'https://rails-assets.org' do
-	gem 'rails-assets-modernizr', '2.8.3'
-	gem 'rails-assets-jquery', '~> 1.0' # jquery, supporting old browsers
-	gem 'rails-assets-normalize-css' # css reset
+  gem 'rails-assets-modernizr', '2.8.3'
+  gem 'rails-assets-jquery', '~> 1.0' # jquery, supporting old browsers
+  gem 'rails-assets-normalize-css' # css reset
 end
 
