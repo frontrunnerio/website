@@ -1,0 +1,17 @@
+/*
+ *= require normalize-css
+ *= require_self
+ */
+
+@import "mixins/clearfix";
+
+@import "core/reset"; // reset first
+@import "core/colors";
+@import "core/layout";
+
+@import "base/hr";
+@import "base/textarea";
+
+@import "views/index";
+
+@import "print"; // print styles
