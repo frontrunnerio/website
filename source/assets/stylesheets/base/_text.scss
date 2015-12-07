@@ -1,0 +1,21 @@
+
+// text
+html {
+  color: $color-text;
+}
+
+// headers
+h1, h2, h3, h4, h5, h6 {
+  color: $color-header;
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+// text selection hightlight
+::selection {
+  color: $color-selection-text;
+  background: $color-selection-background;
+  text-shadow: none;
+}
+
