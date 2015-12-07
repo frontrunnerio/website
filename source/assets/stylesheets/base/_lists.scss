@@ -1,0 +1,6 @@
+
+ul {
+  @include reset-box-model;
+  list-style-type: none; // no bullets by default (e.g. used in navigation)
+}
+
