@@ -1,3 +1,9 @@
 {
-  "outputDirectory": "dist"
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://andreas.boehrnsen.de/$1",
+      "permanent": true
+    }
+  ]
 }
