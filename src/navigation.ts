@@ -1,9 +1,8 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const headerData = {
-  links: [
-  ],
-  actions: [{ text: 'Contact Us', href: 'mailto:andreas.boehrnsen@frontrunner.io', target: '_blank' }],
+  links: [],
+  actions: [{ text: 'Kontakt', href: 'mailto:andreas.boehrnsen@frontrunner.io', target: '_blank' }],
 };
 
 export const footerData = {
