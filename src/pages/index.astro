@@ -4,7 +4,6 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero2 from '~/components/widgets/Hero2.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
@@ -154,7 +153,7 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget - GitLab Implementation & Optimization **************** -->
 
   <Content
     isAfterContent
@@ -181,8 +180,8 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
+      src: 'https://images.unsplash.com/photo-1531030874896-fdef6826f2f7?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      alt: 'Gitlab Image',
     }}
   >
     <Fragment slot="content">
@@ -195,7 +194,7 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget - Migration & Konsolidierung q**************** -->
 
   <Content
     isReversed
@@ -237,7 +236,7 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget - Coaching **************** -->
 
   <Content
     isAfterContent
@@ -279,10 +278,9 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-  
 
-  Alle Leistungen sind modular kombinierbar — vom schnellen Assessment bis zur vollständigen Transformation.
-  
+  <Note title="Alle Leistungen sind modular kombinierbar:" description="Vom schnellen Assessment bis zur vollständigen Transformation" />
+
   <!-- Steps Widget ****************** -->
   
   <Steps
@@ -319,72 +317,6 @@ const metadata = {
     }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <!--
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-  -->
-
   <!-- HighlightedPosts Widget ******* -->
 
   <!--
@@ -398,46 +330,40 @@ const metadata = {
  -->
   <!-- FAQs Widget ******************* -->
 
-  <!--
+  <!-- FAQs Widget ******************* -->
+
   <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    title="Häufig gestellte Fragen"
+    subtitle="Antworten auf typische Fragen rund um DevSecOps, CI/CD und die Zusammenarbeit."
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Why AstroWind?',
+        title: 'Ist das für unser Unternehmen überhaupt relevant?',
         description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
+          'Wenn Sie Software entwickeln, regelmäßig deployen und gleichzeitig steigenden Sicherheits- oder Compliance-Anforderungen unterliegen, ist das Thema für Sie hoch relevant. Besonders im regulierten Umfeld (z. B. Finance oder Insurance) entsteht hier oft der größte Hebel.',
       },
       {
-        title: 'What do I need to start?',
+        title: 'Wie schnell sehen wir erste Ergebnisse?',
         description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+          'Erste Verbesserungen werden häufig bereits nach wenigen Wochen sichtbar — insbesondere durch Automatisierung und optimierte Pipelines. Das Assessment liefert Ihnen innerhalb weniger Tage eine klare Grundlage für konkrete Maßnahmen.',
       },
       {
-        title: 'How to install the Astro + Tailwind CSS template?',
+        title: 'Müssen wir auf GitLab umsteigen?',
         description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
+          'Nein. Wir arbeiten technologieagnostisch und berücksichtige Ihre bestehende Landschaft. In vielen Fällen empfiehlt sich jedoch eine Plattformstrategie (z. B. mit GitLab), um Komplexität zu reduzieren und Geschwindigkeit nachhaltig zu erhöhen.',
       },
       {
-        title: "What's something that you don't understand?",
+        title: 'Wie stellen Sie Sicherheit und Compliance sicher?',
         description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
+          'Sicherheit und Compliance werden von Anfang an in Prozesse und Pipelines integriert — nicht nachträglich ergänzt. Alle Lösungen sind darauf ausgelegt, auditierbar, nachvollziehbar und regulatorisch belastbar zu sein.',
       },
     ]}
-  />
-  -->
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
 
   <!-- Stats Widget ****************** -->
 
