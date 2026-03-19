@@ -11,7 +11,7 @@ metadata:
   title:
     default: frontrunner.io
     template: '%s — frontrunner.io'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: "DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery"
   robots:
     index: true
     follow: true
