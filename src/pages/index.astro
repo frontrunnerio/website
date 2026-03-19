@@ -1,11 +1,401 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '~/layouts/PageLayout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  ignoreTitleTemplate: true,
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  
+  <Hero2
+    tagline=""
+    title="Ship faster.<br> Stay secure. Automate everything."
+    subtitle="Wir helfen Unternehmen, ihre Software schneller und sicherer auszuliefern — durch DevSecOps, Automatisierung und klare Prozesse."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Kostenlos anfragen',
+        href: 'mailto:info@frontrunner.io',
+        target: '_blank',
+      },
+      { text: 'Mehr erfahren', href: '#problem-statement' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' }}
+  />
+
+  <!--
+  <Hero
+    image={{ src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' }}
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Kostenlos anfragen',
+        href: 'mailto:info@frontrunner.io',
+        target: '_blank'
+      },
+      { text: 'Mehr erfahren', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Ship faster. Stay secure. <span class="hidden xl:inline">Automate everything.</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Wir helfen Unternehmen, ihre Software schneller und sicherer auszuliefern — durch DevSecOps, Automatisierung und klare Prozesse.
+    </Fragment>
+  </Hero>
+ -->
+
+  <!-- Note Widget ******************* -->
+
+  <Note title="Philosophie:" description="Klarheit statt Komplexität. Automatisierung statt manueller Arbeit. Sicherheit von Anfang an." />
+
+  <!-- Features Widget - Problem statement *************** -->
+  
+  <Features
+    id="problem-statement"
+    tagline="Die Realität in vielen Unternehmen"
+    title="Software-Delivery ist langsamer, riskanter und komplexer als es sein sollte"
+    subtitle="Zwischen steigenden Sicherheitsanforderungen, wachsender Tool-Landschaft und manuellem Aufwand verlieren viele Teams Geschwindigkeit — und Kontrolle. Was eigentlich Innovation ermöglichen sollte, wird zum Bottleneck."
+    items={[
+      {
+        title: 'Manuelle Prozesse verlangsamen alles',
+        description:
+          'Release-Prozesse hängen von manuellen Schritten ab — fehleranfällig, langsam und schwer skalierbar.',
+        icon: 'tabler:hourglass-high',
+      },
+      {
+        title: 'Tool-Chaos statt Plattform',
+        description:
+          'Zu viele Tools ohne klare Integration führen zu Medienbrüchen, ineffizienten Workflows und unnötiger Komplexität.',
+        icon: 'tabler:apps',
+      },
+      {
+        title: 'Sicherheit kommt zu spät',
+        description:
+          'Security wird oft erst am Ende berücksichtigt — was Releases verzögert und Risiken erhöht.',
+        icon: 'tabler:shield-half',
+      },
+      {
+        title: 'Langsame und riskante Releases',
+        description:
+          'Deployments dauern zu lange oder sind mit Unsicherheit verbunden — Innovation wird ausgebremst.',
+        icon: 'tabler:alert-triangle',
+      },
+      {
+        title: 'Compliance erzeugt Reibung',
+        description:
+          "Regulatorische Anforderungen wie DORA oder ISO führen zu zusätzlichem Aufwand statt zu Klarheit.",
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Transparenz und Nachvollziehbarkeit fehlen',
+        description:
+          "Es fehlt an klarer Nachvollziehbarkeit — besonders kritisch für Audits und regulierte Branchen.",
+        icon: 'tabler:route-x',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+  
+  <Content
+    isReversed
+    tagline="Wir bieten"
+    title="Unsere Leistungen"
+    items={[
+      {
+        title: 'Analyse eurer aktuellen Software-Delivery',
+        description:
+          'Ganzheitliche Betrachtung eurer Pipeline von Code bis Deployment — inkl. Prozesse, Tools und Verantwortlichkeiten.',
+      },
+      {
+        title: 'Identifikation von Risiken und Bottlenecks',
+        description:
+          'Aufdecken von Sicherheitslücken, manuellen Engpässen und ineffizienten Abläufen, die euch ausbremsen.',
+      },
+      {
+        title: 'Konkrete Handlungsempfehlungen',
+        description:
+          'Keine Theorie: ihr erhaltet klare, priorisierte Maßnahmen, die sofort umsetzbar sind.',
+      },
+      {
+        title: 'Ergebnis: klare Roadmap in wenigen Tagen',
+        description:
+          'Eine strukturierte, realistische Roadmap als Grundlage für schnelle Verbesserungen und fundierte Entscheidungen.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">DevSecOps Assessment</h3>
+      Der schnellste Weg zu Klarheit
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget - GitLab Implementation & Optimization **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Aufbau oder Optimierung von GitLab',
+        description:
+          'Einrichtung oder Weiterentwicklung eurer GitLab-Instanz als zentrale Plattform für Development, Security und Operations.',
+      },
+      {
+        title: 'CI/CD Pipelines (inkl. Security Scans)',
+        description:
+          'Aufbau performanter, automatisierter Pipelines mit integrierten Sicherheitsprüfungen.',
+      },
+      {
+        title: 'Rechte- und Rollenmodelle (Compliance-ready)',
+        description:
+          'Klare Zugriffskonzepte für Teams und Audits — nachvollziehbar und sicher.',
+      },
+      {
+        title: 'Infrastructure as Code Integration',
+        description:
+          'Einbindung eurer Infrastruktur in den Delivery-Prozess für reproduzierbare und versionierte Deployments.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/service-gitlab.jpg',
+      alt: 'Gitlab Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">GitLab Implementation & Optimization</h3>
+      Alles in einer Plattform
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget - Migration & Konsolidierung q**************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: 'Migration von Jenkins, Azure DevOps, GitHub etc. zu GitLab',
+        description:
+          'Strukturierte Überführung bestehender Systeme in eine konsolidierte Plattform — ohne Betriebsunterbrechung.',
+      },
+      {
+        title: 'Konsolidierung von Toolchains',
+        description:
+          'Reduktion von Komplexität durch Zusammenführung von Tools und Prozessen.',
+      },
+      {
+        title: 'Minimierung von Betriebsaufwand',
+        description:
+          'Weniger Wartung, weniger Schnittstellen, weniger Fehlerquellen.',
+      },
+      {
+        title: 'Sicherstellung von Compliance',
+        description:
+          'Migration unter Berücksichtigung regulatorischer Anforderungen und Auditierbarkeit.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/service-consolidation.jpg',
+      alt: 'Consolidation Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Migration &amp; Konsolidierung</h3>
+      Raus aus dem Tool-Chaos
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget - Coaching **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Hands-on Unterstützung im Team',
+        description:
+          'Direkte Mitarbeit in euren Projekten, um Ergebnisse schnell und pragmatisch umzusetzen.',
+      },
+      {
+        title: 'Coaching für Entwickler & Plattform-Teams',
+        description:
+          'Vermittlung von Best Practices, damit eure Teams eigenständig weiterarbeiten können.',
+      },
+      {
+        title: 'Aufbau von DevSecOps Mindset',
+        description:
+          'Förderung einer Kultur, in der Sicherheit und Geschwindigkeit zusammen gedacht werden.',
+      },
+      {
+        title: 'Nachhaltige Transformation',
+        description:
+          'Fokus auf langfristige Verbesserung statt kurzfristiger Optimierung.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/service-coaching.jpg',
+      alt: 'Coaching Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Begleitung &amp; Coaching
+      </h3>
+      Nicht nur Konzepte — echte Umsetzung
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <Note title="Alle Leistungen sind modular kombinierbar:" description="Vom schnellen Assessment bis zur vollständigen Transformation" />
+
+  <!-- Steps Widget ****************** -->
+  
+  <Steps
+    title="Wie wir arbeiten"
+    items={[
+      {
+        title: 'Schritt 1: <span class="font-medium">Assessment</span>',
+        description:
+          "Wir analysieren eure aktuelle Situation.",
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Schritt 2: <span class="font-medium">Roadmap</span>',
+        description:
+          "Wir erstellen eine klare, priorisierte Maßnahmenliste.",
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Schritt 3: <span class="font-medium">Implementation</span>',
+        description:
+          'Auf Wunsch implementieren wir die Maßnahmen mit eurem Team.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Schritt 4: <span class="font-medium">Enablement</span>',
+        description:
+          'Wir transferieren das Wissen und ermöglichen euch, die Maßnahmen kontinuierlich zu verbessern.',
+        icon: 'tabler:school',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+  />
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <!--
+  <BlogLatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+                        Astro is a very interesting technology. Thanks.
+                `}
+  />
+ -->
+  <!-- FAQs Widget ******************* -->
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Häufig gestellte Fragen"
+    subtitle="Antworten auf typische Fragen rund um DevSecOps, CI/CD und die Zusammenarbeit."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Ist das für unser Unternehmen überhaupt relevant?',
+        description:
+          'Wenn Sie Software entwickeln, regelmäßig deployen und gleichzeitig steigenden Sicherheits- oder Compliance-Anforderungen unterliegen, ist das Thema für Sie hoch relevant. Besonders im regulierten Umfeld (z. B. Finance oder Insurance) entsteht hier oft der größte Hebel.',
+      },
+      {
+        title: 'Wie schnell sehen wir erste Ergebnisse?',
+        description:
+          'Erste Verbesserungen werden häufig bereits nach wenigen Wochen sichtbar — insbesondere durch Automatisierung und optimierte Pipelines. Das Assessment liefert Ihnen innerhalb weniger Tage eine klare Grundlage für konkrete Maßnahmen.',
+      },
+      {
+        title: 'Müssen wir auf GitLab umsteigen?',
+        description:
+          'Nein. Wir arbeiten technologieagnostisch und berücksichtige Ihre bestehende Landschaft. In vielen Fällen empfiehlt sich jedoch eine Plattformstrategie (z. B. mit GitLab), um Komplexität zu reduzieren und Geschwindigkeit nachhaltig zu erhöhen.',
+      },
+      {
+        title: 'Wie stellen Sie Sicherheit und Compliance sicher?',
+        description:
+          'Sicherheit und Compliance werden von Anfang an in Prozesse und Pipelines integriert — nicht nachträglich ergänzt. Alle Lösungen sind darauf ausgelegt, auditierbar, nachvollziehbar und regulatorisch belastbar zu sein.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Stats Widget ****************** -->
+
+  <!--
+  <Stats
+    stats={[
+      { title: 'Downloads', amount: '132K' },
+      { title: 'Stars', amount: '24.8K' },
+      { title: 'Forks', amount: '10.3K' },
+      { title: 'Users', amount: '48.4K' },
+    ]}
+  />
+  -->
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Kostenlos anfragen',
+        href: 'mailto:andreas.boehrnsen@frontrunner.io',
+        target: '_blank',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Jetzt Termin buchen.
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Wir freuen uns von Ihnen zu hören.
+    </Fragment>
+  </CallToAction>
 </Layout>
