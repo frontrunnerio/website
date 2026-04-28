@@ -1,7 +1,10 @@
 ---
 import { GoogleAnalytics } from '@astrolib/analytics';
 import { ANALYTICS } from 'astrowind:config';
+import VercelAnalytics from '@vercel/analytics/astro';
 ---
+
+<VercelAnalytics />
 
 {
   ANALYTICS?.vendors?.googleAnalytics?.id ? (
