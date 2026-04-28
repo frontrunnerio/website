@@ -1,6 +1,6 @@
 # frontrunner.io — Corporate Website
 
-Corporate website for **[frontrunner.io](https://frontrunner.io)** — DevSecOps, CI/CD and automation consulting for fast, secure, and efficient software delivery.
+The website for **[frontrunner.io](https://frontrunner.io)** — we help companies ship faster, stay secure, and automate the boring parts.
 
 Built with **[Astro 5](https://astro.build/)** + **[Tailwind CSS](https://tailwindcss.com/)** on top of the [AstroWind](https://github.com/arthelokyo/astrowind) template.
 
@@ -26,7 +26,7 @@ All commands are run from the root of the project:
 | `npm run build`     | Build production site to `./dist/`                 |
 | `npm run preview`   | Preview the production build locally               |
 | `npm run check`     | Check for Astro, ESLint and Prettier errors        |
-| `npm run fix`       | Auto-fix ESLint and Prettier issues                |
+| `npm run fix`       | Auto-fix ESLint and Prettier issues (treat yourself) |
 
 ## Project Structure
 
@@ -44,11 +44,11 @@ All commands are run from the root of the project:
 │   │   └── widgets/
 │   ├── layouts/
 │   ├── pages/
-│   │   ├── index.astro
+│   │   ├── index.astro       # where first impressions are made
 │   │   ├── about.astro
 │   │   ├── contact.astro
-│   │   └── 404.astro
-│   ├── config.yaml       # Site-wide configuration
+│   │   └── 404.astro         # hopefully rarely visited
+│   ├── config.yaml           # site-wide configuration
 │   └── navigation.js
 ├── astro.config.ts
 ├── tailwind.config.js
@@ -73,7 +73,7 @@ metadata:
 
 ## Deploy
 
-The site is deployed to **Vercel**. Pushes to `main` trigger automatic deployments.
+Pushes to `main` deploy automatically to **Vercel**. No manual steps, no drama.
 
 To build manually:
 
@@ -81,7 +81,7 @@ To build manually:
 npm run build
 ```
 
-The output in `./dist/` can be deployed to any static hosting provider.
+Output lands in `./dist/` and can be deployed anywhere that serves static files.
 
 ## License
 
