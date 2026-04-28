@@ -9,8 +9,8 @@ export const footerData = {
   links: [
   ],
   secondaryLinks: [
-    { text: 'Imprint', href: getPermalink('/imprint') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Impressum', href: getPermalink('/imprint') },
+    { text: 'Datenschutzerklärung', href: getPermalink('/privacy') },
   ],
   socialLinks: [
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/andreasboehrnsen/' },
