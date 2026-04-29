@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
   "outputDirectory": "dist",
@@ -11,6 +12,50 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "de" } }],
+      "missing": [{ "type": "cookie", "key": "frio_lang" }],
+      "destination": "/de",
+      "permanent": false
+    },
+    {
+      "source": "/about",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "de" } }],
+      "missing": [{ "type": "cookie", "key": "frio_lang" }],
+      "destination": "/de/about",
+      "permanent": false
+    },
+    {
+      "source": "/contact",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "de" } }],
+      "missing": [{ "type": "cookie", "key": "frio_lang" }],
+      "destination": "/de/contact",
+      "permanent": false
+    },
+    {
+      "source": "/imprint",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "de" } }],
+      "missing": [{ "type": "cookie", "key": "frio_lang" }],
+      "destination": "/de/imprint",
+      "permanent": false
+    },
+    {
+      "source": "/privacy",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "de" } }],
+      "missing": [{ "type": "cookie", "key": "frio_lang" }],
+      "destination": "/de/privacy",
+      "permanent": false
+    },
+    {
+      "source": "/terms",
+      "has": [{ "type": "header", "key": "accept-language", "value": { "pre": "de" } }],
+      "missing": [{ "type": "cookie", "key": "frio_lang" }],
+      "destination": "/de/terms",
+      "permanent": false
     }
   ]
 }

@@ -1,13 +1,22 @@
-import { I18N } from 'astrowind:config';
+const formatterCache = new Map<string, Intl.DateTimeFormat>();
 
-export const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(I18N?.language, {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-  timeZone: 'UTC',
-});
+const getFormatter = (lang?: string): Intl.DateTimeFormat => {
+  const key = lang ?? 'en';
+  let cached = formatterCache.get(key);
+  if (!cached) {
+    cached = new Intl.DateTimeFormat(key, {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      timeZone: 'UTC',
+    });
+    formatterCache.set(key, cached);
+  }
+  return cached;
+};
 
-export const getFormattedDate = (date: Date): string => (date ? formatter.format(date) : '');
+export const getFormattedDate = (date: Date, lang?: string): string =>
+  date ? getFormatter(lang).format(date) : '';
 
 export const trim = (str = '', ch?: string) => {
   let start = 0,

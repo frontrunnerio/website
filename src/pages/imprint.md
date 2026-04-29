@@ -1,47 +1,48 @@
 ---
-title: 'Imprint / Impressum'
+title: 'Imprint'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-Angaben gemäß § 5 TMG:
+> The German version of this imprint at [/de/imprint](/de/imprint) is the legally binding original (per § 5 TMG). The English text below is provided as a courtesy translation.
 
-**Frontrunner Software - Andreas Böhrnsen**  
+Information pursuant to § 5 TMG (German Telemedia Act):
+
+**Frontrunner Software – Andreas Böhrnsen**  
 Seychellenring 42  
 13587 Berlin  
 Germany
 
-**Vertreten durch**  
+**Represented by**  
 Dipl.-Ing. (BA) Andreas Böhrnsen
 
-**Kontakt**
+**Contact**
 
-- Telefon: +49 (0)160 6220730  
-- E-Mail: [info@frontrunner.io](mailto:info@frontrunner.io)
+- Phone: +49 (0)160 6220730  
+- Email: [info@frontrunner.io](mailto:info@frontrunner.io)
 
-**Umsatzsteuer-ID**
+**VAT ID**
 
-Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:  DE291533301
+VAT identification number per § 27a German VAT Act: DE291533301
 
-**Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV**
+**Responsible for content per § 55 (2) RStV**
 
 Andreas Böhrnsen  
 Seychellenring 42  
 13587 Berlin  
 Germany
 
-## Haftungsausschluss (Disclaimer)
+## Disclaimer
 
-### Haftung für Inhalte
+### Liability for content
 
-Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+As a service provider, we are responsible for our own content on these pages in accordance with § 7 (1) TMG and general law. According to §§ 8 to 10 TMG, however, we are not obliged as a service provider to monitor third-party information transmitted or stored, or to investigate circumstances that point to illegal activity. Obligations to remove or block the use of information under general law remain unaffected. Liability in this respect is only possible from the time we become aware of a specific infringement. As soon as we become aware of such infringements, we will remove the content immediately.
 
-### Haftung für Links
+### Liability for links
 
-Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+Our website contains links to external websites of third parties whose content we have no influence over. For this reason, we cannot accept any liability for this third-party content. Responsibility for the content of linked pages always lies with the respective provider or operator. The linked pages were checked for possible legal violations at the time they were linked. Illegal content was not recognisable at the time of linking. However, permanent monitoring of the content of linked pages is not reasonable without concrete indications of a legal violation. As soon as we become aware of legal violations, we will remove such links immediately.
 
-### Urheberrecht
+### Copyright
 
-Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+The content and works on these pages created by the site operators are subject to German copyright law. Duplication, processing, distribution and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Where the content on this site was not created by the operator, third-party copyrights are respected. In particular, third-party content is identified as such. If you nevertheless become aware of a copyright infringement, please notify us. As soon as we become aware of legal violations, we will remove such content immediately.
 
-_Quelle: [e-recht24.de](http://www.e-recht24.de)_
-
+_Source: [e-recht24.de](http://www.e-recht24.de)_

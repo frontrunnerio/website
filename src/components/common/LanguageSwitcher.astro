@@ -1,0 +1,42 @@
+---
+import { getLang, getMirrorPath, t } from '~/i18n/utils';
+
+const lang = getLang(Astro);
+const path = Astro.url.pathname;
+const enHref = lang === 'en' ? path : getMirrorPath(path, 'en');
+const deHref = lang === 'de' ? path : getMirrorPath(path, 'de');
+---
+
+<div class="flex items-center text-sm font-medium ml-2" aria-label={t(lang, 'switcher.aria')}>
+  <a
+    href={enHref}
+    data-set-lang="en"
+    aria-current={lang === 'en' ? 'true' : undefined}
+    class:list={[
+      'px-2 py-1 transition-colors',
+      lang === 'en' ? 'font-bold text-default' : 'text-muted hover:text-default',
+    ]}>{t(lang, 'switcher.en')}</a
+  >
+  <span class="text-muted" aria-hidden="true">|</span>
+  <a
+    href={deHref}
+    data-set-lang="de"
+    aria-current={lang === 'de' ? 'true' : undefined}
+    class:list={[
+      'px-2 py-1 transition-colors',
+      lang === 'de' ? 'font-bold text-default' : 'text-muted hover:text-default',
+    ]}>{t(lang, 'switcher.de')}</a
+  >
+</div>
+
+<script>
+  const setLang = (e: Event) => {
+    const target = e.currentTarget as HTMLAnchorElement | null;
+    const lang = target?.dataset.setLang;
+    if (!lang) return;
+    document.cookie = `frio_lang=${lang}; Max-Age=31536000; Path=/; SameSite=Lax`;
+  };
+  document.querySelectorAll('a[data-set-lang]').forEach((el) => {
+    el.addEventListener('click', setLang);
+  });
+</script>

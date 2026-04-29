@@ -25,6 +25,15 @@ export default defineConfig({
   site: 'https://frontrunner.io',
   output: 'static',
 
+  i18n: {
+    locales: ['en', 'de'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,

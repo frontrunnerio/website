@@ -9,7 +9,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-import { content } from '~/i18n/pages/en/index';
+import { content } from '~/i18n/pages/de/index';
 
 const heroActions = [
   {
@@ -34,8 +34,6 @@ const services = content.services.blocks;
 ---
 
 <Layout metadata={content.metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero2
     tagline={content.hero.tagline}
     title={content.hero.title}
@@ -44,11 +42,7 @@ const services = content.services.blocks;
     image={content.hero.image}
   />
 
-  <!-- Note Widget ******************* -->
-
   <Note title={content.philosophyNote.title} description={content.philosophyNote.description} />
-
-  <!-- Features Widget - Problem statement *************** -->
 
   <Features
     id={content.problems.id}
@@ -57,8 +51,6 @@ const services = content.services.blocks;
     subtitle={content.problems.subtitle}
     items={content.problems.items}
   />
-
-  <!-- Content Widget — DevSecOps Assessment **************** -->
 
   <Content
     isReversed
@@ -71,46 +63,36 @@ const services = content.services.blocks;
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services[0].contentTitle}</h3>
       {services[0].contentCaption}
     </Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
-  <!-- Content Widget - GitLab Implementation & Optimization **************** -->
 
   <Content isAfterContent items={services[1].items} image={services[1].image}>
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services[1].contentTitle}</h3>
       {services[1].contentCaption}
     </Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
-  <!-- Content Widget - Migration & Consolidation **************** -->
 
   <Content isReversed isAfterContent items={services[2].items} image={services[2].image}>
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services[2].contentTitle}</h3>
       {services[2].contentCaption}
     </Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
-
-  <!-- Content Widget - Coaching **************** -->
 
   <Content isAfterContent items={services[3].items} image={services[3].image}>
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services[3].contentTitle}</h3>
       {services[3].contentCaption}
     </Fragment>
-
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
@@ -118,11 +100,7 @@ const services = content.services.blocks;
 
   <Note title={content.modularNote.title} description={content.modularNote.description} />
 
-  <!-- Steps Widget ****************** -->
-
   <Steps title={content.steps.title} items={content.steps.items} image={content.steps.image} />
-
-  <!-- FAQs Widget ******************* -->
 
   <FAQs
     title={content.faqs.title}
@@ -135,8 +113,6 @@ const services = content.services.blocks;
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </FAQs>
-
-  <!-- CallToAction Widget *********** -->
 
   <CallToAction actions={ctaActions}>
     <Fragment slot="title">{content.cta.title}</Fragment>

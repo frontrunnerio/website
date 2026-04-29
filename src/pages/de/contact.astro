@@ -4,12 +4,10 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
-import { content } from '~/i18n/pages/en/contact';
+import { content } from '~/i18n/pages/de/contact';
 ---
 
 <Layout metadata={content.metadata}>
-  <!-- HeroText Widget ******************* -->
-
   <HeroText tagline={content.hero.tagline} title={content.hero.title} />
 
   <ContactUs
@@ -21,8 +19,6 @@ import { content } from '~/i18n/pages/en/contact';
     disclaimer={{ label: content.form.disclaimer }}
     description={content.form.description}
   />
-
-  <!-- Features2 Widget ************** -->
 
   <Features2 title={content.direct.title} items={content.direct.items} />
 </Layout>

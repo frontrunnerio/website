@@ -1,0 +1,249 @@
+export const content = {
+  metadata: {
+    title:
+      'Frontrunner IO — DevSecOps, CI/CD and automation for fast, secure and efficient software delivery',
+    ignoreTitleTemplate: true,
+    description:
+      'DevSecOps, CI/CD and automation for fast, secure and efficient software delivery.',
+  },
+  hero: {
+    tagline: '',
+    title: 'Ship faster.<br> Stay secure. Automate everything.',
+    subtitle:
+      'We help companies ship software faster and more securely — with DevSecOps, automation and processes that actually work.',
+    primaryCta: { text: 'Request a free intro', href: 'mailto:info@frontrunner.io', target: '_blank' as const },
+    secondaryCta: { text: 'Learn more', href: '#problem-statement' },
+    image: { src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' },
+  },
+  philosophyNote: {
+    title: 'Our philosophy:',
+    description:
+      'Clarity over complexity. Automation over manual work. Security from the start.',
+  },
+  problems: {
+    id: 'problem-statement',
+    tagline: 'The reality at most companies',
+    title: 'Software delivery is slower, riskier and more frustrating than it needs to be',
+    subtitle:
+      "Rising security demands, a patchwork of tools, and manual steps that should have been automated long ago — most teams know there's room to improve. The hard part is figuring out where to start.",
+    items: [
+      {
+        title: 'Manual steps slow everything down',
+        description:
+          'Releases that depend on manual work are error-prone, slow and impossible to scale. Sooner or later, the undocumented step is exactly the one that breaks.',
+        icon: 'tabler:hourglass-high',
+      },
+      {
+        title: 'Tool sprawl instead of a clear platform',
+        description:
+          "Ten tools, five integrations, three Slack channels for alerts — and still nobody can say what's happening where. It costs time and patience.",
+        icon: 'tabler:apps',
+      },
+      {
+        title: 'Security always comes too late',
+        description:
+          'Security checks bolted on right before release cause delays, or — worse — get skipped. Bolting security on at the end always costs twice as much.',
+        icon: 'tabler:shield-half',
+      },
+      {
+        title: 'Slow pipelines cost more than just time',
+        description:
+          "When a build takes 30 minutes and ends in a generic error, developers lose focus and flow. Fast, clear feedback isn't a luxury — it's the difference between productive work and frustrated waiting.",
+        icon: 'tabler:mood-sad',
+      },
+      {
+        title: 'Compliance creates unnecessary friction',
+        description:
+          "DORA, ISO, BSI — regulatory requirements don't have to be a brake. Built in from the start, they integrate cleanly into existing processes without slowing anything down.",
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Nobody can say exactly what happened when',
+        description:
+          "Missing traceability is annoying day-to-day — at audit time it's a problem. If you can't show what changed when and by whom, you're in a bad spot.",
+        icon: 'tabler:route-x',
+      },
+    ],
+  },
+  services: {
+    tagline: 'What we offer',
+    title: 'Our services',
+    blocks: [
+      {
+        contentTitle: 'DevSecOps Assessment',
+        contentCaption: 'The fastest path to clarity',
+        image: { src: '~/assets/images/service-assessment.jpg', alt: 'Assessment Image' },
+        items: [
+          {
+            title: 'An honest look at your pipeline',
+            description:
+              'We look at what actually happens — from code to deployment. Including processes, tools and ownership.',
+          },
+          {
+            title: 'Risks and bottlenecks made visible',
+            description:
+              "Security gaps, manual bottlenecks, unnecessary friction — we name plainly what's holding you back.",
+          },
+          {
+            title: 'No theory — concrete next steps',
+            description:
+              'You get a prioritized list, not a 50-page deck: what first, and what moves the needle most.',
+          },
+          {
+            title: 'A clear roadmap in days',
+            description:
+              "Realistic, structured and ready to act on — not a closing document that ends up in a folder.",
+          },
+        ],
+      },
+      {
+        contentTitle: 'GitLab Implementation & Optimization',
+        contentCaption: 'Everything on one platform',
+        image: { src: '~/assets/images/service-gitlab.jpg', alt: 'Gitlab Image' },
+        items: [
+          {
+            title: 'Set up GitLab — or evolve what you have',
+            description:
+              'Whether new install or optimization of an existing instance — we make GitLab the central platform for development, security and operations.',
+          },
+          {
+            title: "CI/CD pipelines that don't slow developers down",
+            description:
+              'Fast, automated pipelines with security scans built in. Short feedback loops keep developers in flow — instead of waiting 20 minutes for a result.',
+          },
+          {
+            title: 'Permission and role models that hold up in audits',
+            description:
+              'Clear access models for teams: traceable, secure, compliance-ready.',
+          },
+          {
+            title: 'Infrastructure as Code in the delivery process',
+            description:
+              'Infrastructure becomes versioned, reviewable and reproducible — just like application code.',
+          },
+        ],
+      },
+      {
+        contentTitle: 'Migration & Consolidation',
+        contentCaption: 'Out of the tool sprawl',
+        image: { src: '~/assets/images/service-consolidation.jpg', alt: 'Consolidation Image' },
+        items: [
+          {
+            title: 'Migration from Jenkins, Azure DevOps, GitHub & co.',
+            description:
+              'Structured move to a consolidated platform — without disrupting day-to-day operations.',
+          },
+          {
+            title: 'Reduce toolchain sprawl',
+            description:
+              'Fewer tools, fewer integrations, fewer things that can break. Sounds simple — changes daily life noticeably.',
+          },
+          {
+            title: 'Less maintenance, more development',
+            description:
+              'Less time spent on platform upkeep means more time spent on actual product development.',
+          },
+          {
+            title: "Compliance isn't an afterthought",
+            description:
+              'Every migration accounts for regulatory requirements and auditability from day one — not as a retrofit.',
+          },
+        ],
+      },
+      {
+        contentTitle: 'Hands-on coaching',
+        contentCaption: "Concepts aren't enough — we deliver",
+        image: { src: '~/assets/images/service-coaching.jpg', alt: 'Coaching Image' },
+        items: [
+          {
+            title: 'Direct collaboration, not slideware',
+            description:
+              "We work hands-on inside your projects — because outcomes matter more than concepts.",
+          },
+          {
+            title: 'Coaching for developer and platform teams',
+            description:
+              "Best practices taught in your team's real context — so your team can keep going on its own afterwards.",
+          },
+          {
+            title: 'DevSecOps as a stance, not a process',
+            description:
+              "Security and speed go together — we help teams stop seeing them as opposites.",
+          },
+          {
+            title: 'Improvements that stick',
+            description:
+              "Our goal isn't to come back. We work so your team is in better shape after we leave than before.",
+          },
+        ],
+      },
+    ],
+  },
+  modularNote: {
+    title: 'All services are modular:',
+    description: 'From a quick assessment to a full transformation',
+  },
+  steps: {
+    title: 'How we work',
+    image: { src: '~/assets/images/how-we-work.jpg', alt: 'Steps image' },
+    items: [
+      {
+        title: 'Step 1: <span class="font-medium">Assessment</span>',
+        description:
+          'We look at where you are today — processes, tools, ownership and risks. No assumptions, no premature solutions.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Step 2: <span class="font-medium">Roadmap</span>',
+        description:
+          'From those findings comes a prioritized action list. Clear, concrete and ready to use immediately.',
+        icon: 'tabler:route',
+      },
+      {
+        title: 'Step 3: <span class="font-medium">Implementation</span>',
+        description:
+          "On request we deliver alongside your team — pragmatically, without disrupting day-to-day operations.",
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Step 4: <span class="font-medium">Enablement</span>',
+        description:
+          "The end state is independence, not dependency. Your team gets the knowledge to keep improving on its own.",
+        icon: 'tabler:school',
+      },
+    ],
+  },
+  faqs: {
+    tagline: 'FAQs',
+    title: 'Frequently asked questions',
+    subtitle: 'Answers to the questions we hear most often.',
+    items: [
+      {
+        title: 'Is this even relevant for our company?',
+        description:
+          'If you build software, deploy regularly, and face rising security or compliance demands — yes. The leverage is especially high in regulated industries like finance or insurance.',
+      },
+      {
+        title: 'How quickly do we see results?',
+        description:
+          'Tangible improvements often arrive within a few weeks — mostly through automation and faster pipelines. The assessment gives you a solid basis for concrete next steps within days.',
+      },
+      {
+        title: 'Do we have to switch to GitLab?',
+        description:
+          "No. We work with what you have and figure out what makes sense. A GitLab-centric platform strategy often pays off — but that's a recommendation, not a requirement.",
+      },
+      {
+        title: 'How do you handle security and compliance?',
+        description:
+          "By designing them in from the start, not bolting them on at the end. Everything we deliver is built to be auditable and regulator-ready — without slowing development unnecessarily.",
+      },
+    ],
+  },
+  cta: {
+    primaryCta: { text: 'Request a free intro', href: 'mailto:andreas.boehrnsen@frontrunner.io', target: '_blank' as const },
+    title: 'Interested? Just get in touch.',
+    subtitle:
+      "No sales pitch, no pressure. We listen to what's on your mind — and figure out together whether we can help.",
+  },
+};
