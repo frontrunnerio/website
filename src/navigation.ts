@@ -1,20 +1,28 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from "./utils/permalinks";
 
 export const headerData = {
   links: [],
-  actions: [{ text: 'Kontakt', href: 'mailto:info@frontrunner.io', target: '_blank' }],
+  actions: [{ text: "Kontakt", href: getPermalink("/contact") }],
 };
 
 export const footerData = {
-  links: [
-  ],
+  links: [],
   secondaryLinks: [
-    { text: 'Impressum', href: getPermalink('/imprint') },
-    { text: 'Datenschutzerklärung', href: getPermalink('/privacy') },
+    { text: "Kontakt", href: getPermalink("/contact") },
+    { text: "Impressum", href: getPermalink("/imprint") },
+    { text: "Datenschutzerklärung", href: getPermalink("/privacy") },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/andreasboehrnsen/' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/frontrunnerio' },
+    {
+      ariaLabel: "LinkedIn",
+      icon: "tabler:brand-linkedin",
+      href: "https://www.linkedin.com/in/andreasboehrnsen/",
+    },
+    {
+      ariaLabel: "Github",
+      icon: "tabler:brand-github",
+      href: "https://github.com/frontrunnerio",
+    },
   ],
   footNote: `
     Copyright © 2026 Frontrunner IO · All rights reserved.

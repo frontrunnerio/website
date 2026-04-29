@@ -1,12 +1,12 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from "~/components/widgets/Features2.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
 
 const metadata = {
-  title: 'Über uns',
+  title: "Über uns",
 };
 ---
 
@@ -16,8 +16,8 @@ const metadata = {
   <Hero
     tagline="Über Frontrunner IO"
     image={{
-      src: '~/assets/images/hero-image.jpg',
-      alt: 'Frontrunner IO',
+      src: "~/assets/images/hero-image.jpg",
+      alt: "Frontrunner IO",
     }}
   >
     <Fragment slot="title">
@@ -26,7 +26,10 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Frontrunner IO ist eine auf DevSecOps und Software-Delivery spezialisierte Beratung aus Berlin. Wir helfen Unternehmen, ihre Entwicklungsprozesse schneller, sicherer und nachvollziehbarer zu machen — mit konkreten Maßnahmen statt abstrakten Konzepten.
+      Frontrunner IO ist eine auf DevSecOps und Software-Delivery spezialisierte
+      Beratung aus Berlin. Wir helfen Unternehmen, ihre Entwicklungsprozesse
+      schneller, sicherer und nachvollziehbarer zu machen — mit konkreten
+      Maßnahmen statt abstrakten Konzepten.
     </Fragment>
   </Hero>
 
@@ -37,24 +40,24 @@ const metadata = {
     subtitle="Wie wir denken, bestimmt, wie wir arbeiten."
     items={[
       {
-        title: 'Klarheit statt Komplexität',
+        title: "Klarheit statt Komplexität",
         description:
-          'Wir vereinfachen, wo es möglich ist. Klare Prozesse, nachvollziehbare Strukturen und konsolidierte Plattformen schaffen die Grundlage für schnelle und sichere Delivery.',
+          "Wir vereinfachen, wo es möglich ist. Klare Prozesse, nachvollziehbare Strukturen und konsolidierte Plattformen schaffen die Grundlage für schnelle und sichere Delivery.",
       },
       {
-        title: 'Automatisierung statt manueller Arbeit',
+        title: "Automatisierung statt manueller Arbeit",
         description:
-          'Manuelle Schritte sind Fehlerquellen und Engpässe. Wir automatisieren konsequent — von Pipelines über Security Scans bis hin zu Compliance-Nachweisen.',
+          "Manuelle Schritte sind Fehlerquellen und Engpässe. Wir automatisieren konsequent — von Pipelines über Security Scans bis hin zu Compliance-Nachweisen.",
       },
       {
-        title: 'Sicherheit von Anfang an',
+        title: "Sicherheit von Anfang an",
         description:
-          'Security ist kein nachgelagertes Thema. Wir integrieren sie von Beginn an in Prozesse und Pipelines — prüfbar, auditierbar und ohne Mehraufwand für die Entwicklung.',
+          "Security ist kein nachgelagertes Thema. Wir integrieren sie von Beginn an in Prozesse und Pipelines — prüfbar, auditierbar und ohne Mehraufwand für die Entwicklung.",
       },
       {
-        title: 'Nachhaltiger Wissenstransfer',
+        title: "Nachhaltiger Wissenstransfer",
         description:
-          'Wir liefern keine Black-Box-Lösungen. Unser Ziel ist es, Ihr Team zu befähigen, Verbesserungen eigenständig weiterzuführen und kontinuierlich zu verbessern.',
+          "Wir liefern keine Black-Box-Lösungen. Unser Ziel ist es, Ihr Team zu befähigen, Verbesserungen eigenständig weiterzuführen und kontinuierlich zu verbessern.",
       },
     ]}
   />
@@ -67,40 +70,40 @@ const metadata = {
     columns={3}
     items={[
       {
-        title: 'DevSecOps & CI/CD',
+        title: "DevSecOps & CI/CD",
         description:
-          'Aufbau und Optimierung von Pipelines, die Geschwindigkeit und Sicherheit vereinen — von der ersten Commit bis zum Produktivdeployment.',
-        icon: 'tabler:rocket',
+          "Aufbau und Optimierung von Pipelines, die Geschwindigkeit und Sicherheit vereinen — von der ersten Commit bis zum Produktivdeployment.",
+        icon: "tabler:rocket",
       },
       {
-        title: 'GitLab',
+        title: "GitLab",
         description:
-          'Implementierung, Migration und Optimierung von GitLab als zentrale Entwicklungsplattform — inkl. Security Scans, IaC-Integration und Compliance-Konfiguration.',
-        icon: 'tabler:brand-gitlab',
+          "Implementierung, Migration und Optimierung von GitLab als zentrale Entwicklungsplattform — inkl. Security Scans, IaC-Integration und Compliance-Konfiguration.",
+        icon: "tabler:brand-gitlab",
       },
       {
-        title: 'Plattform-Konsolidierung',
+        title: "Plattform-Konsolidierung",
         description:
-          'Migration von fragmentierten Toolchains (Jenkins, Azure DevOps, GitHub u. a.) zu einer einheitlichen, wartbaren Plattform.',
-        icon: 'tabler:layout-grid',
+          "Migration von fragmentierten Toolchains (Jenkins, Azure DevOps, GitHub u. a.) zu einer einheitlichen, wartbaren Plattform.",
+        icon: "tabler:layout-grid",
       },
       {
-        title: 'Regulierte Branchen',
+        title: "Regulierte Branchen",
         description:
-          'Erfahrung mit Compliance-Anforderungen aus Finance, Insurance und anderen regulierten Bereichen — DORA, ISO und branchenspezifische Standards.',
-        icon: 'tabler:scale',
+          "Erfahrung mit Compliance-Anforderungen aus Finance, Insurance und anderen regulierten Bereichen — DORA, ISO und branchenspezifische Standards.",
+        icon: "tabler:scale",
       },
       {
-        title: 'Infrastructure as Code',
+        title: "Infrastructure as Code",
         description:
-          'Einbindung von IaC in den Delivery-Prozess für reproduzierbare, versionierte und auditierbare Deployments.',
-        icon: 'tabler:server',
+          "Einbindung von IaC in den Delivery-Prozess für reproduzierbare, versionierte und auditierbare Deployments.",
+        icon: "tabler:server",
       },
       {
-        title: 'Coaching & Enablement',
+        title: "Coaching & Enablement",
         description:
-          'Hands-on-Coaching für Entwickler- und Plattform-Teams — damit das Wissen im Unternehmen bleibt und nicht mit dem Projekt endet.',
-        icon: 'tabler:school',
+          "Hands-on-Coaching für Entwickler- und Plattform-Teams — damit das Wissen im Unternehmen bleibt und nicht mit dem Projekt endet.",
+        icon: "tabler:school",
       },
     ]}
   />
@@ -113,27 +116,27 @@ const metadata = {
     isReversed={true}
     items={[
       {
-        title: 'Hands-on statt Konzeptpapier',
+        title: "Hands-on statt Konzeptpapier",
         description:
-          'Wir arbeiten direkt mit Ihrem Team — nicht nur in Workshops und Präsentationen. Ergebnisse entstehen durch Umsetzung, nicht durch Folien.',
-        icon: 'tabler:tools',
+          "Wir arbeiten direkt mit Ihrem Team — nicht nur in Workshops und Präsentationen. Ergebnisse entstehen durch Umsetzung, nicht durch Folien.",
+        icon: "tabler:tools",
       },
       {
-        title: 'Modular und skalierbar',
+        title: "Modular und skalierbar",
         description:
-          'Ob schnelles Assessment, punktuelle Unterstützung oder vollständige Transformation — unsere Leistungen passen sich Ihrer Situation an.',
-        icon: 'tabler:puzzle',
+          "Ob schnelles Assessment, punktuelle Unterstützung oder vollständige Transformation — unsere Leistungen passen sich Ihrer Situation an.",
+        icon: "tabler:puzzle",
       },
       {
-        title: 'Spezialisiert, nicht generalistisch',
+        title: "Spezialisiert, nicht generalistisch",
         description:
-          'DevSecOps und Software-Delivery ist unser Kernthema. Kein Bauchladen-Ansatz — sondern tiefes Fachwissen in einem klar abgegrenzten Bereich.',
-        icon: 'tabler:target',
+          "DevSecOps und Software-Delivery ist unser Kernthema. Kein Bauchladen-Ansatz — sondern tiefes Fachwissen in einem klar abgegrenzten Bereich.",
+        icon: "tabler:target",
       },
     ]}
     callToAction={{
-      text: 'Jetzt Kontakt aufnehmen',
-      href: '/contact',
+      text: "Jetzt Kontakt aufnehmen",
+      href: "/contact",
     }}
   />
 
@@ -142,19 +145,17 @@ const metadata = {
   <CallToAction
     actions={[
       {
-        variant: 'primary',
-        text: 'Kostenlos anfragen',
-        href: 'mailto:info@frontrunner.io',
-        target: '_blank',
+        variant: "primary",
+        text: "Kostenlos anfragen",
+        href: "/contact",
       },
     ]}
   >
-    <Fragment slot="title">
-      Bereit für den nächsten Schritt?
-    </Fragment>
+    <Fragment slot="title"> Bereit für den nächsten Schritt? </Fragment>
 
     <Fragment slot="subtitle">
-      Lassen Sie uns gemeinsam herausfinden, wo der größte Hebel in Ihrer Software-Delivery liegt.
+      Lassen Sie uns gemeinsam herausfinden, wo der größte Hebel in Ihrer
+      Software-Delivery liegt.
     </Fragment>
   </CallToAction>
 </Layout>

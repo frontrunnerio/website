@@ -1,11 +1,11 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Layout from "~/layouts/PageLayout.astro";
+import HeroText from "~/components/widgets/HeroText.astro";
+import ContactUs from "~/components/widgets/Contact.astro";
+import Features2 from "~/components/widgets/Features2.astro";
 
 const metadata = {
-  title: 'Kontakt',
+  title: "Kontakt",
 };
 ---
 
@@ -14,29 +14,49 @@ const metadata = {
 
   <HeroText tagline="Kontakt" title="Sprechen Sie uns an." />
 
+  <!-- Status banner — populated client-side from ?status= so it works for both fetch and the no-JS redirect path. -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div
+      id="contact-status"
+      role="status"
+      aria-live="polite"
+      class="hidden mx-auto max-w-xl mb-6 rounded-lg border px-4 py-3 text-sm"
+    >
+    </div>
+  </div>
+
   <ContactUs
     id="form"
+    action="/api/contact"
+    method="POST"
     title="Schreiben Sie uns eine Nachricht."
     subtitle="Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen."
     inputs={[
       {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
+        type: "text",
+        name: "name",
+        label: "Name",
+        autocomplete: "name",
+        required: true,
       },
       {
-        type: 'email',
-        name: 'email',
-        label: 'E-Mail',
+        type: "email",
+        name: "email",
+        label: "E-Mail",
+        autocomplete: "email",
+        required: true,
       },
     ]}
     textarea={{
-      label: 'Ihre Nachricht',
+      label: "Ihre Nachricht",
+      required: true,
     }}
     disclaimer={{
       label:
-        'Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.',
+        "Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.",
+      required: true,
     }}
+    button="Nachricht senden"
     description="Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen."
   />
 
@@ -46,20 +66,117 @@ const metadata = {
     title="Direkt Kontakt aufnehmen"
     items={[
       {
-        title: 'E-Mail',
-        description: 'info@frontrunner.io',
-        icon: 'tabler:mail',
+        title: "E-Mail",
+        description:
+          '<a href="mailto:info@frontrunner.io" class="hover:text-primary">info@frontrunner.io</a>',
+        icon: "tabler:mail",
       },
       {
-        title: 'Telefon',
-        description: '+49 (0)160 6220730',
-        icon: 'tabler:headset',
+        title: "Telefon",
+        description:
+          '<a href="tel:+4916062207300" class="hover:text-primary">+49 (0)160 6220730</a>',
+        icon: "tabler:headset",
       },
       {
-        title: 'Standort',
-        description: 'Seychellenring 42, 13587 Berlin, Deutschland',
-        icon: 'tabler:map-pin',
+        title: "Standort",
+        description: "Seychellenring 42, 13587 Berlin, Deutschland",
+        icon: "tabler:map-pin",
       },
     ]}
   />
 </Layout>
+
+<script>
+  const MESSAGES = {
+    success: {
+      tone: "success",
+      text: "Vielen Dank — Ihre Nachricht ist angekommen. Wir melden uns in Kürze bei Ihnen.",
+    },
+    invalid: {
+      tone: "error",
+      text: "Bitte füllen Sie Name, E-Mail und Nachricht aus und bestätigen Sie die Datenschutzerklärung.",
+    },
+    error: {
+      tone: "error",
+      text: "Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an info@frontrunner.io.",
+    },
+  } as const;
+
+  type Tone = "success" | "error";
+  type StatusKey = keyof typeof MESSAGES;
+
+  const TONE_CLASSES: Record<Tone, string> = {
+    success:
+      "border-green-300 bg-green-50 text-green-800 dark:border-green-700 dark:bg-green-900/30 dark:text-green-200",
+    error:
+      "border-red-300 bg-red-50 text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200",
+  };
+
+  const banner = document.getElementById("contact-status");
+  const form = document.querySelector<HTMLFormElement>("#form form");
+  if (!banner || !form) {
+    // Page wasn't rendered as expected — fall back to native form submission.
+  } else {
+    const showStatus = (key: StatusKey) => {
+      const msg = MESSAGES[key];
+      banner.textContent = msg.text;
+      banner.classList.remove(
+        "hidden",
+        ...TONE_CLASSES.success.split(" "),
+        ...TONE_CLASSES.error.split(" "),
+      );
+      banner.classList.add(...TONE_CLASSES[msg.tone].split(" "));
+      banner.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+
+    // Render the banner on page load if the URL carries ?status=... (no-JS redirect path).
+    const initialStatus = new URLSearchParams(window.location.search).get(
+      "status",
+    );
+    if (initialStatus && initialStatus in MESSAGES) {
+      showStatus(initialStatus as StatusKey);
+    }
+
+    // Progressive enhancement: submit via fetch and stay on the page.
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector<HTMLButtonElement>(
+        'button[type="submit"]',
+      );
+      if (submitButton) submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action || "/api/contact", {
+          method: "POST",
+          body: new FormData(form),
+          // Avoid following the 303 redirect — we just want to know success vs. failure.
+          redirect: "manual",
+        });
+
+        // 'manual' redirects come back as type:'opaqueredirect' with status 0 — that's our success signal.
+        const finalUrl = response.url || "";
+        const status = new URLSearchParams(finalUrl.split("?")[1] ?? "").get(
+          "status",
+        ) as StatusKey | null;
+        const isOpaqueRedirect = response.type === "opaqueredirect";
+
+        if (isOpaqueRedirect || status === "success") {
+          showStatus("success");
+          form.reset();
+        } else if (status && status in MESSAGES) {
+          showStatus(status);
+        } else if (response.ok) {
+          showStatus("success");
+          form.reset();
+        } else {
+          showStatus("error");
+        }
+      } catch (err) {
+        console.error("[contact] submit failed", err);
+        showStatus("error");
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
+</script>

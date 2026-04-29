@@ -1,18 +1,17 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from "~/layouts/PageLayout.astro";
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Note from "~/components/widgets/Note.astro";
+import Features from "~/components/widgets/Features.astro";
+import Steps from "~/components/widgets/Steps.astro";
+import Content from "~/components/widgets/Content.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
 
 const metadata = {
-  title: 'Frontrunner IO — DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery',
+  title:
+    "Frontrunner IO — DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery",
   ignoreTitleTemplate: true,
 };
 ---
@@ -26,19 +25,24 @@ const metadata = {
     subtitle="Wir helfen Unternehmen, Software schneller und sicherer auszuliefern — mit DevSecOps, Automatisierung und Prozessen, die tatsächlich funktionieren."
     actions={[
       {
-        variant: 'primary',
-        text: 'Kostenlos anfragen',
-        href: 'mailto:info@frontrunner.io',
-        target: '_blank',
+        variant: "primary",
+        text: "Kostenlos anfragen",
+        href: "/contact",
       },
-      { text: 'Mehr erfahren', href: '#problem-statement' },
+      { text: "Mehr erfahren", href: "#problem-statement" },
     ]}
-    image={{ src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' }}
+    image={{
+      src: "~/assets/images/hero-image.jpg",
+      alt: "Frontrunner IO Hero Image",
+    }}
   />
 
   <!-- Note Widget ******************* -->
 
-  <Note title="Philosophie:" description="Klarheit statt Komplexität. Automatisierung statt manueller Arbeit. Sicherheit von Anfang an." />
+  <Note
+    title="Philosophie:"
+    description="Klarheit statt Komplexität. Automatisierung statt manueller Arbeit. Sicherheit von Anfang an."
+  />
 
   <!-- Features Widget - Problem statement *************** -->
 
@@ -49,40 +53,40 @@ const metadata = {
     subtitle="Steigende Sicherheitsanforderungen, ein Sammelsurium aus Tools und manuelle Prozesse, die eigentlich längst automatisiert gehören — viele Teams wissen, dass da mehr geht. Die Frage ist nur: Wo anfangen?"
     items={[
       {
-        title: 'Manuelle Prozesse verlangsamen alles',
+        title: "Manuelle Prozesse verlangsamen alles",
         description:
-          'Releases, die von manuellen Schritten abhängen, sind fehleranfällig, langsam und nicht skalierbar. Irgendwann macht genau das der Fehler, den noch niemand dokumentiert hat.',
-        icon: 'tabler:hourglass-high',
+          "Releases, die von manuellen Schritten abhängen, sind fehleranfällig, langsam und nicht skalierbar. Irgendwann macht genau das der Fehler, den noch niemand dokumentiert hat.",
+        icon: "tabler:hourglass-high",
       },
       {
-        title: 'Tool-Chaos statt klarer Plattform',
+        title: "Tool-Chaos statt klarer Plattform",
         description:
-          'Zehn Tools, fünf Integrationen, drei Slack-Kanäle für Alerts — und trotzdem weiß niemand auf Anhieb, was gerade wo passiert. Das kostet Zeit und Nerven.',
-        icon: 'tabler:apps',
+          "Zehn Tools, fünf Integrationen, drei Slack-Kanäle für Alerts — und trotzdem weiß niemand auf Anhieb, was gerade wo passiert. Das kostet Zeit und Nerven.",
+        icon: "tabler:apps",
       },
       {
-        title: 'Sicherheit kommt immer zu spät',
+        title: "Sicherheit kommt immer zu spät",
         description:
-          'Security-Checks kurz vor dem Release führen zu Verzögerungen oder — schlimmer — werden übersprungen. Wer Sicherheit erst am Ende einbaut, zahlt doppelt.',
-        icon: 'tabler:shield-half',
+          "Security-Checks kurz vor dem Release führen zu Verzögerungen oder — schlimmer — werden übersprungen. Wer Sicherheit erst am Ende einbaut, zahlt doppelt.",
+        icon: "tabler:shield-half",
       },
       {
-        title: 'Langsame Pipelines kosten mehr als nur Zeit',
+        title: "Langsame Pipelines kosten mehr als nur Zeit",
         description:
-          'Wenn ein Build 30 Minuten läuft und am Ende nur ein generischer Fehler zurückkommt, verlieren Entwickler Fokus und Flow. Schnelles, klares Feedback ist kein Luxus — es ist der Unterschied zwischen produktivem Arbeiten und frustriertem Warten.',
-        icon: 'tabler:mood-sad',
+          "Wenn ein Build 30 Minuten läuft und am Ende nur ein generischer Fehler zurückkommt, verlieren Entwickler Fokus und Flow. Schnelles, klares Feedback ist kein Luxus — es ist der Unterschied zwischen produktivem Arbeiten und frustriertem Warten.",
+        icon: "tabler:mood-sad",
       },
       {
-        title: 'Compliance erzeugt unnötige Reibung',
+        title: "Compliance erzeugt unnötige Reibung",
         description:
-          'DORA, ISO, BSI — regulatorische Anforderungen müssen kein Bremsklotz sein. Werden sie von Anfang an mitgedacht, lassen sie sich in bestehende Prozesse integrieren, ohne alles zu verlangsamen.',
-        icon: 'tabler:scale',
+          "DORA, ISO, BSI — regulatorische Anforderungen müssen kein Bremsklotz sein. Werden sie von Anfang an mitgedacht, lassen sie sich in bestehende Prozesse integrieren, ohne alles zu verlangsamen.",
+        icon: "tabler:scale",
       },
       {
-        title: 'Niemand weiß genau, was wann passiert ist',
+        title: "Niemand weiß genau, was wann passiert ist",
         description:
-          'Fehlende Nachvollziehbarkeit ist im Alltag nervig — beim Audit wird sie zum Problem. Wer nicht zeigen kann, was wann von wem geändert wurde, steht schlecht da.',
-        icon: 'tabler:route-x',
+          "Fehlende Nachvollziehbarkeit ist im Alltag nervig — beim Audit wird sie zum Problem. Wer nicht zeigen kann, was wann von wem geändert wurde, steht schlecht da.",
+        icon: "tabler:route-x",
       },
     ]}
   />
@@ -95,33 +99,37 @@ const metadata = {
     title="Unsere Leistungen"
     items={[
       {
-        title: 'Ein ehrlicher Blick auf Ihre Pipeline',
+        title: "Ein ehrlicher Blick auf Ihre Pipeline",
         description:
-          'Wir schauen uns an, was wirklich passiert — von Code bis Deployment. Inklusive Prozesse, Tools und Verantwortlichkeiten.',
+          "Wir schauen uns an, was wirklich passiert — von Code bis Deployment. Inklusive Prozesse, Tools und Verantwortlichkeiten.",
       },
       {
-        title: 'Risiken und Engpässe sichtbar machen',
+        title: "Risiken und Engpässe sichtbar machen",
         description:
-          'Sicherheitslücken, manuelle Bottlenecks, unnötige Reibung — wir benennen klar, was Sie ausbremst.',
+          "Sicherheitslücken, manuelle Bottlenecks, unnötige Reibung — wir benennen klar, was Sie ausbremst.",
       },
       {
-        title: 'Keine Theorie, sondern konkrete Maßnahmen',
+        title: "Keine Theorie, sondern konkrete Maßnahmen",
         description:
-          'Sie bekommen keine 50-seitige Präsentation, sondern eine priorisierte Liste: Was zuerst? Was bringt am meisten?',
+          "Sie bekommen keine 50-seitige Präsentation, sondern eine priorisierte Liste: Was zuerst? Was bringt am meisten?",
       },
       {
-        title: 'Eine klare Roadmap in wenigen Tagen',
+        title: "Eine klare Roadmap in wenigen Tagen",
         description:
-          'Realistisch, strukturiert und als direkte Grundlage für die nächsten Schritte — nicht als Abschluss-Dokument, das danach im Ordner landet.',
+          "Realistisch, strukturiert und als direkte Grundlage für die nächsten Schritte — nicht als Abschluss-Dokument, das danach im Ordner landet.",
       },
     ]}
     image={{
-      src: '~/assets/images/service-assessment.jpg',
-      alt: 'Assessment Image',
+      src: "~/assets/images/service-assessment.jpg",
+      alt: "Assessment Image",
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">DevSecOps Assessment</h3>
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        DevSecOps Assessment
+      </h3>
       Der schnellste Weg zu Klarheit
     </Fragment>
 
@@ -136,33 +144,37 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'GitLab aufbauen oder gezielt weiterentwickeln',
+        title: "GitLab aufbauen oder gezielt weiterentwickeln",
         description:
-          'Ob Neueinrichtung oder Optimierung einer bestehenden Instanz — wir machen GitLab zur zentralen Plattform für Development, Security und Operations.',
+          "Ob Neueinrichtung oder Optimierung einer bestehenden Instanz — wir machen GitLab zur zentralen Plattform für Development, Security und Operations.",
       },
       {
-        title: 'CI/CD Pipelines, die Entwickler nicht ausbremsen',
+        title: "CI/CD Pipelines, die Entwickler nicht ausbremsen",
         description:
-          'Schnelle, automatisierte Pipelines mit integrierten Security-Scans. Kurze Feedbackzyklen halten Entwickler im Flow — statt sie 20 Minuten auf ein Ergebnis warten zu lassen.',
+          "Schnelle, automatisierte Pipelines mit integrierten Security-Scans. Kurze Feedbackzyklen halten Entwickler im Flow — statt sie 20 Minuten auf ein Ergebnis warten zu lassen.",
       },
       {
-        title: 'Rechte- und Rollenmodelle, die Audits standhalten',
+        title: "Rechte- und Rollenmodelle, die Audits standhalten",
         description:
-          'Klare Zugriffskonzepte für Teams, die nachvollziehbar, sicher und compliance-ready sind.',
+          "Klare Zugriffskonzepte für Teams, die nachvollziehbar, sicher und compliance-ready sind.",
       },
       {
-        title: 'Infrastructure as Code in den Delivery-Prozess integrieren',
+        title: "Infrastructure as Code in den Delivery-Prozess integrieren",
         description:
-          'Infrastruktur wird versioniert, reviewbar und reproduzierbar — genauso wie der Anwendungscode.',
+          "Infrastruktur wird versioniert, reviewbar und reproduzierbar — genauso wie der Anwendungscode.",
       },
     ]}
     image={{
-      src: '~/assets/images/service-gitlab.jpg',
-      alt: 'Gitlab Image',
+      src: "~/assets/images/service-gitlab.jpg",
+      alt: "Gitlab Image",
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">GitLab Implementation & Optimization</h3>
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        GitLab Implementation & Optimization
+      </h3>
       Alles in einer Plattform
     </Fragment>
 
@@ -178,33 +190,37 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Migration von Jenkins, Azure DevOps, GitHub & Co.',
+        title: "Migration von Jenkins, Azure DevOps, GitHub & Co.",
         description:
-          'Strukturierte Überführung in eine konsolidierte Plattform — ohne laufende Betrieb zu unterbrechen.',
+          "Strukturierte Überführung in eine konsolidierte Plattform — ohne laufende Betrieb zu unterbrechen.",
       },
       {
-        title: 'Toolchain-Wildwuchs reduzieren',
+        title: "Toolchain-Wildwuchs reduzieren",
         description:
-          'Weniger Tools, weniger Schnittstellen, weniger Dinge, die kaputt gehen können. Klingt simpel, verändert aber den Alltag spürbar.',
+          "Weniger Tools, weniger Schnittstellen, weniger Dinge, die kaputt gehen können. Klingt simpel, verändert aber den Alltag spürbar.",
       },
       {
-        title: 'Weniger Wartung, mehr Entwicklung',
+        title: "Weniger Wartung, mehr Entwicklung",
         description:
-          'Wer weniger Zeit für Plattformpflege aufwendet, kann mehr Zeit in tatsächliche Produktentwicklung stecken.',
+          "Wer weniger Zeit für Plattformpflege aufwendet, kann mehr Zeit in tatsächliche Produktentwicklung stecken.",
       },
       {
-        title: 'Compliance nicht vergessen',
+        title: "Compliance nicht vergessen",
         description:
-          'Jede Migration berücksichtigt regulatorische Anforderungen und Auditierbarkeit von Anfang an — nicht als Nachgedanke.',
+          "Jede Migration berücksichtigt regulatorische Anforderungen und Auditierbarkeit von Anfang an — nicht als Nachgedanke.",
       },
     ]}
     image={{
-      src: '~/assets/images/service-consolidation.jpg',
-      alt: 'Consolidation Image',
+      src: "~/assets/images/service-consolidation.jpg",
+      alt: "Consolidation Image",
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Migration &amp; Konsolidierung</h3>
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        Migration &amp; Konsolidierung
+      </h3>
       Raus aus dem Tool-Chaos
     </Fragment>
 
@@ -219,33 +235,35 @@ const metadata = {
     isAfterContent
     items={[
       {
-        title: 'Direkte Mitarbeit statt Folien-Beratung',
+        title: "Direkte Mitarbeit statt Folien-Beratung",
         description:
-          'Wir arbeiten hands-on in Ihren Projekten mit — weil Ergebnisse wichtiger sind als Konzepte.',
+          "Wir arbeiten hands-on in Ihren Projekten mit — weil Ergebnisse wichtiger sind als Konzepte.",
       },
       {
-        title: 'Coaching für Entwickler- und Plattform-Teams',
+        title: "Coaching für Entwickler- und Plattform-Teams",
         description:
-          'Best Practices, die im echten Kontext Ihres Teams vermittelt werden. Damit Ihr Team danach eigenständig weiterarbeiten kann.',
+          "Best Practices, die im echten Kontext Ihres Teams vermittelt werden. Damit Ihr Team danach eigenständig weiterarbeiten kann.",
       },
       {
-        title: 'DevSecOps als Haltung, nicht als Prozess',
+        title: "DevSecOps als Haltung, nicht als Prozess",
         description:
-          'Sicherheit und Geschwindigkeit gehören zusammen — wir helfen Teams, das nicht als Widerspruch zu sehen.',
+          "Sicherheit und Geschwindigkeit gehören zusammen — wir helfen Teams, das nicht als Widerspruch zu sehen.",
       },
       {
-        title: 'Verbesserungen, die bleiben',
+        title: "Verbesserungen, die bleiben",
         description:
-          'Unser Ziel ist nicht, wiederzukommen. Wir arbeiten so, dass Ihr Team danach besser aufgestellt ist als vorher.',
+          "Unser Ziel ist nicht, wiederzukommen. Wir arbeiten so, dass Ihr Team danach besser aufgestellt ist als vorher.",
       },
     ]}
     image={{
-      src: '~/assets/images/service-coaching.jpg',
-      alt: 'Coaching Image',
+      src: "~/assets/images/service-coaching.jpg",
+      alt: "Coaching Image",
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
         Begleitung &amp; Coaching
       </h3>
       Nicht nur Konzepte — echte Umsetzung
@@ -256,7 +274,10 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <Note title="Alle Leistungen sind modular kombinierbar:" description="Vom schnellen Assessment bis zur vollständigen Transformation" />
+  <Note
+    title="Alle Leistungen sind modular kombinierbar:"
+    description="Vom schnellen Assessment bis zur vollständigen Transformation"
+  />
 
   <!-- Steps Widget ****************** -->
 
@@ -267,30 +288,30 @@ const metadata = {
         title: 'Schritt 1: <span class="font-medium">Assessment</span>',
         description:
           "Wir schauen uns Ihre aktuelle Situation an — Prozesse, Tools, Verantwortlichkeiten und Risiken. Ohne Vorannahmen, ohne voreilige Lösungsvorschläge.",
-        icon: 'tabler:search',
+        icon: "tabler:search",
       },
       {
         title: 'Schritt 2: <span class="font-medium">Roadmap</span>',
         description:
           "Aus den Erkenntnissen wird eine priorisierte Maßnahmenliste. Klar, konkret und so aufgebaut, dass Sie sofort damit arbeiten können.",
-        icon: 'tabler:route',
+        icon: "tabler:route",
       },
       {
         title: 'Schritt 3: <span class="font-medium">Implementation</span>',
         description:
-          'Auf Wunsch setzen wir die Maßnahmen gemeinsam mit Ihrem Team um — pragmatisch und so, dass der laufende Betrieb nicht leidet.',
-        icon: 'tabler:tools',
+          "Auf Wunsch setzen wir die Maßnahmen gemeinsam mit Ihrem Team um — pragmatisch und so, dass der laufende Betrieb nicht leidet.",
+        icon: "tabler:tools",
       },
       {
         title: 'Schritt 4: <span class="font-medium">Enablement</span>',
         description:
-          'Am Ende steht nicht Abhängigkeit, sondern Eigenständigkeit. Ihr Team bekommt das Wissen, um die Verbesserungen selbst weiterzuführen.',
-        icon: 'tabler:school',
+          "Am Ende steht nicht Abhängigkeit, sondern Eigenständigkeit. Ihr Team bekommt das Wissen, um die Verbesserungen selbst weiterzuführen.",
+        icon: "tabler:school",
       },
     ]}
     image={{
-      src: '~/assets/images/how-we-work.jpg',
-      alt: 'Steps image',
+      src: "~/assets/images/how-we-work.jpg",
+      alt: "Steps image",
     }}
   />
 
@@ -300,27 +321,27 @@ const metadata = {
     title="Häufig gestellte Fragen"
     subtitle="Antworten auf die Fragen, die wir am häufigsten hören."
     tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+    classes={{ container: "max-w-6xl" }}
     items={[
       {
-        title: 'Ist das für unser Unternehmen überhaupt relevant?',
+        title: "Ist das für unser Unternehmen überhaupt relevant?",
         description:
-          'Wenn Sie Software entwickeln, regelmäßig deployen und gleichzeitig mit steigenden Sicherheits- oder Compliance-Anforderungen zu tun haben — ja. Besonders im regulierten Umfeld (z. B. Finance oder Insurance) ist der Hebel hier oft besonders groß.',
+          "Wenn Sie Software entwickeln, regelmäßig deployen und gleichzeitig mit steigenden Sicherheits- oder Compliance-Anforderungen zu tun haben — ja. Besonders im regulierten Umfeld (z. B. Finance oder Insurance) ist der Hebel hier oft besonders groß.",
       },
       {
-        title: 'Wie schnell sehen wir erste Ergebnisse?',
+        title: "Wie schnell sehen wir erste Ergebnisse?",
         description:
-          'Erste spürbare Verbesserungen sind häufig nach wenigen Wochen da — vor allem durch Automatisierung und optimierte Pipelines. Das Assessment liefert Ihnen innerhalb weniger Tage eine solide Grundlage für konkrete nächste Schritte.',
+          "Erste spürbare Verbesserungen sind häufig nach wenigen Wochen da — vor allem durch Automatisierung und optimierte Pipelines. Das Assessment liefert Ihnen innerhalb weniger Tage eine solide Grundlage für konkrete nächste Schritte.",
       },
       {
-        title: 'Müssen wir auf GitLab umsteigen?',
+        title: "Müssen wir auf GitLab umsteigen?",
         description:
-          'Nein. Wir arbeiten mit dem, was Sie haben, und schauen uns an, was sinnvoll ist. In vielen Fällen lohnt sich eine Plattformstrategie mit GitLab — aber das ist eine Empfehlung, keine Voraussetzung.',
+          "Nein. Wir arbeiten mit dem, was Sie haben, und schauen uns an, was sinnvoll ist. In vielen Fällen lohnt sich eine Plattformstrategie mit GitLab — aber das ist eine Empfehlung, keine Voraussetzung.",
       },
       {
-        title: 'Wie stellen Sie Sicherheit und Compliance sicher?',
+        title: "Wie stellen Sie Sicherheit und Compliance sicher?",
         description:
-          'Indem wir sie von Anfang an mitdenken, nicht nachträglich draufschrauben. Alle Lösungen sind darauf ausgelegt, auditierbar und regulatorisch belastbar zu sein — ohne den Entwicklungsfluss unnötig zu stören.',
+          "Indem wir sie von Anfang an mitdenken, nicht nachträglich draufschrauben. Alle Lösungen sind darauf ausgelegt, auditierbar und regulatorisch belastbar zu sein — ohne den Entwicklungsfluss unnötig zu stören.",
       },
     ]}
   >
@@ -334,19 +355,17 @@ const metadata = {
   <CallToAction
     actions={[
       {
-        variant: 'primary',
-        text: 'Kostenlos anfragen',
-        href: 'mailto:andreas.boehrnsen@frontrunner.io',
-        target: '_blank',
+        variant: "primary",
+        text: "Kostenlos anfragen",
+        href: "/contact",
       },
     ]}
   >
-    <Fragment slot="title">
-      Interesse? Melden Sie sich einfach.
-    </Fragment>
+    <Fragment slot="title"> Interesse? Melden Sie sich einfach. </Fragment>
 
     <Fragment slot="subtitle">
-      Kein Verkaufsgespräch, kein Druck. Wir hören uns an, was Sie bewegt — und schauen gemeinsam, ob wir helfen können.
+      Kein Verkaufsgespräch, kein Druck. Wir hören uns an, was Sie bewegt — und
+      schauen gemeinsam, ob wir helfen können.
     </Fragment>
   </CallToAction>
 </Layout>
