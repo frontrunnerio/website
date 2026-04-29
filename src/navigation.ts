@@ -4,7 +4,7 @@ import { localizedPath, t, type Lang } from './i18n/utils';
 export const getHeaderData = (lang: Lang) => ({
   links: [],
   actions: [
-    { text: t(lang, 'nav.contact'), href: 'mailto:info@frontrunner.io', target: '_blank' as const },
+    { text: t(lang, 'nav.contact'), href: getPermalink(localizedPath(lang, '/contact')) },
   ],
 });
 

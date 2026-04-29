@@ -19,7 +19,7 @@ const hero = {
   tagline: '',
   title: 'Ship faster.<br> Stay secure. Automate everything.',
   subtitle: 'Wir helfen Unternehmen, Software schneller und sicherer auszuliefern — mit DevSecOps, Automatisierung und Prozessen, die tatsächlich funktionieren.',
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:info@frontrunner.io', target: '_blank' as const },
+  primaryCta: { text: 'Kostenlos anfragen', href: '/contact' },
   secondaryCta: { text: 'Mehr erfahren', href: '#problem-statement' },
   image: { src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' },
 };
@@ -124,18 +124,18 @@ const faqs = {
 };
 
 const cta = {
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:andreas.boehrnsen@frontrunner.io', target: '_blank' as const },
+  primaryCta: { text: 'Kostenlos anfragen', href: '/contact' },
   title: 'Interesse? Melden Sie sich einfach.',
   subtitle: 'Kein Verkaufsgespräch, kein Druck. Wir hören uns an, was Sie bewegt — und schauen gemeinsam, ob wir helfen können.',
 };
 
 const heroActions = [
-  { variant: 'primary' as const, text: hero.primaryCta.text, href: hero.primaryCta.href, target: hero.primaryCta.target },
+  { variant: 'primary' as const, text: hero.primaryCta.text, href: hero.primaryCta.href },
   { text: hero.secondaryCta.text, href: hero.secondaryCta.href },
 ];
 
 const ctaActions = [
-  { variant: 'primary' as const, text: cta.primaryCta.text, href: cta.primaryCta.href, target: cta.primaryCta.target },
+  { variant: 'primary' as const, text: cta.primaryCta.text, href: cta.primaryCta.href },
 ];
 ---
 
