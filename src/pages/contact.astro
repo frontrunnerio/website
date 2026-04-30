@@ -4,21 +4,50 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
-import { content } from '~/i18n/pages/de/contact';
+const metadata = {
+  title: 'Kontakt',
+  description: 'Sprechen Sie uns an — wir melden uns innerhalb eines Werktages.',
+};
+
+const hero = {
+  tagline: 'Kontakt',
+  title: 'Sprechen Sie uns an.',
+};
+
+const form = {
+  title: 'Schreiben Sie uns eine Nachricht.',
+  subtitle: 'Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen.',
+  inputs: [
+    { type: 'text' as const, name: 'name', label: 'Name' },
+    { type: 'email' as const, name: 'email', label: 'E-Mail' },
+  ],
+  textareaLabel: 'Ihre Nachricht',
+  disclaimer: 'Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.',
+  description: 'Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen.',
+};
+
+const direct = {
+  title: 'Direkt Kontakt aufnehmen',
+  items: [
+    { title: 'E-Mail', description: 'info@frontrunner.io', icon: 'tabler:mail' },
+    { title: 'Telefon', description: '+49 (0)160 6220730', icon: 'tabler:headset' },
+    { title: 'Standort', description: 'Seychellenring 42, 13587 Berlin, Deutschland', icon: 'tabler:map-pin' },
+  ],
+};
 ---
 
-<Layout metadata={content.metadata}>
-  <HeroText tagline={content.hero.tagline} title={content.hero.title} />
+<Layout metadata={metadata}>
+  <HeroText tagline={hero.tagline} title={hero.title} />
 
   <ContactUs
     id="form"
-    title={content.form.title}
-    subtitle={content.form.subtitle}
-    inputs={content.form.inputs}
-    textarea={{ label: content.form.textareaLabel }}
-    disclaimer={{ label: content.form.disclaimer }}
-    description={content.form.description}
+    title={form.title}
+    subtitle={form.subtitle}
+    inputs={form.inputs}
+    textarea={{ label: form.textareaLabel }}
+    disclaimer={{ label: form.disclaimer }}
+    description={form.description}
   />
 
-  <Features2 title={content.direct.title} items={content.direct.items} />
+  <Features2 title={direct.title} items={direct.items} />
 </Layout>
