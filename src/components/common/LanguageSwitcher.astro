@@ -9,16 +9,6 @@ const deHref = lang === 'de' ? path : getMirrorPath(path, 'de');
 
 <div class="flex items-center text-sm font-medium ml-2" aria-label={t(lang, 'switcher.aria')}>
   <a
-    href={enHref}
-    data-set-lang="en"
-    aria-current={lang === 'en' ? 'true' : undefined}
-    class:list={[
-      'px-2 py-1 transition-colors',
-      lang === 'en' ? 'font-bold text-default' : 'text-muted hover:text-default',
-    ]}>{t(lang, 'switcher.en')}</a
-  >
-  <span class="text-muted" aria-hidden="true">|</span>
-  <a
     href={deHref}
     data-set-lang="de"
     aria-current={lang === 'de' ? 'true' : undefined}
@@ -26,6 +16,16 @@ const deHref = lang === 'de' ? path : getMirrorPath(path, 'de');
       'px-2 py-1 transition-colors',
       lang === 'de' ? 'font-bold text-default' : 'text-muted hover:text-default',
     ]}>{t(lang, 'switcher.de')}</a
+  >
+  <span class="text-muted" aria-hidden="true">|</span>
+  <a
+    href={enHref}
+    data-set-lang="en"
+    aria-current={lang === 'en' ? 'true' : undefined}
+    class:list={[
+      'px-2 py-1 transition-colors',
+      lang === 'en' ? 'font-bold text-default' : 'text-muted hover:text-default',
+    ]}>{t(lang, 'switcher.en')}</a
   >
 </div>
 
