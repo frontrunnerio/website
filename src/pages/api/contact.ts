@@ -18,25 +18,35 @@ const escapeHtml = (s: string) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
-const redirect = (origin: string, status: "success" | "invalid" | "error") =>
-  new Response(null, {
+const redirect = (
+  origin: string,
+  referer: string | null,
+  status: "success" | "invalid" | "error",
+) => {
+  const backPath =
+    referer && new URL(referer).pathname.startsWith("/en/")
+      ? "/en/contact"
+      : "/contact";
+  return new Response(null, {
     status: 303,
-    headers: { Location: `${origin}/contact?status=${status}#form` },
+    headers: { Location: `${origin}${backPath}?status=${status}#form` },
   });
+};
 
 export const POST: APIRoute = async ({ request }) => {
   const origin = new URL(request.url).origin;
+  const referer = request.headers.get("referer");
 
   let form: FormData;
   try {
     form = await request.formData();
   } catch {
-    return redirect(origin, "invalid");
+    return redirect(origin, referer, "invalid");
   }
 
   // Honeypot — bots fill every visible-looking field; humans never see it.
   if ((form.get("company") ?? "").toString().trim() !== "") {
-    return redirect(origin, "success");
+    return redirect(origin, referer, "success");
   }
 
   const name = (form.get("name") ?? "").toString().trim();
@@ -45,16 +55,16 @@ export const POST: APIRoute = async ({ request }) => {
   const disclaimer = form.get("disclaimer");
 
   if (!name || !email || !message || !disclaimer) {
-    return redirect(origin, "invalid");
+    return redirect(origin, referer, "invalid");
   }
   if (!EMAIL_RE.test(email) || message.length > MAX_MESSAGE_LENGTH) {
-    return redirect(origin, "invalid");
+    return redirect(origin, referer, "invalid");
   }
 
   const apiKey = import.meta.env.RESEND_API_KEY;
   if (!apiKey) {
     console.error("[api/contact] RESEND_API_KEY is not set");
-    return redirect(origin, "error");
+    return redirect(origin, referer, "error");
   }
 
   const resend = new Resend(apiKey);
@@ -78,8 +88,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (error) {
     console.error("[api/contact] Resend error", error);
-    return redirect(origin, "error");
+    return redirect(origin, referer, "error");
   }
 
-  return redirect(origin, "success");
+  return redirect(origin, referer, "success");
 };

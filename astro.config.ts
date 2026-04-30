@@ -38,8 +38,8 @@ export default defineConfig({
   adapter: vercel(),
 
   i18n: {
-    locales: ['de', 'en'],
-    defaultLocale: 'de',
+    locales: ["de", "en"],
+    defaultLocale: "de",
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false,
