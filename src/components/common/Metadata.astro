@@ -4,11 +4,18 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import { SITE, METADATA, I18N } from 'astrowind:config';
+import { SITE, METADATA } from 'astrowind:config';
 import type { MetaData } from '~/types';
 import { getCanonical } from '~/utils/permalinks';
 
 import { adaptOpenGraphImages } from '~/utils/images';
+import { getLang, getMirrorPath, defaultLang } from '~/i18n/utils';
+
+const lang = getLang(Astro);
+const pathname = Astro.url.pathname;
+const enPath = getMirrorPath(pathname, 'en');
+const dePath = getMirrorPath(pathname, 'de');
+const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
@@ -36,7 +43,7 @@ const seoProps: AstroSeoProps = merge(
       url: canonical,
       site_name: SITE?.name,
       images: [],
-      locale: I18N?.language || 'en',
+      locale: ogLocale,
       type: 'website',
     },
     twitter: {
@@ -66,3 +73,7 @@ const seoProps: AstroSeoProps = merge(
 ---
 
 <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+
+<link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site).toString()} />
+<link rel="alternate" hreflang="de" href={new URL(dePath, Astro.site).toString()} />
+<link rel="alternate" hreflang="x-default" href={new URL(getMirrorPath(pathname, defaultLang), Astro.site).toString()} />

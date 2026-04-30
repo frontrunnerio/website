@@ -11,7 +11,7 @@ metadata:
   title:
     default: frontrunner.io
     template: '%s — frontrunner.io'
-  description: "DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery"
+  description: 'DevSecOps, CI/CD and automation for fast, secure and efficient software delivery'
   robots:
     index: true
     follow: true
