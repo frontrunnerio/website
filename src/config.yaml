@@ -1,7 +1,7 @@
 site:
   name: Frontrunner IO
-  site: 'https://frontrunner.io'
-  base: '/'
+  site: "https://frontrunner.io"
+  base: "/"
   trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
@@ -10,21 +10,21 @@ site:
 metadata:
   title:
     default: frontrunner.io
-    template: '%s — frontrunner.io'
-  description: "DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery"
+    template: "%s — frontrunner.io"
+  description: "DevSecOps, CI/CD and automation for fast, secure and efficient software delivery"
   robots:
     index: true
     follow: true
   openGraph:
     site_name: frontrunner.io
     images:
-      - url: '~/assets/images/default.jpg'
+      - url: "~/assets/images/default.jpg"
         width: 1200
         height: 1000 # 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: "@arthelokyo"
+    site: "@arthelokyo"
     cardType: summary_large_image
 
 i18n:
@@ -38,25 +38,25 @@ apps:
 
     post:
       isEnabled: true
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: "/%slug%" # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: "blog" # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 
     category:
       isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      pathname: "category" # Category main path /category/some-category, you can change this to "group" (/group/some-category)
       robots:
         index: true
 
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: "tag" # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
       robots:
         index: false
 
@@ -69,4 +69,4 @@ apps:
 #       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: "system" # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

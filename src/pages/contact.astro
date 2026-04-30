@@ -6,13 +6,68 @@ import Features2 from "~/components/widgets/Features2.astro";
 
 const metadata = {
   title: "Kontakt",
+  description:
+    "Sprechen Sie uns an — wir melden uns innerhalb eines Werktages.",
+};
+
+const hero = {
+  tagline: "Kontakt",
+  title: "Sprechen Sie uns an.",
+};
+
+const form = {
+  title: "Schreiben Sie uns eine Nachricht.",
+  subtitle:
+    "Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen.",
+  inputs: [
+    {
+      type: "text" as const,
+      name: "name",
+      label: "Name",
+      autocomplete: "name",
+      required: true,
+    },
+    {
+      type: "email" as const,
+      name: "email",
+      label: "E-Mail",
+      autocomplete: "email",
+      required: true,
+    },
+  ],
+  textareaLabel: "Ihre Nachricht",
+  disclaimer:
+    "Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.",
+  description:
+    "Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen.",
+};
+
+const direct = {
+  title: "Direkt Kontakt aufnehmen",
+  items: [
+    {
+      title: "E-Mail",
+      description:
+        '<a href="mailto:info@frontrunner.io" class="hover:text-primary">info@frontrunner.io</a>',
+      icon: "tabler:mail",
+    },
+    {
+      title: "Telefon",
+      description:
+        '<a href="tel:+4916062207300" class="hover:text-primary">+49 (0)160 6220730</a>',
+      icon: "tabler:headset",
+    },
+    {
+      title: "Standort",
+      description: "Seychellenring 42, 13587 Berlin, Deutschland",
+      icon: "tabler:map-pin",
+    },
+  ],
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Kontakt" title="Sprechen Sie uns an." />
+  <HeroText tagline={hero.tagline} title={hero.title} />
 
   <!-- Status banner — populated client-side from ?status= so it works for both fetch and the no-JS redirect path. -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -29,61 +84,16 @@ const metadata = {
     id="form"
     action="/api/contact"
     method="POST"
-    title="Schreiben Sie uns eine Nachricht."
-    subtitle="Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen."
-    inputs={[
-      {
-        type: "text",
-        name: "name",
-        label: "Name",
-        autocomplete: "name",
-        required: true,
-      },
-      {
-        type: "email",
-        name: "email",
-        label: "E-Mail",
-        autocomplete: "email",
-        required: true,
-      },
-    ]}
-    textarea={{
-      label: "Ihre Nachricht",
-      required: true,
-    }}
-    disclaimer={{
-      label:
-        "Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.",
-      required: true,
-    }}
+    title={form.title}
+    subtitle={form.subtitle}
+    inputs={form.inputs}
+    textarea={{ label: form.textareaLabel, required: true }}
+    disclaimer={{ label: form.disclaimer, required: true }}
     button="Nachricht senden"
-    description="Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen."
+    description={form.description}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Direkt Kontakt aufnehmen"
-    items={[
-      {
-        title: "E-Mail",
-        description:
-          '<a href="mailto:info@frontrunner.io" class="hover:text-primary">info@frontrunner.io</a>',
-        icon: "tabler:mail",
-      },
-      {
-        title: "Telefon",
-        description:
-          '<a href="tel:+4916062207300" class="hover:text-primary">+49 (0)160 6220730</a>',
-        icon: "tabler:headset",
-      },
-      {
-        title: "Standort",
-        description: "Seychellenring 42, 13587 Berlin, Deutschland",
-        icon: "tabler:map-pin",
-      },
-    ]}
-  />
+  <Features2 title={direct.title} items={direct.items} />
 </Layout>
 
 <script>

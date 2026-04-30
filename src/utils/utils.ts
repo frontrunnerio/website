@@ -1,15 +1,24 @@
-import { I18N } from 'astrowind:config';
+const formatterCache = new Map<string, Intl.DateTimeFormat>();
 
-export const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(I18N?.language, {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-  timeZone: 'UTC',
-});
+const getFormatter = (lang?: string): Intl.DateTimeFormat => {
+  const key = lang ?? "en";
+  let cached = formatterCache.get(key);
+  if (!cached) {
+    cached = new Intl.DateTimeFormat(key, {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+    formatterCache.set(key, cached);
+  }
+  return cached;
+};
 
-export const getFormattedDate = (date: Date): string => (date ? formatter.format(date) : '');
+export const getFormattedDate = (date: Date, lang?: string): string =>
+  date ? getFormatter(lang).format(date) : "";
 
-export const trim = (str = '', ch?: string) => {
+export const trim = (str = "", ch?: string) => {
   let start = 0,
     end = str.length || 0;
   while (start < end && str[start] === ch) ++start;
@@ -26,23 +35,23 @@ export const toUiAmount = (amount: number) => {
   if (amount >= 1000000000) {
     const formattedNumber = (amount / 1000000000).toFixed(1);
     if (Number(formattedNumber) === parseInt(formattedNumber)) {
-      value = parseInt(formattedNumber) + 'B';
+      value = parseInt(formattedNumber) + "B";
     } else {
-      value = formattedNumber + 'B';
+      value = formattedNumber + "B";
     }
   } else if (amount >= 1000000) {
     const formattedNumber = (amount / 1000000).toFixed(1);
     if (Number(formattedNumber) === parseInt(formattedNumber)) {
-      value = parseInt(formattedNumber) + 'M';
+      value = parseInt(formattedNumber) + "M";
     } else {
-      value = formattedNumber + 'M';
+      value = formattedNumber + "M";
     }
   } else if (amount >= 1000) {
     const formattedNumber = (amount / 1000).toFixed(1);
     if (Number(formattedNumber) === parseInt(formattedNumber)) {
-      value = parseInt(formattedNumber) + 'K';
+      value = parseInt(formattedNumber) + "K";
     } else {
-      value = formattedNumber + 'K';
+      value = formattedNumber + "K";
     }
   } else {
     value = Number(amount).toFixed(0);

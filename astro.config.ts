@@ -37,6 +37,15 @@ export default defineConfig({
   output: "static",
   adapter: vercel(),
 
+  i18n: {
+    locales: ["de", "en"],
+    defaultLocale: "de",
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false,
+    },
+  },
+
   integrations: [
     tailwind({
       applyBaseStyles: false,

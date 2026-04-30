@@ -1,16 +1,28 @@
 import { getPermalink } from "./utils/permalinks";
+import { localizedPath, t, type Lang } from "./i18n/utils";
 
-export const headerData = {
+export const getHeaderData = (lang: Lang) => ({
   links: [],
-  actions: [{ text: "Kontakt", href: getPermalink("/contact") }],
-};
+  actions: [
+    {
+      text: t(lang, "nav.contact"),
+      href: "mailto:info@frontrunner.io",
+      target: "_blank" as const,
+    },
+  ],
+});
 
-export const footerData = {
+export const getFooterData = (lang: Lang) => ({
   links: [],
   secondaryLinks: [
-    { text: "Kontakt", href: getPermalink("/contact") },
-    { text: "Impressum", href: getPermalink("/imprint") },
-    { text: "Datenschutzerklärung", href: getPermalink("/privacy") },
+    {
+      text: t(lang, "footer.imprint"),
+      href: getPermalink(localizedPath(lang, "/imprint")),
+    },
+    {
+      text: t(lang, "footer.privacy"),
+      href: getPermalink(localizedPath(lang, "/privacy")),
+    },
   ],
   socialLinks: [
     {
@@ -24,7 +36,5 @@ export const footerData = {
       href: "https://github.com/frontrunnerio",
     },
   ],
-  footNote: `
-    Copyright © 2026 Frontrunner IO · All rights reserved.
-  `,
-};
+  footNote: t(lang, "footer.note"),
+});
