@@ -1,6 +1,6 @@
 ---
-title: "Imprint"
-layout: "~/layouts/MarkdownLayout.astro"
+title: 'Imprint'
+layout: '~/layouts/MarkdownLayout.astro'
 ---
 
 > The German version of this imprint at [/imprint](/imprint) is the legally binding original (per § 5 TMG). The English text below is provided as a courtesy translation.

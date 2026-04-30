@@ -1,6 +1,6 @@
 ---
-title: "Datenschutzerklärung"
-layout: "~/layouts/MarkdownLayout.astro"
+title: 'Datenschutzerklärung'
+layout: '~/layouts/MarkdownLayout.astro'
 ---
 
 ## Datenschutzerklärung

@@ -74,13 +74,13 @@ Edit `src/config.yaml` to update site metadata, SEO settings, and feature flags:
 ```yaml
 site:
   name: Frontrunner IO
-  site: "https://frontrunner.io"
+  site: 'https://frontrunner.io'
 
 metadata:
   title:
-    default: "frontrunner.io"
-    template: "%s — frontrunner.io"
-  description: "DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery"
+    default: 'frontrunner.io'
+    template: '%s — frontrunner.io'
+  description: 'DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery'
 ```
 
 ## Deploy

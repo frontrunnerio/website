@@ -1,28 +1,28 @@
 ---
-import Headline from "~/components/ui/Headline.astro";
-import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
-import Button from "~/components/ui/Button.astro";
-import Image from "~/components/common/Image.astro";
-import type { Testimonials as Props } from "~/types";
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import type { Testimonials as Props } from '~/types';
 
 const {
-  title = "",
-  subtitle = "",
-  tagline = "",
+  title = '',
+  subtitle = '',
+  tagline = '',
   testimonials = [],
   callToAction,
 
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render("bg"),
+  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
 <WidgetWrapper
   id={id}
   isDark={isDark}
-  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ""}`}
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
   bg={bg}
 >
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
@@ -47,7 +47,7 @@ const {
               <div class="flex items-center">
                 {image && (
                   <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600">
-                    {typeof image === "string" ? (
+                    {typeof image === 'string' ? (
                       <Fragment set:html={image} />
                     ) : (
                       <Image

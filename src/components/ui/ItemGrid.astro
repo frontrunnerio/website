@@ -1,18 +1,18 @@
 ---
-import type { ItemGrid as Props } from "~/types";
-import { twMerge } from "tailwind-merge";
-import Button from "./Button.astro";
-import { Icon } from "astro-icon/components";
+import type { ItemGrid as Props } from '~/types';
+import { twMerge } from 'tailwind-merge';
+import Button from './Button.astro';
+import { Icon } from 'astro-icon/components';
 
-const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
+const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
 
 const {
-  container: containerClass = "",
-  panel: panelClass = "",
-  title: titleClass = "",
-  description: descriptionClass = "",
-  icon: defaultIconClass = "text-primary",
-  action: actionClass = "",
+  container: containerClass = '',
+  panel: panelClass = '',
+  title: titleClass = '',
+  description: descriptionClass = '',
+  icon: defaultIconClass = 'text-primary',
+  action: actionClass = '',
 } = classes;
 ---
 
@@ -22,12 +22,12 @@ const {
       class={twMerge(
         `grid mx-auto gap-8 md:gap-y-12 ${
           columns === 4
-            ? "lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2"
+            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
-              ? "lg:grid-cols-3 sm:grid-cols-2"
+              ? 'lg:grid-cols-3 sm:grid-cols-2'
               : columns === 2
-                ? "sm:grid-cols-2 "
-                : ""
+                ? 'sm:grid-cols-2 '
+                : ''
         }`,
         containerClass,
       )}
@@ -43,7 +43,7 @@ const {
           <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
             <div
               class={twMerge(
-                "flex flex-row max-w-md",
+                'flex flex-row max-w-md',
                 panelClass,
                 itemClasses?.panel,
               )}
@@ -53,7 +53,7 @@ const {
                   <Icon
                     name={icon || defaultIcon}
                     class={twMerge(
-                      "w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2",
+                      'w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2',
                       defaultIconClass,
                       itemClasses?.icon,
                     )}
@@ -64,7 +64,7 @@ const {
                 {title && (
                   <h3
                     class={twMerge(
-                      "text-xl font-bold",
+                      'text-xl font-bold',
                       titleClass,
                       itemClasses?.title,
                     )}
@@ -75,7 +75,7 @@ const {
                 {description && (
                   <p
                     class={twMerge(
-                      `${title ? "mt-3" : ""} text-muted`,
+                      `${title ? 'mt-3' : ''} text-muted`,
                       descriptionClass,
                       itemClasses?.description,
                     )}
@@ -85,7 +85,7 @@ const {
                 {callToAction && (
                   <div
                     class={twMerge(
-                      `${title || description ? "mt-3" : ""}`,
+                      `${title || description ? 'mt-3' : ''}`,
                       actionClass,
                       itemClasses?.actionClass,
                     )}

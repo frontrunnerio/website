@@ -1,81 +1,81 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
-import HeroText from "~/components/widgets/HeroText.astro";
-import ContactUs from "~/components/widgets/Contact.astro";
-import Features2 from "~/components/widgets/Features2.astro";
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: "Contact",
-  description: "Get in touch — we usually reply within one business day.",
+  title: 'Contact',
+  description: 'Get in touch — we usually reply within one business day.',
 };
 
 const hero = {
-  tagline: "Contact",
-  title: "Get in touch.",
+  tagline: 'Contact',
+  title: 'Get in touch.',
 };
 
 const form = {
-  title: "Send us a message.",
+  title: 'Send us a message.',
   subtitle:
-    "Questions about our services, or want to set up a no-strings intro call? We usually reply within one business day.",
+    'Questions about our services, or want to set up a no-strings intro call? We usually reply within one business day.',
   inputs: [
     {
-      type: "text" as const,
-      name: "name",
-      label: "Name",
-      autocomplete: "name",
+      type: 'text' as const,
+      name: 'name',
+      label: 'Name',
+      autocomplete: 'name',
       required: true,
     },
     {
-      type: "email" as const,
-      name: "email",
-      label: "Email",
-      autocomplete: "email",
+      type: 'email' as const,
+      name: 'email',
+      label: 'Email',
+      autocomplete: 'email',
       required: true,
     },
   ],
-  textareaLabel: "Your message",
+  textareaLabel: 'Your message',
   disclaimer:
-    "By submitting this form you agree to the processing of your personal data per our Privacy Policy.",
-  button: "Send message",
-  description: "We usually reply within 24 hours on business days.",
+    'By submitting this form you agree to the processing of your personal data per our Privacy Policy.',
+  button: 'Send message',
+  description: 'We usually reply within 24 hours on business days.',
 };
 
 const direct = {
-  title: "Contact us directly",
+  title: 'Contact us directly',
   items: [
     {
-      title: "Email",
+      title: 'Email',
       description:
         '<a href="mailto:info@frontrunner.io" class="hover:text-primary">info@frontrunner.io</a>',
-      icon: "tabler:mail",
+      icon: 'tabler:mail',
     },
     {
-      title: "Phone",
+      title: 'Phone',
       description:
         '<a href="tel:+4916062207300" class="hover:text-primary">+49 (0)160 6220730</a>',
-      icon: "tabler:headset",
+      icon: 'tabler:headset',
     },
     {
-      title: "Location",
-      description: "Seychellenring 42, 13587 Berlin, Germany",
-      icon: "tabler:map-pin",
+      title: 'Location',
+      description: 'Seychellenring 42, 13587 Berlin, Germany',
+      icon: 'tabler:map-pin',
     },
   ],
 };
 
 const messages = {
   success: {
-    tone: "success",
-    text: "Thank you — your message has been received. We will get back to you shortly.",
+    tone: 'success',
+    text: 'Thank you — your message has been received. We will get back to you shortly.',
   },
   invalid: {
-    tone: "error",
-    text: "Please fill in your name, email address, and message, and confirm the privacy policy.",
+    tone: 'error',
+    text: 'Please fill in your name, email address, and message, and confirm the privacy policy.',
   },
   error: {
-    tone: "error",
-    text: "Something went wrong. Please try again or email us directly at info@frontrunner.io.",
+    tone: 'error',
+    text: 'Something went wrong. Please try again or email us directly at info@frontrunner.io.',
   },
 };
 ---
@@ -113,66 +113,66 @@ const messages = {
 <script is:inline define:vars={{ messages }}>
   const TONE_CLASSES = {
     success:
-      "border-green-300 bg-green-50 text-green-800 dark:border-green-700 dark:bg-green-900/30 dark:text-green-200",
+      'border-green-300 bg-green-50 text-green-800 dark:border-green-700 dark:bg-green-900/30 dark:text-green-200',
     error:
-      "border-red-300 bg-red-50 text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200",
+      'border-red-300 bg-red-50 text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200',
   };
 
-  const banner = document.getElementById("contact-status");
-  const form = document.querySelector("#form form");
+  const banner = document.getElementById('contact-status');
+  const form = document.querySelector('#form form');
   if (banner && form) {
     const showStatus = (key) => {
       const msg = messages[key];
       if (!msg) return;
       banner.textContent = msg.text;
       banner.classList.remove(
-        "hidden",
-        ...TONE_CLASSES.success.split(" "),
-        ...TONE_CLASSES.error.split(" "),
+        'hidden',
+        ...TONE_CLASSES.success.split(' '),
+        ...TONE_CLASSES.error.split(' '),
       );
-      banner.classList.add(...TONE_CLASSES[msg.tone].split(" "));
-      banner.scrollIntoView({ behavior: "smooth", block: "center" });
+      banner.classList.add(...TONE_CLASSES[msg.tone].split(' '));
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
     const initialStatus = new URLSearchParams(window.location.search).get(
-      "status",
+      'status',
     );
     if (initialStatus && initialStatus in messages) {
       showStatus(initialStatus);
     }
 
-    form.addEventListener("submit", async (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const submitButton = form.querySelector('button[type="submit"]');
       if (submitButton) submitButton.disabled = true;
 
       try {
-        const response = await fetch(form.action || "/api/contact", {
-          method: "POST",
+        const response = await fetch(form.action || '/api/contact', {
+          method: 'POST',
           body: new FormData(form),
-          redirect: "manual",
+          redirect: 'manual',
         });
 
-        const finalUrl = response.url || "";
-        const status = new URLSearchParams(finalUrl.split("?")[1] ?? "").get(
-          "status",
+        const finalUrl = response.url || '';
+        const status = new URLSearchParams(finalUrl.split('?')[1] ?? '').get(
+          'status',
         );
-        const isOpaqueRedirect = response.type === "opaqueredirect";
+        const isOpaqueRedirect = response.type === 'opaqueredirect';
 
-        if (isOpaqueRedirect || status === "success") {
-          showStatus("success");
+        if (isOpaqueRedirect || status === 'success') {
+          showStatus('success');
           form.reset();
         } else if (status && status in messages) {
           showStatus(status);
         } else if (response.ok) {
-          showStatus("success");
+          showStatus('success');
           form.reset();
         } else {
-          showStatus("error");
+          showStatus('error');
         }
       } catch (err) {
-        console.error("[contact] submit failed", err);
-        showStatus("error");
+        console.error('[contact] submit failed', err);
+        showStatus('error');
       } finally {
         if (submitButton) submitButton.disabled = false;
       }

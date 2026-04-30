@@ -1,6 +1,6 @@
 ---
-title: "Imprint / Impressum"
-layout: "~/layouts/MarkdownLayout.astro"
+title: 'Imprint / Impressum'
+layout: '~/layouts/MarkdownLayout.astro'
 ---
 
 Angaben gemäß § 5 TMG:

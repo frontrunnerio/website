@@ -1,32 +1,32 @@
-import type { APIRoute } from "astro";
-import { Resend } from "resend";
+import type { APIRoute } from 'astro';
+import { Resend } from 'resend';
 
 export const prerender = false;
 
-const TO = import.meta.env.CONTACT_TO_EMAIL || "info@frontrunner.io";
+const TO = import.meta.env.CONTACT_TO_EMAIL || 'info@frontrunner.io';
 const FROM =
   import.meta.env.CONTACT_FROM_EMAIL ||
-  "Kontaktformular <kontakt@send.frontrunner.io>";
+  'Kontaktformular <kontakt@send.frontrunner.io>';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_MESSAGE_LENGTH = 5000;
 
 const escapeHtml = (s: string) =>
   s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 
 const redirect = (
   origin: string,
   referer: string | null,
-  status: "success" | "invalid" | "error",
+  status: 'success' | 'invalid' | 'error',
 ) => {
   const backPath =
-    referer && new URL(referer).pathname.startsWith("/en/")
-      ? "/en/contact"
-      : "/contact";
+    referer && new URL(referer).pathname.startsWith('/en/')
+      ? '/en/contact'
+      : '/contact';
   return new Response(null, {
     status: 303,
     headers: { Location: `${origin}${backPath}?status=${status}#form` },
@@ -35,36 +35,36 @@ const redirect = (
 
 export const POST: APIRoute = async ({ request }) => {
   const origin = new URL(request.url).origin;
-  const referer = request.headers.get("referer");
+  const referer = request.headers.get('referer');
 
   let form: FormData;
   try {
     form = await request.formData();
   } catch {
-    return redirect(origin, referer, "invalid");
+    return redirect(origin, referer, 'invalid');
   }
 
   // Honeypot — bots fill every visible-looking field; humans never see it.
-  if ((form.get("company") ?? "").toString().trim() !== "") {
-    return redirect(origin, referer, "success");
+  if ((form.get('company') ?? '').toString().trim() !== '') {
+    return redirect(origin, referer, 'success');
   }
 
-  const name = (form.get("name") ?? "").toString().trim();
-  const email = (form.get("email") ?? "").toString().trim();
-  const message = (form.get("message") ?? "").toString().trim();
-  const disclaimer = form.get("disclaimer");
+  const name = (form.get('name') ?? '').toString().trim();
+  const email = (form.get('email') ?? '').toString().trim();
+  const message = (form.get('message') ?? '').toString().trim();
+  const disclaimer = form.get('disclaimer');
 
   if (!name || !email || !message || !disclaimer) {
-    return redirect(origin, referer, "invalid");
+    return redirect(origin, referer, 'invalid');
   }
   if (!EMAIL_RE.test(email) || message.length > MAX_MESSAGE_LENGTH) {
-    return redirect(origin, referer, "invalid");
+    return redirect(origin, referer, 'invalid');
   }
 
   const apiKey = import.meta.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error("[api/contact] RESEND_API_KEY is not set");
-    return redirect(origin, referer, "error");
+    console.error('[api/contact] RESEND_API_KEY is not set');
+    return redirect(origin, referer, 'error');
   }
 
   const resend = new Resend(apiKey);
@@ -87,9 +87,9 @@ export const POST: APIRoute = async ({ request }) => {
   });
 
   if (error) {
-    console.error("[api/contact] Resend error", error);
-    return redirect(origin, referer, "error");
+    console.error('[api/contact] Resend error', error);
+    return redirect(origin, referer, 'error');
   }
 
-  return redirect(origin, referer, "success");
+  return redirect(origin, referer, 'success');
 };
