@@ -19,8 +19,20 @@ const form = {
   subtitle:
     "Questions about our services, or want to set up a no-strings intro call? We usually reply within one business day.",
   inputs: [
-    { type: "text" as const, name: "name", label: "Name" },
-    { type: "email" as const, name: "email", label: "Email" },
+    {
+      type: "text" as const,
+      name: "name",
+      label: "Name",
+      autocomplete: "name",
+      required: true,
+    },
+    {
+      type: "email" as const,
+      name: "email",
+      label: "Email",
+      autocomplete: "email",
+      required: true,
+    },
   ],
   textareaLabel: "Your message",
   disclaimer:
@@ -31,10 +43,16 @@ const form = {
 const direct = {
   title: "Contact us directly",
   items: [
-    { title: "Email", description: "info@frontrunner.io", icon: "tabler:mail" },
+    {
+      title: "Email",
+      description:
+        '<a href="mailto:info@frontrunner.io" class="hover:text-primary">info@frontrunner.io</a>',
+      icon: "tabler:mail",
+    },
     {
       title: "Phone",
-      description: "+49 (0)160 6220730",
+      description:
+        '<a href="tel:+4916062207300" class="hover:text-primary">+49 (0)160 6220730</a>',
       icon: "tabler:headset",
     },
     {
@@ -49,15 +67,124 @@ const direct = {
 <Layout metadata={metadata}>
   <HeroText tagline={hero.tagline} title={hero.title} />
 
+  <!-- Status banner — populated client-side from ?status= so it works for both fetch and the no-JS redirect path. -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div
+      id="contact-status"
+      role="status"
+      aria-live="polite"
+      class="hidden mx-auto max-w-xl mb-6 rounded-lg border px-4 py-3 text-sm"
+    >
+    </div>
+  </div>
+
   <ContactUs
     id="form"
+    action="/api/contact"
+    method="POST"
     title={form.title}
     subtitle={form.subtitle}
     inputs={form.inputs}
-    textarea={{ label: form.textareaLabel }}
-    disclaimer={{ label: form.disclaimer }}
+    textarea={{ label: form.textareaLabel, required: true }}
+    disclaimer={{ label: form.disclaimer, required: true }}
+    button="Send message"
     description={form.description}
   />
 
   <Features2 title={direct.title} items={direct.items} />
 </Layout>
+
+<script>
+  const MESSAGES = {
+    success: {
+      tone: "success",
+      text: "Thank you — your message has been received. We'll be in touch shortly.",
+    },
+    invalid: {
+      tone: "error",
+      text: "Please fill in your name, email, and message, and confirm the privacy policy.",
+    },
+    error: {
+      tone: "error",
+      text: "Something went wrong while sending. Please try again or email us directly at info@frontrunner.io.",
+    },
+  } as const;
+
+  type Tone = "success" | "error";
+  type StatusKey = keyof typeof MESSAGES;
+
+  const TONE_CLASSES: Record<Tone, string> = {
+    success:
+      "border-green-300 bg-green-50 text-green-800 dark:border-green-700 dark:bg-green-900/30 dark:text-green-200",
+    error:
+      "border-red-300 bg-red-50 text-red-800 dark:border-red-700 dark:bg-red-900/30 dark:text-red-200",
+  };
+
+  const banner = document.getElementById("contact-status");
+  const form = document.querySelector<HTMLFormElement>("#form form");
+  if (!banner || !form) {
+    // Page wasn't rendered as expected — fall back to native form submission.
+  } else {
+    const showStatus = (key: StatusKey) => {
+      const msg = MESSAGES[key];
+      banner.textContent = msg.text;
+      banner.classList.remove(
+        "hidden",
+        ...TONE_CLASSES.success.split(" "),
+        ...TONE_CLASSES.error.split(" "),
+      );
+      banner.classList.add(...TONE_CLASSES[msg.tone].split(" "));
+      banner.scrollIntoView({ behavior: "smooth", block: "center" });
+    };
+
+    // Render the banner on page load if the URL carries ?status=... (no-JS redirect path).
+    const initialStatus = new URLSearchParams(window.location.search).get(
+      "status",
+    );
+    if (initialStatus && initialStatus in MESSAGES) {
+      showStatus(initialStatus as StatusKey);
+    }
+
+    // Progressive enhancement: submit via fetch and stay on the page.
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector<HTMLButtonElement>(
+        'button[type="submit"]',
+      );
+      if (submitButton) submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action || "/api/contact", {
+          method: "POST",
+          body: new FormData(form),
+          // Avoid following the 303 redirect — we just want to know success vs. failure.
+          redirect: "manual",
+        });
+
+        // 'manual' redirects come back as type:'opaqueredirect' with status 0 — that's our success signal.
+        const finalUrl = response.url || "";
+        const status = new URLSearchParams(finalUrl.split("?")[1] ?? "").get(
+          "status",
+        ) as StatusKey | null;
+        const isOpaqueRedirect = response.type === "opaqueredirect";
+
+        if (isOpaqueRedirect || status === "success") {
+          showStatus("success");
+          form.reset();
+        } else if (status && status in MESSAGES) {
+          showStatus(status);
+        } else if (response.ok) {
+          showStatus("success");
+          form.reset();
+        } else {
+          showStatus("error");
+        }
+      } catch (err) {
+        console.error("[contact] submit failed", err);
+        showStatus("error");
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
+</script>
