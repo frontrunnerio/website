@@ -1,6 +1,6 @@
 ---
-title: 'Imprint'
-layout: '~/layouts/MarkdownLayout.astro'
+title: "Imprint"
+layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 > The German version of this imprint at [/imprint](/imprint) is the legally binding original (per § 5 TMG). The English text below is provided as a courtesy translation.
@@ -17,7 +17,7 @@ Dipl.-Ing. (BA) Andreas Böhrnsen
 
 **Contact**
 
-- Phone: +49 (0)160 6220730  
+- Phone: +49 (0)160 6220730
 - Email: [info@frontrunner.io](mailto:info@frontrunner.io)
 
 **VAT ID**

@@ -1,7 +1,7 @@
-import type { AstroGlobal } from 'astro';
-import { ui, type UiKey } from './ui';
+import type { AstroGlobal } from "astro";
+import { ui, type UiKey } from "./ui";
 
-export const defaultLang = 'de' as const;
+export const defaultLang = "de" as const;
 export type Lang = keyof typeof ui;
 
 export function getLang(Astro: AstroGlobal): Lang {
@@ -23,14 +23,14 @@ export function t(lang: Lang, key: UiKey): string {
 //   ('/',          'en') -> '/en'
 //   ('/en',        'de') -> '/'
 export function getMirrorPath(currentPath: string, target: Lang): string {
-  const stripped = currentPath.replace(/^\/en(?=\/|$)/, '') || '/';
+  const stripped = currentPath.replace(/^\/en(?=\/|$)/, "") || "/";
   if (target === defaultLang) return stripped;
-  return stripped === '/' ? '/en' : `/en${stripped}`;
+  return stripped === "/" ? "/en" : `/en${stripped}`;
 }
 
 // Prefix a path (without leading locale) with the locale segment if not default.
 export function localizedPath(lang: Lang, path: string): string {
-  const normalised = path.startsWith('/') ? path : `/${path}`;
+  const normalised = path.startsWith("/") ? path : `/${path}`;
   if (lang === defaultLang) return normalised;
-  return normalised === '/' ? `/${lang}` : `/${lang}${normalised}`;
+  return normalised === "/" ? `/${lang}` : `/${lang}${normalised}`;
 }

@@ -1,6 +1,6 @@
 ---
-title: 'Imprint / Impressum'
-layout: '~/layouts/MarkdownLayout.astro'
+title: "Imprint / Impressum"
+layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 Angaben gemäß § 5 TMG:
@@ -15,12 +15,12 @@ Dipl.-Ing. (BA) Andreas Böhrnsen
 
 **Kontakt**
 
-- Telefon: +49 (0)160 6220730  
+- Telefon: +49 (0)160 6220730
 - E-Mail: [info@frontrunner.io](mailto:info@frontrunner.io)
 
 **Umsatzsteuer-ID**
 
-Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:  DE291533301
+Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE291533301
 
 **Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV**
 
