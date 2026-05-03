@@ -1,8 +1,16 @@
-import { getPermalink } from "./utils/permalinks";
+import { getBlogPermalink, getPermalink } from "./utils/permalinks";
 import { localizedPath, t, type Lang } from "./i18n/utils";
 
 export const getHeaderData = (lang: Lang) => ({
-  links: [],
+  links:
+    lang === "de"
+      ? [
+          {
+            text: t(lang, "nav.blog"),
+            href: getBlogPermalink(),
+          },
+        ]
+      : [],
   actions: [
     {
       text: t(lang, "nav.contact"),
@@ -15,6 +23,14 @@ export const getHeaderData = (lang: Lang) => ({
 export const getFooterData = (lang: Lang) => ({
   links: [],
   secondaryLinks: [
+    ...(lang === "de"
+      ? [
+          {
+            text: t(lang, "nav.blog"),
+            href: getBlogPermalink(),
+          },
+        ]
+      : []),
     {
       text: t(lang, "footer.imprint"),
       href: getPermalink(localizedPath(lang, "/imprint")),

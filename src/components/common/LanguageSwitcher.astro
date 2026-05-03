@@ -3,7 +3,17 @@ import { getLang, getMirrorPath, t } from "~/i18n/utils";
 
 const lang = getLang(Astro);
 const path = Astro.url.pathname;
-const enHref = lang === "en" ? path : getMirrorPath(path, "en");
+const isGermanOnlyBlogPath =
+  path === "/blog" ||
+  path.startsWith("/blog/") ||
+  path.startsWith("/category/") ||
+  path.startsWith("/tag/");
+const enHref =
+  lang === "en"
+    ? path
+    : isGermanOnlyBlogPath
+      ? "/en"
+      : getMirrorPath(path, "en");
 const deHref = lang === "de" ? path : getMirrorPath(path, "de");
 ---
 

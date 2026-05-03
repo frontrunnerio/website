@@ -1,6 +1,7 @@
 export const ui = {
   en: {
     "nav.contact": "Contact",
+    "nav.blog": "Blog",
     "footer.imprint": "Imprint",
     "footer.privacy": "Privacy Policy",
     "footer.note": "Copyright © 2026 Frontrunner IO · All rights reserved.",
@@ -15,6 +16,7 @@ export const ui = {
   },
   de: {
     "nav.contact": "Kontakt",
+    "nav.blog": "Blog",
     "footer.imprint": "Impressum",
     "footer.privacy": "Datenschutzerklärung",
     "footer.note":
