@@ -6,7 +6,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 Angaben gemäß § 5 TMG:
 
 **Andreas Böhrnsen**  
-**Frontrunner IO (Einzelunternehmen)**
+**Frontrunner IO (Einzelunternehmen)**  
 Seychellenring 42  
 13587 Berlin  
 Germany
