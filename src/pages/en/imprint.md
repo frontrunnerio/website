@@ -8,7 +8,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 Information pursuant to § 5 TMG (German Telemedia Act):
 
 **Andreas Böhrnsen**  
-**Frontrunner IO (Einzelunternehmen)**
+**Frontrunner IO (Einzelunternehmen)**  
 Seychellenring 42  
 13587 Berlin  
 Germany
