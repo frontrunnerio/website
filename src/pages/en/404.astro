@@ -1,26 +1,30 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import { getLang, localizedPath, useTranslations } from '~/i18n/utils';
+import Layout from "~/layouts/Layout.astro";
+import { getLang, localizedPath, useTranslations } from "~/i18n/utils";
 
 const lang = getLang(Astro);
 const t = useTranslations(lang);
 const title = `Error 404`;
-const homeHref = localizedPath(lang, '/');
+const homeHref = localizedPath(lang, "/");
 ---
 
 <Layout metadata={{ title }}>
   <section class="flex items-center h-full p-16">
-    <div class="container flex flex-col items-center justify-center px-5 mx-auto my-8">
+    <div
+      class="container flex flex-col items-center justify-center px-5 mx-auto my-8"
+    >
       <div class="max-w-md text-center">
         <h2 class="mb-8 font-bold text-9xl">
           <span class="sr-only">Error</span>
           <span class="text-primary">404</span>
         </h2>
-        <p class="text-3xl font-semibold md:text-3xl">{t('404.title')}</p>
+        <p class="text-3xl font-semibold md:text-3xl">{t("404.title")}</p>
         <p class="mt-4 mb-8 text-lg text-muted dark:text-slate-400">
-          {t('404.body')}
+          {t("404.body")}
         </p>
-        <a rel="noopener noreferrer" href={homeHref} class="btn ml-4">{t('404.cta')}</a>
+        <a rel="noopener noreferrer" href={homeHref} class="btn ml-4"
+          >{t("404.cta")}</a
+        >
       </div>
     </div>
   </section>

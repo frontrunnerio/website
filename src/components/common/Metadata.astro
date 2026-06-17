@@ -1,21 +1,21 @@
 ---
-import merge from 'lodash.merge';
-import { AstroSeo } from '@astrolib/seo';
+import merge from "lodash.merge";
+import { AstroSeo } from "@astrolib/seo";
 
-import type { Props as AstroSeoProps } from '@astrolib/seo';
+import type { Props as AstroSeoProps } from "@astrolib/seo";
 
-import { SITE, METADATA } from 'astrowind:config';
-import type { MetaData } from '~/types';
-import { getCanonical } from '~/utils/permalinks';
+import { SITE, METADATA } from "astrowind:config";
+import type { MetaData } from "~/types";
+import { getCanonical } from "~/utils/permalinks";
 
-import { adaptOpenGraphImages } from '~/utils/images';
-import { getLang, getMirrorPath, defaultLang } from '~/i18n/utils';
+import { adaptOpenGraphImages } from "~/utils/images";
+import { getLang, getMirrorPath, defaultLang } from "~/i18n/utils";
 
 const lang = getLang(Astro);
 const pathname = Astro.url.pathname;
-const enPath = getMirrorPath(pathname, 'en');
-const dePath = getMirrorPath(pathname, 'de');
-const ogLocale = lang === 'de' ? 'de_DE' : 'en_US';
+const enPath = getMirrorPath(pathname, "en");
+const dePath = getMirrorPath(pathname, "de");
+const ogLocale = lang === "de" ? "de_DE" : "en_US";
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
@@ -33,8 +33,8 @@ const {
 
 const seoProps: AstroSeoProps = merge(
   {
-    title: '',
-    titleTemplate: '%s',
+    title: "",
+    titleTemplate: "%s",
     canonical: canonical,
     noindex: true,
     nofollow: true,
@@ -44,36 +44,60 @@ const seoProps: AstroSeoProps = merge(
       site_name: SITE?.name,
       images: [],
       locale: ogLocale,
-      type: 'website',
+      type: "website",
     },
     twitter: {
-      cardType: openGraph?.images?.length ? 'summary_large_image' : 'summary',
+      cardType: openGraph?.images?.length ? "summary_large_image" : "summary",
     },
   },
   {
     title: METADATA?.title?.default,
     titleTemplate: METADATA?.title?.template,
-    noindex: typeof METADATA?.robots?.index !== 'undefined' ? !METADATA.robots.index : undefined,
-    nofollow: typeof METADATA?.robots?.follow !== 'undefined' ? !METADATA.robots.follow : undefined,
+    noindex:
+      typeof METADATA?.robots?.index !== "undefined"
+        ? !METADATA.robots.index
+        : undefined,
+    nofollow:
+      typeof METADATA?.robots?.follow !== "undefined"
+        ? !METADATA.robots.follow
+        : undefined,
     description: METADATA?.description,
     openGraph: METADATA?.openGraph,
     twitter: METADATA?.twitter,
   },
   {
     title: title,
-    titleTemplate: ignoreTitleTemplate ? '%s' : undefined,
+    titleTemplate: ignoreTitleTemplate ? "%s" : undefined,
     canonical: canonical,
-    noindex: typeof robots?.index !== 'undefined' ? !robots.index : undefined,
-    nofollow: typeof robots?.follow !== 'undefined' ? !robots.follow : undefined,
+    noindex: typeof robots?.index !== "undefined" ? !robots.index : undefined,
+    nofollow:
+      typeof robots?.follow !== "undefined" ? !robots.follow : undefined,
     description: description,
     openGraph: { url: canonical, ...openGraph },
     twitter: twitter,
-  }
+  },
 );
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<AstroSeo
+  {...{
+    ...seoProps,
+    openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site),
+  }}
+/>
 
-<link rel="alternate" hreflang="en" href={new URL(enPath, Astro.site).toString()} />
-<link rel="alternate" hreflang="de" href={new URL(dePath, Astro.site).toString()} />
-<link rel="alternate" hreflang="x-default" href={new URL(getMirrorPath(pathname, defaultLang), Astro.site).toString()} />
+<link
+  rel="alternate"
+  hreflang="en"
+  href={new URL(enPath, Astro.site).toString()}
+/>
+<link
+  rel="alternate"
+  hreflang="de"
+  href={new URL(dePath, Astro.site).toString()}
+/>
+<link
+  rel="alternate"
+  hreflang="x-default"
+  href={new URL(getMirrorPath(pathname, defaultLang), Astro.site).toString()}
+/>

@@ -1,6 +1,6 @@
 ---
-title: 'Privacy Policy'
-layout: '~/layouts/MarkdownLayout.astro'
+title: "Privacy Policy"
+layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 > The German version of this privacy policy at [/privacy](/privacy) is the legally binding original. The English text below is provided as a courtesy translation.

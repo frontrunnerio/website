@@ -1,6 +1,6 @@
 ---
-title: 'Nutzungsbedingungen'
-layout: '~/layouts/MarkdownLayout.astro'
+title: "Nutzungsbedingungen"
+layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 _Zuletzt aktualisiert_: 06. Januar 2023

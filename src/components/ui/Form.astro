@@ -1,20 +1,42 @@
 ---
-import type { Form as Props } from '~/types';
-import Button from '~/components/ui/Button.astro';
+import type { Form as Props } from "~/types";
+import Button from "~/components/ui/Button.astro";
 
-const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props;
+const {
+  inputs,
+  textarea,
+  disclaimer,
+  button = "Contact us",
+  description = "",
+  action,
+  method = "POST",
+  id,
+} = Astro.props;
 ---
 
-<form>
+<form action={action} method={method} id={id}>
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
+        ({
+          type = "text",
+          name,
+          label = "",
+          autocomplete = "on",
+          placeholder = "",
+          required = false,
+        }) =>
           name && (
             <div class="mb-6">
               {label && (
                 <label for={name} class="block text-sm font-medium">
                   {label}
+                  {required && (
+                    <span aria-hidden="true" class="text-red-500">
+                      {" "}
+                      *
+                    </span>
+                  )}
                 </label>
               )}
               <input
@@ -23,10 +45,11 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 id={name}
                 autocomplete={autocomplete}
                 placeholder={placeholder}
+                required={required}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
             </div>
-          )
+          ),
       )
   }
 
@@ -35,17 +58,41 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
       <div>
         <label for="textarea" class="block text-sm font-medium">
           {textarea.label}
+          {textarea.required && (
+            <span aria-hidden="true" class="text-red-500">
+              {" "}
+              *
+            </span>
+          )}
         </label>
         <textarea
           id="textarea"
-          name={textarea.name ? textarea.name : 'message'}
+          name={textarea.name ? textarea.name : "message"}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
+          required={textarea.required}
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
       </div>
     )
   }
+
+  {
+    /* Honeypot — bots fill every visible-looking field; the server drops submissions where this is non-empty. */
+  }
+  <div
+    aria-hidden="true"
+    style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;"
+  >
+    <label for="company">Company</label>
+    <input
+      type="text"
+      id="company"
+      name="company"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
 
   {
     disclaimer && (
@@ -55,11 +102,16 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
             id="disclaimer"
             name="disclaimer"
             type="checkbox"
+            value="1"
+            required={disclaimer.required}
             class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
           />
         </div>
         <div class="ml-3">
-          <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+          <label
+            for="disclaimer"
+            class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400"
+          >
             {disclaimer.label}
           </label>
         </div>

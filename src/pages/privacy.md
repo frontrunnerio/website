@@ -1,6 +1,6 @@
 ---
-title: 'Datenschutzerklärung'
-layout: '~/layouts/MarkdownLayout.astro'
+title: "Datenschutzerklärung"
+layout: "~/layouts/MarkdownLayout.astro"
 ---
 
 ## Datenschutzerklärung
@@ -13,12 +13,26 @@ Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kom
 
 Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam‑Mails, vor.
 
-### Datenschutzerklärung für die Nutzung von Google Analytics
+### Kontaktformular
 
-Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. („Google"). Google Analytics verwendet sog. „Cookies", Textdateien, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website durch Sie ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Im Falle der Aktivierung der IP‑Anonymisierung auf dieser Webseite wird Ihre IP‑Adresse von Google jedoch innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt.
+Wenn Sie uns über das Kontaktformular auf dieser Webseite eine Nachricht senden, verarbeiten wir die von Ihnen angegebenen Daten (Name, E‑Mail-Adresse und Nachrichtentext) ausschließlich zur Bearbeitung Ihrer Anfrage und für den Fall, dass sich Anschlussfragen ergeben.
 
-Nur in Ausnahmefällen wird die volle IP‑Adresse an einen Server von Google in den USA übertragen und dort gekürzt. Im Auftrag des Betreibers dieser Website wird Google diese Informationen benutzen, um Ihre Nutzung der Website auszuwerten, um Reports über die Websiteaktivitäten zusammenzustellen und um weitere mit der Websitenutzung und der Internetnutzung verbundene Dienstleistungen gegenüber dem Websitebetreiber zu erbringen. Die im Rahmen von Google Analytics von Ihrem Browser übermittelte IP‑Adresse wird nicht mit anderen Daten von Google zusammengeführt.
+**Rechtsgrundlage:** Die Verarbeitung erfolgt auf Grundlage Ihrer ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO sowie — sofern Ihre Anfrage auf den Abschluss oder die Anbahnung eines Vertragsverhältnisses gerichtet ist — gemäß Art. 6 Abs. 1 lit. b DSGVO.
 
-Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser‑Software verhindern; wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können. Sie können darüber hinaus die Erfassung der durch das Cookie erzeugten und auf Ihre Nutzung der Website bezogenen Daten (inkl. Ihrer IP‑Adresse) an Google sowie die Verarbeitung dieser Daten durch Google verhindern, indem Sie das unter dem folgenden Link verfügbare Browser‑Plugin herunterladen und installieren: <http://tools.google.com/dlpage/gaoptout?hl=de>.
+**Auftragsverarbeitung:** Für den Versand der eingegangenen Nachrichten setzen wir den Dienstleister **Resend** (Resend, Inc., 2261 Market Street #5039, San Francisco, CA 94114, USA) ein. Mit Resend besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO. Eine Übermittlung in die USA erfolgt auf Grundlage der EU-Standardvertragsklauseln und des EU-US Data Privacy Framework.
 
-Quellen: Datenschutzerklärung von eRecht24, Datenschutzerklärung Google Analytics
+**Speicherdauer:** Die übermittelten Daten verbleiben in unserem E-Mail-Postfach, bis Sie uns zur Löschung auffordern, Ihre Einwilligung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Aufbewahrungsfristen — insbesondere handels- und steuerrechtliche Aufbewahrungspflichten gemäß § 257 HGB und § 147 AO — bleiben unberührt.
+
+**Widerruf:** Sie können Ihre erteilte Einwilligung zur Verarbeitung der Daten jederzeit mit Wirkung für die Zukunft widerrufen. Eine formlose Mitteilung per E‑Mail an [info@frontrunner.io](mailto:info@frontrunner.io) genügt.
+
+### Webanalyse mit Vercel Analytics
+
+Diese Webseite nutzt **Vercel Web Analytics**, einen Analysedienst der Vercel Inc. (440 N Barranca Ave #4133, Covina, CA 91723, USA), zur Auswertung des Nutzungsverhaltens. Vercel Analytics arbeitet **cookielos** und erhebt keine personenbezogenen Daten im Sinne der DSGVO; es werden keine IP-Adressen gespeichert und keine geräteübergreifende Wiedererkennung durchgeführt. Erfasst werden lediglich aggregierte, anonyme Nutzungsmetriken (z. B. aufgerufene Seiten, Referrer, Browser-Familie).
+
+Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an einer datensparsamen, technischen Reichweitenmessung gemäß Art. 6 Abs. 1 lit. f DSGVO. Weitere Informationen finden Sie in der [Datenschutzerklärung von Vercel](https://vercel.com/legal/privacy-policy).
+
+### Ihre Rechte
+
+Sie haben jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger sowie den Zweck der Verarbeitung (Art. 15 DSGVO), das Recht auf Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) und Datenübertragbarkeit (Art. 20 DSGVO). Daneben steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu (Art. 77 DSGVO).
+
+_Quelle: in Anlehnung an Vorlagen von [e-recht24.de](https://www.e-recht24.de)_

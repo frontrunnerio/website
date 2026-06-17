@@ -16,17 +16,29 @@ Built with **[Astro 5](https://astro.build/)** + **[Tailwind CSS](https://tailwi
 npm install
 ```
 
+### Environment
+
+The contact form (`/api/contact`) uses [Resend](https://resend.com/) for email delivery. Copy `.env.example` to `.env.local` and fill in:
+
+| Variable             | Required | Notes                                                                                                                        |
+| :------------------- | :------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| `RESEND_API_KEY`     | yes      | Created in the Resend dashboard. The sending domain (`frontrunner.io` / `send.frontrunner.io`) must be verified there first. |
+| `CONTACT_TO_EMAIL`   | no       | Defaults to `info@frontrunner.io`.                                                                                           |
+| `CONTACT_FROM_EMAIL` | no       | Defaults to `Kontaktformular <kontakt@send.frontrunner.io>`.                                                                 |
+
+Set the same variables in the Vercel project settings (Production + Preview).
+
 ### Commands
 
 All commands are run from the root of the project:
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm run dev`       | Starts local dev server at `localhost:4321`        |
-| `npm run build`     | Build production site to `./dist/`                 |
-| `npm run preview`   | Preview the production build locally               |
-| `npm run check`     | Check for Astro, ESLint and Prettier errors        |
-| `npm run fix`       | Auto-fix ESLint and Prettier issues (treat yourself) |
+| Command           | Action                                               |
+| :---------------- | :--------------------------------------------------- |
+| `npm run dev`     | Starts local dev server at `localhost:4321`          |
+| `npm run build`   | Build production site to `./dist/`                   |
+| `npm run preview` | Preview the production build locally                 |
+| `npm run check`   | Check for Astro, ESLint and Prettier errors          |
+| `npm run fix`     | Auto-fix ESLint and Prettier issues (treat yourself) |
 
 ## Project Structure
 
@@ -62,13 +74,13 @@ Edit `src/config.yaml` to update site metadata, SEO settings, and feature flags:
 ```yaml
 site:
   name: Frontrunner IO
-  site: 'https://frontrunner.io'
+  site: "https://frontrunner.io"
 
 metadata:
   title:
-    default: 'frontrunner.io'
-    template: '%s — frontrunner.io'
-  description: 'DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery'
+    default: "frontrunner.io"
+    template: "%s — frontrunner.io"
+  description: "DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery"
 ```
 
 ## Deploy
