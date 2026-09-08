@@ -1,193 +1,425 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from "~/layouts/PageLayout.astro";
+import Image from "~/components/common/Image.astro";
+import { Icon } from "astro-icon/components";
+import ConsultationCta from "~/components/widgets/ConsultationCta.astro";
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-
+const heroImage =
+  "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=85";
 const metadata = {
-  title: 'Frontrunner IO — DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery',
+  title: "Frontrunner IO | Weniger Feuer löschen. Mehr verlässliche IT.",
   ignoreTitleTemplate: true,
-  description: 'DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery.',
+  description:
+    "Abweichende Umgebungen, riskante Änderungen, zu viel Handarbeit? Frontrunner IO macht Software und Infrastruktur nachvollziehbar und reproduzierbar. Jetzt Erstgespräch anfragen.",
+  openGraph: { images: [{ url: heroImage, width: 1920, height: 1080 }] },
 };
-
-const hero = {
-  tagline: '',
-  title: 'Ship faster.<br> Stay secure. Automate everything.',
-  subtitle: 'Wir helfen Unternehmen, Software schneller und sicherer auszuliefern — mit DevSecOps, Automatisierung und Prozessen, die tatsächlich funktionieren.',
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:info@frontrunner.io', target: '_blank' as const },
-  secondaryCta: { text: 'Mehr erfahren', href: '#problem-statement' },
-  image: { src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' },
-};
-
-const philosophyNote = {
-  title: 'Philosophie:',
-  description: 'Klarheit statt Komplexität. Automatisierung statt manueller Arbeit. Sicherheit von Anfang an.',
-};
-
-const problems = {
-  id: 'problem-statement',
-  tagline: 'Die Realität in vielen Unternehmen',
-  title: 'Software-Delivery ist langsamer, riskanter und frustrierender als nötig',
-  subtitle: 'Steigende Sicherheitsanforderungen, ein Sammelsurium aus Tools und manuelle Prozesse, die eigentlich längst automatisiert gehören — viele Teams wissen, dass da mehr geht. Die Frage ist nur: Wo anfangen?',
-  items: [
-    { title: 'Manuelle Prozesse verlangsamen alles', description: 'Releases, die von manuellen Schritten abhängen, sind fehleranfällig, langsam und nicht skalierbar. Irgendwann macht genau das der Fehler, den noch niemand dokumentiert hat.', icon: 'tabler:hourglass-high' },
-    { title: 'Tool-Chaos statt klarer Plattform', description: 'Zehn Tools, fünf Integrationen, drei Slack-Kanäle für Alerts — und trotzdem weiß niemand auf Anhieb, was gerade wo passiert. Das kostet Zeit und Nerven.', icon: 'tabler:apps' },
-    { title: 'Sicherheit kommt immer zu spät', description: 'Security-Checks kurz vor dem Release führen zu Verzögerungen oder — schlimmer — werden übersprungen. Wer Sicherheit erst am Ende einbaut, zahlt doppelt.', icon: 'tabler:shield-half' },
-    { title: 'Langsame Pipelines kosten mehr als nur Zeit', description: 'Wenn ein Build 30 Minuten läuft und am Ende nur ein generischer Fehler zurückkommt, verlieren Entwickler Fokus und Flow. Schnelles, klares Feedback ist kein Luxus — es ist der Unterschied zwischen produktivem Arbeiten und frustriertem Warten.', icon: 'tabler:mood-sad' },
-    { title: 'Compliance erzeugt unnötige Reibung', description: 'DORA, ISO, BSI — regulatorische Anforderungen müssen kein Bremsklotz sein. Werden sie von Anfang an mitgedacht, lassen sie sich in bestehende Prozesse integrieren, ohne alles zu verlangsamen.', icon: 'tabler:scale' },
-    { title: 'Niemand weiß genau, was wann passiert ist', description: 'Fehlende Nachvollziehbarkeit ist im Alltag nervig — beim Audit wird sie zum Problem. Wer nicht zeigen kann, was wann von wem geändert wurde, steht schlecht da.', icon: 'tabler:route-x' },
-  ],
-};
-
-const services = {
-  tagline: 'Wir bieten',
-  title: 'Unsere Leistungen',
-  blocks: [
-    {
-      contentTitle: 'DevSecOps Assessment',
-      contentCaption: 'Der schnellste Weg zu Klarheit',
-      image: { src: '~/assets/images/service-assessment.jpg', alt: 'Assessment Image' },
-      items: [
-        { title: 'Ein ehrlicher Blick auf Ihre Pipeline', description: 'Wir schauen uns an, was wirklich passiert — von Code bis Deployment. Inklusive Prozesse, Tools und Verantwortlichkeiten.' },
-        { title: 'Risiken und Engpässe sichtbar machen', description: 'Sicherheitslücken, manuelle Bottlenecks, unnötige Reibung — wir benennen klar, was Sie ausbremst.' },
-        { title: 'Keine Theorie, sondern konkrete Maßnahmen', description: 'Sie bekommen keine 50-seitige Präsentation, sondern eine priorisierte Liste: Was zuerst? Was bringt am meisten?' },
-        { title: 'Eine klare Roadmap in wenigen Tagen', description: 'Realistisch, strukturiert und als direkte Grundlage für die nächsten Schritte — nicht als Abschluss-Dokument, das danach im Ordner landet.' },
-      ],
-    },
-    {
-      contentTitle: 'GitLab Implementation & Optimization',
-      contentCaption: 'Alles in einer Plattform',
-      image: { src: '~/assets/images/service-gitlab.jpg', alt: 'Gitlab Image' },
-      items: [
-        { title: 'GitLab aufbauen oder gezielt weiterentwickeln', description: 'Ob Neueinrichtung oder Optimierung einer bestehenden Instanz — wir machen GitLab zur zentralen Plattform für Development, Security und Operations.' },
-        { title: 'CI/CD Pipelines, die Entwickler nicht ausbremsen', description: 'Schnelle, automatisierte Pipelines mit integrierten Security-Scans. Kurze Feedbackzyklen halten Entwickler im Flow — statt sie 20 Minuten auf ein Ergebnis warten zu lassen.' },
-        { title: 'Rechte- und Rollenmodelle, die Audits standhalten', description: 'Klare Zugriffskonzepte für Teams, die nachvollziehbar, sicher und compliance-ready sind.' },
-        { title: 'Infrastructure as Code in den Delivery-Prozess integrieren', description: 'Infrastruktur wird versioniert, reviewbar und reproduzierbar — genauso wie der Anwendungscode.' },
-      ],
-    },
-    {
-      contentTitle: 'Migration & Konsolidierung',
-      contentCaption: 'Raus aus dem Tool-Chaos',
-      image: { src: '~/assets/images/service-consolidation.jpg', alt: 'Consolidation Image' },
-      items: [
-        { title: 'Migration von Jenkins, Azure DevOps, GitHub & Co.', description: 'Strukturierte Überführung in eine konsolidierte Plattform — ohne laufende Betrieb zu unterbrechen.' },
-        { title: 'Toolchain-Wildwuchs reduzieren', description: 'Weniger Tools, weniger Schnittstellen, weniger Dinge, die kaputt gehen können. Klingt simpel, verändert aber den Alltag spürbar.' },
-        { title: 'Weniger Wartung, mehr Entwicklung', description: 'Wer weniger Zeit für Plattformpflege aufwendet, kann mehr Zeit in tatsächliche Produktentwicklung stecken.' },
-        { title: 'Compliance nicht vergessen', description: 'Jede Migration berücksichtigt regulatorische Anforderungen und Auditierbarkeit von Anfang an — nicht als Nachgedanke.' },
-      ],
-    },
-    {
-      contentTitle: 'Begleitung & Coaching',
-      contentCaption: 'Nicht nur Konzepte — echte Umsetzung',
-      image: { src: '~/assets/images/service-coaching.jpg', alt: 'Coaching Image' },
-      items: [
-        { title: 'Direkte Mitarbeit statt Folien-Beratung', description: 'Wir arbeiten hands-on in Ihren Projekten mit — weil Ergebnisse wichtiger sind als Konzepte.' },
-        { title: 'Coaching für Entwickler- und Plattform-Teams', description: 'Best Practices, die im echten Kontext Ihres Teams vermittelt werden. Damit Ihr Team danach eigenständig weiterarbeiten kann.' },
-        { title: 'DevSecOps als Haltung, nicht als Prozess', description: 'Sicherheit und Geschwindigkeit gehören zusammen — wir helfen Teams, das nicht als Widerspruch zu sehen.' },
-        { title: 'Verbesserungen, die bleiben', description: 'Unser Ziel ist nicht, wiederzukommen. Wir arbeiten so, dass Ihr Team danach besser aufgestellt ist als vorher.' },
-      ],
-    },
-  ],
-};
-
-const modularNote = {
-  title: 'Alle Leistungen sind modular kombinierbar:',
-  description: 'Vom schnellen Assessment bis zur vollständigen Transformation',
-};
-
-const steps = {
-  title: 'Wie wir arbeiten',
-  image: { src: '~/assets/images/how-we-work.jpg', alt: 'Steps image' },
-  items: [
-    { title: 'Schritt 1: <span class="font-medium">Assessment</span>', description: 'Wir schauen uns Ihre aktuelle Situation an — Prozesse, Tools, Verantwortlichkeiten und Risiken. Ohne Vorannahmen, ohne voreilige Lösungsvorschläge.', icon: 'tabler:search' },
-    { title: 'Schritt 2: <span class="font-medium">Roadmap</span>', description: 'Aus den Erkenntnissen wird eine priorisierte Maßnahmenliste. Klar, konkret und so aufgebaut, dass Sie sofort damit arbeiten können.', icon: 'tabler:route' },
-    { title: 'Schritt 3: <span class="font-medium">Implementation</span>', description: 'Auf Wunsch setzen wir die Maßnahmen gemeinsam mit Ihrem Team um — pragmatisch und so, dass der laufende Betrieb nicht leidet.', icon: 'tabler:tools' },
-    { title: 'Schritt 4: <span class="font-medium">Enablement</span>', description: 'Am Ende steht nicht Abhängigkeit, sondern Eigenständigkeit. Ihr Team bekommt das Wissen, um die Verbesserungen selbst weiterzuführen.', icon: 'tabler:school' },
-  ],
-};
-
-const faqs = {
-  tagline: 'FAQs',
-  title: 'Häufig gestellte Fragen',
-  subtitle: 'Antworten auf die Fragen, die wir am häufigsten hören.',
-  items: [
-    { title: 'Ist das für unser Unternehmen überhaupt relevant?', description: 'Wenn Sie Software entwickeln, regelmäßig deployen und gleichzeitig mit steigenden Sicherheits- oder Compliance-Anforderungen zu tun haben — ja. Besonders im regulierten Umfeld (z. B. Finance oder Insurance) ist der Hebel hier oft besonders groß.' },
-    { title: 'Wie schnell sehen wir erste Ergebnisse?', description: 'Erste spürbare Verbesserungen sind häufig nach wenigen Wochen da — vor allem durch Automatisierung und optimierte Pipelines. Das Assessment liefert Ihnen innerhalb weniger Tage eine solide Grundlage für konkrete nächste Schritte.' },
-    { title: 'Müssen wir auf GitLab umsteigen?', description: 'Nein. Wir arbeiten mit dem, was Sie haben, und schauen uns an, was sinnvoll ist. In vielen Fällen lohnt sich eine Plattformstrategie mit GitLab — aber das ist eine Empfehlung, keine Voraussetzung.' },
-    { title: 'Wie stellen Sie Sicherheit und Compliance sicher?', description: 'Indem wir sie von Anfang an mitdenken, nicht nachträglich draufschrauben. Alle Lösungen sind darauf ausgelegt, auditierbar und regulatorisch belastbar zu sein — ohne den Entwicklungsfluss unnötig zu stören.' },
-  ],
-};
-
-const cta = {
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:andreas.boehrnsen@frontrunner.io', target: '_blank' as const },
-  title: 'Interesse? Melden Sie sich einfach.',
-  subtitle: 'Kein Verkaufsgespräch, kein Druck. Wir hören uns an, was Sie bewegt — und schauen gemeinsam, ob wir helfen können.',
-};
-
-const heroActions = [
-  { variant: 'primary' as const, text: hero.primaryCta.text, href: hero.primaryCta.href, target: hero.primaryCta.target },
-  { text: hero.secondaryCta.text, href: hero.secondaryCta.href },
+const pains = [
+  {
+    title: "„Im Test lief es doch noch.“",
+    body: "Andere Versionen, ein zusätzlicher Parameter, eine manuelle Änderung. Ihr Team sucht nach Unterschieden, statt am eigentlichen Problem zu arbeiten.",
+    cost: "Die Folge: längere Fehlersuche und Unsicherheit beim nächsten Deployment.",
+    link: "Umgebungen in Einklang bringen",
+    topic: "drift",
+  },
+  {
+    title: "„Wer hat das zuletzt geändert?“",
+    body: "Die Antwort steckt irgendwo zwischen Tickets, Skripten und Chatverläufen. Ob ein Eingriff gewollt war und wie Sie ihn rückgängig machen, bleibt offen.",
+    cost: "Die Folge: riskante Änderungen und aufwendige Rekonstruktion im Störungsfall.",
+    link: "Änderungen nachvollziehbar machen",
+    topic: "changes",
+  },
+  {
+    title: "„Das weiß nur eine Person.“",
+    body: "Ein System neu aufzusetzen braucht Erfahrung, Geduld und die richtige Person. Die Dokumentation beschreibt einen Stand, der längst nicht mehr existiert.",
+    cost: "Die Folge: Abhängigkeiten im Team und schwer planbare Wiederherstellung.",
+    link: "Wissen im System verankern",
+    topic: "recovery",
+  },
 ];
-
-const ctaActions = [
-  { variant: 'primary' as const, text: cta.primaryCta.text, href: cta.primaryCta.href, target: cta.primaryCta.target },
+const services = [
+  {
+    title: "Verstehen, wo das Risiko steckt.",
+    body: "Wir nehmen ein relevantes System unter die Lupe: Konfigurationen, Abhängigkeiten, manuelle Eingriffe und Verantwortlichkeiten.",
+    results: [
+      "Überblick über Istzustand und Abweichungen",
+      "Priorisierte Risiken und nächste Schritte",
+      "Ein klar abgegrenzter Pilot statt Großprojekt",
+    ],
+  },
+  {
+    title: "Aus Handarbeit einen verlässlichen Ablauf machen.",
+    body: "Wir versionieren Konfigurationen, automatisieren geeignete Schritte und integrieren Prüfungen in Ihre vorhandenen Abläufe.",
+    results: [
+      "Versionierte Konfigurationen und feste Abhängigkeiten",
+      "Reviewbare Änderungen mit definierten Freigaben",
+      "Automatisierte Prüfungen auf unerwünschte Abweichungen",
+    ],
+  },
+  {
+    title: "Sicherstellen, dass es ohne uns weitergeht.",
+    body: "Wir erproben den vereinbarten Systemstand und die Wiederherstellung gemeinsam mit Ihrem Team. Wissen und Verantwortung bleiben bei Ihnen.",
+    results: [
+      "Praktisch geprüfte Wiederherstellung im vereinbarten Umfang",
+      "Dokumentierte Abläufe und bekannte Grenzen",
+      "Übergabe und Coaching im tatsächlichen Arbeitskontext",
+    ],
+  },
+];
+const steps = [
+  {
+    title: "Situation besprechen",
+    text: "Wo entstehen Aufwand und Unsicherheit? Im Erstgespräch klären wir, ob und wie wir helfen können.",
+  },
+  {
+    title: "Umfang vereinbaren",
+    text: "Wir legen System, Ergebnisse, Aufwand und Abnahmekriterien fest. Erst dann beginnt der Auftrag.",
+  },
+  {
+    title: "Gemeinsam umsetzen",
+    text: "Wir arbeiten an einem konkreten Pilot. Änderungen werden mit Ihrem Team abgestimmt und geprüft.",
+  },
+  {
+    title: "Nachweisen & übergeben",
+    text: "Wir prüfen die vereinbarten Ergebnisse und übergeben Dokumentation und Abläufe an Ihr Team.",
+  },
+];
+const faqs = [
+  {
+    title: "Für welche Unternehmen ist das sinnvoll?",
+    text: "Für Unternehmen mit gewachsenen Software- und Infrastrukturumgebungen, in denen Unterschiede zwischen Systemen, manuelle Eingriffe oder fehlende Nachvollziehbarkeit regelmäßig Aufwand verursachen. Ansprechpartner sind häufig IT-Verantwortliche, Plattform- und Betriebsteams.",
+  },
+  {
+    title: "Müssen wir unsere Tools oder Plattform wechseln?",
+    text: "Nein. Wir beginnen mit dem, was Sie bereits einsetzen. Git, Ansible, Terraform und CI/CD können helfen, sind aber kein Selbstzweck. Ein Toolwechsel ist nur dann Thema, wenn er für Ihr konkretes Problem sinnvoll ist.",
+  },
+  {
+    title: "Müssen wir dafür den laufenden Betrieb umbauen?",
+    text: "Nicht auf einmal. Wir begrenzen den Einstieg auf ein System oder einen Ablauf. Zugriff, Testmöglichkeiten, Änderungsfenster und Rückfallwege vereinbaren wir vor der Umsetzung. Eingriffe in Produktivsysteme erfolgen nur nach Ihrer Freigabe.",
+  },
+  {
+    title: "Was kostet die Zusammenarbeit?",
+    text: "Das Erstgespräch ist unverbindlich. Für einen Auftrag erhalten Sie ein Angebot auf Basis des vereinbarten Umfangs, der vorhandenen Umgebung und der gewünschten Ergebnisse. Es gibt keine automatische Beauftragung durch eine Anfrage.",
+  },
+  {
+    title: "Was bedeutet Konfigurationsmanagement konkret?",
+    text: "Zu wissen, welche Komponenten, Versionen und Einstellungen einen Systemstand bilden, Änderungen kontrolliert durchzuführen und den tatsächlichen Zustand zu überprüfen. Die Technik dahinter soll Ihren Alltag einfacher machen, nicht zusätzliche Bürokratie erzeugen.",
+  },
+  {
+    title: "Brauchen Sie schon im Erstgespräch Systemzugriff?",
+    text: "Nein. Eine Beschreibung Ihrer Situation reicht für den Einstieg. Bitte senden Sie keine Passwörter, Zugangsdaten oder vertraulichen Systemdetails. Benötigte Zugriffe und den Umgang mit sensiblen Informationen klären wir bei einer Zusammenarbeit gesondert.",
+  },
 ];
 ---
 
 <Layout metadata={metadata}>
-  <Hero2 tagline={hero.tagline} title={hero.title} subtitle={hero.subtitle} actions={heroActions} image={hero.image} />
+  <section class="hero" aria-labelledby="hero-title">
+    <Image
+      src={heroImage}
+      alt="Serverracks und Verkabelung in einem Rechenzentrum"
+      width={1920}
+      height={1080}
+      loading="eager"
+      fetchpriority="high"
+      class="hero-photo"
+    />
+    <div class="site-container hero-inner">
+      <p class="eyebrow">Frontrunner IO · Beratung & Umsetzung</p>
+      <p class="hero-catch">Weniger Feuer löschen.</p>
+      <h1 id="hero-title">Mehr verlässliche IT.</h1>
+      <p class="hero-description">
+        Wenn Umgebungen auseinanderlaufen und jede Änderung zur Unsicherheit
+        wird, braucht Ihr Team mehr als ein weiteres Tool. Wir machen
+        Konfigurationen nachvollziehbar und Systeme reproduzierbar.
+      </p>
+      <div class="hero-actions">
+        <a class="action action-lime" href="/contact" data-consultation="hero"
+          >Erstgespräch anfragen <Icon name="tabler:arrow-up-right" /></a
+        >
+        <a class="text-link" href="#leistungen"
+          >Leistungen ansehen <Icon name="tabler:arrow-down" /></a
+        >
+      </div>
+      <p class="hero-reassurance">
+        Unverbindlich. Direkt mit Andreas Böhrnsen. Ohne Systemzugriff zum
+        Einstieg.
+      </p>
+    </div>
+    <a class="image-credit" href="https://unsplash.com/photos/M5tzZtFCOfs"
+      >Foto: Taylor Vick / Unsplash</a
+    >
+  </section>
 
-  <Note title={philosophyNote.title} description={philosophyNote.description} />
+  <section class="benefits-strip" aria-label="Was sich für Sie verändert">
+    <div class="site-container benefits-inner">
+      <div class="benefit">
+        <Icon name="tabler:list-search" /><div>
+          <h2>Weniger Rätselraten</h2><p>
+            Wissen, welcher Stand tatsächlich läuft.
+          </p>
+        </div>
+      </div>
+      <div class="benefit">
+        <Icon name="tabler:git-pull-request" /><div>
+          <h2>Mehr Kontrolle</h2><p>Änderungen prüfen und nachvollziehen.</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <Icon name="tabler:restore" /><div>
+          <h2>Weniger Abhängigkeit</h2><p>
+            Systeme mit dokumentierten Abläufen aufbauen.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Features id={problems.id} tagline={problems.tagline} title={problems.title} subtitle={problems.subtitle} items={problems.items} />
+  <section class="section" id="herausforderungen">
+    <div class="site-container">
+      <div class="section-heading">
+        <p class="eyebrow">Kommt Ihnen das bekannt vor?</p><h2>
+          Ihre IT funktioniert.<br />Bis jemand etwas ändert.
+        </h2><p>
+          Das Problem ist oft nicht die einzelne Störung. Es ist die fehlende
+          Gewissheit darüber, wie Ihre Systeme wirklich konfiguriert sind.
+        </p>
+      </div>
+      <div class="pain-grid">
+        {
+          pains.map((pain, i) => (
+            <article class="pain-item">
+              <>
+                <span class="pain-number">0{i + 1}</span>
+                <h3>{pain.title}</h3>
+                <p>{pain.body}</p>
+                <div class="pain-cost">{pain.cost}</div>
+                <a
+                  class="text-link"
+                  href={"/contact?thema=" + pain.topic}
+                  data-consultation={"pain-" + pain.topic}
+                >
+                  {pain.link}
+                  <Icon name="tabler:arrow-up-right" />
+                </a>
+              </>
+            </article>
+          ))
+        }
+      </div>
+      <p class="pain-footer">
+        Für IT-Verantwortliche, Plattform- und Betriebsteams mit gewachsenen
+        Systemlandschaften.
+      </p>
+    </div>
+  </section>
 
-  <Content isReversed tagline={services.tagline} title={services.title} items={services.blocks[0].items} image={services.blocks[0].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[0].contentTitle}</h3>
-      {services.blocks[0].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
+  <section class="section section-mist">
+    <div class="site-container results-layout">
+      <div>
+        <p class="eyebrow">Das Ziel: ein beherrschbarer Betrieb</p><h2>
+          Aus „müsste so sein“<br />wird „ist nachvollziehbar“.
+        </h2><p class="section-intro">
+          Konfigurationsmanagement ist die Methode. Der Nutzen: Ihr Team kann
+          Zustände erklären, Änderungen beurteilen und Systeme wieder aufbauen.
+        </p>
+        <ul class="outcome-list">
+          <li>
+            <Icon name="tabler:check" /><div>
+              <strong>Ein bekannter Ausgangspunkt</strong><span
+                >Versionen, Einstellungen und Abhängigkeiten sind festgehalten.</span>
+            </div>
+          </li>
+          <li>
+            <Icon name="tabler:check" /><div>
+              <strong>Ein nachvollziehbarer Änderungsweg</strong><span
+                >Sie erkennen, was geändert, geprüft und freigegeben wurde.</span>
+            </div>
+          </li>
+          <li>
+            <Icon name="tabler:check" /><div>
+              <strong>Ein praktisch geprüfter Wiederaufbau</strong><span
+                >Wiederherstellung wird erprobt, statt nur dokumentiert.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="reference-sheet">
+          <div class="reference-title">
+            <small>BEISPIEL · DOKUMENTIERTER REFERENZSTAND</small><h3>
+              Ein System. Ein bekannter Stand.
+            </h3>
+          </div>
+          <dl>
+            <div><dt>System</dt><dd>Kundenportal · Produktion</dd></div>
+            <div>
+              <dt>Software & Abhängigkeiten</dt><dd>Versionen festgelegt</dd>
+            </div>
+            <div><dt>Konfiguration</dt><dd>Versioniert in Git</dd></div>
+            <div>
+              <dt>Letzte Änderung</dt><dd>Review und Freigabe verknüpft</dd>
+            </div>
+            <div><dt>Verantwortung</dt><dd>Betriebsteam benannt</dd></div>
+            <div>
+              <dt>Wiederherstellung</dt><dd>Ablauf und Test dokumentiert</dd>
+            </div>
+          </dl>
+          <p class="reference-note">
+            Nicht nur ein Inventar. Eine Grundlage für Entscheidungen und den
+            nächsten Eingriff.
+          </p>
+        </div>
+        <p class="reference-caption">
+          Vereinfachtes Beispiel, kein Kundenprojekt oder reales Prüfergebnis.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <Content isAfterContent items={services.blocks[1].items} image={services.blocks[1].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[1].contentTitle}</h3>
-      {services.blocks[1].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
+  <section class="section" id="leistungen">
+    <div class="site-container">
+      <div class="section-heading">
+        <p class="eyebrow">Unsere Leistungen</p><h2>
+          Wir klären nicht nur auf.<br />Wir setzen mit Ihnen um.
+        </h2><p>
+          Von der ersten Bestandsaufnahme bis zu Abläufen, die Ihr Team
+          eigenständig weiterführt. Passend zu Ihrer Umgebung, nicht zu einer
+          vorgegebenen Plattform.
+        </p>
+      </div>
+      {
+        services.map((service, i) => (
+          <article class="service-row">
+            <>
+              <span class="service-number">0{i + 1}</span>
+              <div>
+                <>
+                  <h3>{service.title}</h3>
+                  <p>{service.body}</p>
+                </>
+              </div>
+              <ul aria-label="Ergebnisse">
+                {service.results.map((result) => (
+                  <li>
+                    <Icon name="tabler:check" />
+                    {result}
+                  </li>
+                ))}
+              </ul>
+            </>
+          </article>
+        ))
+      }
+      <div class="tools-line">
+        <p>Der Prozess führt. Die Werkzeuge unterstützen.</p><div
+          class="tools-list"
+        >
+          <span><Icon name="tabler:brand-git" />Git</span><span
+            ><Icon name="tabler:terminal-2" />Ansible</span
+          ><span><Icon name="tabler:brand-terraform" />Terraform</span><span
+            ><Icon name="tabler:brand-gitlab" />GitLab / CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Content isReversed isAfterContent items={services.blocks[2].items} image={services.blocks[2].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[2].contentTitle}</h3>
-      {services.blocks[2].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
+  <section class="starter-section" id="einstieg">
+    <div class="site-container starter-inner">
+      <div>
+        <p class="eyebrow">Ein überschaubarer Einstieg</p><h2>
+          Ein System.<br />Ein klarer Anfang.
+        </h2><p class="starter-copy">
+          Sie müssen nicht Ihre gesamte IT neu aufstellen. Wir beginnen dort, wo
+          Unklarheit gerade Aufwand verursacht, und vereinbaren eine gezielte
+          Bestandsaufnahme.
+        </p><a
+          class="action action-lime"
+          href="/contact?thema=overview"
+          data-consultation="assessment"
+          >Einstieg besprechen <Icon name="tabler:arrow-up-right" /></a>
+      </div>
+      <div class="starter-deliverables">
+        <h3>Das Ergebnis der Bestandsaufnahme</h3><ol>
+          <li>
+            <strong>Ein gemeinsames Bild</strong><p>
+              Welche Konfigurationen und Abhängigkeiten sind relevant?
+            </p>
+          </li><li>
+            <strong>Eine klare Priorität</strong><p>
+              Welche Lücken verursachen den größten Aufwand oder das größte
+              Risiko?
+            </p>
+          </li><li>
+            <strong>Ein konkreter nächster Schritt</strong><p>
+              Welcher Pilot ist sinnvoll, und woran messen wir das Ergebnis?
+            </p>
+          </li>
+        </ol><p class="starter-note">
+          Umfang und Vergütung vereinbaren wir vor Beginn. Das Erstgespräch
+          verpflichtet Sie zu keinem Auftrag.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <Content isAfterContent items={services.blocks[3].items} image={services.blocks[3].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[3].contentTitle}</h3>
-      {services.blocks[3].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
+  <section class="section" id="vorgehen">
+    <div class="site-container">
+      <div class="section-heading">
+        <p class="eyebrow">So arbeiten wir zusammen</p><h2>
+          Kein Großprojekt auf Verdacht.
+        </h2><p>
+          Ein klarer Umfang, gemeinsame Entscheidungen und überprüfbare
+          Ergebnisse. Schritt für Schritt.
+        </p>
+      </div>
+      <div class="process-grid">
+        {
+          steps.map((step, i) => (
+            <article class="process-step">
+              <>
+                <span class="step">SCHRITT 0{i + 1}</span>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+      <div class="advisor-band">
+        <div class="advisor-monogram" aria-hidden="true">AB</div><div>
+          <strong>Andreas Böhrnsen</strong><p>
+            Ihr Ansprechpartner · Frontrunner IO, Berlin
+          </p>
+        </div><a class="text-link" href="/about"
+          >Mehr über die Zusammenarbeit <Icon
+            name="tabler:arrow-up-right"
+          /></a>
+      </div>
+    </div>
+  </section>
 
-  <Note title={modularNote.title} description={modularNote.description} />
-
-  <Steps title={steps.title} items={steps.items} image={steps.image} />
-
-  <FAQs title={faqs.title} subtitle={faqs.subtitle} tagline={faqs.tagline} classes={{ container: 'max-w-6xl' }} items={faqs.items}>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </FAQs>
-
-  <CallToAction actions={ctaActions}>
-    <Fragment slot="title">{cta.title}</Fragment>
-    <Fragment slot="subtitle">{cta.subtitle}</Fragment>
-  </CallToAction>
+  <section class="section section-mist" id="fragen">
+    <div class="site-container faq-layout">
+      <div>
+        <p class="eyebrow">Vor dem ersten Gespräch</p><h2>
+          Gute Fragen.<br />Klare Antworten.
+        </h2>
+      </div>
+      <div class="faq-list">
+        {
+          faqs.map((faq) => (
+            <details>
+              <>
+                <summary>
+                  {faq.title}
+                  <Icon name="tabler:plus" />
+                </summary>
+                <p>{faq.text}</p>
+              </>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <ConsultationCta />
 </Layout>

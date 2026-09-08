@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components";
+const { placement = "closing" } = Astro.props;
+---
+
+<section class="closing-section">
+  <div class="site-container closing-inner">
+    <div>
+      <p class="eyebrow">Der erste Schritt</p><h2>
+        Welches System kostet<br class="desktop-break" /> Sie gerade zu viel Zeit?
+      </h2><p>
+        Besprechen wir Ihre Ausgangslage und einen sinnvollen Einstieg.<br
+          class="desktop-break"
+        /> Unverbindlich und direkt mit Andreas Böhrnsen.
+      </p>
+    </div>
+    <a class="action action-dark" href="/contact" data-consultation={placement}
+      >Erstgespräch anfragen <Icon name="tabler:arrow-up-right" /></a
+    >
+  </div>
+</section>

@@ -1,0 +1,173 @@
+---
+import "@fontsource-variable/inter";
+import "~/assets/styles/tailwind.css";
+import "~/assets/styles/consulting.css";
+import { Icon } from "astro-icon/components";
+import Metadata from "~/components/common/Metadata.astro";
+import Analytics from "~/components/common/Analytics.astro";
+import SiteVerification from "~/components/common/SiteVerification.astro";
+import type { MetaData } from "~/types";
+
+interface Props {
+  metadata?: MetaData;
+}
+const { metadata = {} } = Astro.props;
+const seo = {
+  description:
+    "Frontrunner IO: Beratung und Umsetzung für nachvollziehbare Konfigurationen und verlässlichen IT-Betrieb.",
+  ...metadata,
+};
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isContact = path === "/contact";
+const links = [
+  { text: "Leistungen", href: "/#leistungen" },
+  { text: "Vorgehen", href: "/#vorgehen" },
+  { text: "Über uns", href: "/about" },
+];
+---
+
+<!doctype html>
+<html lang="de" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#193d33" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <Metadata {...seo} />
+    <SiteVerification />
+    <Analytics />
+  </head>
+  <body class="consulting-site">
+    <a href="#inhalt" class="skip-link">Zum Inhalt</a>
+    <header class="site-header">
+      <div class="site-container header-inner">
+        <a class="wordmark" href="/" aria-label="Frontrunner IO – Startseite">
+          <Icon name="tabler:route" aria-hidden="true" />
+          <span>frontrunner<span class="wordmark-io"> io</span></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Hauptnavigation">
+          {
+            links.map((link) => (
+              <a
+                href={link.href}
+                aria-current={path === link.href ? "page" : undefined}
+              >
+                {link.text}
+              </a>
+            ))
+          }
+        </nav>
+        <div class="header-actions">
+          <a
+            class="language-link"
+            href={path === "/" ? "/en" : "/en" + path}
+            lang="en"
+            aria-label="English version">EN</a
+          >
+          <a
+            class="action action-dark header-cta"
+            href="/contact"
+            data-consultation="header"
+            >Erstgespräch anfragen <Icon name="tabler:arrow-up-right" /></a
+          >
+        </div>
+        <details class="mobile-navigation">
+          <summary aria-label="Menü öffnen oder schließen"
+            ><Icon name="tabler:menu-2" /><Icon name="tabler:x" /></summary
+          >
+          <nav aria-label="Mobile Navigation">
+            {
+              links.map((link) => (
+                <a href={link.href}>
+                  {link.text}
+                  <Icon name="tabler:arrow-up-right" />
+                </a>
+              ))
+            }
+            <a href="/contact"
+              >Erstgespräch anfragen<Icon name="tabler:arrow-up-right" /></a
+            >
+            <a href={path === "/" ? "/en" : "/en" + path} lang="en"
+              >English<Icon name="tabler:language" /></a
+            >
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="inhalt"><slot /></main>
+    <footer class="site-footer">
+      <div class="site-container">
+        <div class="footer-top">
+          <div>
+            <a class="wordmark" href="/"
+              ><Icon name="tabler:route" /><span
+                >frontrunner<span class="wordmark-io"> io</span></span
+              ></a
+            >
+            <p>Konfigurationen verstehen.<br />Änderungen beherrschen.</p>
+          </div>
+          <div>
+            <p class="footer-label">Beratung & Umsetzung</p><a
+              href="/#leistungen">Leistungen</a
+            ><a href="/#vorgehen">Zusammenarbeit</a><a href="/about"
+              >Über Frontrunner IO</a>
+          </div>
+          <div>
+            <p class="footer-label">Direkt ins Gespräch</p><a
+              href="mailto:info@frontrunner.io"
+              data-contact-method="email">info@frontrunner.io</a
+            ><a href="tel:+491606220730" data-contact-method="phone"
+              >+49 160 6220730</a
+            ><a href="https://www.linkedin.com/in/andreasboehrnsen/"
+              >Andreas Böhrnsen auf LinkedIn <Icon
+                name="tabler:arrow-up-right"
+              /></a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span>© {new Date().getFullYear()} Frontrunner IO · Berlin</span>
+          <div>
+            <a href="/imprint">Impressum</a><a href="/privacy">Datenschutz</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    {
+      !isContact && (
+        <div class="mobile-contact">
+          <a
+            class="action action-dark"
+            href="/contact"
+            data-consultation="mobile"
+          >
+            Erstgespräch anfragen <Icon name="tabler:arrow-up-right" />
+          </a>
+        </div>
+      )
+    }
+    <script>
+      import { track } from "@vercel/analytics";
+      document.addEventListener("click", (event) => {
+        const link =
+          event.target instanceof Element ? event.target.closest("a") : null;
+        if (!link) return;
+        if (link.dataset.consultation) {
+          track("consultation_cta_click", {
+            placement: link.dataset.consultation,
+          });
+        }
+        if (link.dataset.contactMethod) {
+          track("contact_method_click", { method: link.dataset.contactMethod });
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        const menu =
+          document.querySelector<HTMLDetailsElement>(".mobile-navigation");
+        if (event.key === "Escape" && menu?.open) {
+          menu.open = false;
+          menu.querySelector("summary")?.focus();
+        }
+      });
+    </script>
+  </body>
+</html>

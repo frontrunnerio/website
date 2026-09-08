@@ -1,53 +1,216 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-
+import Layout from "~/layouts/PageLayout.astro";
+import { Icon } from "astro-icon/components";
+import { inquiryTopics, buildInquiry, inquiryMailto } from "~/utils/inquiry";
 const metadata = {
-  title: 'Kontakt',
-  description: 'Sprechen Sie uns an — wir melden uns innerhalb eines Werktages.',
+  title: "Erstgespräch anfragen | Frontrunner IO",
+  ignoreTitleTemplate: true,
+  description:
+    "Besprechen Sie Ihre IT-Herausforderung direkt mit Andreas Böhrnsen. Unverbindlich, ohne Systemzugriff und ohne aufwendige Vorbereitung.",
 };
-
-const hero = {
-  tagline: 'Kontakt',
-  title: 'Sprechen Sie uns an.',
-};
-
-const form = {
-  title: 'Schreiben Sie uns eine Nachricht.',
-  subtitle: 'Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen.',
-  inputs: [
-    { type: 'text' as const, name: 'name', label: 'Name' },
-    { type: 'email' as const, name: 'email', label: 'E-Mail' },
-  ],
-  textareaLabel: 'Ihre Nachricht',
-  disclaimer: 'Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.',
-  description: 'Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen.',
-};
-
-const direct = {
-  title: 'Direkt Kontakt aufnehmen',
-  items: [
-    { title: 'E-Mail', description: 'info@frontrunner.io', icon: 'tabler:mail' },
-    { title: 'Telefon', description: '+49 (0)160 6220730', icon: 'tabler:headset' },
-    { title: 'Standort', description: 'Seychellenring 42, 13587 Berlin, Deutschland', icon: 'tabler:map-pin' },
-  ],
-};
+const initialInquiry = buildInquiry("overview", "");
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline={hero.tagline} title={hero.title} />
-
-  <ContactUs
-    id="form"
-    title={form.title}
-    subtitle={form.subtitle}
-    inputs={form.inputs}
-    textarea={{ label: form.textareaLabel }}
-    disclaimer={{ label: form.disclaimer }}
-    description={form.description}
-  />
-
-  <Features2 title={direct.title} items={direct.items} />
+  <section class="subpage-hero site-container">
+    <p class="eyebrow">Ihr unverbindliches Erstgespräch</p><h1>
+      Wo verliert Ihr Team<br />gerade Zeit?
+    </h1><p class="lead">
+      Schildern Sie uns kurz Ihre Situation. Wir besprechen, wo der größte
+      Handlungsbedarf liegt und ob wir Sie sinnvoll unterstützen können.
+    </p>
+    <a
+      class="action action-dark"
+      style="margin-top:24px"
+      href={inquiryMailto(initialInquiry)}
+      data-direct-inquiry
+      data-contact-method="email"
+      >Erstgespräch per E-Mail <Icon name="tabler:arrow-up-right" /></a
+    >
+    <p class="field-hint">
+      Öffnet Ihr E-Mail-Programm. Alternativ: <a
+        class="contact-jump"
+        href="#anfrage">Anfrage unten konkretisieren</a
+      >.
+    </p>
+  </section>
+  <div class="site-container contact-layout">
+    <section class="contact-intro" aria-labelledby="conversation-title">
+      <h2 id="conversation-title">Darüber sprechen wir.</h2>
+      <ul class="outcome-list">
+        <li>
+          <Icon name="tabler:check" /><div>
+            <strong>Ihre konkrete Herausforderung</strong><span
+              >Welche Systeme oder Abläufe verursachen Aufwand?</span>
+          </div>
+        </li>
+        <li>
+          <Icon name="tabler:check" /><div>
+            <strong>Das gewünschte Ergebnis</strong><span
+              >Was soll für Ihr Team nach einer Zusammenarbeit besser
+              funktionieren?</span>
+          </div>
+        </li>
+        <li>
+          <Icon name="tabler:check" /><div>
+            <strong>Ein passender erster Schritt</strong><span
+              >Ob Bestandsaufnahme oder gezielte Umsetzung: Wir klären einen
+              sinnvollen Einstieg.</span>
+          </div>
+        </li>
+      </ul>
+      <div class="contact-person">
+        <strong>Andreas Böhrnsen</strong><p>
+          Ihr direkter Ansprechpartner · Frontrunner IO
+        </p>
+        <div class="direct-contact">
+          <a href="mailto:info@frontrunner.io" data-contact-method="email"
+            ><Icon name="tabler:mail" />info@frontrunner.io</a
+          ><a href="tel:+491606220730" data-contact-method="phone"
+            ><Icon name="tabler:phone" />+49 160 6220730</a>
+        </div>
+        <p>Wir melden uns in der Regel innerhalb eines Werktages.</p>
+      </div>
+      <p class="privacy-note">
+        Keine Präsentation nötig. Kein Systemzugriff zum Einstieg.<br />Eine
+        Anfrage verpflichtet Sie zu keinem Auftrag.
+      </p>
+    </section>
+    <section aria-labelledby="inquiry-title">
+      <div class="inquiry-panel" id="anfrage" data-inquiry>
+        <h2 id="inquiry-title">Lassen Sie uns ins Gespräch kommen.</h2>
+        <p>
+          Ein paar Sätze reichen. Sie senden Ihre Anfrage über Ihr eigenes
+          E-Mail-Programm.
+        </p>
+        <fieldset>
+          <legend>Was beschäftigt Sie am meisten?</legend><div
+            class="topic-options"
+          >
+            {
+              Object.entries(inquiryTopics).map(([value, label]) => (
+                <label>
+                  <input
+                    type="radio"
+                    name="topic"
+                    value={value}
+                    checked={value === "overview"}
+                  />
+                  {label}
+                </label>
+              ))
+            }
+          </div>
+        </fieldset>
+        <label for="situation"
+          >Ihre Situation <span class="optional">(optional)</span></label
+        >
+        <textarea
+          id="situation"
+          rows={4}
+          maxlength={600}
+          placeholder="Zum Beispiel: Unsere Test- und Produktionsumgebung unterscheiden sich und wir wissen nicht genau, warum."
+          aria-describedby="situation-hint"></textarea>
+        <p class="field-hint" id="situation-hint">
+          Bitte keine Passwörter, Zugangsdaten oder vertraulichen Systemdetails.
+        </p>
+        <a
+          class="action action-dark"
+          href={inquiryMailto(initialInquiry)}
+          data-inquiry-email
+          >E-Mail-Anfrage öffnen <Icon name="tabler:arrow-up-right" /></a
+        >
+        <p class="mail-note">
+          Öffnet einen E-Mail-Entwurf an info@frontrunner.io. Sie prüfen und
+          versenden ihn selbst.
+        </p>
+        <button class="copy-inquiry" type="button" data-inquiry-copy hidden
+          ><Icon name="tabler:copy" />Anfragetext kopieren</button
+        >
+        <p
+          class="contact-status"
+          role="status"
+          aria-live="polite"
+          data-inquiry-status
+        >
+        </p>
+        <noscript
+          ><p class="field-hint">
+            Für individuelle Angaben schreiben Sie direkt an
+            info@frontrunner.io. Der E-Mail-Link öffnet eine allgemeine Anfrage.
+          </p></noscript
+        >
+      </div>
+      <p class="privacy-note">
+        Ihre Eingaben werden nicht als Formular übertragen. Informationen zur
+        Kontaktaufnahme finden Sie in unserer <a href="/privacy"
+          >Datenschutzerklärung</a
+        >.
+      </p>
+    </section>
+  </div>
+  <script>
+    import {
+      inquiryTopics,
+      buildInquiry,
+      inquiryMailto,
+      type InquiryTopic,
+    } from "~/utils/inquiry";
+    import { track } from "@vercel/analytics";
+    const panel = document.querySelector<HTMLElement>("[data-inquiry]");
+    const emailLink = document.querySelector<HTMLAnchorElement>(
+      "[data-inquiry-email]",
+    );
+    const situation = document.querySelector<HTMLTextAreaElement>("#situation");
+    const directLink = document.querySelector<HTMLAnchorElement>(
+      "[data-direct-inquiry]",
+    );
+    const copyButton = document.querySelector<HTMLButtonElement>(
+      "[data-inquiry-copy]",
+    );
+    const status = document.querySelector<HTMLElement>("[data-inquiry-status]");
+    if (panel && emailLink && situation && copyButton && status) {
+      const requestedTopic = new URLSearchParams(location.search).get("thema");
+      if (requestedTopic && Object.hasOwn(inquiryTopics, requestedTopic)) {
+        const radio = panel.querySelector<HTMLInputElement>(
+          'input[value="' + requestedTopic + '"]',
+        );
+        if (radio) radio.checked = true;
+      }
+      const getTopic = () =>
+        (panel.querySelector<HTMLInputElement>("input:checked")?.value ||
+          "overview") as InquiryTopic;
+      const update = () => {
+        emailLink.href = inquiryMailto(
+          buildInquiry(getTopic(), situation.value),
+        );
+        if (directLink) directLink.href = emailLink.href;
+      };
+      panel.addEventListener("input", update);
+      update();
+      emailLink.addEventListener("click", () => {
+        track("consultation_email_open", { topic: getTopic() });
+        status.textContent =
+          "Bitte prüfen und versenden Sie den Entwurf in Ihrem E-Mail-Programm. Es wurde hier keine Nachricht versendet.";
+      });
+      copyButton.hidden = !navigator.clipboard;
+      copyButton.addEventListener("click", async () => {
+        const inquiry = buildInquiry(getTopic(), situation.value);
+        try {
+          await navigator.clipboard.writeText(
+            "An: info@frontrunner.io\nBetreff: " +
+              inquiry.subject +
+              "\n\n" +
+              inquiry.body,
+          );
+          status.textContent =
+            "Anfrage kopiert. Sie können den Text jetzt in Ihre E-Mail einfügen.";
+          track("consultation_copy", { topic: getTopic() });
+        } catch {
+          status.textContent =
+            "Kopieren ist nicht möglich. Nutzen Sie den E-Mail-Link oder schreiben Sie direkt an info@frontrunner.io.";
+        }
+      });
+    }
+  </script>
 </Layout>
