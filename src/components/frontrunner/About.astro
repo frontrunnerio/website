@@ -11,7 +11,7 @@ const principles = en
       ],
       [
         "Make results verifiable",
-        "We agree on what improvement looks like: a deployment without undocumented steps, visible configuration differences or a tested recovery procedure.",
+        "He agrees with your team on what improvement looks like: a deployment without undocumented steps, visible configuration differences or a tested recovery procedure.",
       ],
       [
         "Keep knowledge in your team",
@@ -25,106 +25,78 @@ const principles = en
       ],
       [
         "Ergebnisse überprüfbar machen",
-        "Wir vereinbaren, woran eine Verbesserung erkennbar ist: eine Bereitstellung ohne undokumentierte Schritte, sichtbare Konfigurationsabweichungen oder eine erprobte Wiederherstellung.",
+        "Er vereinbart mit Ihrem Team, woran eine Verbesserung erkennbar ist: eine Bereitstellung ohne undokumentierte Schritte, sichtbare Konfigurationsabweichungen oder eine erprobte Wiederherstellung.",
       ],
       [
         "Wissen im Team verfügbar machen",
         "Verständliche Konfigurationen, Dokumentation und gemeinsame Umsetzung helfen Ihrem Team, das Ergebnis eigenständig weiterzuführen.",
       ],
     ];
+
+import Hero from "~/components/widgets/Hero.astro";
+import Content from "~/components/widgets/Content.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
 ---
 
 <Layout
   metadata={{
     title: en
-      ? "Andreas Boehrnsen — experience and approach"
-      : "Andreas Boehrnsen — Erfahrung und Arbeitsweise",
+      ? "Andreas Böhrnsen — experience and approach"
+      : "Andreas Böhrnsen — Erfahrung und Arbeitsweise",
     description: en
-      ? "Senior DevOps and DevSecOps specialist with over 20 years in IT. Experience in CI/CD, GitLab, Kubernetes, Terraform and large regulated environments."
-      : "Senior DevOps- und DevSecOps-Spezialist mit mehr als 20 Jahren IT-Erfahrung. CI/CD, GitLab, Kubernetes, Terraform und langjährige Arbeit in regulierten Umgebungen.",
+      ? "Senior DevOps and DevSecOps specialist with over 20 years in IT."
+      : "Senior DevOps- und DevSecOps-Spezialist mit mehr als 20 Jahren IT-Erfahrung.",
   }}
 >
-  <section class="fr-wrap fr-page-hero">
-    <p class="fr-eyebrow">{en ? "About me" : "Über mich"}</p><h1>
-      {
-        en
-          ? "Technical depth. Personal responsibility."
-          : "Technische Tiefe. Persönliche Verantwortung."
-      }
-    </h1><p class="fr-lead">
-      {
-        en
-          ? "I am Andreas Boehrnsen. I help teams make changes to applications and infrastructure more reliable, from understanding the current process to implementation and handover."
-          : "Ich bin Andreas Boehrnsen. Ich unterstütze Teams dabei, Änderungen an Anwendungen und Infrastruktur verlässlicher zu machen, vom Verständnis des heutigen Ablaufs bis zur Umsetzung und Übergabe."
-      }
-    </p>
-  </section>
-  <section class="fr-section">
-    <div class="fr-wrap fr-person">
-      <div class="fr-experience">
-        <span class="fr-years">20+</span><p>
-          {en ? "years of IT experience" : "Jahre IT-Erfahrung"}
-        </p><hr /><small>Andreas Boehrnsen</small><small
-          >Senior DevOps / DevSecOps</small
-        ><small>Berlin</small>
-      </div><div class="fr-person-copy">
-        <p class="fr-eyebrow">{en ? "My background" : "Mein Hintergrund"}</p><h2
-        >
-          {
-            en
-              ? "Automation, infrastructure and software delivery."
-              : "Automatisierung, Infrastruktur und Softwareauslieferung."
-          }
-        </h2><p>
-          {
-            en
-              ? "My strongest areas are CI/CD, GitLab, Kubernetes, Terraform, cloud-native infrastructure and DevSecOps. I bring this experience to processes that need to be repeatable, understandable and maintainable."
-              : "Meine stärksten fachlichen Schwerpunkte liegen in CI/CD, GitLab, Kubernetes, Terraform, Cloud-Infrastruktur und DevSecOps. Diese Erfahrung bringe ich in Abläufe ein, die wiederholbar, nachvollziehbar und wartbar sein müssen."
-          }
-        </p><p>
-          {
-            en
-              ? "I have worked for years in large regulated environments. Security, clear responsibilities and evidence of what changed are therefore part of how I approach implementation."
-              : "Ich habe über Jahre in großen regulierten Umgebungen gearbeitet. Sicherheit, klare Verantwortlichkeiten und Nachweise darüber, was geändert wurde, gehören deshalb zu meinem Verständnis technischer Umsetzung."
-          }
-        </p><p>
-          {
-            en
-              ? "At Frontrunner, you work directly with me. I contribute to the technical implementation and work through the procedures with your team."
-              : "Bei Frontrunner arbeiten Sie direkt mit mir. Ich wirke an der technischen Umsetzung mit und gehe die Verfahren gemeinsam mit Ihrem Team durch."
-          }
-        </p><a
-          class="fr-text-link"
-          href="https://www.linkedin.com/in/andreasboehrnsen/"
-          >{en ? "My profile on LinkedIn" : "Mein Profil auf LinkedIn"} ↗</a
-        >
-      </div>
-    </div>
-  </section>
-  <section class="fr-section">
-    <div class="fr-wrap fr-faq">
-      <div>
-        <p class="fr-eyebrow">{en ? "My approach" : "Meine Arbeitsweise"}</p><h2
-        >
-          {
-            en
-              ? "What shapes our work together."
-              : "Worauf es in der Zusammenarbeit ankommt."
-          }
-        </h2>
-      </div><div class="fr-faq-list">
+  <Hero
+    tagline={en ? "About Frontrunner IO" : "Über Frontrunner IO"}
+    title={en ? "Andreas Böhrnsen" : "Andreas Böhrnsen"}
+    subtitle={en
+      ? "Andreas Böhrnsen is the specialist behind Frontrunner IO. He helps teams make changes to applications and infrastructure more reliable, from analysis to implementation and handover."
+      : "Andreas Böhrnsen ist der Spezialist hinter Frontrunner IO. Er unterstützt Teams dabei, Änderungen an Anwendungen und Infrastruktur verlässlicher zu machen, von der Analyse bis zur Umsetzung und Übergabe."}
+  />
+  <Content
+    title={en
+      ? "Over 20 years of IT experience"
+      : "Mehr als 20 Jahre IT-Erfahrung"}
+    image={{
+      src: "~/assets/images/service-coaching.jpg",
+      alt: en
+        ? "Illustration of sharing technical knowledge"
+        : "Illustration zur Weitergabe technischen Wissens",
+    }}
+    callToAction={{
+      text: en ? "His profile on LinkedIn" : "Sein Profil auf LinkedIn",
+      href: "https://www.linkedin.com/in/andreasboehrnsen/",
+    }}
+  >
+    <Fragment slot="content"
+      ><p class="mb-5">
         {
-          principles.map(([title, text]) => (
-            <article>
-              <>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </>
-            </article>
-          ))
+          en
+            ? "As a senior DevOps and DevSecOps specialist, his strongest areas are CI/CD, GitLab, Kubernetes, Terraform and cloud infrastructure. He applies this experience to processes that need to be repeatable, understandable and maintainable."
+            : "Seine fachlichen Schwerpunkte als Senior DevOps- und DevSecOps-Spezialist liegen in CI/CD, GitLab, Kubernetes, Terraform und Cloud-Infrastruktur. Diese Erfahrung bringt er in Abläufe ein, die wiederholbar, nachvollziehbar und wartbar sein müssen."
         }
-      </div>
-    </div>
-  </section>
+      </p><p class="mb-5">
+        {
+          en
+            ? "He has worked for years in large regulated environments. Security, clear responsibilities and evidence of what changed are therefore part of his approach to technical implementation."
+            : "Er hat über Jahre in großen regulierten Umgebungen gearbeitet. Sicherheit, klare Verantwortlichkeiten und Nachweise darüber, was geändert wurde, gehören deshalb zu seinem Verständnis technischer Umsetzung."
+        }
+      </p><p>
+        {
+          en
+            ? "At Frontrunner IO, clients work directly with Andreas Böhrnsen. He contributes to the technical implementation and works through the procedures with their teams."
+            : "Bei Frontrunner IO arbeiten Kunden direkt mit Andreas Böhrnsen. Er wirkt an der technischen Umsetzung mit und geht die Verfahren gemeinsam mit den Teams durch."
+        }
+      </p></Fragment
+    >
+  </Content>
+  <Steps2
+    title={en
+      ? "His approach to working with your team."
+      : "Worauf es in der Zusammenarbeit ankommt."}
+    items={principles.map(([title, description]) => ({ title, description }))}
+  />
   <ContactCTA />
 </Layout>

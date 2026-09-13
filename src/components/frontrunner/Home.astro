@@ -91,7 +91,7 @@ const steps = en
       ],
       [
         "Improve a defined workflow",
-        "I implement the agreed measures with your team. We verify the procedure in a suitable environment and prepare it for production.",
+        "Frontrunner IO implements the agreed measures with your team. We verify the procedure in a suitable environment and prepare it for production.",
       ],
       [
         "Transfer knowledge and ownership",
@@ -109,7 +109,7 @@ const steps = en
       ],
       [
         "Einen abgegrenzten Ablauf verbessern",
-        "Ich setze die vereinbarten Maßnahmen mit Ihrem Team um. Wir prüfen das Verfahren in einem geeigneten Rahmen und bereiten die Übernahme in den Betrieb vor.",
+        "Frontrunner IO setzt die vereinbarten Maßnahmen mit Ihrem Team um. Wir prüfen das Verfahren in einem geeigneten Rahmen und bereiten die Übernahme in den Betrieb vor.",
       ],
       [
         "Wissen und Verantwortung übergeben",
@@ -153,385 +153,167 @@ const faqs = en
         "Wir klären mit den Verantwortlichen, welche Prüfungen, Berechtigungen, Freigaben und Aufzeichnungen benötigt werden. Diese Anforderungen fließen in die technische Umsetzung ein.",
       ],
     ];
-const flow = en
-  ? [
-      ["Describe", "Record the intended change"],
-      ["Check", "Validate before execution"],
-      ["Approve", "Make responsibility clear"],
-      ["Execute", "Follow a defined procedure"],
-      ["Verify", "Check and record the result"],
-    ]
-  : [
-      ["Beschreiben", "Den gewünschten Zustand festhalten"],
-      ["Prüfen", "Fehler vor der Umsetzung erkennen"],
-      ["Freigeben", "Verantwortung nachvollziehbar machen"],
-      ["Ausführen", "Nach einem definierten Verfahren"],
-      ["Kontrollieren", "Ergebnis prüfen und dokumentieren"],
-    ];
+
+const asItems = (rows: string[][]) =>
+  rows.map(([title, description]) => ({ title, description }));
+
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Note from "~/components/widgets/Note.astro";
+import Features from "~/components/widgets/Features.astro";
+import Content from "~/components/widgets/Content.astro";
+import Steps from "~/components/widgets/Steps.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
 ---
 
 <Layout
   metadata={{
     title: en
-      ? "Change with confidence — Frontrunner"
-      : "Verlässliche Änderungen an Anwendungen und Infrastruktur — Frontrunner",
+      ? "Change with confidence — Frontrunner IO"
+      : "Verlässliche Änderungen an Anwendungen und Infrastruktur — Frontrunner IO",
     ignoreTitleTemplate: true,
     description: en
-      ? "Make changes to applications and infrastructure predictable, reproducible and traceable. Personal consulting and implementation with over 20 years of IT experience."
-      : "Änderungen an Anwendungen und Infrastruktur planbar, reproduzierbar und nachvollziehbar machen. Persönliche Beratung und Umsetzung mit mehr als 20 Jahren IT-Erfahrung.",
+      ? "Predictable, reproducible and traceable changes to applications and infrastructure."
+      : "Änderungen an Anwendungen und Infrastruktur planbar, reproduzierbar und nachvollziehbar machen. Beratung und Umsetzung mit mehr als 20 Jahren IT-Erfahrung.",
   }}
 >
-  <section class="fr-wrap fr-hero">
-    <div>
-      <p class="fr-eyebrow">
-        {en ? "Applications & infrastructure" : "Anwendungen & Infrastruktur"}
-      </p>
-      <h1>
-        {
-          en ? (
-            <>
-              Change with
-              <>
-                <br />
-                <em>confidence.</em>
-              </>
-            </>
-          ) : (
-            <>
-              Änderungen,
-              <br />
-              auf die Sie sich
-              <>
-                <br />
-                <em>verlassen können.</em>
-              </>
-            </>
-          )
-        }
-      </h1>
-      <p class="fr-lead">
+  <Hero2
+    tagline={en
+      ? "Applications & infrastructure"
+      : "Anwendungen & Infrastruktur"}
+    title={en
+      ? "Change with confidence."
+      : "Änderungen, auf die Sie sich verlassen können."}
+    subtitle={en
+      ? "Frontrunner IO helps your team change applications and infrastructure with less manual work and fewer dependencies on individual people. With automated workflows, appropriate checks and traceable changes."
+      : "Frontrunner IO unterstützt Ihr Team dabei, Anwendungen und Infrastruktur mit weniger Handarbeit und weniger Abhängigkeit von Einzelpersonen zu ändern. Mit automatisierten Abläufen, passenden Prüfungen und nachvollziehbaren Änderungen."}
+    actions={[
+      {
+        text: en ? "Request an initial conversation" : "Erstgespräch anfragen",
+        href: localizedPath(lang, "/contact"),
+        variant: "primary",
+      },
+      {
+        text: en ? "How it works" : "Vorgehen kennenlernen",
+        href: "#vorgehen",
+      },
+    ]}
+    image={{
+      src: "~/assets/images/hero-image.jpg",
+      alt: en
+        ? "Geometric shapes on parallel tracks"
+        : "Geometrische Formen auf parallelen Bahnen",
+    }}
+  />
+  <Note
+    title={en ? "Experience:" : "Erfahrung:"}
+    description={en
+      ? "Over 20 years in IT. Years of work in regulated environments. Personal consulting and implementation."
+      : "Mehr als 20 Jahre IT-Erfahrung. Langjährige Arbeit in regulierten Umgebungen. Persönliche Beratung und Umsetzung."}
+  />
+  <Features
+    title={en
+      ? "When changes bring too much uncertainty."
+      : "Wenn Änderungen zu viel Unsicherheit mitbringen."}
+    tagline={en ? "Sound familiar?" : "Kommt Ihnen das bekannt vor?"}
+    subtitle={en
+      ? "An update is due. Which configuration is correct, who knows the details, and how do we recover if it goes wrong?"
+      : "Ein Update steht an. Welche Konfiguration gilt? Wer kennt die Besonderheiten? Und wie kommen wir zurück, wenn etwas schiefgeht?"}
+    items={asItems(situations)}
+    defaultIcon="tabler:question-mark"
+  />
+  <Content
+    title={en
+      ? "The process is known. The result can be checked."
+      : "Der Ablauf ist bekannt. Das Ergebnis lässt sich prüfen."}
+    tagline={en ? "A repeatable process" : "Ein wiederholbares Verfahren"}
+    items={asItems(method)}
+    image={{
+      src: "~/assets/images/service-assessment.jpg",
+      alt: en
+        ? "Illustration of a structured assessment"
+        : "Illustration einer strukturierten Bestandsaufnahme",
+    }}
+    isReversed
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+    <Fragment slot="content"
+      ><p>
         {
           en
-            ? "Frontrunner makes changes to applications and infrastructure predictable, reproducible and traceable. I help your team automate manual tasks, identify risks early and make knowledge accessible."
-            : "Frontrunner macht Änderungen an Anwendungen und Infrastruktur planbar, reproduzierbar und nachvollziehbar. Ich unterstütze Ihr Team dabei, manuelle Abläufe zu automatisieren, Risiken früh zu erkennen und Wissen verfügbar zu machen."
+            ? "Reliable changes start with a described target state. Checks, approvals and automation help reduce failures, narrow down causes faster and spend less time on manual work."
+            : "Verlässliche Änderungen beginnen mit einem beschriebenen Zielzustand. Prüfungen, Freigaben und Automatisierung helfen, Ausfälle zu reduzieren, Ursachen schneller einzugrenzen und wiederkehrende Arbeiten mit weniger Aufwand zu erledigen."
         }
-      </p>
-      <div class="fr-actions">
-        <a class="fr-button" href={localizedPath(lang, "/contact")}
-          >{en ? "Discuss your situation" : "Ausgangslage besprechen"}
-          <span aria-hidden="true">↗</span></a
-        ><a class="fr-text-link" href="#vorgehen"
-          >{en ? "How I work" : "Vorgehen kennenlernen"}
-          <span aria-hidden="true">↓</span></a
-        >
-      </div>
-      <p class="fr-hero-note">
-        {
-          en
-            ? "For established IT environments. In the cloud and on premises."
-            : "Für gewachsene IT-Umgebungen. In der Cloud und im eigenen Rechenzentrum."
-        }
-      </p>
-    </div>
-    <figure class="fr-flow">
-      <div class="fr-flow-top">
-        <span>{en ? "A reliable change" : "Eine verlässliche Änderung"}</span
-        ><span>{en ? "Step by step" : "Schritt für Schritt"}</span>
-      </div>
-      <ol>
-        {
-          flow.map(([title, text], i) => (
-            <li>
-              <>
-                <span class="fr-step-num" aria-hidden="true">
-                  0{i + 1}
-                </span>
-                <div>
-                  <>
-                    <strong>{title}</strong>
-                    <small>{text}</small>
-                  </>
-                </div>
-                <span class="fr-check" aria-hidden="true">
-                  ✓
-                </span>
-              </>
-            </li>
-          ))
-        }
-      </ol>
-      <figcaption>
-        <span>{en ? "Illustrative workflow" : "Schematischer Ablauf"}</span
-        ><span
-          >{
-            en ? "Prepared recovery ↶" : "Wiederherstellung vorbereitet ↶"
-          }</span
-        >
-      </figcaption>
-    </figure>
-  </section>
-  <div class="fr-wrap fr-proof">
-    <span>{en ? "Over 20 years in IT" : "Mehr als 20 Jahre IT-Erfahrung"}</span
-    ><span
-      >{
-        en
-          ? "Experience in regulated environments"
-          : "Langjährige Arbeit in regulierten Umgebungen"
-      }</span
-    ><span
-      >{
-        en
-          ? "Personal consulting & implementation"
-          : "Persönliche Beratung & Umsetzung"
-      }</span
+      </p></Fragment
+    >
+  </Content>
+  <Features
+    title={en
+      ? "For server configurations and new application versions."
+      : "Für Serverkonfigurationen und neue Anwendungsversionen."}
+    tagline={en ? "Two areas. One principle." : "Zwei Bereiche. Ein Prinzip."}
+    items={[
+      {
+        title: en
+          ? "Operate infrastructure reliably"
+          : "Infrastruktur verlässlich betreiben",
+        description: en
+          ? "Manage configurations transparently, detect unintended differences and automate recurring changes. In the cloud and on premises."
+          : "Konfigurationen nachvollziehbar verwalten, unbeabsichtigte Abweichungen erkennen und wiederkehrende Änderungen automatisieren. In der Cloud und im eigenen Rechenzentrum.",
+        icon: "tabler:server",
+      },
+      {
+        title: en
+          ? "Deliver applications with control"
+          : "Anwendungen kontrolliert ausliefern",
+        description: en
+          ? "Automate checks and delivery, and link each deployed version to its changes. For existing applications and new releases."
+          : "Prüfungen und Auslieferung automatisieren und jede eingesetzte Version ihren Änderungen zuordnen. Für bestehende Anwendungen und neue Releases.",
+        icon: "tabler:code",
+      },
+    ]}
+  />
+  <div class="text-center pb-12">
+    <a class="btn" href={services}
+      >{en ? "Explore the services" : "Leistungen im Detail ansehen"}</a
     >
   </div>
-  <section class="fr-section">
-    <div class="fr-wrap">
-      <div class="fr-section-head">
-        <div>
-          <p class="fr-eyebrow">
-            {en ? "Sound familiar?" : "Kommt Ihnen das bekannt vor?"}
-          </p><h2>
-            {
-              en
-                ? "When changes bring too much uncertainty."
-                : "Wenn Änderungen zu viel Unsicherheit mitbringen."
-            }
-          </h2>
-        </div><p>
-          {
-            en
-              ? "An update is due. Work begins with questions: which configuration is correct, who knows the details, and how do we recover if it goes wrong?"
-              : "Ein Update steht an. Die Arbeit beginnt mit Rückfragen: Welche Konfiguration gilt? Wer kennt die Besonderheiten? Und wie kommen wir zurück, wenn etwas schiefgeht?"
-          }
-        </p>
-      </div>
-      <div class="fr-situations">
-        {
-          situations.map(([title, text], i) => (
-            <article class="fr-situation">
-              <>
-                <span class="fr-index" aria-hidden="true">
-                  0{i + 1}
-                </span>
-                <div>
-                  <>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </>
-                </div>
-              </>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-  <section class="fr-section fr-tinted">
-    <div class="fr-wrap">
-      <div class="fr-section-head">
-        <div>
-          <p class="fr-eyebrow">
-            {
-              en
-                ? "From uncertainty to a defined process"
-                : "Von Unsicherheit zu einem klaren Ablauf"
-            }
-          </p><h2>
-            {
-              en
-                ? "The process is known. The result can be checked."
-                : "Der Ablauf ist bekannt. Das Ergebnis lässt sich prüfen."
-            }
-          </h2>
-        </div><p>
-          {
-            en
-              ? "Reliable changes start with a described target state. Checks, approvals and automation turn individual steps into a repeatable process."
-              : "Verlässliche Änderungen beginnen mit einem beschriebenen Zielzustand. Prüfungen, Freigaben und Automatisierung machen aus einzelnen Handgriffen ein wiederholbares Verfahren."
-          }
-        </p>
-      </div>
-      <ol class="fr-method">
-        {
-          method.map(([title, text], i) => (
-            <li>
-              <>
-                <span class="fr-index" aria-hidden="true">
-                  0{i + 1}
-                </span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </>
-            </li>
-          ))
-        }
-      </ol>
-      <p class="fr-section-note">
-        {
-          en
-            ? "This helps reduce outages caused by failed changes, narrow down causes faster and spend less time on recurring manual work."
-            : "So lassen sich Ausfälle durch fehlerhafte Änderungen reduzieren, Ursachen schneller eingrenzen und wiederkehrende Arbeiten mit weniger Aufwand erledigen."
-        }
-      </p>
-    </div>
-  </section>
-  <section class="fr-section">
-    <div class="fr-wrap">
-      <p class="fr-eyebrow">
-        {en ? "Two areas. One principle." : "Zwei Bereiche. Ein Prinzip."}
-      </p><h2>
-        {
-          en
-            ? "For server configurations and new application versions."
-            : "Für Serverkonfigurationen und neue Anwendungsversionen."
-        }
-      </h2>
-      <div class="fr-pair">
-        <article>
-          <span class="fr-index"
-            >01 / {en ? "INFRASTRUCTURE" : "INFRASTRUKTUR"}</span
-          ><h3>
-            {
-              en
-                ? "Operate infrastructure reliably"
-                : "Infrastruktur verlässlich betreiben"
-            }
-          </h3><p>
-            {
-              en
-                ? "Servers, access controls and system settings should match a defined state. I help you manage configurations transparently, detect unintended differences and automate recurring changes."
-                : "Server, Zugänge und Systemeinstellungen sollen einem definierten Zustand entsprechen. Ich unterstütze Sie dabei, Konfigurationen nachvollziehbar zu verwalten, unbeabsichtigte Abweichungen zu erkennen und wiederkehrende Änderungen zu automatisieren."
-            }
-          </p>
-        </article><article>
-          <span class="fr-index"
-            >02 / {en ? "APPLICATIONS" : "ANWENDUNGEN"}</span
-          ><h3>
-            {
-              en
-                ? "Deliver applications with control"
-                : "Anwendungen kontrolliert ausliefern"
-            }
-          </h3><p>
-            {
-              en
-                ? "From building a version to deploying it in production, applications need a clear process. I help you automate checks and delivery, and link each deployed version to its changes."
-                : "Vom Erstellen einer Anwendungsversion bis zur Bereitstellung im Betrieb braucht es einen verständlichen Ablauf. Ich unterstütze Sie dabei, Prüfungen und Auslieferung zu automatisieren und jede eingesetzte Version ihren Änderungen zuzuordnen."
-            }
-          </p>
-        </article>
-      </div>
-      <a class="fr-text-link" href={services}
-        >{en ? "Explore the services" : "Leistungen im Detail ansehen"}
-        <span aria-hidden="true">↗</span></a
-      >
-    </div>
-  </section>
-  <section class="fr-section" id="vorgehen">
-    <div class="fr-wrap fr-process">
-      <div class="fr-process-intro">
-        <p class="fr-eyebrow">
-          {en ? "How we work together" : "So arbeiten wir zusammen"}
-        </p><h2>
-          {
-            en
-              ? "Start with a change from your daily work."
-              : "Beginnen wir mit einer Änderung aus Ihrem Alltag."
-          }
-        </h2><p>
-          {
-            en
-              ? "A server update or an application release often reveals where effort and risk accumulate. We start with a clearly defined scope."
-              : "Ein Serverupdate oder eine neue Anwendungsversion zeigt häufig bereits, wo Aufwand und Risiken entstehen. Wir beginnen mit einem klar abgegrenzten Umfang."
-          }
-        </p><a class="fr-text-link" href={`${services}#bestandsaufnahme`}
-          >{en ? "About the assessment" : "Mehr zur Bestandsaufnahme"}
-          <span aria-hidden="true">↗</span></a
-        >
-      </div>
-      <ol>
-        {
-          steps.map(([title, text], i) => (
-            <li>
-              <>
-                <span class="fr-index" aria-hidden="true">
-                  0{i + 1}
-                </span>
-                <div>
-                  <>
-                    <h3>{title}</h3>
-                    <p>{text}</p>
-                  </>
-                </div>
-              </>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
-  <section class="fr-section">
-    <div class="fr-wrap fr-person">
-      <div class="fr-experience">
-        <span class="fr-years">20+</span><p>
-          {en ? "years of IT experience" : "Jahre IT-Erfahrung"}
-        </p><hr /><small
-          >{
-            en
-              ? "Automation. Infrastructure. Software delivery."
-              : "Automatisierung. Infrastruktur. Softwareauslieferung."
-          }</small
-        ><small
-          >{
-            en
-              ? "Built on years in regulated environments."
-              : "Geprägt durch langjährige Arbeit in regulierten Umgebungen."
-          }</small
-        >
-      </div>
-      <div class="fr-person-copy">
-        <p class="fr-eyebrow">
-          {en ? "Your contact" : "Ihr Ansprechpartner"}
-        </p><h2>Andreas Boehrnsen.</h2><p>
-          {
-            en
-              ? "I am a senior DevOps and DevSecOps specialist with over 20 years of IT experience. My focus is automated software delivery, GitLab, Kubernetes, Terraform and cloud infrastructure."
-              : "Ich bin Senior DevOps- und DevSecOps-Spezialist mit mehr als 20 Jahren IT-Erfahrung. Meine Schwerpunkte liegen in automatisierter Softwareauslieferung, GitLab, Kubernetes, Terraform und Cloud-Infrastruktur."
-          }
-        </p><p>
-          {
-            en
-              ? "Through years of work in large regulated environments, I know the requirements for security, approvals and traceable changes. I bring that experience to your team, from analysis through implementation and handover."
-              : "Durch meine langjährige Arbeit in großen regulierten Umgebungen kenne ich die Anforderungen an Sicherheit, Freigaben und nachvollziehbare Änderungen. Diese Erfahrung bringe ich in Ihr Team ein, von der Analyse bis zur Umsetzung und Übergabe."
-          }
-        </p><a class="fr-text-link" href={localizedPath(lang, "/about")}
-          >{en ? "More about my experience" : "Mehr über meine Erfahrung"}
-          <span aria-hidden="true">↗</span></a
-        >
-      </div>
-    </div>
-  </section>
-  <section class="fr-section">
-    <div class="fr-wrap fr-faq">
-      <div>
-        <p class="fr-eyebrow">
-          {en ? "Common questions" : "Häufige Fragen"}
-        </p><h2>{en ? "Does this fit our IT?" : "Passt das zu unserer IT?"}</h2>
-      </div><div class="fr-faq-list">
-        {
-          faqs.map(([title, text]) => (
-            <article>
-              <>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </>
-            </article>
-          ))
-        }
-      </div>
-    </div>
-  </section>
+  <Steps
+    id="vorgehen"
+    title={en
+      ? "Start with a change from your daily work."
+      : "Beginnen wir mit einer Änderung aus Ihrem Alltag."}
+    subtitle={en
+      ? "The assessment examines a defined workflow. You receive a prioritised action plan with risks, effort and a proposal for the first implementation step."
+      : "Die Bestandsaufnahme untersucht einen abgegrenzten Ablauf. Sie erhalten einen priorisierten Maßnahmenplan mit Risiken, Aufwand und einem Vorschlag für den ersten Umsetzungsschritt."}
+    items={asItems(steps)}
+    image={{
+      src: "~/assets/images/how-we-work.jpg",
+      alt: en
+        ? "Illustration of working through a structured process"
+        : "Illustration eines strukturierten gemeinsamen Vorgehens",
+    }}
+  />
+  <div class="text-center pb-12">
+    <a class="btn" href={`${services}#bestandsaufnahme`}
+      >{en ? "About the assessment" : "Mehr zur Bestandsaufnahme"}</a
+    >
+  </div>
+  <FAQs
+    title={en ? "Does this fit our IT?" : "Passt das zu unserer IT?"}
+    items={[
+      ...asItems(faqs),
+      {
+        title: en
+          ? "What happens after the first conversation?"
+          : "Wie geht es nach dem Erstgespräch weiter?",
+        description: en
+          ? "The conversation establishes your situation and whether an assessment or a specific implementation task makes sense. Scope, deliverables and fees are agreed before commissioning the work."
+          : "Im Gespräch werden Ihre Ausgangslage und ein sinnvoller Einstieg geklärt: eine Bestandsaufnahme oder die Unterstützung bei einem konkreten Ablauf. Umfang, Ergebnisse und Vergütung werden vor einer Beauftragung vereinbart.",
+      },
+    ]}
+  />
   <ContactCTA />
 </Layout>

@@ -23,7 +23,7 @@ Für die Zwecke dieser Nutzungsbedingungen gilt:
 
 - **Land** bezieht sich auf: Deutschland
 
-- **Unternehmen** (in dieser Vereinbarung als „das Unternehmen", „wir", „uns" oder „unser" bezeichnet) bezieht sich auf Frontrunner Software – Andreas Böhrnsen, Seychellenring 42, 13587 Berlin, Deutschland.
+- **Unternehmen** (in dieser Vereinbarung als „das Unternehmen", „wir", „uns" oder „unser" bezeichnet) bezieht sich auf Frontrunner IO – Andreas Böhrnsen, Seychellenring 42, 13587 Berlin, Deutschland.
 
 - **Gerät** bezeichnet jedes Gerät, das auf den Dienst zugreifen kann, wie Computer, Mobiltelefon oder Tablet.
 

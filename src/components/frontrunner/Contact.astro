@@ -3,49 +3,57 @@ import Layout from "~/layouts/PageLayout.astro";
 import { getLang } from "~/i18n/utils";
 const en = getLang(Astro) === "en";
 const email = "andreas.boehrnsen@frontrunner.io";
-const subject = en ? "Discuss our IT changes" : "Ausgangslage besprechen";
+const subject = en
+  ? "Request an initial conversation"
+  : "Erstgespräch anfragen";
 ---
 
 <Layout
   metadata={{
-    title: en ? "Contact Andreas Boehrnsen" : "Kontakt zu Andreas Boehrnsen",
+    title: en ? "Contact Andreas Böhrnsen" : "Kontakt zu Andreas Böhrnsen",
     description: en
-      ? "Discuss your application and infrastructure changes with Andreas Boehrnsen. Direct contact by email or phone."
-      : "Besprechen Sie Ihre Änderungen an Anwendungen und Infrastruktur mit Andreas Boehrnsen. Direkter Kontakt per E-Mail oder Telefon.",
+      ? "Discuss your application and infrastructure changes with Andreas Böhrnsen. Direct contact by email or phone."
+      : "Besprechen Sie Ihre Änderungen an Anwendungen und Infrastruktur mit Andreas Böhrnsen. Direkter Kontakt per E-Mail oder Telefon.",
   }}
 >
-  <section class="fr-wrap fr-contact-page">
-    <p class="fr-eyebrow">{en ? "Contact" : "Kontakt"}</p><h1>
-      {
-        en
-          ? "Let’s look at your situation."
-          : "Lassen Sie uns Ihre Ausgangslage besprechen."
-      }
+  <section class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+    <p
+      class="text-secondary dark:text-blue-200 font-bold uppercase tracking-wide mb-4"
+    >
+      {en ? "Contact" : "Kontakt"}
+    </p><h1 class="text-4xl md:text-6xl font-bold tracking-tighter max-w-4xl">
+      {en ? "Request an initial conversation." : "Erstgespräch anfragen."}
     </h1>
-    <p class="fr-lead">
+    <p class="text-xl text-muted dark:text-slate-300 mt-6 max-w-3xl">
       {
         en
-          ? "Which change takes too much time or involves too much uncertainty? Briefly describe what you want to change and where the process gets difficult. In our first conversation, we clarify your situation and a sensible next step."
-          : "Welche Änderung kostet Ihr Team zu viel Zeit oder bringt zu viel Unsicherheit mit? Beschreiben Sie kurz, was geändert werden soll und wo der Ablauf schwierig wird. Im Erstgespräch klären wir Ihre Ausgangslage und einen sinnvollen nächsten Schritt."
+          ? "Send a short email about the change that is causing difficulties. Andreas Böhrnsen will discuss your situation with you and clarify whether an assessment or support with a specific workflow would help."
+          : "Schreiben Sie kurz, welche Änderung Ihnen Schwierigkeiten bereitet. Andreas Böhrnsen bespricht mit Ihnen Ihre Ausgangslage und klärt, ob eine Bestandsaufnahme oder die Unterstützung bei einem konkreten Ablauf sinnvoll ist."
       }
     </p>
-    <div class="fr-contact-card">
+    <div class="mt-12 grid md:grid-cols-2 gap-12">
       <div>
-        <p class="fr-eyebrow">
+        <p
+          class="text-secondary dark:text-blue-200 font-bold uppercase tracking-wide mb-4"
+        >
           {en ? "Your direct contact" : "Ihr direkter Ansprechpartner"}
-        </p><h2>Andreas Boehrnsen</h2><a
-          class="fr-email"
+        </p><h2 class="text-3xl font-bold">Andreas Böhrnsen</h2><a
+          class="block text-primary dark:text-blue-300 underline underline-offset-4 my-5 break-all"
           href={`mailto:${email}`}>{email}</a
         ><p><a href="tel:+491606220730">+49 (0)160 6220730</a></p><div
-          class="fr-actions"
+          class="mt-8"
         >
           <a
-            class="fr-button"
+            class="btn-primary"
             href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
-            >{en ? "Write an email" : "E-Mail schreiben"}
-            <span aria-hidden="true">↗</span></a
+            >{
+              en
+                ? "Request a conversation by email"
+                : "Erstgespräch per E-Mail anfragen"
+            }
+            <span class="ml-2" aria-hidden="true">↗</span></a
           >
-        </div><p class="fr-hero-note">
+        </div><p class="text-sm text-muted mt-5">
           {
             en
               ? "Opens your email application. The address above can also be copied."
@@ -53,13 +61,13 @@ const subject = en ? "Discuss our IT changes" : "Ausgangslage besprechen";
           }
         </p>
       </div><div>
-        <h3>
+        <h3 class="text-2xl font-semibold">
           {
             en
-              ? "A few details are enough to start."
-              : "Für den Anfang reichen wenige Angaben."
+              ? "A few sentences are enough."
+              : "Wenige Sätze reichen für den Anfang."
           }
-        </h3><ul class="fr-list">
+        </h3><ul class="list-disc pl-5 space-y-4 text-muted mt-5">
           <li>
             {
               en
@@ -79,11 +87,11 @@ const subject = en ? "Discuss our IT changes" : "Ausgangslage besprechen";
                 : "Was möchten Sie für Ihr Team verbessern?"
             }
           </li>
-        </ul><p class="fr-note">
+        </ul><p class="text-muted mt-6">
           {
             en
-              ? "We can discuss technical details and the appropriate scope together."
-              : "Technische Einzelheiten und einen passenden Umfang können wir gemeinsam klären."
+              ? "You do not need a specification or a complete technical inventory to get in touch. Scope, deliverables and fees are agreed before commissioning any work."
+              : "Für Ihre Anfrage benötigen Sie weder ein Lastenheft noch eine vollständige technische Bestandsaufnahme. Umfang, Ergebnisse und Vergütung werden vor einer Beauftragung vereinbart."
           }
         </p>
       </div>

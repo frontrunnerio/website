@@ -8,13 +8,15 @@ export const getHeaderData = (lang: Lang) => ({
       href: lang === "en" ? "/en/services" : "/leistungen",
     },
     {
-      text: lang === "en" ? "About me" : "Über mich",
+      text: lang === "en" ? "About Frontrunner IO" : "Über Frontrunner IO",
       href: localizedPath(lang, "/about"),
     },
-    { text: t(lang, "nav.contact"), href: localizedPath(lang, "/contact") },
   ],
   actions: [
-    { text: t(lang, "nav.contact"), href: localizedPath(lang, "/contact") },
+    {
+      text: lang === "en" ? "Request a conversation" : "Erstgespräch anfragen",
+      href: localizedPath(lang, "/contact"),
+    },
   ],
 });
 
