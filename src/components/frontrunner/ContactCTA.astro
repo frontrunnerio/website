@@ -1,0 +1,22 @@
+---
+import CallToAction from "~/components/widgets/CallToAction.astro";
+import { getLang, localizedPath } from "~/i18n/utils";
+const lang = getLang(Astro);
+const en = lang === "en";
+---
+
+<CallToAction
+  title={en
+    ? "Which change should become more reliable?"
+    : "Welche Änderung soll verlässlicher werden?"}
+  subtitle={en
+    ? "Briefly describe a server, an application or a recurring task. The first conversation clarifies where the difficulties lie and what a sensible next step would be."
+    : "Beschreiben Sie kurz einen Server, eine Anwendung oder einen wiederkehrenden Ablauf. Im Erstgespräch wird geklärt, wo die Schwierigkeiten liegen und welcher nächste Schritt sinnvoll ist."}
+  actions={[
+    {
+      text: en ? "Request an initial conversation" : "Erstgespräch anfragen",
+      href: localizedPath(lang, "/contact"),
+      variant: "primary",
+    },
+  ]}
+/>

@@ -1,0 +1,319 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import ContactCTA from "./ContactCTA.astro";
+import { getLang, localizedPath } from "~/i18n/utils";
+const lang = getLang(Astro);
+const en = lang === "en";
+const services = en ? "/en/services" : "/leistungen";
+const situations = en
+  ? [
+      [
+        "“Server B has a different configuration.”",
+        "Differences have accumulated over the years. It is difficult to tell which are intentional and which appeared unnoticed.",
+      ],
+      [
+        "“Only one colleague knows how this works.”",
+        "Important steps are missing from the documentation. Changes and troubleshooting depend on who is available.",
+      ],
+      [
+        "“What exactly changed last time?”",
+        "Commands, approvals and adjustments are scattered across systems. During an incident, the sequence has to be reconstructed first.",
+      ],
+      [
+        "“Please don’t deploy on Friday.”",
+        "Without reliable checks and a prepared recovery procedure, a routine change becomes difficult to predict.",
+      ],
+    ]
+  : [
+      [
+        "„Auf Server B sieht die Konfiguration anders aus.“",
+        "Über Jahre haben sich Unterschiede angesammelt. Welche davon notwendig sind und welche unbeabsichtigt entstanden sind, lässt sich nur schwer erkennen.",
+      ],
+      [
+        "„Das weiß nur ein Kollege.“",
+        "Wichtige Schritte stehen in keiner Anleitung. Änderungen und Fehlersuche hängen davon ab, wer gerade verfügbar ist.",
+      ],
+      [
+        "„Was wurde beim letzten Mal eigentlich geändert?“",
+        "Befehle, Freigaben und Anpassungen sind über verschiedene Systeme verteilt. Bei einer Störung muss der Ablauf erst rekonstruiert werden.",
+      ],
+      [
+        "„Bitte nicht Freitag deployen.“",
+        "Wenn Prüfungen und Wiederherstellung nicht verlässlich vorbereitet sind, wird aus einer gewöhnlichen Änderung ein schwer kalkulierbarer Einsatz.",
+      ],
+    ];
+const method = en
+  ? [
+      [
+        "Described and versioned",
+        "Configurations and change procedures are recorded centrally. Previous versions and their differences remain traceable.",
+      ],
+      [
+        "Checked and approved",
+        "Automated checks and appropriate approvals help identify errors before a change reaches production.",
+      ],
+      [
+        "Executed consistently",
+        "Recurring steps follow a defined procedure. Manual interventions and their sources of error are reduced.",
+      ],
+      [
+        "Verified and recoverable",
+        "The result is checked after execution. A rollback or recovery procedure is prepared for the relevant system.",
+      ],
+    ]
+  : [
+      [
+        "Beschrieben und versioniert",
+        "Konfigurationen und Änderungsschritte werden zentral festgehalten. Frühere Stände und ihre Unterschiede bleiben nachvollziehbar.",
+      ],
+      [
+        "Geprüft und freigegeben",
+        "Automatisierte Prüfungen und passende Freigaben erkennen Fehler möglichst vor dem produktiven Einsatz.",
+      ],
+      [
+        "Kontrolliert ausgeführt",
+        "Wiederkehrende Schritte laufen nach einem definierten Verfahren ab. Manuelle Eingriffe und ihre Fehlerquellen werden reduziert.",
+      ],
+      [
+        "Überprüfbar und wiederherstellbar",
+        "Nach der Umsetzung wird das Ergebnis kontrolliert. Für den Fehlerfall ist eine Rückkehr oder Wiederherstellung vorbereitet.",
+      ],
+    ];
+const steps = en
+  ? [
+      [
+        "Understand the current process",
+        "We examine the systems, manual steps, dependencies and responsibilities, including what happens when a change fails.",
+      ],
+      [
+        "Prioritise improvements",
+        "You receive an action plan that weighs risk, benefit, effort and dependencies. It gives your team a practical starting point.",
+      ],
+      [
+        "Improve a defined workflow",
+        "Frontrunner IO implements the agreed measures with your team. We verify the procedure in a suitable environment and prepare it for production.",
+      ],
+      [
+        "Transfer knowledge and ownership",
+        "Documentation, understandable automation and working through the process together help your team maintain and develop it independently.",
+      ],
+    ]
+  : [
+      [
+        "Den heutigen Ablauf verstehen",
+        "Wir betrachten Systeme, manuelle Schritte, Abhängigkeiten und Zuständigkeiten. Auch der Umgang mit fehlgeschlagenen Änderungen gehört dazu.",
+      ],
+      [
+        "Verbesserungen priorisieren",
+        "Sie erhalten einen Maßnahmenplan, der Risiken, Nutzen, Aufwand und Abhängigkeiten gegenüberstellt. Daraus ergibt sich ein sinnvoller Anfang.",
+      ],
+      [
+        "Einen abgegrenzten Ablauf verbessern",
+        "Frontrunner IO setzt die vereinbarten Maßnahmen mit Ihrem Team um. Wir prüfen das Verfahren in einem geeigneten Rahmen und bereiten die Übernahme in den Betrieb vor.",
+      ],
+      [
+        "Wissen und Verantwortung übergeben",
+        "Dokumentation, verständliche Automatisierung und gemeinsame Durchführung helfen Ihrem Team, den Ablauf selbst zu betreiben und weiterzuentwickeln.",
+      ],
+    ];
+const faqs = en
+  ? [
+      [
+        "We hardly develop any software. Is this relevant?",
+        "Yes. Changes to servers, configurations and the operation of third-party applications can also benefit from traceable workflows and automation. The starting point is what your team controls and what your systems support.",
+      ],
+      [
+        "Does this work with older systems?",
+        "Your existing environment is the starting point. We identify what can be automated and where clear instructions, checks or additional safeguards are appropriate.",
+      ],
+      [
+        "Do we need to switch tools or platforms?",
+        "A switch is not a prerequisite. We look at your process and its weaknesses first, then determine whether existing tools are sufficient or an addition would help.",
+      ],
+      [
+        "How are security and evidence requirements addressed?",
+        "Together with the responsible people, we establish which checks, permissions, approvals and records are needed. These requirements shape the implementation.",
+      ],
+    ]
+  : [
+      [
+        "Wir entwickeln kaum eigene Software. Ist das trotzdem relevant?",
+        "Ja. Auch Änderungen an Servern, Konfigurationen und dem Betrieb eingekaufter Anwendungen profitieren von nachvollziehbaren Abläufen und Automatisierung. Entscheidend ist, welche Schritte Ihr Team verantwortet und welche Möglichkeiten die Systeme bieten.",
+      ],
+      [
+        "Funktioniert das auch mit älteren Systemen?",
+        "Ausgangspunkt ist Ihre bestehende Umgebung. Wir prüfen, welche Schritte sich automatisieren lassen und wo klare Anleitungen, Prüfungen oder zusätzliche Absicherungen sinnvoll sind.",
+      ],
+      [
+        "Müssen wir Werkzeuge oder Plattformen wechseln?",
+        "Ein Wechsel ist keine Voraussetzung. Zuerst betrachten wir den Ablauf und seine Schwachstellen. Daraus ergibt sich, ob vorhandene Werkzeuge ausreichen oder eine Ergänzung sinnvoll ist.",
+      ],
+      [
+        "Wie werden Sicherheits- und Nachweisanforderungen berücksichtigt?",
+        "Wir klären mit den Verantwortlichen, welche Prüfungen, Berechtigungen, Freigaben und Aufzeichnungen benötigt werden. Diese Anforderungen fließen in die technische Umsetzung ein.",
+      ],
+    ];
+
+const asItems = (rows: string[][]) =>
+  rows.map(([title, description]) => ({ title, description }));
+
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Note from "~/components/widgets/Note.astro";
+import Features from "~/components/widgets/Features.astro";
+import Content from "~/components/widgets/Content.astro";
+import Steps from "~/components/widgets/Steps.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+---
+
+<Layout
+  metadata={{
+    title: en
+      ? "Change with confidence — Frontrunner IO"
+      : "Verlässliche Änderungen an Anwendungen und Infrastruktur — Frontrunner IO",
+    ignoreTitleTemplate: true,
+    description: en
+      ? "Predictable, reproducible and traceable changes to applications and infrastructure."
+      : "Änderungen an Anwendungen und Infrastruktur planbar, reproduzierbar und nachvollziehbar machen. Beratung und Umsetzung mit mehr als 20 Jahren IT-Erfahrung.",
+  }}
+>
+  <Hero2
+    tagline={en
+      ? "Applications & infrastructure"
+      : "Anwendungen & Infrastruktur"}
+    title={en
+      ? "Change with confidence."
+      : "Änderungen, auf die Sie sich verlassen können."}
+    subtitle={en
+      ? "Frontrunner IO helps your team change applications and infrastructure with less manual work and fewer dependencies on individual people. With automated workflows, appropriate checks and traceable changes."
+      : "Frontrunner IO unterstützt Ihr Team dabei, Anwendungen und Infrastruktur mit weniger Handarbeit und weniger Abhängigkeit von Einzelpersonen zu ändern. Mit automatisierten Abläufen, passenden Prüfungen und nachvollziehbaren Änderungen."}
+    actions={[
+      {
+        text: en ? "Request an initial conversation" : "Erstgespräch anfragen",
+        href: localizedPath(lang, "/contact"),
+        variant: "primary",
+      },
+      {
+        text: en ? "How it works" : "Vorgehen kennenlernen",
+        href: "#vorgehen",
+      },
+    ]}
+    image={{
+      src: "~/assets/images/hero-image.jpg",
+      alt: en
+        ? "Geometric shapes on parallel tracks"
+        : "Geometrische Formen auf parallelen Bahnen",
+    }}
+  />
+  <Note
+    title={en ? "Experience:" : "Erfahrung:"}
+    description={en
+      ? "Over 20 years in IT. Years of work in regulated environments. Personal consulting and implementation."
+      : "Mehr als 20 Jahre IT-Erfahrung. Langjährige Arbeit in regulierten Umgebungen. Persönliche Beratung und Umsetzung."}
+  />
+  <Features
+    title={en
+      ? "When changes bring too much uncertainty."
+      : "Wenn Änderungen zu viel Unsicherheit mitbringen."}
+    tagline={en ? "Sound familiar?" : "Kommt Ihnen das bekannt vor?"}
+    subtitle={en
+      ? "An update is due. Which configuration is correct, who knows the details, and how do we recover if it goes wrong?"
+      : "Ein Update steht an. Welche Konfiguration gilt? Wer kennt die Besonderheiten? Und wie kommen wir zurück, wenn etwas schiefgeht?"}
+    items={asItems(situations)}
+    defaultIcon="tabler:question-mark"
+  />
+  <Content
+    title={en
+      ? "The process is known. The result can be checked."
+      : "Der Ablauf ist bekannt. Das Ergebnis lässt sich prüfen."}
+    tagline={en ? "A repeatable process" : "Ein wiederholbares Verfahren"}
+    items={asItems(method)}
+    image={{
+      src: "~/assets/images/service-assessment.jpg",
+      alt: en
+        ? "Illustration of a structured assessment"
+        : "Illustration einer strukturierten Bestandsaufnahme",
+    }}
+    isReversed
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+    <Fragment slot="content"
+      ><p>
+        {
+          en
+            ? "Reliable changes start with a described target state. Checks, approvals and automation help reduce failures, narrow down causes faster and spend less time on manual work."
+            : "Verlässliche Änderungen beginnen mit einem beschriebenen Zielzustand. Prüfungen, Freigaben und Automatisierung helfen, Ausfälle zu reduzieren, Ursachen schneller einzugrenzen und wiederkehrende Arbeiten mit weniger Aufwand zu erledigen."
+        }
+      </p></Fragment
+    >
+  </Content>
+  <Features
+    title={en
+      ? "For server configurations and new application versions."
+      : "Für Serverkonfigurationen und neue Anwendungsversionen."}
+    tagline={en ? "Two areas. One principle." : "Zwei Bereiche. Ein Prinzip."}
+    items={[
+      {
+        title: en
+          ? "Operate infrastructure reliably"
+          : "Infrastruktur verlässlich betreiben",
+        description: en
+          ? "Manage configurations transparently, detect unintended differences and automate recurring changes. In the cloud and on premises."
+          : "Konfigurationen nachvollziehbar verwalten, unbeabsichtigte Abweichungen erkennen und wiederkehrende Änderungen automatisieren. In der Cloud und im eigenen Rechenzentrum.",
+        icon: "tabler:server",
+      },
+      {
+        title: en
+          ? "Deliver applications with control"
+          : "Anwendungen kontrolliert ausliefern",
+        description: en
+          ? "Automate checks and delivery, and link each deployed version to its changes. For existing applications and new releases."
+          : "Prüfungen und Auslieferung automatisieren und jede eingesetzte Version ihren Änderungen zuordnen. Für bestehende Anwendungen und neue Releases.",
+        icon: "tabler:code",
+      },
+    ]}
+  />
+  <div class="text-center pb-12">
+    <a class="btn" href={services}
+      >{en ? "Explore the services" : "Leistungen im Detail ansehen"}</a
+    >
+  </div>
+  <Steps
+    id="vorgehen"
+    title={en
+      ? "Start with a change from your daily work."
+      : "Beginnen wir mit einer Änderung aus Ihrem Alltag."}
+    subtitle={en
+      ? "The assessment examines a defined workflow. You receive a prioritised action plan with risks, effort and a proposal for the first implementation step."
+      : "Die Bestandsaufnahme untersucht einen abgegrenzten Ablauf. Sie erhalten einen priorisierten Maßnahmenplan mit Risiken, Aufwand und einem Vorschlag für den ersten Umsetzungsschritt."}
+    items={asItems(steps)}
+    image={{
+      src: "~/assets/images/how-we-work.jpg",
+      alt: en
+        ? "Illustration of working through a structured process"
+        : "Illustration eines strukturierten gemeinsamen Vorgehens",
+    }}
+  />
+  <div class="text-center pb-12">
+    <a class="btn" href={`${services}#bestandsaufnahme`}
+      >{en ? "About the assessment" : "Mehr zur Bestandsaufnahme"}</a
+    >
+  </div>
+  <FAQs
+    title={en ? "Does this fit our IT?" : "Passt das zu unserer IT?"}
+    items={[
+      ...asItems(faqs),
+      {
+        title: en
+          ? "What happens after the first conversation?"
+          : "Wie geht es nach dem Erstgespräch weiter?",
+        description: en
+          ? "The conversation establishes your situation and whether an assessment or a specific implementation task makes sense. Scope, deliverables and fees are agreed before commissioning the work."
+          : "Im Gespräch werden Ihre Ausgangslage und ein sinnvoller Einstieg geklärt: eine Bestandsaufnahme oder die Unterstützung bei einem konkreten Ablauf. Umfang, Ergebnisse und Vergütung werden vor einer Beauftragung vereinbart.",
+      },
+    ]}
+  />
+  <ContactCTA />
+</Layout>

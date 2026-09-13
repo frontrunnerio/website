@@ -1,0 +1,100 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import { getLang } from "~/i18n/utils";
+const en = getLang(Astro) === "en";
+const email = "andreas.boehrnsen@frontrunner.io";
+const subject = en
+  ? "Request an initial conversation"
+  : "Erstgespräch anfragen";
+---
+
+<Layout
+  metadata={{
+    title: en ? "Contact Andreas Böhrnsen" : "Kontakt zu Andreas Böhrnsen",
+    description: en
+      ? "Discuss your application and infrastructure changes with Andreas Böhrnsen. Direct contact by email or phone."
+      : "Besprechen Sie Ihre Änderungen an Anwendungen und Infrastruktur mit Andreas Böhrnsen. Direkter Kontakt per E-Mail oder Telefon.",
+  }}
+>
+  <section class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+    <p
+      class="text-secondary dark:text-blue-200 font-bold uppercase tracking-wide mb-4"
+    >
+      {en ? "Contact" : "Kontakt"}
+    </p><h1 class="text-4xl md:text-6xl font-bold tracking-tighter max-w-4xl">
+      {en ? "Request an initial conversation." : "Erstgespräch anfragen."}
+    </h1>
+    <p class="text-xl text-muted dark:text-slate-300 mt-6 max-w-3xl">
+      {
+        en
+          ? "Send a short email about the change that is causing difficulties. Andreas Böhrnsen will discuss your situation with you and clarify whether an assessment or support with a specific workflow would help."
+          : "Schreiben Sie kurz, welche Änderung Ihnen Schwierigkeiten bereitet. Andreas Böhrnsen bespricht mit Ihnen Ihre Ausgangslage und klärt, ob eine Bestandsaufnahme oder die Unterstützung bei einem konkreten Ablauf sinnvoll ist."
+      }
+    </p>
+    <div class="mt-12 grid md:grid-cols-2 gap-12">
+      <div>
+        <p
+          class="text-secondary dark:text-blue-200 font-bold uppercase tracking-wide mb-4"
+        >
+          {en ? "Your direct contact" : "Ihr direkter Ansprechpartner"}
+        </p><h2 class="text-3xl font-bold">Andreas Böhrnsen</h2><a
+          class="block text-primary dark:text-blue-300 underline underline-offset-4 my-5 break-all"
+          href={`mailto:${email}`}>{email}</a
+        ><p><a href="tel:+491606220730">+49 (0)160 6220730</a></p><div
+          class="mt-8"
+        >
+          <a
+            class="btn-primary"
+            href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
+            >{
+              en
+                ? "Request a conversation by email"
+                : "Erstgespräch per E-Mail anfragen"
+            }
+            <span class="ml-2" aria-hidden="true">↗</span></a
+          >
+        </div><p class="text-sm text-muted mt-5">
+          {
+            en
+              ? "Opens your email application. The address above can also be copied."
+              : "Öffnet Ihr E-Mail-Programm. Sie können die Adresse oben auch kopieren."
+          }
+        </p>
+      </div><div>
+        <h3 class="text-2xl font-semibold">
+          {
+            en
+              ? "A few sentences are enough."
+              : "Wenige Sätze reichen für den Anfang."
+          }
+        </h3><ul class="list-disc pl-5 space-y-4 text-muted mt-5">
+          <li>
+            {
+              en
+                ? "Which application, server or workflow is involved?"
+                : "Um welche Anwendung, Server oder Abläufe geht es?"
+            }
+          </li><li>
+            {
+              en
+                ? "What is currently manual, unclear or error-prone?"
+                : "Was ist heute manuell, unklar oder fehleranfällig?"
+            }
+          </li><li>
+            {
+              en
+                ? "What would you like to improve for your team?"
+                : "Was möchten Sie für Ihr Team verbessern?"
+            }
+          </li>
+        </ul><p class="text-muted mt-6">
+          {
+            en
+              ? "You do not need a specification or a complete technical inventory to get in touch. Scope, deliverables and fees are agreed before commissioning any work."
+              : "Für Ihre Anfrage benötigen Sie weder ein Lastenheft noch eine vollständige technische Bestandsaufnahme. Umfang, Ergebnisse und Vergütung werden vor einer Beauftragung vereinbart."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

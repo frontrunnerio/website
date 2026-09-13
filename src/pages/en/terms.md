@@ -21,7 +21,7 @@ For the purposes of these Terms and Conditions:
 
 - **Country** refers to: Deutschland
 
-- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Frontrunner Software - Andreas Böhrnsen, Seychellenring 42, 13587 Berlin, Deutschland.
+- **Company** (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Frontrunner IO - Andreas Böhrnsen, Seychellenring 42, 13587 Berlin, Deutschland.
 
 - **Device** means any device that can access the Service such as a computer, a cellphone or a digital tablet.
 
