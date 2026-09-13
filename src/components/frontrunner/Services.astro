@@ -1,0 +1,307 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import ContactCTA from "./ContactCTA.astro";
+import { getLang, localizedPath } from "~/i18n/utils";
+const lang = getLang(Astro);
+const en = lang === "en";
+const services = en
+  ? [
+      {
+        id: "bestandsaufnahme",
+        title: "Assessment and action plan",
+        subtitle: "Understand how changes happen today.",
+        intro:
+          "When processes have evolved over years, it is often unclear which steps are necessary, where risks arise and which improvements would actually help. Together, we examine selected application and infrastructure changes, from preparation to verification.",
+        items: [
+          "Manual tasks, handovers and dependencies on individuals.",
+          "Differences between documented and actual system configuration.",
+          "Existing automation and organically grown delivery pipelines.",
+          "Permissions, credentials, security checks and approvals.",
+          "Logging, troubleshooting and recovery procedures.",
+        ],
+        result:
+          "A clear description of the workflows examined, specific weaknesses and a prioritised action plan. Recommendations identify benefit, effort, dependencies and open questions, including a proposal for the first implementation step.",
+        note: "We agree on the scope and systems before starting. The assessment can be commissioned independently.",
+        tech: "",
+      },
+      {
+        id: "infrastruktur",
+        title: "Infrastructure and configuration",
+        subtitle: "The intended state is described and verifiable.",
+        intro:
+          "Manually maintained servers develop their own peculiarities over time. New environments are difficult to reproduce, settings differ and changes have to be traced individually. I help you describe the intended state and implement recurring adjustments consistently, including intentional differences between systems.",
+        items: [
+          "Describe and version server and service configurations centrally.",
+          "Manage infrastructure as code so its setup and changes can be reviewed.",
+          "Detect unintended configuration drift and address it in a controlled way.",
+          "Check changes before execution and roll them out incrementally.",
+          "Build additional environments from defined specifications.",
+          "Document execution, exceptions and operational responsibilities.",
+        ],
+        result:
+          "Versioned configurations, a defined change process and checks against the actual state. Your team can understand which settings apply and how to change them. This reduces repeated manual work and makes unexplained differences easier to investigate.",
+        note: "",
+        tech: "Depending on the environment: configuration management with Ansible, infrastructure as code with Terraform, and Git-based review and approval workflows.",
+      },
+      {
+        id: "anwendungen",
+        title: "Applications and delivery",
+        subtitle: "A defined path for every version, through to production.",
+        intro:
+          "Delivery processes often mix automated steps, manual interventions and individual experience. A successful test does not necessarily mean deployment will work the same way. I help you build and improve automated workflows for building, checking and delivering applications.",
+        items: [
+          "Analyse, simplify and improve the reliability of existing CI/CD pipelines.",
+          "Automate application builds and packaging.",
+          "Integrate tests and security checks into delivery.",
+          "Promote an identifiable application version through test and production environments.",
+          "Manage differences between environments explicitly.",
+          "Connect approvals, deployment and result verification.",
+          "Improve logs and feedback to make failures easier to locate.",
+          "Develop existing platforms or prepare necessary migrations.",
+        ],
+        result:
+          "A documented, automated delivery process links the deployed application version to its changes and test results. Fewer manual handovers, more repeatable deployments and clearer evidence when something fails.",
+        note: "",
+        tech: "CI/CD means automated software building, testing and delivery. This is a core area of my work, particularly with GitLab. Depending on your environment, GitHub, Azure DevOps or Forgejo can also be integrated. Containers, Kubernetes and GitOps are used where they support your operational needs.",
+      },
+      {
+        id: "absicherung",
+        title: "Checks, approvals and recovery",
+        subtitle:
+          "Check before a change. Trace it afterwards. Prepare for failure.",
+        intro:
+          "An automated workflow can repeat errors, too. Appropriate controls and a prepared response to failed changes belong in the implementation. I help you connect technical checks with organisational requirements.",
+        items: [
+          "Validate configurations and changes before execution.",
+          "Integrate functional and security checks appropriate to the risk.",
+          "Implement traceable approvals and four-eyes reviews.",
+          "Separate responsibilities and permissions where required.",
+          "Provide credentials and other secrets in a controlled way.",
+          "Trace software components, dependencies and build artifact provenance.",
+          "Link changes, approvals, execution and results.",
+          "Plan and test rollback and recovery procedures.",
+        ],
+        result:
+          "For the agreed workflow, it is clear what is checked, who approves, what evidence is recorded and how failures are handled. This supports internal controls, troubleshooting and technical evidence for audits. Evidence and retention requirements are agreed with your responsible teams.",
+        note: "An earlier application version may be redeployed. Database or external-system changes often need a separate recovery procedure. Recovery is therefore assessed and tested for each workflow.",
+        tech: "",
+      },
+    ]
+  : [
+      {
+        id: "bestandsaufnahme",
+        title: "Bestandsaufnahme und Maßnahmenplan",
+        subtitle: "Verstehen, wie Änderungen heute ablaufen.",
+        intro:
+          "Wenn Abläufe über Jahre gewachsen sind, fehlt häufig der Überblick: Welche Schritte sind notwendig? Wo entstehen Risiken? Und welche Verbesserungen entlasten das Team tatsächlich? Ich untersuche mit Ihnen ausgewählte Änderungen an Anwendungen und Infrastruktur, von der Vorbereitung bis zur Kontrolle nach der Umsetzung.",
+        items: [
+          "Manuelle Tätigkeiten, Übergaben und Abhängigkeiten von einzelnen Personen.",
+          "Unterschiede zwischen dokumentiertem und tatsächlichem Systemzustand.",
+          "Bestehende Automatisierung und gewachsene Auslieferungsabläufe.",
+          "Berechtigungen, Zugangsdaten, Sicherheitsprüfungen und Freigaben.",
+          "Protokollierung, Fehleranalyse und Verfahren zur Wiederherstellung.",
+        ],
+        result:
+          "Eine nachvollziehbare Darstellung der untersuchten Abläufe, konkrete Schwachstellen und ein priorisierter Maßnahmenplan. Für die empfohlenen Schritte werden Nutzen, Aufwand, Abhängigkeiten und offene Fragen benannt. Dazu gehört ein Vorschlag für einen ersten abgegrenzten Umsetzungsschritt.",
+        note: "Umfang und betrachtete Systeme legen wir vor Beginn fest. Die Bestandsaufnahme kann eigenständig beauftragt werden.",
+        tech: "",
+      },
+      {
+        id: "infrastruktur",
+        title: "Infrastruktur und Konfiguration",
+        subtitle: "Der gewünschte Zustand ist beschrieben und überprüfbar.",
+        intro:
+          "Manuell gepflegte Server entwickeln mit der Zeit Eigenheiten. Neue Systeme lassen sich schwer nachbauen, Einstellungen unterscheiden sich und Änderungen müssen einzeln nachvollzogen werden. Ich unterstütze Sie dabei, den gewünschten Zustand Ihrer Infrastruktur zu beschreiben und wiederkehrende Anpassungen kontrolliert umzusetzen. Unterschiedliche Aufgaben einzelner Systeme werden ausdrücklich berücksichtigt.",
+        items: [
+          "Server- und Dienstkonfigurationen zentral beschreiben und versionieren.",
+          "Infrastruktur als Code verwalten, sodass Aufbau und Änderungen überprüfbar werden.",
+          "Unbeabsichtigte Konfigurationsabweichungen erkennen und kontrolliert behandeln.",
+          "Änderungen vor der Ausführung prüfen und schrittweise ausrollen.",
+          "Neue Umgebungen anhand definierter Vorgaben aufbauen.",
+          "Ausführungen, Ausnahmen und betriebliche Zuständigkeiten dokumentieren.",
+        ],
+        result:
+          "Für den vereinbarten Umfang liegen versionierte Konfigurationen, ein definierter Änderungsablauf und Prüfungen des tatsächlichen Zustands vor. Ihr Team kann nachvollziehen, welche Einstellungen gelten und wie sie geändert werden. Das reduziert wiederkehrende Handarbeit und verkürzt die Suche nach unerklärten Unterschieden.",
+        note: "",
+        tech: "Je nach Umgebung kommen Konfigurationsmanagement mit Ansible, Infrastructure as Code mit Terraform und Git-basierte Prüf- und Freigabeprozesse zum Einsatz.",
+      },
+      {
+        id: "anwendungen",
+        title: "Anwendungen und Auslieferung",
+        subtitle:
+          "Jede Version durchläuft einen definierten Weg bis in den Betrieb.",
+        intro:
+          "Gewachsene Auslieferungsabläufe bestehen häufig aus einer Mischung aus automatisierten Schritten, manuellen Eingriffen und persönlichen Erfahrungswerten. Ein erfolgreicher Test sagt dann noch wenig darüber aus, ob die Bereitstellung im Betrieb ebenso funktioniert. Ich unterstütze Sie beim Aufbau und bei der Weiterentwicklung automatisierter Abläufe für Erstellung, Prüfung und Auslieferung Ihrer Anwendungen.",
+        items: [
+          "Bestehende CI/CD-Pipelines analysieren, vereinfachen und zuverlässiger machen.",
+          "Erstellung und Paketierung von Anwendungsversionen automatisieren.",
+          "Tests und Sicherheitsprüfungen in den Ablauf integrieren.",
+          "Eine eindeutig identifizierbare Version durch Test- und Produktionsumgebungen führen.",
+          "Unterschiede zwischen Umgebungen ausdrücklich verwalten.",
+          "Freigaben, Bereitstellung und Ergebniskontrolle verbinden.",
+          "Auslieferungsfehler durch verständliche Protokolle und Rückmeldungen leichter eingrenzen.",
+          "Bestehende Plattformen weiterentwickeln oder erforderliche Migrationen vorbereiten.",
+        ],
+        result:
+          "Ein dokumentierter und automatisierter Auslieferungsablauf verbindet die eingesetzte Anwendungsversion mit ihren Änderungen und Prüfergebnissen. Manuelle Übergaben werden reduziert, Bereitstellungen wiederholbarer und Fehler leichter zuzuordnen.",
+        note: "",
+        tech: "CI/CD bezeichnet die automatisierte Erstellung, Prüfung und Auslieferung von Software. Hier liegt einer meiner fachlichen Schwerpunkte, insbesondere mit GitLab. Je nach Umgebung können auch GitHub, Azure DevOps oder Forgejo eingebunden werden. Container, Kubernetes und GitOps kommen dort zum Einsatz, wo sie Betrieb und Auslieferung sinnvoll unterstützen.",
+      },
+      {
+        id: "absicherung",
+        title: "Prüfungen, Freigaben und Wiederherstellung",
+        subtitle:
+          "Vorher prüfen. Danach nachvollziehen. Im Fehlerfall vorbereitet handeln.",
+        intro:
+          "Auch ein automatisierter Ablauf kann Fehler wiederholen. Deshalb gehören passende Kontrollen und ein vorbereitetes Vorgehen für fehlgeschlagene Änderungen zur Umsetzung. Ich unterstütze Sie dabei, technische Prüfungen und organisatorische Anforderungen miteinander zu verbinden.",
+        items: [
+          "Konfigurationen und Änderungen vor ihrer Ausführung automatisiert validieren.",
+          "Funktionsprüfungen und Sicherheitsprüfungen passend zum Risiko integrieren.",
+          "Freigaben und das Vier-Augen-Prinzip nachvollziehbar abbilden.",
+          "Zuständigkeiten und Berechtigungen trennen, wo dies erforderlich ist.",
+          "Zugangsdaten und andere Geheimnisse kontrolliert bereitstellen.",
+          "Softwarebestandteile, Abhängigkeiten und Herkunft von Build-Artefakten nachvollziehbar machen.",
+          "Änderung, Freigabe, Ausführung und Ergebnis miteinander verknüpfen.",
+          "Rückkehr zu einem vorherigen Stand und Wiederherstellung planen und erproben.",
+        ],
+        result:
+          "Für den vereinbarten Ablauf ist festgelegt, was geprüft wird, wer freigibt, welche Nachweise entstehen und wie bei Fehlern vorgegangen wird. Das unterstützt die interne Kontrolle, die Fehleranalyse und technische Nachweise für Prüfungen und Audits. Benötigte Nachweise und Aufbewahrungsregeln stimmen wir mit Ihren zuständigen Stellen ab.",
+        note: "Bei Anwendungscode kann eine frühere Version erneut bereitgestellt werden. Änderungen an Datenbanken oder externen Systemen benötigen häufig ein eigenes Wiederherstellungsverfahren. Die Rückkehrmöglichkeit wird deshalb für den jeweiligen Ablauf konkret geprüft und erprobt.",
+        tech: "",
+      },
+    ];
+---
+
+<Layout
+  metadata={{
+    title: en
+      ? "Services for reliable IT changes"
+      : "Leistungen für verlässliche IT-Änderungen",
+    description: en
+      ? "Assessment, configuration management, CI/CD, security checks and recovery. From a prioritised action plan to implementation with your team."
+      : "Bestandsaufnahme, Konfigurationsmanagement, CI/CD, Sicherheitsprüfungen und Wiederherstellung. Vom Maßnahmenplan bis zur Umsetzung mit Ihrem Team.",
+  }}
+>
+  <section class="fr-wrap fr-page-hero">
+    <p class="fr-eyebrow">{en ? "Services" : "Leistungen"}</p><h1>
+      {
+        en
+          ? "Reliable changes. From analysis to implementation."
+          : "Verlässliche Änderungen. Von der Analyse bis zur Umsetzung."
+      }
+    </h1><p class="fr-lead">
+      {
+        en
+          ? "I help your team make reproducible changes to infrastructure and applications, and verify their results. We start where uncertainty or manual work puts the greatest strain on your operations."
+          : "Ich unterstütze Ihr Team dabei, Änderungen an Infrastruktur und Anwendungen reproduzierbar durchzuführen und ihre Ergebnisse zu überprüfen. Wir beginnen dort, wo Unsicherheit oder manueller Aufwand Ihren Betrieb am stärksten belasten."
+      }
+    </p><nav
+      class="fr-anchor-nav"
+      aria-label={en ? "Service areas" : "Leistungsbereiche"}
+    >
+      {
+        services.map(({ id, title }, i) => (
+          <a href={`#${id}`}>
+            0{i + 1} / {title}
+          </a>
+        ))
+      }
+    </nav>
+  </section>
+  {
+    services.map((service, i) => (
+      <section id={service.id} class="fr-section">
+        <div class="fr-wrap fr-service">
+          <>
+            <div class="fr-service-title">
+              <>
+                <span class="fr-index">
+                  0{i + 1} /{" "}
+                  {i === 0
+                    ? en
+                      ? "START HERE"
+                      : "DER EINSTIEG"
+                    : en
+                      ? "SERVICE AREA"
+                      : "LEISTUNGSBEREICH"}
+                </span>
+                <h2>{service.title}</h2>
+              </>
+            </div>
+            <div class="fr-service-body">
+              <h3>{service.subtitle}</h3>
+              <p>{service.intro}</p>
+              <h4>
+                {i === 0
+                  ? en
+                    ? "What we examine"
+                    : "Das betrachten wir"
+                  : en
+                    ? "How I support you"
+                    : "Dabei unterstütze ich Sie"}
+              </h4>
+              <ul class="fr-list">
+                {service.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+              <div class="fr-deliverable">
+                <>
+                  <h4>{en ? "What you receive" : "Das erhalten Sie"}</h4>
+                  <p>{service.result}</p>
+                </>
+              </div>
+              {service.tech && (
+                <p class="fr-technical">
+                  <strong>
+                    {en
+                      ? "Technical implementation: "
+                      : "Technische Umsetzung: "}
+                  </strong>
+                  {service.tech}
+                </p>
+              )}
+              {service.note && <p class="fr-note">{service.note}</p>}
+              {i === 0 && (
+                <a class="fr-text-link" href={localizedPath(lang, "/contact")}>
+                  {en ? "Discuss an assessment" : "Bestandsaufnahme besprechen"}{" "}
+                  ↗
+                </a>
+              )}
+            </div>
+          </>
+        </div>
+      </section>
+    ))
+  }
+  <section class="fr-section fr-tinted">
+    <div class="fr-wrap fr-section-head">
+      <div>
+        <p class="fr-eyebrow">
+          {en ? "Working together" : "Zusammenarbeit"}
+        </p><h2>
+          {
+            en
+              ? "Implement together. Maintain within your team."
+              : "Gemeinsam umsetzen. Im eigenen Team weiterführen."
+          }
+        </h2>
+      </div><div>
+        <p>
+          {
+            en
+              ? "You can engage me for an assessment, a specific workflow improvement or technical support across several implementation steps. We agree on scope, responsibilities and success criteria before starting."
+              : "Sie können mich für eine Bestandsaufnahme, die Verbesserung eines konkreten Ablaufs oder die technische Begleitung mehrerer Umsetzungsschritte beauftragen. Zu Beginn vereinbaren wir Umfang, Verantwortliche und Erfolgskriterien."
+          }
+        </p><p class="mt-5">
+          {
+            en
+              ? "I contribute directly to implementation. Documentation, working through the process together and knowledge transfer are part of the work so your team can use and maintain the results."
+              : "Ich arbeite direkt an der technischen Umsetzung mit. Dokumentation, gemeinsame Durchführung und Wissenstransfer gehören dazu, damit Ihr Team die Ergebnisse im Alltag nutzen und weiterentwickeln kann."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+  <ContactCTA />
+</Layout>

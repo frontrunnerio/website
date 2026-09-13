@@ -1,0 +1,537 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import ContactCTA from "./ContactCTA.astro";
+import { getLang, localizedPath } from "~/i18n/utils";
+const lang = getLang(Astro);
+const en = lang === "en";
+const services = en ? "/en/services" : "/leistungen";
+const situations = en
+  ? [
+      [
+        "“Server B has a different configuration.”",
+        "Differences have accumulated over the years. It is difficult to tell which are intentional and which appeared unnoticed.",
+      ],
+      [
+        "“Only one colleague knows how this works.”",
+        "Important steps are missing from the documentation. Changes and troubleshooting depend on who is available.",
+      ],
+      [
+        "“What exactly changed last time?”",
+        "Commands, approvals and adjustments are scattered across systems. During an incident, the sequence has to be reconstructed first.",
+      ],
+      [
+        "“Please don’t deploy on Friday.”",
+        "Without reliable checks and a prepared recovery procedure, a routine change becomes difficult to predict.",
+      ],
+    ]
+  : [
+      [
+        "„Auf Server B sieht die Konfiguration anders aus.“",
+        "Über Jahre haben sich Unterschiede angesammelt. Welche davon notwendig sind und welche unbeabsichtigt entstanden sind, lässt sich nur schwer erkennen.",
+      ],
+      [
+        "„Das weiß nur ein Kollege.“",
+        "Wichtige Schritte stehen in keiner Anleitung. Änderungen und Fehlersuche hängen davon ab, wer gerade verfügbar ist.",
+      ],
+      [
+        "„Was wurde beim letzten Mal eigentlich geändert?“",
+        "Befehle, Freigaben und Anpassungen sind über verschiedene Systeme verteilt. Bei einer Störung muss der Ablauf erst rekonstruiert werden.",
+      ],
+      [
+        "„Bitte nicht Freitag deployen.“",
+        "Wenn Prüfungen und Wiederherstellung nicht verlässlich vorbereitet sind, wird aus einer gewöhnlichen Änderung ein schwer kalkulierbarer Einsatz.",
+      ],
+    ];
+const method = en
+  ? [
+      [
+        "Described and versioned",
+        "Configurations and change procedures are recorded centrally. Previous versions and their differences remain traceable.",
+      ],
+      [
+        "Checked and approved",
+        "Automated checks and appropriate approvals help identify errors before a change reaches production.",
+      ],
+      [
+        "Executed consistently",
+        "Recurring steps follow a defined procedure. Manual interventions and their sources of error are reduced.",
+      ],
+      [
+        "Verified and recoverable",
+        "The result is checked after execution. A rollback or recovery procedure is prepared for the relevant system.",
+      ],
+    ]
+  : [
+      [
+        "Beschrieben und versioniert",
+        "Konfigurationen und Änderungsschritte werden zentral festgehalten. Frühere Stände und ihre Unterschiede bleiben nachvollziehbar.",
+      ],
+      [
+        "Geprüft und freigegeben",
+        "Automatisierte Prüfungen und passende Freigaben erkennen Fehler möglichst vor dem produktiven Einsatz.",
+      ],
+      [
+        "Kontrolliert ausgeführt",
+        "Wiederkehrende Schritte laufen nach einem definierten Verfahren ab. Manuelle Eingriffe und ihre Fehlerquellen werden reduziert.",
+      ],
+      [
+        "Überprüfbar und wiederherstellbar",
+        "Nach der Umsetzung wird das Ergebnis kontrolliert. Für den Fehlerfall ist eine Rückkehr oder Wiederherstellung vorbereitet.",
+      ],
+    ];
+const steps = en
+  ? [
+      [
+        "Understand the current process",
+        "We examine the systems, manual steps, dependencies and responsibilities, including what happens when a change fails.",
+      ],
+      [
+        "Prioritise improvements",
+        "You receive an action plan that weighs risk, benefit, effort and dependencies. It gives your team a practical starting point.",
+      ],
+      [
+        "Improve a defined workflow",
+        "I implement the agreed measures with your team. We verify the procedure in a suitable environment and prepare it for production.",
+      ],
+      [
+        "Transfer knowledge and ownership",
+        "Documentation, understandable automation and working through the process together help your team maintain and develop it independently.",
+      ],
+    ]
+  : [
+      [
+        "Den heutigen Ablauf verstehen",
+        "Wir betrachten Systeme, manuelle Schritte, Abhängigkeiten und Zuständigkeiten. Auch der Umgang mit fehlgeschlagenen Änderungen gehört dazu.",
+      ],
+      [
+        "Verbesserungen priorisieren",
+        "Sie erhalten einen Maßnahmenplan, der Risiken, Nutzen, Aufwand und Abhängigkeiten gegenüberstellt. Daraus ergibt sich ein sinnvoller Anfang.",
+      ],
+      [
+        "Einen abgegrenzten Ablauf verbessern",
+        "Ich setze die vereinbarten Maßnahmen mit Ihrem Team um. Wir prüfen das Verfahren in einem geeigneten Rahmen und bereiten die Übernahme in den Betrieb vor.",
+      ],
+      [
+        "Wissen und Verantwortung übergeben",
+        "Dokumentation, verständliche Automatisierung und gemeinsame Durchführung helfen Ihrem Team, den Ablauf selbst zu betreiben und weiterzuentwickeln.",
+      ],
+    ];
+const faqs = en
+  ? [
+      [
+        "We hardly develop any software. Is this relevant?",
+        "Yes. Changes to servers, configurations and the operation of third-party applications can also benefit from traceable workflows and automation. The starting point is what your team controls and what your systems support.",
+      ],
+      [
+        "Does this work with older systems?",
+        "Your existing environment is the starting point. We identify what can be automated and where clear instructions, checks or additional safeguards are appropriate.",
+      ],
+      [
+        "Do we need to switch tools or platforms?",
+        "A switch is not a prerequisite. We look at your process and its weaknesses first, then determine whether existing tools are sufficient or an addition would help.",
+      ],
+      [
+        "How are security and evidence requirements addressed?",
+        "Together with the responsible people, we establish which checks, permissions, approvals and records are needed. These requirements shape the implementation.",
+      ],
+    ]
+  : [
+      [
+        "Wir entwickeln kaum eigene Software. Ist das trotzdem relevant?",
+        "Ja. Auch Änderungen an Servern, Konfigurationen und dem Betrieb eingekaufter Anwendungen profitieren von nachvollziehbaren Abläufen und Automatisierung. Entscheidend ist, welche Schritte Ihr Team verantwortet und welche Möglichkeiten die Systeme bieten.",
+      ],
+      [
+        "Funktioniert das auch mit älteren Systemen?",
+        "Ausgangspunkt ist Ihre bestehende Umgebung. Wir prüfen, welche Schritte sich automatisieren lassen und wo klare Anleitungen, Prüfungen oder zusätzliche Absicherungen sinnvoll sind.",
+      ],
+      [
+        "Müssen wir Werkzeuge oder Plattformen wechseln?",
+        "Ein Wechsel ist keine Voraussetzung. Zuerst betrachten wir den Ablauf und seine Schwachstellen. Daraus ergibt sich, ob vorhandene Werkzeuge ausreichen oder eine Ergänzung sinnvoll ist.",
+      ],
+      [
+        "Wie werden Sicherheits- und Nachweisanforderungen berücksichtigt?",
+        "Wir klären mit den Verantwortlichen, welche Prüfungen, Berechtigungen, Freigaben und Aufzeichnungen benötigt werden. Diese Anforderungen fließen in die technische Umsetzung ein.",
+      ],
+    ];
+const flow = en
+  ? [
+      ["Describe", "Record the intended change"],
+      ["Check", "Validate before execution"],
+      ["Approve", "Make responsibility clear"],
+      ["Execute", "Follow a defined procedure"],
+      ["Verify", "Check and record the result"],
+    ]
+  : [
+      ["Beschreiben", "Den gewünschten Zustand festhalten"],
+      ["Prüfen", "Fehler vor der Umsetzung erkennen"],
+      ["Freigeben", "Verantwortung nachvollziehbar machen"],
+      ["Ausführen", "Nach einem definierten Verfahren"],
+      ["Kontrollieren", "Ergebnis prüfen und dokumentieren"],
+    ];
+---
+
+<Layout
+  metadata={{
+    title: en
+      ? "Change with confidence — Frontrunner"
+      : "Verlässliche Änderungen an Anwendungen und Infrastruktur — Frontrunner",
+    ignoreTitleTemplate: true,
+    description: en
+      ? "Make changes to applications and infrastructure predictable, reproducible and traceable. Personal consulting and implementation with over 20 years of IT experience."
+      : "Änderungen an Anwendungen und Infrastruktur planbar, reproduzierbar und nachvollziehbar machen. Persönliche Beratung und Umsetzung mit mehr als 20 Jahren IT-Erfahrung.",
+  }}
+>
+  <section class="fr-wrap fr-hero">
+    <div>
+      <p class="fr-eyebrow">
+        {en ? "Applications & infrastructure" : "Anwendungen & Infrastruktur"}
+      </p>
+      <h1>
+        {
+          en ? (
+            <>
+              Change with
+              <>
+                <br />
+                <em>confidence.</em>
+              </>
+            </>
+          ) : (
+            <>
+              Änderungen,
+              <br />
+              auf die Sie sich
+              <>
+                <br />
+                <em>verlassen können.</em>
+              </>
+            </>
+          )
+        }
+      </h1>
+      <p class="fr-lead">
+        {
+          en
+            ? "Frontrunner makes changes to applications and infrastructure predictable, reproducible and traceable. I help your team automate manual tasks, identify risks early and make knowledge accessible."
+            : "Frontrunner macht Änderungen an Anwendungen und Infrastruktur planbar, reproduzierbar und nachvollziehbar. Ich unterstütze Ihr Team dabei, manuelle Abläufe zu automatisieren, Risiken früh zu erkennen und Wissen verfügbar zu machen."
+        }
+      </p>
+      <div class="fr-actions">
+        <a class="fr-button" href={localizedPath(lang, "/contact")}
+          >{en ? "Discuss your situation" : "Ausgangslage besprechen"}
+          <span aria-hidden="true">↗</span></a
+        ><a class="fr-text-link" href="#vorgehen"
+          >{en ? "How I work" : "Vorgehen kennenlernen"}
+          <span aria-hidden="true">↓</span></a
+        >
+      </div>
+      <p class="fr-hero-note">
+        {
+          en
+            ? "For established IT environments. In the cloud and on premises."
+            : "Für gewachsene IT-Umgebungen. In der Cloud und im eigenen Rechenzentrum."
+        }
+      </p>
+    </div>
+    <figure class="fr-flow">
+      <div class="fr-flow-top">
+        <span>{en ? "A reliable change" : "Eine verlässliche Änderung"}</span
+        ><span>{en ? "Step by step" : "Schritt für Schritt"}</span>
+      </div>
+      <ol>
+        {
+          flow.map(([title, text], i) => (
+            <li>
+              <>
+                <span class="fr-step-num" aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <div>
+                  <>
+                    <strong>{title}</strong>
+                    <small>{text}</small>
+                  </>
+                </div>
+                <span class="fr-check" aria-hidden="true">
+                  ✓
+                </span>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+      <figcaption>
+        <span>{en ? "Illustrative workflow" : "Schematischer Ablauf"}</span
+        ><span
+          >{
+            en ? "Prepared recovery ↶" : "Wiederherstellung vorbereitet ↶"
+          }</span
+        >
+      </figcaption>
+    </figure>
+  </section>
+  <div class="fr-wrap fr-proof">
+    <span>{en ? "Over 20 years in IT" : "Mehr als 20 Jahre IT-Erfahrung"}</span
+    ><span
+      >{
+        en
+          ? "Experience in regulated environments"
+          : "Langjährige Arbeit in regulierten Umgebungen"
+      }</span
+    ><span
+      >{
+        en
+          ? "Personal consulting & implementation"
+          : "Persönliche Beratung & Umsetzung"
+      }</span
+    >
+  </div>
+  <section class="fr-section">
+    <div class="fr-wrap">
+      <div class="fr-section-head">
+        <div>
+          <p class="fr-eyebrow">
+            {en ? "Sound familiar?" : "Kommt Ihnen das bekannt vor?"}
+          </p><h2>
+            {
+              en
+                ? "When changes bring too much uncertainty."
+                : "Wenn Änderungen zu viel Unsicherheit mitbringen."
+            }
+          </h2>
+        </div><p>
+          {
+            en
+              ? "An update is due. Work begins with questions: which configuration is correct, who knows the details, and how do we recover if it goes wrong?"
+              : "Ein Update steht an. Die Arbeit beginnt mit Rückfragen: Welche Konfiguration gilt? Wer kennt die Besonderheiten? Und wie kommen wir zurück, wenn etwas schiefgeht?"
+          }
+        </p>
+      </div>
+      <div class="fr-situations">
+        {
+          situations.map(([title, text], i) => (
+            <article class="fr-situation">
+              <>
+                <span class="fr-index" aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <div>
+                  <>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </div>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="fr-section fr-tinted">
+    <div class="fr-wrap">
+      <div class="fr-section-head">
+        <div>
+          <p class="fr-eyebrow">
+            {
+              en
+                ? "From uncertainty to a defined process"
+                : "Von Unsicherheit zu einem klaren Ablauf"
+            }
+          </p><h2>
+            {
+              en
+                ? "The process is known. The result can be checked."
+                : "Der Ablauf ist bekannt. Das Ergebnis lässt sich prüfen."
+            }
+          </h2>
+        </div><p>
+          {
+            en
+              ? "Reliable changes start with a described target state. Checks, approvals and automation turn individual steps into a repeatable process."
+              : "Verlässliche Änderungen beginnen mit einem beschriebenen Zielzustand. Prüfungen, Freigaben und Automatisierung machen aus einzelnen Handgriffen ein wiederholbares Verfahren."
+          }
+        </p>
+      </div>
+      <ol class="fr-method">
+        {
+          method.map(([title, text], i) => (
+            <li>
+              <>
+                <span class="fr-index" aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="fr-section-note">
+        {
+          en
+            ? "This helps reduce outages caused by failed changes, narrow down causes faster and spend less time on recurring manual work."
+            : "So lassen sich Ausfälle durch fehlerhafte Änderungen reduzieren, Ursachen schneller eingrenzen und wiederkehrende Arbeiten mit weniger Aufwand erledigen."
+        }
+      </p>
+    </div>
+  </section>
+  <section class="fr-section">
+    <div class="fr-wrap">
+      <p class="fr-eyebrow">
+        {en ? "Two areas. One principle." : "Zwei Bereiche. Ein Prinzip."}
+      </p><h2>
+        {
+          en
+            ? "For server configurations and new application versions."
+            : "Für Serverkonfigurationen und neue Anwendungsversionen."
+        }
+      </h2>
+      <div class="fr-pair">
+        <article>
+          <span class="fr-index"
+            >01 / {en ? "INFRASTRUCTURE" : "INFRASTRUKTUR"}</span
+          ><h3>
+            {
+              en
+                ? "Operate infrastructure reliably"
+                : "Infrastruktur verlässlich betreiben"
+            }
+          </h3><p>
+            {
+              en
+                ? "Servers, access controls and system settings should match a defined state. I help you manage configurations transparently, detect unintended differences and automate recurring changes."
+                : "Server, Zugänge und Systemeinstellungen sollen einem definierten Zustand entsprechen. Ich unterstütze Sie dabei, Konfigurationen nachvollziehbar zu verwalten, unbeabsichtigte Abweichungen zu erkennen und wiederkehrende Änderungen zu automatisieren."
+            }
+          </p>
+        </article><article>
+          <span class="fr-index"
+            >02 / {en ? "APPLICATIONS" : "ANWENDUNGEN"}</span
+          ><h3>
+            {
+              en
+                ? "Deliver applications with control"
+                : "Anwendungen kontrolliert ausliefern"
+            }
+          </h3><p>
+            {
+              en
+                ? "From building a version to deploying it in production, applications need a clear process. I help you automate checks and delivery, and link each deployed version to its changes."
+                : "Vom Erstellen einer Anwendungsversion bis zur Bereitstellung im Betrieb braucht es einen verständlichen Ablauf. Ich unterstütze Sie dabei, Prüfungen und Auslieferung zu automatisieren und jede eingesetzte Version ihren Änderungen zuzuordnen."
+            }
+          </p>
+        </article>
+      </div>
+      <a class="fr-text-link" href={services}
+        >{en ? "Explore the services" : "Leistungen im Detail ansehen"}
+        <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </section>
+  <section class="fr-section" id="vorgehen">
+    <div class="fr-wrap fr-process">
+      <div class="fr-process-intro">
+        <p class="fr-eyebrow">
+          {en ? "How we work together" : "So arbeiten wir zusammen"}
+        </p><h2>
+          {
+            en
+              ? "Start with a change from your daily work."
+              : "Beginnen wir mit einer Änderung aus Ihrem Alltag."
+          }
+        </h2><p>
+          {
+            en
+              ? "A server update or an application release often reveals where effort and risk accumulate. We start with a clearly defined scope."
+              : "Ein Serverupdate oder eine neue Anwendungsversion zeigt häufig bereits, wo Aufwand und Risiken entstehen. Wir beginnen mit einem klar abgegrenzten Umfang."
+          }
+        </p><a class="fr-text-link" href={`${services}#bestandsaufnahme`}
+          >{en ? "About the assessment" : "Mehr zur Bestandsaufnahme"}
+          <span aria-hidden="true">↗</span></a
+        >
+      </div>
+      <ol>
+        {
+          steps.map(([title, text], i) => (
+            <li>
+              <>
+                <span class="fr-index" aria-hidden="true">
+                  0{i + 1}
+                </span>
+                <div>
+                  <>
+                    <h3>{title}</h3>
+                    <p>{text}</p>
+                  </>
+                </div>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+  <section class="fr-section">
+    <div class="fr-wrap fr-person">
+      <div class="fr-experience">
+        <span class="fr-years">20+</span><p>
+          {en ? "years of IT experience" : "Jahre IT-Erfahrung"}
+        </p><hr /><small
+          >{
+            en
+              ? "Automation. Infrastructure. Software delivery."
+              : "Automatisierung. Infrastruktur. Softwareauslieferung."
+          }</small
+        ><small
+          >{
+            en
+              ? "Built on years in regulated environments."
+              : "Geprägt durch langjährige Arbeit in regulierten Umgebungen."
+          }</small
+        >
+      </div>
+      <div class="fr-person-copy">
+        <p class="fr-eyebrow">
+          {en ? "Your contact" : "Ihr Ansprechpartner"}
+        </p><h2>Andreas Boehrnsen.</h2><p>
+          {
+            en
+              ? "I am a senior DevOps and DevSecOps specialist with over 20 years of IT experience. My focus is automated software delivery, GitLab, Kubernetes, Terraform and cloud infrastructure."
+              : "Ich bin Senior DevOps- und DevSecOps-Spezialist mit mehr als 20 Jahren IT-Erfahrung. Meine Schwerpunkte liegen in automatisierter Softwareauslieferung, GitLab, Kubernetes, Terraform und Cloud-Infrastruktur."
+          }
+        </p><p>
+          {
+            en
+              ? "Through years of work in large regulated environments, I know the requirements for security, approvals and traceable changes. I bring that experience to your team, from analysis through implementation and handover."
+              : "Durch meine langjährige Arbeit in großen regulierten Umgebungen kenne ich die Anforderungen an Sicherheit, Freigaben und nachvollziehbare Änderungen. Diese Erfahrung bringe ich in Ihr Team ein, von der Analyse bis zur Umsetzung und Übergabe."
+          }
+        </p><a class="fr-text-link" href={localizedPath(lang, "/about")}
+          >{en ? "More about my experience" : "Mehr über meine Erfahrung"}
+          <span aria-hidden="true">↗</span></a
+        >
+      </div>
+    </div>
+  </section>
+  <section class="fr-section">
+    <div class="fr-wrap fr-faq">
+      <div>
+        <p class="fr-eyebrow">
+          {en ? "Common questions" : "Häufige Fragen"}
+        </p><h2>{en ? "Does this fit our IT?" : "Passt das zu unserer IT?"}</h2>
+      </div><div class="fr-faq-list">
+        {
+          faqs.map(([title, text]) => (
+            <article>
+              <>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <ContactCTA />
+</Layout>

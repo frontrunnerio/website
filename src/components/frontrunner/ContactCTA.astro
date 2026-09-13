@@ -1,0 +1,33 @@
+---
+import { getLang, localizedPath } from "~/i18n/utils";
+const lang = getLang(Astro);
+const en = lang === "en";
+---
+
+<section class="fr-contact-band">
+  <div class="fr-wrap fr-contact-grid">
+    <div>
+      <p class="fr-eyebrow">
+        {en ? "A concrete starting point" : "Ein konkreter Anfang"}
+      </p><h2>
+        {
+          en
+            ? "Which change should become more reliable?"
+            : "Welche Änderung soll verlässlicher werden?"
+        }
+      </h2>
+    </div>
+    <div>
+      <p>
+        {
+          en
+            ? "A server, an application or a recurring task is enough to start. Let’s look at what makes the process difficult and what would help your team."
+            : "Ein Server, eine Anwendung oder ein wiederkehrender Ablauf reicht als Ausgangspunkt. Gemeinsam klären wir, was heute aufwendig oder unsicher ist und was Ihr Team entlastet."
+        }
+      </p><a class="fr-button" href={localizedPath(lang, "/contact")}
+        >{en ? "Discuss your situation" : "Ausgangslage besprechen"}
+        <span aria-hidden="true">↗</span></a
+      >
+    </div>
+  </div>
+</section>

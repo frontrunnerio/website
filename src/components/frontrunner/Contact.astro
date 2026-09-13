@@ -1,0 +1,92 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import { getLang } from "~/i18n/utils";
+const en = getLang(Astro) === "en";
+const email = "andreas.boehrnsen@frontrunner.io";
+const subject = en ? "Discuss our IT changes" : "Ausgangslage besprechen";
+---
+
+<Layout
+  metadata={{
+    title: en ? "Contact Andreas Boehrnsen" : "Kontakt zu Andreas Boehrnsen",
+    description: en
+      ? "Discuss your application and infrastructure changes with Andreas Boehrnsen. Direct contact by email or phone."
+      : "Besprechen Sie Ihre Änderungen an Anwendungen und Infrastruktur mit Andreas Boehrnsen. Direkter Kontakt per E-Mail oder Telefon.",
+  }}
+>
+  <section class="fr-wrap fr-contact-page">
+    <p class="fr-eyebrow">{en ? "Contact" : "Kontakt"}</p><h1>
+      {
+        en
+          ? "Let’s look at your situation."
+          : "Lassen Sie uns Ihre Ausgangslage besprechen."
+      }
+    </h1>
+    <p class="fr-lead">
+      {
+        en
+          ? "Which change takes too much time or involves too much uncertainty? Briefly describe what you want to change and where the process gets difficult. In our first conversation, we clarify your situation and a sensible next step."
+          : "Welche Änderung kostet Ihr Team zu viel Zeit oder bringt zu viel Unsicherheit mit? Beschreiben Sie kurz, was geändert werden soll und wo der Ablauf schwierig wird. Im Erstgespräch klären wir Ihre Ausgangslage und einen sinnvollen nächsten Schritt."
+      }
+    </p>
+    <div class="fr-contact-card">
+      <div>
+        <p class="fr-eyebrow">
+          {en ? "Your direct contact" : "Ihr direkter Ansprechpartner"}
+        </p><h2>Andreas Boehrnsen</h2><a
+          class="fr-email"
+          href={`mailto:${email}`}>{email}</a
+        ><p><a href="tel:+491606220730">+49 (0)160 6220730</a></p><div
+          class="fr-actions"
+        >
+          <a
+            class="fr-button"
+            href={`mailto:${email}?subject=${encodeURIComponent(subject)}`}
+            >{en ? "Write an email" : "E-Mail schreiben"}
+            <span aria-hidden="true">↗</span></a
+          >
+        </div><p class="fr-hero-note">
+          {
+            en
+              ? "Opens your email application. The address above can also be copied."
+              : "Öffnet Ihr E-Mail-Programm. Sie können die Adresse oben auch kopieren."
+          }
+        </p>
+      </div><div>
+        <h3>
+          {
+            en
+              ? "A few details are enough to start."
+              : "Für den Anfang reichen wenige Angaben."
+          }
+        </h3><ul class="fr-list">
+          <li>
+            {
+              en
+                ? "Which application, server or workflow is involved?"
+                : "Um welche Anwendung, Server oder Abläufe geht es?"
+            }
+          </li><li>
+            {
+              en
+                ? "What is currently manual, unclear or error-prone?"
+                : "Was ist heute manuell, unklar oder fehleranfällig?"
+            }
+          </li><li>
+            {
+              en
+                ? "What would you like to improve for your team?"
+                : "Was möchten Sie für Ihr Team verbessern?"
+            }
+          </li>
+        </ul><p class="fr-note">
+          {
+            en
+              ? "We can discuss technical details and the appropriate scope together."
+              : "Technische Einzelheiten und einen passenden Umfang können wir gemeinsam klären."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

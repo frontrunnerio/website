@@ -1,0 +1,130 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import ContactCTA from "./ContactCTA.astro";
+import { getLang } from "~/i18n/utils";
+const en = getLang(Astro) === "en";
+const principles = en
+  ? [
+      [
+        "Start with the existing environment",
+        "Applications, operational requirements and your team’s capabilities shape the solution. A new platform is useful when it solves a concrete problem.",
+      ],
+      [
+        "Make results verifiable",
+        "We agree on what improvement looks like: a deployment without undocumented steps, visible configuration differences or a tested recovery procedure.",
+      ],
+      [
+        "Keep knowledge in your team",
+        "Understandable configurations, documentation and shared implementation help your team maintain the result independently.",
+      ],
+    ]
+  : [
+      [
+        "Die bestehende Umgebung als Ausgangspunkt",
+        "Anwendungen, betriebliche Anforderungen und die Möglichkeiten Ihres Teams bestimmen die Lösung. Eine neue Plattform ist sinnvoll, wenn sie ein konkretes Problem löst.",
+      ],
+      [
+        "Ergebnisse überprüfbar machen",
+        "Wir vereinbaren, woran eine Verbesserung erkennbar ist: eine Bereitstellung ohne undokumentierte Schritte, sichtbare Konfigurationsabweichungen oder eine erprobte Wiederherstellung.",
+      ],
+      [
+        "Wissen im Team verfügbar machen",
+        "Verständliche Konfigurationen, Dokumentation und gemeinsame Umsetzung helfen Ihrem Team, das Ergebnis eigenständig weiterzuführen.",
+      ],
+    ];
+---
+
+<Layout
+  metadata={{
+    title: en
+      ? "Andreas Boehrnsen — experience and approach"
+      : "Andreas Boehrnsen — Erfahrung und Arbeitsweise",
+    description: en
+      ? "Senior DevOps and DevSecOps specialist with over 20 years in IT. Experience in CI/CD, GitLab, Kubernetes, Terraform and large regulated environments."
+      : "Senior DevOps- und DevSecOps-Spezialist mit mehr als 20 Jahren IT-Erfahrung. CI/CD, GitLab, Kubernetes, Terraform und langjährige Arbeit in regulierten Umgebungen.",
+  }}
+>
+  <section class="fr-wrap fr-page-hero">
+    <p class="fr-eyebrow">{en ? "About me" : "Über mich"}</p><h1>
+      {
+        en
+          ? "Technical depth. Personal responsibility."
+          : "Technische Tiefe. Persönliche Verantwortung."
+      }
+    </h1><p class="fr-lead">
+      {
+        en
+          ? "I am Andreas Boehrnsen. I help teams make changes to applications and infrastructure more reliable, from understanding the current process to implementation and handover."
+          : "Ich bin Andreas Boehrnsen. Ich unterstütze Teams dabei, Änderungen an Anwendungen und Infrastruktur verlässlicher zu machen, vom Verständnis des heutigen Ablaufs bis zur Umsetzung und Übergabe."
+      }
+    </p>
+  </section>
+  <section class="fr-section">
+    <div class="fr-wrap fr-person">
+      <div class="fr-experience">
+        <span class="fr-years">20+</span><p>
+          {en ? "years of IT experience" : "Jahre IT-Erfahrung"}
+        </p><hr /><small>Andreas Boehrnsen</small><small
+          >Senior DevOps / DevSecOps</small
+        ><small>Berlin</small>
+      </div><div class="fr-person-copy">
+        <p class="fr-eyebrow">{en ? "My background" : "Mein Hintergrund"}</p><h2
+        >
+          {
+            en
+              ? "Automation, infrastructure and software delivery."
+              : "Automatisierung, Infrastruktur und Softwareauslieferung."
+          }
+        </h2><p>
+          {
+            en
+              ? "My strongest areas are CI/CD, GitLab, Kubernetes, Terraform, cloud-native infrastructure and DevSecOps. I bring this experience to processes that need to be repeatable, understandable and maintainable."
+              : "Meine stärksten fachlichen Schwerpunkte liegen in CI/CD, GitLab, Kubernetes, Terraform, Cloud-Infrastruktur und DevSecOps. Diese Erfahrung bringe ich in Abläufe ein, die wiederholbar, nachvollziehbar und wartbar sein müssen."
+          }
+        </p><p>
+          {
+            en
+              ? "I have worked for years in large regulated environments. Security, clear responsibilities and evidence of what changed are therefore part of how I approach implementation."
+              : "Ich habe über Jahre in großen regulierten Umgebungen gearbeitet. Sicherheit, klare Verantwortlichkeiten und Nachweise darüber, was geändert wurde, gehören deshalb zu meinem Verständnis technischer Umsetzung."
+          }
+        </p><p>
+          {
+            en
+              ? "At Frontrunner, you work directly with me. I contribute to the technical implementation and work through the procedures with your team."
+              : "Bei Frontrunner arbeiten Sie direkt mit mir. Ich wirke an der technischen Umsetzung mit und gehe die Verfahren gemeinsam mit Ihrem Team durch."
+          }
+        </p><a
+          class="fr-text-link"
+          href="https://www.linkedin.com/in/andreasboehrnsen/"
+          >{en ? "My profile on LinkedIn" : "Mein Profil auf LinkedIn"} ↗</a
+        >
+      </div>
+    </div>
+  </section>
+  <section class="fr-section">
+    <div class="fr-wrap fr-faq">
+      <div>
+        <p class="fr-eyebrow">{en ? "My approach" : "Meine Arbeitsweise"}</p><h2
+        >
+          {
+            en
+              ? "What shapes our work together."
+              : "Worauf es in der Zusammenarbeit ankommt."
+          }
+        </h2>
+      </div><div class="fr-faq-list">
+        {
+          principles.map(([title, text]) => (
+            <article>
+              <>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <ContactCTA />
+</Layout>
