@@ -3,8 +3,10 @@ import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
 
+import { unified } from '@astrojs/markdown-remark';
+
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
 import icon from 'astro-icon';
@@ -35,9 +37,6 @@ export default defineConfig({
   },
 
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
     sitemap(),
     mdx(),
     icon({
@@ -64,7 +63,10 @@ export default defineConfig({
     ),
 
     compress({
-      CSS: true,
+      // csso off on purpose: its parser doesn't understand the media range
+      // syntax Tailwind v4 emits for breakpoints (`@media (width>=48rem)`) and
+      // silently drops every one of those blocks. lightningcss parses it correctly.
+      CSS: { csso: false, lightningcss: { minify: true } },
       HTML: {
         'html-minifier-terser': {
           removeAttributeQuotes: false,
@@ -86,11 +88,16 @@ export default defineConfig({
   },
 
   markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+    // Astro 7 defaults to the Sätteri processor; keep the unified (remark/rehype)
+    // pipeline so the custom plugins below continue to work.
+    processor: unified({
+      remarkPlugins: [readingTimeRemarkPlugin],
+      rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
+    }),
   },
 
   vite: {
+    plugins: [tailwindcss()],
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),

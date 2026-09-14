@@ -2,7 +2,7 @@
 
 The website for **[frontrunner.io](https://frontrunner.io)** — we help companies ship faster, stay secure, and automate the boring parts.
 
-Built with **[Astro 5](https://astro.build/)** + **[Tailwind CSS](https://tailwindcss.com/)** on top of the [AstroWind](https://github.com/arthelokyo/astrowind) template.
+Built with **[Astro 7](https://astro.build/)** + **[Tailwind CSS](https://tailwindcss.com/)** on top of the [AstroWind](https://github.com/arthelokyo/astrowind) template.
 
 ## Getting Started
 

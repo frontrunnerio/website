@@ -16,7 +16,7 @@ metadata:
     index: true
     follow: true
   openGraph:
-    site_name: frontrunner.io
+    siteName: frontrunner.io
     images:
       - url: '~/assets/images/hero-image.jpg'
         width: 1200
