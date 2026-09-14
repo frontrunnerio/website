@@ -1,190 +1,392 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from "~/layouts/PageLayout.astro";
 
-import Hero2 from '~/components/widgets/Hero2.astro';
-import Note from '~/components/widgets/Note.astro';
-import Features from '~/components/widgets/Features.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Note from "~/components/widgets/Note.astro";
+import Features from "~/components/widgets/Features.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Steps from "~/components/widgets/Steps.astro";
+import Content from "~/components/widgets/Content.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+
+import { BOOKING_URL } from "~/data/site";
 
 const metadata = {
-  title: 'Frontrunner IO — DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery',
+  title:
+    "Frontrunner IO — Veränderung? Aber sicher! IT-Modernisierung für den Mittelstand",
   ignoreTitleTemplate: true,
-  description: 'DevSecOps, CI/CD und Automation für schnelle, sichere und effiziente Software-Delivery.',
+  description:
+    "IT modernisieren, ohne den Betrieb zu riskieren: Wir helfen kleinen und mittleren Unternehmen, IT-Kosten zu senken und alte Systeme abzulösen — in kleinen Schritten mit klarem Ergebnis. Kostenloses Erstgespräch.",
 };
 
 const hero = {
-  tagline: '',
-  title: 'Ship faster.<br> Stay secure. Automate everything.',
-  subtitle: 'Wir helfen Unternehmen, Software schneller und sicherer auszuliefern — mit DevSecOps, Automatisierung und Prozessen, die tatsächlich funktionieren.',
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:info@frontrunner.io', target: '_blank' as const },
-  secondaryCta: { text: 'Mehr erfahren', href: '#problem-statement' },
-  image: { src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO Hero Image' },
+  tagline: "IT-Modernisierung für den Mittelstand",
+  title:
+    'Veränderung? <span class="text-accent dark:text-white highlight">Aber sicher!</span>',
+  subtitle:
+    "Sie wollen IT-Kosten senken, alte Systeme ablösen oder endlich Ordnung in Ihre Infrastruktur bringen — aber jede Umstellung fühlt sich riskant an? Wir machen Veränderung planbar: kleine Schritte, klare Ergebnisse, kein Stillstand im Betrieb.",
+  primaryCta: {
+    text: "Kostenloses Erstgespräch buchen",
+    href: BOOKING_URL,
+    icon: "tabler:calendar",
+  },
+  secondaryCta: { text: "Leistungen ansehen", href: "/services" },
+  image: {
+    src: "~/assets/images/hero-image.jpg",
+    alt: "Frontrunner IO — Veränderung? Aber sicher!",
+  },
 };
 
-const philosophyNote = {
-  title: 'Philosophie:',
-  description: 'Klarheit statt Komplexität. Automatisierung statt manueller Arbeit. Sicherheit von Anfang an.',
+const promiseNote = {
+  title: "Unser Ansatz:",
+  description:
+    "Keine Hauruck-Aktion. Erst verstehen, dann planen, dann im Kleinen beweisen — bevor etwas Großes umgestellt wird.",
 };
 
 const problems = {
-  id: 'problem-statement',
-  tagline: 'Die Realität in vielen Unternehmen',
-  title: 'Software-Delivery ist langsamer, riskanter und frustrierender als nötig',
-  subtitle: 'Steigende Sicherheitsanforderungen, ein Sammelsurium aus Tools und manuelle Prozesse, die eigentlich längst automatisiert gehören — viele Teams wissen, dass da mehr geht. Die Frage ist nur: Wo anfangen?',
+  id: "problem",
+  tagline: "Kommt Ihnen das bekannt vor?",
+  title: "Warum Änderungen an der IT so oft schiefgehen",
+  subtitle:
+    "Die meisten IT-Ausfälle entstehen nicht durch Angriffe oder kaputte Hardware, sondern durch Änderungen: ein Update, eine neue Einstellung, ein Umzug. Nicht, weil die Idee falsch war — sondern weil der Weg dorthin nicht abgesichert war.",
   items: [
-    { title: 'Manuelle Prozesse verlangsamen alles', description: 'Releases, die von manuellen Schritten abhängen, sind fehleranfällig, langsam und nicht skalierbar. Irgendwann macht genau das der Fehler, den noch niemand dokumentiert hat.', icon: 'tabler:hourglass-high' },
-    { title: 'Tool-Chaos statt klarer Plattform', description: 'Zehn Tools, fünf Integrationen, drei Slack-Kanäle für Alerts — und trotzdem weiß niemand auf Anhieb, was gerade wo passiert. Das kostet Zeit und Nerven.', icon: 'tabler:apps' },
-    { title: 'Sicherheit kommt immer zu spät', description: 'Security-Checks kurz vor dem Release führen zu Verzögerungen oder — schlimmer — werden übersprungen. Wer Sicherheit erst am Ende einbaut, zahlt doppelt.', icon: 'tabler:shield-half' },
-    { title: 'Langsame Pipelines kosten mehr als nur Zeit', description: 'Wenn ein Build 30 Minuten läuft und am Ende nur ein generischer Fehler zurückkommt, verlieren Entwickler Fokus und Flow. Schnelles, klares Feedback ist kein Luxus — es ist der Unterschied zwischen produktivem Arbeiten und frustriertem Warten.', icon: 'tabler:mood-sad' },
-    { title: 'Compliance erzeugt unnötige Reibung', description: 'DORA, ISO, BSI — regulatorische Anforderungen müssen kein Bremsklotz sein. Werden sie von Anfang an mitgedacht, lassen sie sich in bestehende Prozesse integrieren, ohne alles zu verlangsamen.', icon: 'tabler:scale' },
-    { title: 'Niemand weiß genau, was wann passiert ist', description: 'Fehlende Nachvollziehbarkeit ist im Alltag nervig — beim Audit wird sie zum Problem. Wer nicht zeigen kann, was wann von wem geändert wurde, steht schlecht da.', icon: 'tabler:route-x' },
+    {
+      title: "Das Wissen steckt in Köpfen, nicht in Systemen",
+      description:
+        "Wie der Server damals aufgesetzt wurde, weiß nur ein Kollege. Wenn der im Urlaub ist, wartet die Änderung — oder wird riskant.",
+      icon: "tabler:user-question",
+    },
+    {
+      title: "Jeder Server ist ein Unikat",
+      description:
+        "Manuell eingerichtet, über Jahre gewachsen, nirgends dokumentiert. Eine zweite, identische Umgebung aufzubauen ist unmöglich — und das Testen damit auch.",
+      icon: "tabler:server-off",
+    },
+    {
+      title: "Lizenzkosten steigen jedes Jahr",
+      description:
+        "Windows Server, Oracle, MSSQL: Die Rechnungen wachsen, der Nutzen nicht. Ein Wechsel erscheint zu riskant, also bleibt alles beim Alten.",
+      icon: "tabler:receipt-2",
+    },
+    {
+      title: "Go-Live am Freitag, Bauchschmerzen am Wochenende",
+      description:
+        "Änderungen werden erst in Produktion wirklich getestet, weil es keine Umgebung dafür gibt. Jedes Update ist eine kleine Mutprobe.",
+      icon: "tabler:mood-sad",
+    },
+    {
+      title: "Niemand kann sagen, was sich geändert hat",
+      description:
+        "Ein Problem taucht auf — aber welche der zehn Änderungen der letzten Woche war es? Ohne Nachvollziehbarkeit wird jede Fehlersuche zum Ratespiel.",
+      icon: "tabler:route-x",
+    },
+    {
+      title: "Abhängigkeit von einem einzelnen Dienstleister",
+      description:
+        "Der Systempartner kennt alles, dokumentiert nichts, und jede Änderung läuft über ihn. Das ist bequem — bis es das nicht mehr ist.",
+      icon: "tabler:lock",
+    },
+  ],
+};
+
+const steps = {
+  id: "ablauf",
+  tagline: "So funktioniert die Zusammenarbeit",
+  title: "Drei Schritte zu verlässlichen Änderungen",
+  subtitle:
+    "Klein anfangen, sichtbar Ergebnisse liefern, dann skalieren. So bleibt das Risiko für Sie gering — und die Entscheidung für den nächsten Schritt einfach.",
+  image: {
+    src: "~/assets/images/how-we-work.jpg",
+    alt: "Ablauf: Erstgespräch, Plan, Pilot",
+  },
+  items: [
+    {
+      title: 'Schritt 1: <span class="font-medium">Erstgespräch</span>',
+      description:
+        "30 Minuten, kostenlos, per Video. Sie schildern, was ansteht oder wo es hakt. Wir stellen die richtigen Fragen und sagen Ihnen ehrlich, ob und wo wir helfen können.",
+      icon: "tabler:phone-call",
+    },
+    {
+      title: 'Schritt 2: <span class="font-medium">Konkreter Plan</span>',
+      description:
+        "Sie erhalten einen schriftlichen Vorschlag: Was wird geändert, in welcher Reihenfolge, mit welchem Aufwand und welchem Nutzen. Verständlich für Geschäftsführung und IT gleichermaßen.",
+      icon: "tabler:list-check",
+    },
+    {
+      title: 'Schritt 3: <span class="font-medium">Pilot-Umsetzung</span>',
+      description:
+        "Wir setzen einen klar abgegrenzten ersten Teil um — ein System, eine Anwendung, eine Datenbank. Sie sehen das Ergebnis, bevor Sie über den weiteren Rollout entscheiden.",
+      icon: "tabler:rocket",
+    },
   ],
 };
 
 const services = {
-  tagline: 'Wir bieten',
-  title: 'Unsere Leistungen',
-  blocks: [
-    {
-      contentTitle: 'DevSecOps Assessment',
-      contentCaption: 'Der schnellste Weg zu Klarheit',
-      image: { src: '~/assets/images/service-assessment.jpg', alt: 'Assessment Image' },
-      items: [
-        { title: 'Ein ehrlicher Blick auf Ihre Pipeline', description: 'Wir schauen uns an, was wirklich passiert — von Code bis Deployment. Inklusive Prozesse, Tools und Verantwortlichkeiten.' },
-        { title: 'Risiken und Engpässe sichtbar machen', description: 'Sicherheitslücken, manuelle Bottlenecks, unnötige Reibung — wir benennen klar, was Sie ausbremst.' },
-        { title: 'Keine Theorie, sondern konkrete Maßnahmen', description: 'Sie bekommen keine 50-seitige Präsentation, sondern eine priorisierte Liste: Was zuerst? Was bringt am meisten?' },
-        { title: 'Eine klare Roadmap in wenigen Tagen', description: 'Realistisch, strukturiert und als direkte Grundlage für die nächsten Schritte — nicht als Abschluss-Dokument, das danach im Ordner landet.' },
-      ],
-    },
-    {
-      contentTitle: 'GitLab Implementation & Optimization',
-      contentCaption: 'Alles in einer Plattform',
-      image: { src: '~/assets/images/service-gitlab.jpg', alt: 'Gitlab Image' },
-      items: [
-        { title: 'GitLab aufbauen oder gezielt weiterentwickeln', description: 'Ob Neueinrichtung oder Optimierung einer bestehenden Instanz — wir machen GitLab zur zentralen Plattform für Development, Security und Operations.' },
-        { title: 'CI/CD Pipelines, die Entwickler nicht ausbremsen', description: 'Schnelle, automatisierte Pipelines mit integrierten Security-Scans. Kurze Feedbackzyklen halten Entwickler im Flow — statt sie 20 Minuten auf ein Ergebnis warten zu lassen.' },
-        { title: 'Rechte- und Rollenmodelle, die Audits standhalten', description: 'Klare Zugriffskonzepte für Teams, die nachvollziehbar, sicher und compliance-ready sind.' },
-        { title: 'Infrastructure as Code in den Delivery-Prozess integrieren', description: 'Infrastruktur wird versioniert, reviewbar und reproduzierbar — genauso wie der Anwendungscode.' },
-      ],
-    },
-    {
-      contentTitle: 'Migration & Konsolidierung',
-      contentCaption: 'Raus aus dem Tool-Chaos',
-      image: { src: '~/assets/images/service-consolidation.jpg', alt: 'Consolidation Image' },
-      items: [
-        { title: 'Migration von Jenkins, Azure DevOps, GitHub & Co.', description: 'Strukturierte Überführung in eine konsolidierte Plattform — ohne laufende Betrieb zu unterbrechen.' },
-        { title: 'Toolchain-Wildwuchs reduzieren', description: 'Weniger Tools, weniger Schnittstellen, weniger Dinge, die kaputt gehen können. Klingt simpel, verändert aber den Alltag spürbar.' },
-        { title: 'Weniger Wartung, mehr Entwicklung', description: 'Wer weniger Zeit für Plattformpflege aufwendet, kann mehr Zeit in tatsächliche Produktentwicklung stecken.' },
-        { title: 'Compliance nicht vergessen', description: 'Jede Migration berücksichtigt regulatorische Anforderungen und Auditierbarkeit von Anfang an — nicht als Nachgedanke.' },
-      ],
-    },
-    {
-      contentTitle: 'Begleitung & Coaching',
-      contentCaption: 'Nicht nur Konzepte — echte Umsetzung',
-      image: { src: '~/assets/images/service-coaching.jpg', alt: 'Coaching Image' },
-      items: [
-        { title: 'Direkte Mitarbeit statt Folien-Beratung', description: 'Wir arbeiten hands-on in Ihren Projekten mit — weil Ergebnisse wichtiger sind als Konzepte.' },
-        { title: 'Coaching für Entwickler- und Plattform-Teams', description: 'Best Practices, die im echten Kontext Ihres Teams vermittelt werden. Damit Ihr Team danach eigenständig weiterarbeiten kann.' },
-        { title: 'DevSecOps als Haltung, nicht als Prozess', description: 'Sicherheit und Geschwindigkeit gehören zusammen — wir helfen Teams, das nicht als Widerspruch zu sehen.' },
-        { title: 'Verbesserungen, die bleiben', description: 'Unser Ziel ist nicht, wiederzukommen. Wir arbeiten so, dass Ihr Team danach besser aufgestellt ist als vorher.' },
-      ],
-    },
-  ],
-};
-
-const modularNote = {
-  title: 'Alle Leistungen sind modular kombinierbar:',
-  description: 'Vom schnellen Assessment bis zur vollständigen Transformation',
-};
-
-const steps = {
-  title: 'Wie wir arbeiten',
-  image: { src: '~/assets/images/how-we-work.jpg', alt: 'Steps image' },
+  id: "leistungen",
+  tagline: "Leistungen",
+  title: "Womit wir Ihre IT verlässlicher und günstiger machen",
+  subtitle:
+    "Jede Leistung löst ein konkretes Problem und ist einzeln buchbar. Sie starten dort, wo es am meisten weh tut — oder am meisten spart.",
   items: [
-    { title: 'Schritt 1: <span class="font-medium">Assessment</span>', description: 'Wir schauen uns Ihre aktuelle Situation an — Prozesse, Tools, Verantwortlichkeiten und Risiken. Ohne Vorannahmen, ohne voreilige Lösungsvorschläge.', icon: 'tabler:search' },
-    { title: 'Schritt 2: <span class="font-medium">Roadmap</span>', description: 'Aus den Erkenntnissen wird eine priorisierte Maßnahmenliste. Klar, konkret und so aufgebaut, dass Sie sofort damit arbeiten können.', icon: 'tabler:route' },
-    { title: 'Schritt 3: <span class="font-medium">Implementation</span>', description: 'Auf Wunsch setzen wir die Maßnahmen gemeinsam mit Ihrem Team um — pragmatisch und so, dass der laufende Betrieb nicht leidet.', icon: 'tabler:tools' },
-    { title: 'Schritt 4: <span class="font-medium">Enablement</span>', description: 'Am Ende steht nicht Abhängigkeit, sondern Eigenständigkeit. Ihr Team bekommt das Wissen, um die Verbesserungen selbst weiterzuführen.', icon: 'tabler:school' },
+    {
+      title: "Software-Delivery-Check",
+      description:
+        "Wir schauen uns an, wie Ihre Software vom Code bis in den Betrieb kommt — und zeigen, wo Zeit verloren geht, wo Risiken liegen und was zuerst zu tun ist.",
+      icon: "tabler:gauge",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#cicd-assessment",
+      },
+    },
+    {
+      title: "Infrastruktur als Code",
+      description:
+        "Server und Einstellungen werden als Code beschrieben: dokumentiert, prüfbar, in Minuten neu aufbaubar. Das Wissen steckt im System, nicht mehr in einem Kopf.",
+      icon: "tabler:code",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#infrastructure-as-code",
+      },
+    },
+    {
+      title: "Anwendungen containerisieren",
+      description:
+        "Ihre Anwendungen laufen auf dem Laptop, im Test und im Betrieb exakt gleich. „Bei mir läuft es aber“ hat damit ausgedient.",
+      icon: "tabler:box",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#containerization",
+      },
+    },
+    {
+      title: "Testumgebung pro Änderung",
+      description:
+        "Jede Änderung bekommt vor dem Update automatisch eine eigene Testumgebung. Fachabteilung und Team klicken sich durch, bevor etwas live geht.",
+      icon: "tabler:git-merge",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#review-apps",
+      },
+    },
+    {
+      title: "Server-Lizenzen ablösen",
+      description:
+        "Wir ziehen Ihre Windows-Server Schritt für Schritt auf Linux um — ohne Ausfall. Die Lizenzgebühren entfallen dauerhaft.",
+      icon: "tabler:brand-windows",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#windows-to-linux",
+      },
+    },
+    {
+      title: "Datenbank-Lizenzen ablösen",
+      description:
+        "Oracle oder Microsoft SQL Server sind oft der teuerste IT-Posten. Wir migrieren auf PostgreSQL — geprüft, getestet, mit Rückfallplan.",
+      icon: "tabler:database",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#database-migration",
+      },
+    },
+    {
+      title: "Cloud-Umzug in die EU",
+      description:
+        "Vom eigenen Serverraum zu Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen nur, was Sie nutzen — und die Daten bleiben in Europa.",
+      icon: "tabler:cloud-upload",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#cloud-migration",
+      },
+    },
   ],
+};
+
+const about = {
+  tagline: "Wer dahintersteht",
+  title: "Praxis statt Präsentation",
+  contentTitle: "Ein Ansprechpartner, der selbst umsetzt",
+  contentCaption:
+    "Frontrunner IO ist die Beratung von Andreas Böhrnsen aus Berlin. Langjährige Erfahrung mit Infrastruktur, Automatisierung und Software-Delivery — in Konzernen, regulierten Branchen und im Mittelstand. Sie sprechen mit der Person, die auch die Arbeit macht.",
+  image: {
+    src: "~/assets/images/service-coaching.jpg",
+    alt: "Zusammenarbeit mit Frontrunner IO",
+  },
+  items: [
+    {
+      title: "Wir packen selbst an",
+      description:
+        "Wir schreiben den Code, richten die Systeme ein und stehen beim Go-Live daneben. Keine Folienberatung.",
+    },
+    {
+      title: "Verständlich",
+      description:
+        "Jeder Vorschlag ist so formuliert, dass Geschäftsführung und IT ihn gemeinsam bewerten können.",
+    },
+    {
+      title: "Keine Abhängigkeit",
+      description:
+        "Alles, was wir aufbauen, ist dokumentiert und gehört Ihnen. Ihr Team kann es danach selbst weiterführen.",
+    },
+    {
+      title: "Kleine Schritte, echte Ergebnisse",
+      description:
+        "Lieber ein Pilot, der läuft, als ein Konzept, das im Ordner landet.",
+    },
+  ],
+  callToAction: {
+    text: "Mehr über Frontrunner IO",
+    href: "/about",
+    icon: "tabler:chevron-right",
+  },
 };
 
 const faqs = {
-  tagline: 'FAQs',
-  title: 'Häufig gestellte Fragen',
-  subtitle: 'Antworten auf die Fragen, die wir am häufigsten hören.',
+  tagline: "FAQs",
+  title: "Häufig gestellte Fragen",
+  subtitle:
+    "Antworten auf die Fragen, die wir im ersten Gespräch am häufigsten hören.",
   items: [
-    { title: 'Ist das für unser Unternehmen überhaupt relevant?', description: 'Wenn Sie Software entwickeln, regelmäßig deployen und gleichzeitig mit steigenden Sicherheits- oder Compliance-Anforderungen zu tun haben — ja. Besonders im regulierten Umfeld (z. B. Finance oder Insurance) ist der Hebel hier oft besonders groß.' },
-    { title: 'Wie schnell sehen wir erste Ergebnisse?', description: 'Erste spürbare Verbesserungen sind häufig nach wenigen Wochen da — vor allem durch Automatisierung und optimierte Pipelines. Das Assessment liefert Ihnen innerhalb weniger Tage eine solide Grundlage für konkrete nächste Schritte.' },
-    { title: 'Müssen wir auf GitLab umsteigen?', description: 'Nein. Wir arbeiten mit dem, was Sie haben, und schauen uns an, was sinnvoll ist. In vielen Fällen lohnt sich eine Plattformstrategie mit GitLab — aber das ist eine Empfehlung, keine Voraussetzung.' },
-    { title: 'Wie stellen Sie Sicherheit und Compliance sicher?', description: 'Indem wir sie von Anfang an mitdenken, nicht nachträglich draufschrauben. Alle Lösungen sind darauf ausgelegt, auditierbar und regulatorisch belastbar zu sein — ohne den Entwicklungsfluss unnötig zu stören.' },
+    {
+      title: "Für wen ist das Angebot gedacht?",
+      description:
+        "Für kleine und mittlere Unternehmen in Deutschland, die eigene Software betreiben oder entwickeln — typischerweise mit 20 bis 500 Mitarbeitenden und einem kleinen IT-Team oder externen Dienstleister. Wenn Sie Änderungen an Ihrer IT scheuen, weil sie riskant oder teuer sind, sind Sie richtig.",
+    },
+    {
+      title: "Was kostet das Erstgespräch?",
+      description:
+        "Nichts. 30 Minuten per Video, ohne Verpflichtung. Sie bekommen in jedem Fall eine ehrliche Einschätzung — auch wenn wir am Ende sagen, dass Sie uns nicht brauchen.",
+    },
+    {
+      title: "Was kostet ein Pilot?",
+      description:
+        "Das hängt vom Umfang ab. Sie erhalten vor dem Start ein Angebot mit Festpreis — keine offenen Stundenzettel, keine Überraschungen auf der Rechnung.",
+    },
+    {
+      title: "Wir haben kein eigenes Entwicklerteam — passt das trotzdem?",
+      description:
+        "Ja. Die meisten unserer Leistungen betreffen den Betrieb — Server, Datenbanken, Cloud — und nicht die Softwareentwicklung. Wir arbeiten mit Ihrem Administrator oder Ihrem IT-Dienstleister zusammen.",
+    },
+    {
+      title: "Müssen wir alles auf einmal umstellen?",
+      description:
+        "Nein — genau das Gegenteil. Wir starten mit einem Pilot, der klar abgegrenzt ist: eine Anwendung, ein Server, eine Datenbank. Erst wenn der läuft, entscheiden Sie über den nächsten Schritt.",
+    },
+    {
+      title: "Wie schnell sehen wir Ergebnisse?",
+      description:
+        "Den Plan erhalten Sie innerhalb von ein bis zwei Wochen nach dem Gespräch. Ein Pilot dauert je nach Umfang zwei bis acht Wochen. Kosteneinsparungen durch Lizenzwechsel werden ab dem Monat sichtbar, in dem das System umgezogen ist.",
+    },
+    {
+      title: "Was passiert, wenn der Pilot nicht funktioniert?",
+      description:
+        "Dann haben Sie etwas gelernt, das wenig gekostet hat. Jeder Pilot hat einen Rückfallplan; die bestehenden Systeme laufen währenddessen unverändert weiter. Das ist der Sinn eines Piloten.",
+    },
+    {
+      title: "Arbeiten Sie vor Ort oder remote?",
+      description:
+        "Überwiegend remote, mit Terminen vor Ort, wo sie sinnvoll sind — zum Beispiel beim Kick-off oder beim Go-Live. Standort ist Berlin, Kunden sitzen in ganz Deutschland.",
+    },
   ],
 };
 
 const cta = {
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:andreas.boehrnsen@frontrunner.io', target: '_blank' as const },
-  title: 'Interesse? Melden Sie sich einfach.',
-  subtitle: 'Kein Verkaufsgespräch, kein Druck. Wir hören uns an, was Sie bewegt — und schauen gemeinsam, ob wir helfen können.',
+  primaryCta: {
+    text: "Kostenloses Erstgespräch buchen",
+    href: BOOKING_URL,
+    icon: "tabler:calendar",
+  },
+  title: "Welche Änderung schieben Sie schon länger vor sich her?",
+  subtitle:
+    "30 Minuten, kostenlos, ohne Verkaufsdruck. Am Ende wissen Sie, ob und wie sich die Änderung sicher umsetzen lässt.",
 };
 
 const heroActions = [
-  { variant: 'primary' as const, text: hero.primaryCta.text, href: hero.primaryCta.href, target: hero.primaryCta.target },
+  { variant: "primary" as const, ...hero.primaryCta },
   { text: hero.secondaryCta.text, href: hero.secondaryCta.href },
 ];
 
-const ctaActions = [
-  { variant: 'primary' as const, text: cta.primaryCta.text, href: cta.primaryCta.href, target: cta.primaryCta.target },
-];
+const ctaActions = [{ variant: "primary" as const, ...cta.primaryCta }];
 ---
 
 <Layout metadata={metadata}>
-  <Hero2 tagline={hero.tagline} title={hero.title} subtitle={hero.subtitle} actions={heroActions} image={hero.image} />
+  <Hero2
+    tagline={hero.tagline}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    actions={heroActions}
+    image={hero.image}
+  />
 
-  <Note title={philosophyNote.title} description={philosophyNote.description} />
+  <Note title={promiseNote.title} description={promiseNote.description} />
 
-  <Features id={problems.id} tagline={problems.tagline} title={problems.title} subtitle={problems.subtitle} items={problems.items} />
+  <Features
+    id={problems.id}
+    tagline={problems.tagline}
+    title={problems.title}
+    subtitle={problems.subtitle}
+    items={problems.items}
+  />
 
-  <Content isReversed tagline={services.tagline} title={services.title} items={services.blocks[0].items} image={services.blocks[0].image}>
+  <Steps
+    id={steps.id}
+    tagline={steps.tagline}
+    title={steps.title}
+    subtitle={steps.subtitle}
+    items={steps.items}
+    image={steps.image}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Steps>
+
+  <Features2
+    id={services.id}
+    tagline={services.tagline}
+    title={services.title}
+    subtitle={services.subtitle}
+    columns={3}
+    items={services.items}
+  />
+
+  <Content
+    isReversed
+    tagline={about.tagline}
+    title={about.title}
+    items={about.items}
+    image={about.image}
+    callToAction={about.callToAction}
+  >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[0].contentTitle}</h3>
-      {services.blocks[0].contentCaption}
+      <h3
+        class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2"
+      >
+        {about.contentTitle}
+      </h3>
+      {about.contentCaption}
     </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
   </Content>
 
-  <Content isAfterContent items={services.blocks[1].items} image={services.blocks[1].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[1].contentTitle}</h3>
-      {services.blocks[1].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
-
-  <Content isReversed isAfterContent items={services.blocks[2].items} image={services.blocks[2].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[2].contentTitle}</h3>
-      {services.blocks[2].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
-
-  <Content isAfterContent items={services.blocks[3].items} image={services.blocks[3].image}>
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">{services.blocks[3].contentTitle}</h3>
-      {services.blocks[3].contentCaption}
-    </Fragment>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </Content>
-
-  <Note title={modularNote.title} description={modularNote.description} />
-
-  <Steps title={steps.title} items={steps.items} image={steps.image} />
-
-  <FAQs title={faqs.title} subtitle={faqs.subtitle} tagline={faqs.tagline} classes={{ container: 'max-w-6xl' }} items={faqs.items}>
-    <Fragment slot="bg"><div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div></Fragment>
-  </FAQs>
+  <FAQs
+    title={faqs.title}
+    subtitle={faqs.subtitle}
+    tagline={faqs.tagline}
+    classes={{ container: "max-w-6xl" }}
+    items={faqs.items}
+  />
 
   <CallToAction actions={ctaActions}>
     <Fragment slot="title">{cta.title}</Fragment>

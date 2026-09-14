@@ -1,83 +1,178 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
-import Layout from '~/layouts/PageLayout.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features2 from "~/components/widgets/Features2.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+import Layout from "~/layouts/PageLayout.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+
+import { BOOKING_URL } from "~/data/site";
 
 const metadata = {
-  title: 'Über uns',
-  description: 'Frontrunner IO ist eine auf DevSecOps und Software-Delivery spezialisierte Beratung aus Berlin.',
+  title: "Über uns",
+  description:
+    "Frontrunner IO ist die Beratung von Andreas Böhrnsen aus Berlin. Wir machen Änderungen an der IT kleiner und mittlerer Unternehmen planbar, nachvollziehbar und günstiger.",
 };
 
 const hero = {
-  tagline: 'Über Frontrunner IO',
-  titleLine1: 'DevSecOps-Expertise',
-  titleLine2: 'aus der Praxis.',
-  subtitle: 'Frontrunner IO ist eine auf DevSecOps und Software-Delivery spezialisierte Beratung aus Berlin. Wir helfen Unternehmen, ihre Entwicklungsprozesse schneller, sicherer und nachvollziehbarer zu machen — mit konkreten Maßnahmen statt abstrakten Konzepten.',
-  image: { src: '~/assets/images/hero-image.jpg', alt: 'Frontrunner IO' },
+  tagline: "Über Frontrunner IO",
+  titleLine1: "IT-Änderungen,",
+  titleLine2: "die funktionieren.",
+  subtitle:
+    "Frontrunner IO ist die Beratung von Andreas Böhrnsen aus Berlin. Wir helfen kleinen und mittleren Unternehmen in Deutschland, Änderungen an ihrer IT sicher umzusetzen — vom Server über die Datenbank bis zur Software-Auslieferung. Mit konkreter Umsetzung statt abstrakten Konzepten.",
+  image: { src: "~/assets/images/hero-image.jpg", alt: "Frontrunner IO" },
 };
 
 const principles = {
-  title: 'Unsere Prinzipien',
-  subtitle: 'Wie wir denken, bestimmt, wie wir arbeiten.',
+  title: "Unsere Prinzipien",
+  subtitle: "Wie wir denken, bestimmt, wie wir arbeiten.",
   items: [
-    { title: 'Klarheit statt Komplexität', description: 'Wir vereinfachen, wo es möglich ist. Klare Prozesse, nachvollziehbare Strukturen und konsolidierte Plattformen schaffen die Grundlage für schnelle und sichere Delivery.' },
-    { title: 'Automatisierung statt manueller Arbeit', description: 'Manuelle Schritte sind Fehlerquellen und Engpässe. Wir automatisieren konsequent — von Pipelines über Security Scans bis hin zu Compliance-Nachweisen.' },
-    { title: 'Sicherheit von Anfang an', description: 'Security ist kein nachgelagertes Thema. Wir integrieren sie von Beginn an in Prozesse und Pipelines — prüfbar, auditierbar und ohne Mehraufwand für die Entwicklung.' },
-    { title: 'Nachhaltiger Wissenstransfer', description: 'Wir liefern keine Black-Box-Lösungen. Unser Ziel ist es, Ihr Team zu befähigen, Verbesserungen eigenständig weiterzuführen und kontinuierlich zu verbessern.' },
+    {
+      title: "Erst verstehen, dann ändern",
+      description:
+        "Keine Änderung ohne Befund. Wir schauen uns an, was da ist und warum, bevor wir etwas vorschlagen.",
+    },
+    {
+      title: "Klein anfangen, dann skalieren",
+      description:
+        "Ein Pilot beweist mehr als ein Konzept. Wir liefern erst ein sichtbares Ergebnis, dann sprechen wir über den Rest.",
+    },
+    {
+      title: "Alles nachvollziehbar",
+      description:
+        "Jede Änderung wird als Code beschrieben, dokumentiert und geprüft. Sie können jederzeit sehen, was sich geändert hat — und es rückgängig machen.",
+    },
+    {
+      title: "Wissen bleibt bei Ihnen",
+      description:
+        "Wir bauen keine Black Box. Ihr Team versteht am Ende, was wir gemacht haben, und kann es selbst weiterführen.",
+    },
   ],
 };
 
 const expertise = {
-  title: 'Womit wir uns auskennen',
-  subtitle: 'Unsere Kernkompetenzen liegen an der Schnittstelle von Development, Security und Operations.',
+  title: "Womit wir uns auskennen",
+  subtitle:
+    "Unsere Kernkompetenzen liegen dort, wo Betrieb, Entwicklung und Kosten zusammenkommen.",
   items: [
-    { title: 'DevSecOps & CI/CD', description: 'Aufbau und Optimierung von Pipelines, die Geschwindigkeit und Sicherheit vereinen — von der ersten Commit bis zum Produktivdeployment.', icon: 'tabler:rocket' },
-    { title: 'GitLab', description: 'Implementierung, Migration und Optimierung von GitLab als zentrale Entwicklungsplattform — inkl. Security Scans, IaC-Integration und Compliance-Konfiguration.', icon: 'tabler:brand-gitlab' },
-    { title: 'Plattform-Konsolidierung', description: 'Migration von fragmentierten Toolchains (Jenkins, Azure DevOps, GitHub u. a.) zu einer einheitlichen, wartbaren Plattform.', icon: 'tabler:layout-grid' },
-    { title: 'Regulierte Branchen', description: 'Erfahrung mit Compliance-Anforderungen aus Finance, Insurance und anderen regulierten Bereichen — DORA, ISO und branchenspezifische Standards.', icon: 'tabler:scale' },
-    { title: 'Infrastructure as Code', description: 'Einbindung von IaC in den Delivery-Prozess für reproduzierbare, versionierte und auditierbare Deployments.', icon: 'tabler:server' },
-    { title: 'Coaching & Enablement', description: 'Hands-on-Coaching für Entwickler- und Plattform-Teams — damit das Wissen im Unternehmen bleibt und nicht mit dem Projekt endet.', icon: 'tabler:school' },
+    {
+      title: "Linux & Infrastruktur",
+      description:
+        "Serverbetrieb, Automatisierung und Migration von Windows-Umgebungen zu Linux — im Rechenzentrum, bei Hostern und in der Cloud.",
+      icon: "tabler:server",
+    },
+    {
+      title: "Infrastructure as Code",
+      description:
+        "Terraform, Ansible und Co.: Infrastruktur und Konfiguration als versionierter, reviewbarer Code.",
+      icon: "tabler:code",
+    },
+    {
+      title: "Container & Kubernetes",
+      description:
+        "Anwendungen containerisieren und betreiben — von Docker Compose bis Kubernetes, passend zur Größe des Unternehmens.",
+      icon: "tabler:box",
+    },
+    {
+      title: "Datenbanken",
+      description:
+        "Migration von Oracle und Microsoft SQL Server zu PostgreSQL, inklusive Anwendungsanpassung und Betrieb.",
+      icon: "tabler:database",
+    },
+    {
+      title: "CI/CD & GitLab",
+      description:
+        "Pipelines, Review Apps und Sicherheitsprüfungen — damit jede Änderung automatisch getestet wird, bevor sie live geht.",
+      icon: "tabler:git-merge",
+    },
+    {
+      title: "Regulierte Umfelder",
+      description:
+        "Erfahrung mit Nachvollziehbarkeit und Auditierbarkeit aus Finance und Insurance — hilfreich auch für jedes andere Unternehmen.",
+      icon: "tabler:scale",
+    },
   ],
 };
 
 const why = {
-  title: 'Warum Frontrunner IO',
-  subtitle: 'Was uns von klassischer Beratung unterscheidet.',
+  title: "Warum Frontrunner IO",
+  subtitle: "Was uns von klassischer IT-Beratung unterscheidet.",
   items: [
-    { title: 'Hands-on statt Konzeptpapier', description: 'Wir arbeiten direkt mit Ihrem Team — nicht nur in Workshops und Präsentationen. Ergebnisse entstehen durch Umsetzung, nicht durch Folien.', icon: 'tabler:tools' },
-    { title: 'Modular und skalierbar', description: 'Ob schnelles Assessment, punktuelle Unterstützung oder vollständige Transformation — unsere Leistungen passen sich Ihrer Situation an.', icon: 'tabler:puzzle' },
-    { title: 'Spezialisiert, nicht generalistisch', description: 'DevSecOps und Software-Delivery ist unser Kernthema. Kein Bauchladen-Ansatz — sondern tiefes Fachwissen in einem klar abgegrenzten Bereich.', icon: 'tabler:target' },
+    {
+      title: "Hands-on statt Konzeptpapier",
+      description:
+        "Wir schreiben den Code, richten die Systeme ein und stehen beim Go-Live daneben. Ergebnisse entstehen durch Umsetzung, nicht durch Folien.",
+      icon: "tabler:tools",
+    },
+    {
+      title: "Ein Ansprechpartner",
+      description:
+        "Sie sprechen von Anfang bis Ende mit derselben Person — die das Erstgespräch führt, den Plan schreibt und den Pilot umsetzt.",
+      icon: "tabler:user-check",
+    },
+    {
+      title: "Auf den Mittelstand zugeschnitten",
+      description:
+        "Kein Konzern-Overhead. Klare Angebote mit festem Umfang, verständlich für Geschäftsführung und IT, umsetzbar mit kleinen Teams.",
+      icon: "tabler:building-store",
+    },
   ],
-  callToAction: { text: 'Jetzt Kontakt aufnehmen', href: '/contact' },
+  callToAction: {
+    text: "Erstgespräch buchen",
+    href: BOOKING_URL,
+    icon: "tabler:calendar",
+  },
 };
 
 const cta = {
-  primaryCta: { text: 'Kostenlos anfragen', href: 'mailto:info@frontrunner.io', target: '_blank' as const },
-  title: 'Bereit für den nächsten Schritt?',
-  subtitle: 'Lassen Sie uns gemeinsam herausfinden, wo der größte Hebel in Ihrer Software-Delivery liegt.',
+  primaryCta: {
+    text: "Kostenloses Erstgespräch buchen",
+    href: BOOKING_URL,
+    icon: "tabler:calendar",
+  },
+  secondaryCta: { text: "Leistungen ansehen", href: "/services" },
+  title: "Lernen wir uns kennen.",
+  subtitle:
+    "30 Minuten, kostenlos, per Video. Sie erzählen, was ansteht — wir sagen ehrlich, ob und wie wir helfen können.",
 };
 
-const ctaActions = [
-  { variant: 'primary' as const, text: cta.primaryCta.text, href: cta.primaryCta.href, target: cta.primaryCta.target },
-];
+const ctaActions = [{ variant: "primary" as const, ...cta.primaryCta }];
 ---
 
 <Layout metadata={metadata}>
   <Hero tagline={hero.tagline} image={hero.image}>
     <Fragment slot="title">
-      {hero.titleLine1} <br />
+      {hero.titleLine1}
+      <br />
       <span class="text-accent dark:text-white">{hero.titleLine2}</span>
     </Fragment>
     <Fragment slot="subtitle">{hero.subtitle}</Fragment>
   </Hero>
 
-  <Steps2 title={principles.title} subtitle={principles.subtitle} items={principles.items} />
+  <Steps2
+    title={principles.title}
+    subtitle={principles.subtitle}
+    items={principles.items}
+  />
 
-  <Features2 title={expertise.title} subtitle={expertise.subtitle} columns={3} items={expertise.items} />
+  <Features2
+    title={expertise.title}
+    subtitle={expertise.subtitle}
+    columns={3}
+    items={expertise.items}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Features2>
 
-  <Steps2 title={why.title} subtitle={why.subtitle} isReversed={true} items={why.items} callToAction={why.callToAction} />
+  <Steps2
+    title={why.title}
+    subtitle={why.subtitle}
+    isReversed={true}
+    items={why.items}
+    callToAction={why.callToAction}
+  />
 
   <CallToAction actions={ctaActions}>
     <Fragment slot="title">{cta.title}</Fragment>

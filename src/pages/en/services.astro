@@ -1,0 +1,486 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import HeroText from "~/components/widgets/HeroText.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Content from "~/components/widgets/Content.astro";
+import Note from "~/components/widgets/Note.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+
+import { BOOKING_URL } from "~/data/site";
+
+const metadata = {
+  title: "Services — cut IT costs, replace ageing systems, make changes safe",
+  ignoreTitleTemplate: true,
+  description:
+    "Seven services for small and mid-sized companies: software delivery check, infrastructure as code, containers, test environments, replacing Windows, Oracle and MSSQL licences, cloud migration within the EU.",
+};
+
+const bookCta = {
+  text: "Book an assessment call",
+  href: BOOKING_URL,
+  icon: "tabler:calendar",
+};
+
+const hero = {
+  tagline: "Services",
+  title: "Seven ways to make your IT more reliable and less expensive",
+  subtitle:
+    "Each service solves a problem you probably know: too expensive, too risky, too dependent. Each has a clear outcome, can be booked on its own and can be delivered as a pilot within a few weeks.",
+};
+
+const overview = {
+  tagline: "Overview",
+  title: "Three goals, seven services",
+  subtitle:
+    "We group our services by what they do for you: create clarity, secure changes, cut costs.",
+  items: [
+    {
+      title: "1 · Create clarity",
+      description:
+        "<strong>Software delivery check</strong> — We show where your software delivery loses time, where the risks are and what to fix first.",
+      icon: "tabler:search",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the check",
+        href: "#cicd-assessment",
+      },
+    },
+    {
+      title: "2 · Secure changes",
+      description:
+        "<strong>Infrastructure as code</strong>, <strong>containerising applications</strong> and <strong>test environments per change</strong> — so every change is repeatable, testable and reversible.",
+      icon: "tabler:shield-check",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the services",
+        href: "#infrastructure-as-code",
+      },
+    },
+    {
+      title: "3 · Cut costs",
+      description:
+        "<strong>Replacing server licences</strong>, <strong>replacing database licences</strong> and <strong>cloud migration within the EU</strong> — moves that save licence and hardware costs every year. Delivered safely, because the foundation is in place.",
+      icon: "tabler:coin-euro",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the migrations",
+        href: "#windows-to-linux",
+      },
+    },
+  ],
+};
+
+const services = [
+  {
+    id: "cicd-assessment",
+    groupTagline: "Create clarity",
+    groupTitle: "Know where you stand",
+    groupSubtitle:
+      "Before anything changes, it has to be clear what is worth changing. The assessment delivers that diagnosis within days.",
+    title: "Software delivery check",
+    caption:
+      "We check how fast and how safely your software gets from change to production — honestly evaluated, clearly prioritised. The diagnosis everything else builds on.",
+    image: {
+      src: "~/assets/images/service-assessment.jpg",
+      alt: "Software delivery check",
+    },
+    forWhom:
+      "For companies that build their own software and where releases take long, fail often, or nobody knows exactly how secure the path from code to production is.",
+    benefits: [
+      {
+        title: "You know where time and money are lost",
+        description:
+          "We measure build times, failure rates and waiting times and show which bottlenecks really slow your team down.",
+      },
+      {
+        title: "Security gaps become visible before someone else finds them",
+        description:
+          "Handling of credentials, dependencies, permissions and traceability — checked against common standards.",
+      },
+      {
+        title: "A prioritised list instead of a thick report",
+        description:
+          "What first? What delivers the most for the least effort? You get an order you can start with immediately.",
+      },
+      {
+        title: "A basis for decisions by management and IT",
+        description:
+          "Written in plain language, with effort estimates and expected benefit — so approving the next step is easy.",
+      },
+    ],
+    result:
+      "Outcome: written diagnosis with prioritised actions, typically within 1–2 weeks.",
+  },
+  {
+    id: "infrastructure-as-code",
+    groupTagline: "Secure changes",
+    groupTitle: "The foundation for reliable change",
+    groupSubtitle:
+      "Three building blocks that make every change reproducible, testable and, if in doubt, reversible.",
+    title: "Infrastructure as code",
+    caption:
+      "Servers, network and settings as code: documented, reviewed, rebuildable in minutes. The knowledge lives in the system — not only with one colleague.",
+    image: {
+      src: "~/assets/images/service-consolidation.jpg",
+      alt: "Infrastructure as Code",
+    },
+    forWhom:
+      "For companies whose servers were set up by hand, whose configuration exists only in people’s heads, and who have no second environment to test in.",
+    benefits: [
+      {
+        title: "No server is a one-off anymore",
+        description:
+          "Every environment can be rebuilt from code — identically, in minutes instead of days. That applies to test, staging and production.",
+      },
+      {
+        title: "Every change is documented and traceable",
+        description:
+          "Who changed what, when and why? The answer is in the version history, not in an email from three years ago.",
+      },
+      {
+        title: "Changes are reviewed before they are applied",
+        description:
+          "A review process like for application code: four eyes, automated checks, only then rollout.",
+      },
+      {
+        title: "Knowledge stays in the company",
+        description:
+          "When a colleague or a vendor leaves, the infrastructure remains understandable and operable.",
+      },
+    ],
+    result:
+      "Outcome: one pilot system fully as code, including onboarding your team into the workflow. Typically 3–6 weeks.",
+  },
+  {
+    id: "containerization",
+    title: "Containerising applications",
+    caption:
+      "Your application runs exactly the same on a laptop, in test and in production — because it brings its whole environment with it.",
+    image: {
+      src: "~/assets/images/service-containers.jpg",
+      alt: "Containerise applications",
+    },
+    forWhom:
+      "For companies where “it works on my machine” is a familiar phrase and deployments depend on the configuration of each individual server.",
+    benefits: [
+      {
+        title: "The end of “but it works on my machine”",
+        description:
+          "The application ships with its entire runtime environment. Differences between development, test and production disappear.",
+      },
+      {
+        title: "Deployments in minutes, rollbacks in seconds",
+        description:
+          "Starting a new version or returning to the old one becomes routine instead of a weekend project.",
+      },
+      {
+        title: "Independent of individual servers and operating systems",
+        description:
+          "Containerised applications run on any Linux host, in the cloud or in your own data centre — the basis for later migrations.",
+      },
+      {
+        title: "Prerequisite for review apps and modern CI/CD",
+        description:
+          "Once containerised, every change can be tested automatically in its own environment. The next step becomes easy.",
+      },
+    ],
+    result:
+      "Outcome: one application containerised and in operation, including build pipeline and documentation. Typically 2–5 weeks.",
+  },
+  {
+    id: "review-apps",
+    title: "Test environments per change",
+    caption:
+      "Every change automatically gets its own clickable test environment first. Business users, customers and the team see the result before it goes live.",
+    image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review apps" },
+    forWhom:
+      "For companies where business users or customers only see changes after go-live — so problems only surface in production.",
+    benefits: [
+      {
+        title: "Business users see the change before it goes live",
+        description:
+          "A link, a running version, instant feedback. Misunderstandings get cleared up before they become expensive.",
+      },
+      {
+        title: "Bugs are found earlier — and fixed cheaper",
+        description:
+          "A bug in a review app costs minutes. The same bug in production costs hours, customers and nerves.",
+      },
+      {
+        title: "No more fighting over the one test environment",
+        description:
+          "Every change has its own environment. Nobody overwrites someone else’s work anymore.",
+      },
+      {
+        title: "Go-lives become boring",
+        description:
+          "What worked in the review app works in production. The Friday release loses its terror.",
+      },
+    ],
+    result:
+      "Outcome: review apps set up for one application, created and torn down automatically. Typically 2–4 weeks (requires containerisation).",
+  },
+  {
+    id: "windows-to-linux",
+    groupTagline: "Cut costs",
+    groupTitle: "Save licence costs without endangering operations",
+    groupSubtitle:
+      "Migrations are the changes with the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan.",
+    title: "Replacing server licences",
+    caption:
+      "When Windows Server licences tie up more budget every year: we move your systems to Linux step by step — no downtime, permanent savings.",
+    image: {
+      src: "~/assets/images/service-linux.jpg",
+      alt: "Migration from Windows Server to Linux",
+    },
+    forWhom:
+      "For companies running Windows Server for services that run just as well or better on Linux — web servers, databases, application servers, file services, internal tools.",
+    benefits: [
+      {
+        title: "Licence costs disappear — permanently",
+        description:
+          "Windows Server and CAL licences are recurring costs. After the migration they are history for that system.",
+      },
+      {
+        title: "Fewer maintenance windows, fewer reboots",
+        description:
+          "Linux systems can be updated while running. The patch weekend becomes the exception.",
+      },
+      {
+        title: "Fully automatable",
+        description:
+          "Linux is the natural basis for Infrastructure as Code and containers. The migration is also your entry into reliable change.",
+      },
+      {
+        title: "No big bang",
+        description:
+          "We migrate one system after another, starting with the lowest-risk one. The old system stays untouched until the switch has succeeded.",
+      },
+    ],
+    result:
+      "Outcome: one system migrated to Linux, documented and in operation — plus a roadmap for the remaining systems. Typically 3–8 weeks.",
+  },
+  {
+    id: "database-migration",
+    title: "Replacing database licences",
+    caption:
+      "Oracle and Microsoft SQL Server are among the most expensive items in an IT budget. We migrate to PostgreSQL — cleanly, thoroughly tested, with a rollback plan.",
+    image: {
+      src: "~/assets/images/service-postgres.jpg",
+      alt: "Database migration to PostgreSQL",
+    },
+    forWhom:
+      "For companies whose Oracle or Microsoft SQL Server licences tie up a significant part of the IT budget — for applications that can also run on PostgreSQL.",
+    benefits: [
+      {
+        title: "The biggest single saving in the IT budget",
+        description:
+          "Oracle and MSSQL licences are among the most expensive line items. PostgreSQL is open source, mature and free of licence fees.",
+      },
+      {
+        title: "Data and application are checked before the switch",
+        description:
+          "Schema, data, stored procedures and application code are analysed and tested before a single row moves to production.",
+      },
+      {
+        title: "Rollback plan included",
+        description:
+          "The old database keeps running in parallel until the new one has proven it can do everything. The switch is a flip, not a leap.",
+      },
+      {
+        title: "Future-proof and independent",
+        description:
+          "No licence audits, no price increases, no dependence on one vendor. PostgreSQL runs everywhere — including in containers.",
+      },
+    ],
+    result:
+      "Outcome: one database migrated, tested and handed over, including application adjustments. Typically 4–12 weeks depending on complexity.",
+  },
+  {
+    id: "cloud-migration",
+    title: "Cloud migration within the EU",
+    caption:
+      "Out of your own server room, away from ageing hardware and maintenance contracts: we move you to providers with data centres in Germany and the EU. You pay only for what you use.",
+    image: {
+      src: "~/assets/images/service-cloud.jpg",
+      alt: "Cloud migration to EU data centres",
+    },
+    forWhom:
+      "For companies that depreciate their own hardware, pay maintenance contracts or rent servers that sit half empty most of the time — and whose data has to stay in the EU.",
+    benefits: [
+      {
+        title: "Pay for what you use — not for what you once bought",
+        description:
+          "No hardware depreciation, no maintenance contracts, no spare capacity for peaks that happen three times a year. Resources grow and shrink with demand.",
+      },
+      {
+        title: "Data stays in the EU",
+        description:
+          "We work with European providers or EU regions — data centres in Germany and the EU, GDPR-compliant, with no data transfers to third countries.",
+      },
+      {
+        title: "No more server room that someone has to look after",
+        description:
+          "Power, cooling, failed disks, spare parts — the provider takes care of that. Your team looks after applications, not tin.",
+      },
+      {
+        title: "Described as code, reproducible at any time",
+        description:
+          "The cloud environment is built from Infrastructure as Code. Switching providers stays possible at any time — no lock-in.",
+      },
+    ],
+    result:
+      "Outcome: one system or application migrated to an EU data centre, including a before/after cost comparison and operations documentation. Typically 3–8 weeks.",
+  },
+];
+
+const combineNote = {
+  title: "Everything fits together:",
+  description:
+    "The check shows where to start. Infrastructure as code and containers are the foundation. On that foundation, moves become safe — and test environments keep every further change low-risk.",
+};
+
+const process = {
+  tagline: "Process",
+  title: "How every service runs",
+  subtitle:
+    "Whichever service you choose, we always work in the same three steps. That keeps the risk small and the outcome predictable.",
+  callToAction: bookCta,
+  items: [
+    {
+      title: "Assessment call",
+      description:
+        "30 minutes, free. We clarify what is coming up and whether we can help.",
+      icon: "tabler:phone-call",
+    },
+    {
+      title: "Concrete plan",
+      description:
+        "Written proposal with scope, effort, benefit and rollback plan.",
+      icon: "tabler:list-check",
+    },
+    {
+      title: "Pilot implementation",
+      description:
+        "One clearly scoped system is delivered. You see the result before deciding on more.",
+      icon: "tabler:rocket",
+    },
+  ],
+};
+
+const faqs = {
+  tagline: "FAQs",
+  title: "Questions about the services",
+  items: [
+    {
+      title: "Where should we start?",
+      description:
+        "If you are unsure: with the software delivery check. If you have a concrete goal — cutting licence costs, say — we go straight into an assessment call about that migration and check which foundation it needs.",
+    },
+    {
+      title: "How do you charge?",
+      description:
+        "Assessments and pilots have a fixed scope, and you know the price before we start. For the wider rollout we agree fixed prices per system or a time budget, whichever fits.",
+    },
+    {
+      title: "Do we have to change our tools?",
+      description:
+        "No. We work with what you have — GitLab, GitHub, Azure DevOps, Proxmox, VMware, cloud or your own data centre. We only recommend a switch when it clearly pays off.",
+    },
+    {
+      title: "What about our existing IT provider?",
+      description:
+        "We are happy to work with them. Our goal is that your company understands and owns the change — no matter who operates it later.",
+    },
+  ],
+};
+
+const cta = {
+  title: "Which service fits your situation?",
+  subtitle: "We find out in a free 30-minute assessment call — no obligation.",
+  actions: [{ variant: "primary" as const, ...bookCta }],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline={hero.tagline}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    callToAction={bookCta}
+    callToAction2={{ text: "Services in detail", href: "#cicd-assessment" }}
+  />
+
+  <Features2
+    tagline={overview.tagline}
+    title={overview.title}
+    subtitle={overview.subtitle}
+    columns={3}
+    items={overview.items}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Features2>
+
+  {
+    services.map((s, index) => (
+      <Content
+        id={s.id}
+        tagline={s.groupTagline}
+        title={s.groupTitle}
+        subtitle={s.groupSubtitle}
+        isReversed={index % 2 === 0}
+        isAfterContent={!s.groupTitle}
+        items={s.benefits}
+        image={s.image}
+        callToAction={{
+          text: "Talk to us about this",
+          href: BOOKING_URL,
+          icon: "tabler:calendar",
+        }}
+      >
+        <Fragment slot="content">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+            {s.title}
+          </h3>
+          <p class="mb-4">{s.caption}</p>
+          <p class="text-muted dark:text-slate-400 text-base mb-4">
+            {s.forWhom}
+          </p>
+          <p class="text-base font-medium">{s.result}</p>
+        </Fragment>
+      </Content>
+    ))
+  }
+
+  <Note title={combineNote.title} description={combineNote.description} />
+
+  <Steps2
+    tagline={process.tagline}
+    title={process.title}
+    subtitle={process.subtitle}
+    items={process.items}
+    callToAction={process.callToAction}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Steps2>
+
+  <FAQs
+    tagline={faqs.tagline}
+    title={faqs.title}
+    classes={{ container: "max-w-6xl" }}
+    items={faqs.items}
+  />
+
+  <CallToAction actions={cta.actions}>
+    <Fragment slot="title">{cta.title}</Fragment>
+    <Fragment slot="subtitle">{cta.subtitle}</Fragment>
+  </CallToAction>
+</Layout>

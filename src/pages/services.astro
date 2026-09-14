@@ -1,0 +1,488 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import HeroText from "~/components/widgets/HeroText.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Content from "~/components/widgets/Content.astro";
+import Note from "~/components/widgets/Note.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+
+import { BOOKING_URL } from "~/data/site";
+
+const metadata = {
+  title: "Leistungen — IT-Kosten senken, Systeme ablösen, Änderungen absichern",
+  ignoreTitleTemplate: true,
+  description:
+    "Sieben Leistungen für den Mittelstand: Software-Delivery-Check, Infrastruktur als Code, Container, Testumgebungen, Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Cloud-Umzug in die EU.",
+};
+
+const bookCta = {
+  text: "Erstgespräch buchen",
+  href: BOOKING_URL,
+  icon: "tabler:calendar",
+};
+
+const hero = {
+  tagline: "Leistungen",
+  title: "Sieben Wege, Ihre IT verlässlicher und günstiger zu machen",
+  subtitle:
+    "Jede Leistung löst ein Problem, das Sie wahrscheinlich kennen: zu teuer, zu riskant, zu abhängig. Jede hat ein klares Ergebnis, ist einzeln buchbar und lässt sich als Pilot in wenigen Wochen umsetzen.",
+};
+
+const overview = {
+  tagline: "Übersicht",
+  title: "Drei Ziele, sieben Leistungen",
+  subtitle:
+    "Wir sortieren unsere Leistungen nach dem, was sie für Sie bewirken: Klarheit schaffen, Änderungen absichern, Kosten senken.",
+  items: [
+    {
+      title: "1 · Klarheit schaffen",
+      description:
+        "<strong>Software-Delivery-Check</strong> — Wir zeigen, wo Ihre Software-Auslieferung Zeit verliert, wo Risiken liegen und was zuerst zu tun ist.",
+      icon: "tabler:search",
+      callToAction: {
+        variant: "link" as const,
+        text: "Zum Check",
+        href: "#cicd-assessment",
+      },
+    },
+    {
+      title: "2 · Änderungen absichern",
+      description:
+        "<strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong> und <strong>Testumgebung pro Änderung</strong> — damit jede Änderung wiederholbar, testbar und rückgängig zu machen ist.",
+      icon: "tabler:shield-check",
+      callToAction: {
+        variant: "link" as const,
+        text: "Zu den Leistungen",
+        href: "#infrastructure-as-code",
+      },
+    },
+    {
+      title: "3 · Kosten senken",
+      description:
+        "<strong>Server-Lizenzen ablösen</strong>, <strong>Datenbank-Lizenzen ablösen</strong> und <strong>Cloud-Umzug in die EU</strong> — Umzüge, die jedes Jahr Lizenz- und Hardwarekosten sparen. Sicher umgesetzt, weil das Fundament steht.",
+      icon: "tabler:coin-euro",
+      callToAction: {
+        variant: "link" as const,
+        text: "Zu den Migrationen",
+        href: "#windows-to-linux",
+      },
+    },
+  ],
+};
+
+const services = [
+  {
+    id: "cicd-assessment",
+    groupTagline: "Klarheit schaffen",
+    groupTitle: "Wissen, wo Sie stehen",
+    groupSubtitle:
+      "Bevor etwas geändert wird, muss klar sein, was sich lohnt. Der Check liefert diesen Befund in wenigen Tagen.",
+    title: "Software-Delivery-Check",
+    caption:
+      "Wir prüfen, wie schnell und wie sicher Ihre Software von der Änderung bis in den Betrieb kommt — ehrlich bewertet, klar priorisiert. Der Befund, auf dem alles Weitere aufbaut.",
+    image: {
+      src: "~/assets/images/service-assessment.jpg",
+      alt: "Software-Delivery-Check",
+    },
+    forWhom:
+      "Für Unternehmen, die eigene Software entwickeln und bei denen Releases lange dauern, oft fehlschlagen oder niemand genau weiß, wie sicher der Weg von Code zu Produktion ist.",
+    benefits: [
+      {
+        title: "Sie wissen, wo Zeit und Geld verloren gehen",
+        description:
+          "Wir messen Build-Zeiten, Fehlerraten und Wartezeiten und zeigen, welche Engpässe Ihr Team wirklich bremsen.",
+      },
+      {
+        title:
+          "Sicherheitslücken werden sichtbar, bevor jemand anderes sie findet",
+        description:
+          "Umgang mit Zugangsdaten, Abhängigkeiten, Berechtigungen und Nachvollziehbarkeit — geprüft gegen gängige Standards.",
+      },
+      {
+        title: "Eine priorisierte Liste statt eines dicken Berichts",
+        description:
+          "Was zuerst? Was bringt am meisten für den geringsten Aufwand? Sie erhalten eine Reihenfolge, mit der Sie sofort starten können.",
+      },
+      {
+        title: "Eine Entscheidungsgrundlage für Geschäftsführung und IT",
+        description:
+          "Verständlich formuliert, mit Aufwandsschätzung und erwartetem Nutzen — damit die Freigabe für den nächsten Schritt leicht fällt.",
+      },
+    ],
+    result:
+      "Ergebnis: Schriftlicher Befund mit priorisierten Maßnahmen, typischerweise innerhalb von 1–2 Wochen.",
+  },
+  {
+    id: "infrastructure-as-code",
+    groupTagline: "Änderungen absichern",
+    groupTitle: "Das Fundament für verlässliche Änderungen",
+    groupSubtitle:
+      "Drei Bausteine, die dafür sorgen, dass jede Änderung reproduzierbar, testbar und im Zweifel rückgängig zu machen ist.",
+    title: "Infrastruktur als Code",
+    caption:
+      "Server, Netzwerk und Einstellungen als Code: dokumentiert, geprüft, in Minuten neu aufbaubar. Das Wissen steckt im System — nicht mehr nur bei einem Kollegen.",
+    image: {
+      src: "~/assets/images/service-consolidation.jpg",
+      alt: "Infrastructure as Code",
+    },
+    forWhom:
+      "Für Unternehmen, deren Server von Hand eingerichtet wurden, deren Konfiguration nur in Köpfen existiert und die keine zweite Umgebung zum Testen haben.",
+    benefits: [
+      {
+        title: "Kein Server ist mehr ein Unikat",
+        description:
+          "Jede Umgebung lässt sich aus dem Code neu aufbauen — identisch, in Minuten statt Tagen. Das gilt für Test, Staging und Produktion.",
+      },
+      {
+        title: "Jede Änderung ist dokumentiert und nachvollziehbar",
+        description:
+          "Wer hat wann was geändert, und warum? Die Antwort steht in der Versionsgeschichte, nicht in einer E-Mail von vor drei Jahren.",
+      },
+      {
+        title: "Änderungen werden geprüft, bevor sie angewendet werden",
+        description:
+          "Ein Review-Prozess wie für Anwendungscode: Vier Augen, automatische Prüfung, dann erst Umsetzung.",
+      },
+      {
+        title: "Wissen bleibt im Unternehmen",
+        description:
+          "Wenn ein Kollege oder ein Dienstleister geht, bleibt die Infrastruktur verständlich und bedienbar.",
+      },
+    ],
+    result:
+      "Ergebnis: Ein Pilot-System vollständig als Code, inklusive Einführung Ihres Teams in den Arbeitsablauf. Typisch 3–6 Wochen.",
+  },
+  {
+    id: "containerization",
+    title: "Anwendungen containerisieren",
+    caption:
+      "Ihre Anwendung läuft auf dem Laptop, im Test und in Produktion exakt gleich — weil sie ihre gesamte Umgebung mitbringt.",
+    image: {
+      src: "~/assets/images/service-containers.jpg",
+      alt: "Anwendungen containerisieren",
+    },
+    forWhom:
+      "Für Unternehmen, bei denen „auf meinem Rechner läuft es“ ein bekannter Satz ist und Deployments von der Konfiguration des jeweiligen Servers abhängen.",
+    benefits: [
+      {
+        title: "Schluss mit „bei mir läuft es aber“",
+        description:
+          "Die Anwendung bringt ihre gesamte Laufzeitumgebung mit. Unterschiede zwischen Entwicklung, Test und Produktion verschwinden.",
+      },
+      {
+        title: "Deployments in Minuten, Rollbacks in Sekunden",
+        description:
+          "Eine neue Version starten oder zur alten zurückkehren wird zum Routinevorgang statt zum Wochenendprojekt.",
+      },
+      {
+        title: "Unabhängig von einzelnen Servern und Betriebssystemen",
+        description:
+          "Containerisierte Anwendungen laufen auf jedem Linux-Host, in der Cloud oder im eigenen Rechenzentrum — die Grundlage für spätere Migrationen.",
+      },
+      {
+        title: "Voraussetzung für Review Apps und moderne CI/CD",
+        description:
+          "Wer containerisiert hat, kann jede Änderung automatisch in einer eigenen Umgebung testen. Der nächste Schritt wird einfach.",
+      },
+    ],
+    result:
+      "Ergebnis: Eine Anwendung containerisiert und im Betrieb, inklusive Build-Pipeline und Dokumentation. Typisch 2–5 Wochen.",
+  },
+  {
+    id: "review-apps",
+    title: "Testumgebung pro Änderung",
+    caption:
+      "Jede Änderung bekommt vorher automatisch eine eigene, klickbare Testumgebung. Fachabteilung, Kunden und Team sehen das Ergebnis, bevor es live geht.",
+    image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review Apps" },
+    forWhom:
+      "Für Unternehmen, bei denen Fachabteilung oder Kunden Änderungen erst nach dem Go-Live sehen — und Fehler deshalb erst in Produktion auffallen.",
+    benefits: [
+      {
+        title: "Fachabteilung sieht die Änderung, bevor sie live geht",
+        description:
+          "Ein Link, eine laufende Version, sofortiges Feedback. Missverständnisse werden geklärt, bevor sie teuer werden.",
+      },
+      {
+        title: "Fehler werden früher gefunden — und billiger behoben",
+        description:
+          "Ein Fehler in der Review App kostet Minuten. Derselbe Fehler in Produktion kostet Stunden, Kunden und Nerven.",
+      },
+      {
+        title: "Kein Streit mehr um die eine Testumgebung",
+        description:
+          "Jede Änderung hat ihre eigene Umgebung. Niemand überschreibt mehr die Arbeit eines anderen.",
+      },
+      {
+        title: "Go-Lives werden langweilig",
+        description:
+          "Was in der Review App funktioniert hat, funktioniert auch in Produktion. Der Freitag-Release verliert seinen Schrecken.",
+      },
+    ],
+    result:
+      "Ergebnis: Review Apps für eine Anwendung eingerichtet, automatisch erstellt und wieder abgebaut. Typisch 2–4 Wochen (setzt Containerisierung voraus).",
+  },
+  {
+    id: "windows-to-linux",
+    groupTagline: "Kosten senken",
+    groupTitle: "Lizenzkosten sparen, ohne den Betrieb zu gefährden",
+    groupSubtitle:
+      "Migrationen sind die Änderungen mit dem größten Sparpotenzial — und dem größten Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan.",
+    title: "Server-Lizenzen ablösen",
+    caption:
+      "Wenn Windows-Server-Lizenzen jedes Jahr mehr Budget binden: Wir ziehen Ihre Systeme Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
+    image: {
+      src: "~/assets/images/service-linux.jpg",
+      alt: "Migration von Windows Server zu Linux",
+    },
+    forWhom:
+      "Für Unternehmen, die Windows Server für Dienste betreiben, die genauso gut oder besser auf Linux laufen — Webserver, Datenbanken, Anwendungsserver, Dateidienste, interne Tools.",
+    benefits: [
+      {
+        title: "Lizenzkosten fallen weg — dauerhaft",
+        description:
+          "Windows-Server- und CAL-Lizenzen sind wiederkehrende Kosten. Nach der Migration sind sie für dieses System Geschichte.",
+      },
+      {
+        title: "Weniger Wartungsfenster, weniger Neustarts",
+        description:
+          "Linux-Systeme lassen sich im laufenden Betrieb aktualisieren. Das Patch-Wochenende wird zur Ausnahme.",
+      },
+      {
+        title: "Vollständig automatisierbar",
+        description:
+          "Linux ist die natürliche Basis für Infrastructure as Code und Container. Die Migration ist gleichzeitig der Einstieg in verlässliche Änderungen.",
+      },
+      {
+        title: "Kein Big Bang",
+        description:
+          "Wir migrieren ein System nach dem anderen, beginnend mit dem risikoärmsten. Das alte System bleibt bis zum erfolgreichen Umstieg unangetastet.",
+      },
+    ],
+    result:
+      "Ergebnis: Ein System auf Linux migriert, dokumentiert und im Betrieb — plus Roadmap für die weiteren Systeme. Typisch 3–8 Wochen.",
+  },
+  {
+    id: "database-migration",
+    title: "Datenbank-Lizenzen ablösen",
+    caption:
+      "Oracle und Microsoft SQL Server gehören zu den teuersten Posten im IT-Budget. Wir migrieren auf PostgreSQL — sauber, gründlich getestet, mit Rückfallplan.",
+    image: {
+      src: "~/assets/images/service-postgres.jpg",
+      alt: "Datenbankmigration zu PostgreSQL",
+    },
+    forWhom:
+      "Für Unternehmen, deren Oracle- oder Microsoft-SQL-Server-Lizenzen einen erheblichen Teil des IT-Budgets binden — bei Anwendungen, die auch mit PostgreSQL laufen können.",
+    benefits: [
+      {
+        title: "Die größte einzelne Einsparung im IT-Budget",
+        description:
+          "Oracle- und MSSQL-Lizenzen gehören zu den teuersten Posten. PostgreSQL ist Open Source, ausgereift und ohne Lizenzgebühren.",
+      },
+      {
+        title: "Daten und Anwendung werden vor dem Umstieg geprüft",
+        description:
+          "Schema, Daten, gespeicherte Prozeduren und Anwendungscode werden analysiert und getestet, bevor eine Zeile in Produktion umzieht.",
+      },
+      {
+        title: "Rückfallplan inklusive",
+        description:
+          "Die alte Datenbank läuft parallel weiter, bis die neue nachweislich alles kann. Der Umstieg ist ein Umschalten, kein Sprung.",
+      },
+      {
+        title: "Zukunftssicher und unabhängig",
+        description:
+          "Keine Lizenz-Audits, keine Preiserhöhungen, keine Abhängigkeit von einem Hersteller. PostgreSQL läuft überall — auch in Containern.",
+      },
+    ],
+    result:
+      "Ergebnis: Eine Datenbank migriert, getestet und übergeben, inklusive Anpassung der Anwendung. Typisch 4–12 Wochen je nach Komplexität.",
+  },
+  {
+    id: "cloud-migration",
+    title: "Cloud-Umzug in die EU",
+    caption:
+      "Raus aus dem eigenen Serverraum, weg von alternder Hardware und Wartungsverträgen: Wir ziehen mit Ihnen zu Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen nur, was Sie nutzen.",
+    image: {
+      src: "~/assets/images/service-cloud.jpg",
+      alt: "Cloud-Migration in EU-Rechenzentren",
+    },
+    forWhom:
+      "Für Unternehmen, die eigene Hardware abschreiben, Wartungsverträge bezahlen oder Server mieten, die die meiste Zeit halb leer laufen — und deren Daten in der EU bleiben müssen.",
+    benefits: [
+      {
+        title: "Bezahlen, was Sie nutzen — nicht, was Sie einmal gekauft haben",
+        description:
+          "Keine Hardware-Abschreibung, keine Wartungsverträge, keine Reserve für Lastspitzen, die dreimal im Jahr auftreten. Ressourcen wachsen und schrumpfen mit dem Bedarf.",
+      },
+      {
+        title: "Daten bleiben in der EU",
+        description:
+          "Wir arbeiten mit europäischen Anbietern oder EU-Regionen — Rechenzentren in Deutschland und der EU, DSGVO-konform, ohne Datentransfer in Drittländer.",
+      },
+      {
+        title: "Kein Serverraum mehr, um den sich jemand kümmern muss",
+        description:
+          "Strom, Kühlung, defekte Festplatten, Ersatzteile — das übernimmt der Anbieter. Ihr Team kümmert sich um Anwendungen, nicht um Blech.",
+      },
+      {
+        title: "Als Code beschrieben, jederzeit reproduzierbar",
+        description:
+          "Die Cloud-Umgebung entsteht aus Infrastructure as Code. Ein Anbieterwechsel bleibt jederzeit möglich — kein Lock-in.",
+      },
+    ],
+    result:
+      "Ergebnis: Ein System oder eine Anwendung in ein EU-Rechenzentrum migriert, inklusive Kostenvergleich vorher/nachher und Betriebsdokumentation. Typisch 3–8 Wochen.",
+  },
+];
+
+const combineNote = {
+  title: "Alles greift ineinander:",
+  description:
+    "Der Check zeigt, wo Sie starten. Infrastruktur als Code und Container sind das Fundament. Darauf werden Umzüge sicher — und Testumgebungen machen jede weitere Änderung risikoarm.",
+};
+
+const process = {
+  tagline: "Ablauf",
+  title: "So läuft jede Leistung ab",
+  subtitle:
+    "Unabhängig davon, welche Leistung Sie wählen: Wir arbeiten immer in denselben drei Schritten. So bleibt das Risiko klein und das Ergebnis planbar.",
+  callToAction: bookCta,
+  items: [
+    {
+      title: "Erstgespräch",
+      description:
+        "30 Minuten, kostenlos. Wir klären, was ansteht und ob wir helfen können.",
+      icon: "tabler:phone-call",
+    },
+    {
+      title: "Konkreter Plan",
+      description:
+        "Schriftlicher Vorschlag mit Umfang, Aufwand, Nutzen und Rückfallplan.",
+      icon: "tabler:list-check",
+    },
+    {
+      title: "Pilot-Umsetzung",
+      description:
+        "Ein klar abgegrenztes System wird umgesetzt. Sie sehen das Ergebnis, bevor Sie über mehr entscheiden.",
+      icon: "tabler:rocket",
+    },
+  ],
+};
+
+const faqs = {
+  tagline: "FAQs",
+  title: "Fragen zu den Leistungen",
+  items: [
+    {
+      title: "In welcher Reihenfolge sollten wir anfangen?",
+      description:
+        "Wenn Sie unsicher sind: mit dem Software-Delivery-Check. Wenn Sie ein konkretes Ziel haben — etwa Lizenzkosten senken — sprechen wir im Erstgespräch direkt über genau diesen Umzug und prüfen, welches Fundament dafür nötig ist.",
+    },
+    {
+      title: "Wie berechnen Sie die Leistungen?",
+      description:
+        "Check und Piloten haben einen festen Umfang und einen Festpreis, den Sie vor Beginn kennen. Für den weiteren Rollout vereinbaren wir je nach Bedarf Festpreise pro System oder ein Kontingent.",
+    },
+    {
+      title: "Müssen wir unsere Werkzeuge wechseln?",
+      description:
+        "Nein. Wir arbeiten mit dem, was Sie haben — GitLab, GitHub, Azure DevOps, Proxmox, VMware, Cloud oder eigenes Rechenzentrum. Wir empfehlen einen Wechsel nur, wenn er sich klar rechnet.",
+    },
+    {
+      title: "Was ist mit unserem bestehenden IT-Dienstleister?",
+      description:
+        "Wir arbeiten gern mit ihm zusammen. Unser Ziel ist, dass Ihr Unternehmen die Änderung versteht und besitzt — egal, wer sie später betreibt.",
+    },
+  ],
+};
+
+const cta = {
+  title: "Welche Leistung passt zu Ihrer Situation?",
+  subtitle:
+    "Im kostenlosen Erstgespräch finden wir es in 30 Minuten heraus — ohne Verpflichtung.",
+  actions: [{ variant: "primary" as const, ...bookCta }],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline={hero.tagline}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    callToAction={bookCta}
+    callToAction2={{ text: "Leistungen im Detail", href: "#cicd-assessment" }}
+  />
+
+  <Features2
+    tagline={overview.tagline}
+    title={overview.title}
+    subtitle={overview.subtitle}
+    columns={3}
+    items={overview.items}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Features2>
+
+  {
+    services.map((s, index) => (
+      <Content
+        id={s.id}
+        tagline={s.groupTagline}
+        title={s.groupTitle}
+        subtitle={s.groupSubtitle}
+        isReversed={index % 2 === 0}
+        isAfterContent={!s.groupTitle}
+        items={s.benefits}
+        image={s.image}
+        callToAction={{
+          text: "Dazu beraten lassen",
+          href: BOOKING_URL,
+          icon: "tabler:calendar",
+        }}
+      >
+        <Fragment slot="content">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+            {s.title}
+          </h3>
+          <p class="mb-4">{s.caption}</p>
+          <p class="text-muted dark:text-slate-400 text-base mb-4">
+            {s.forWhom}
+          </p>
+          <p class="text-base font-medium">{s.result}</p>
+        </Fragment>
+      </Content>
+    ))
+  }
+
+  <Note title={combineNote.title} description={combineNote.description} />
+
+  <Steps2
+    tagline={process.tagline}
+    title={process.title}
+    subtitle={process.subtitle}
+    items={process.items}
+    callToAction={process.callToAction}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Steps2>
+
+  <FAQs
+    tagline={faqs.tagline}
+    title={faqs.title}
+    classes={{ container: "max-w-6xl" }}
+    items={faqs.items}
+  />
+
+  <CallToAction actions={cta.actions}>
+    <Fragment slot="title">{cta.title}</Fragment>
+    <Fragment slot="subtitle">{cta.subtitle}</Fragment>
+  </CallToAction>
+</Layout>

@@ -11,14 +11,14 @@ metadata:
   title:
     default: frontrunner.io
     template: '%s — frontrunner.io'
-  description: 'DevSecOps, CI/CD and automation for fast, secure and efficient software delivery'
+  description: 'Change with confidence — IT modernisation for small and mid-sized companies in Germany: Infrastructure as Code, containers, Linux, PostgreSQL and EU cloud migration, CI/CD.'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: frontrunner.io
     images:
-      - url: '~/assets/images/default.jpg'
+      - url: '~/assets/images/hero-image.jpg'
         width: 1200
         height: 1000 # 628
     type: website
