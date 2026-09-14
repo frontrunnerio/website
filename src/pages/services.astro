@@ -14,7 +14,7 @@ const metadata = {
   title: "Leistungen — IT-Kosten senken, Systeme ablösen, Änderungen absichern",
   ignoreTitleTemplate: true,
   description:
-    "Sieben Leistungen für den Mittelstand: Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Cloud-Umzug in die EU, Infrastruktur als Code, Container, Testumgebungen, Software-Delivery-Check.",
+    "Sieben Leistungen für den Mittelstand: Infrastruktur als Code, Container, Testumgebungen, Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Cloud-Umzug in die EU, Software-Delivery-Check.",
 };
 
 const bookCta = {
@@ -32,30 +32,41 @@ const hero = {
 
 const overview = {
   tagline: "Übersicht",
-  title: "Zwei Ausgangslagen, sieben Leistungen",
+  title: "Drei Einstiege, ein Weg",
   subtitle:
-    "Die meisten Anfragen beginnen an einer von zwei Stellen. Jede Leistung ist einzeln buchbar — Sie starten dort, wo es bei Ihnen hakt. Der Weg ist dabei immer derselbe: Infrastruktur als Code, Container, Migration, Cloud.",
+    "Kunden kommen mit einer von drei Situationen zu uns. Jede ist ein Einstieg in denselben Weg: Infrastruktur als Code, Container, Migration, Cloud. Jede Leistung ist einzeln buchbar — Sie starten dort, wo es bei Ihnen hakt.",
   items: [
     {
-      title: "Es geht um Ihre Server",
+      title: "Jede Änderung ist ein Risiko",
       description:
-        "Alte Hardware, steigende Lizenzkosten, Wissen bei einer Person, Abhängigkeit vom Systemhaus. Einstieg über <strong>Infrastruktur als Code</strong>, dann <strong>Server-Lizenzen ablösen</strong> oder <strong>Cloud-Umzug in die EU</strong> — die Dienste ziehen dabei als Container um. Kein Entwicklerteam nötig.",
-      icon: "tabler:server",
+        "Server sind Unikate, das Wissen steckt in Köpfen, Updates werden erst in Produktion getestet. Der Einstieg ins Fundament: <strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong>, <strong>Testumgebung pro Änderung</strong>.",
+      icon: "tabler:shield-check",
       callToAction: {
         variant: "link" as const,
-        text: "Zu den Server-Leistungen",
+        text: "Zum Fundament",
+        href: "#infrastructure-as-code",
+      },
+    },
+    {
+      title: "Lizenzen fressen das Budget",
+      description:
+        "Windows Server, Oracle, MSSQL: Die Rechnungen steigen, ein Wechsel erscheint zu riskant. <strong>Server-Lizenzen ablösen</strong> und <strong>Datenbank-Lizenzen ablösen</strong> — auf dem Fundament, das wir bei Bedarf mit aufbauen.",
+      icon: "tabler:coin-euro",
+      callToAction: {
+        variant: "link" as const,
+        text: "Zu den Lizenz-Migrationen",
         href: "#windows-to-linux",
       },
     },
     {
-      title: "Es geht um Ihre Anwendung",
+      title: "Die Hardware ist am Ende",
       description:
-        "Jedes Update ist eine Mutprobe, Fehler fallen erst in Produktion auf, die Datenbank kostet zu viel. Einstieg über <strong>Anwendungen containerisieren</strong>, <strong>Testumgebung pro Änderung</strong> oder <strong>Datenbank-Lizenzen ablösen</strong>. Wenn unklar ist, wo es hakt, beginnt es mit dem <strong>Software-Delivery-Check</strong>.",
-      icon: "tabler:app-window",
+        "Der Serverraum altert, der Wartungsvertrag läuft aus, die Daten müssen in der EU bleiben. <strong>Cloud-Umzug in die EU</strong> — die letzte Station auf dem Weg, sicher, weil Server als Code und Anwendungen als Container vorliegen.",
+      icon: "tabler:cloud-upload",
       callToAction: {
         variant: "link" as const,
-        text: "Zu den Anwendungs-Leistungen",
-        href: "#containerization",
+        text: "Zum Cloud-Umzug",
+        href: "#cloud-migration",
       },
     },
   ],
@@ -176,7 +187,7 @@ const services = [
     groupTagline: "Kosten senken",
     groupTitle: "Lizenzkosten sparen, ohne den Betrieb zu gefährden",
     groupSubtitle:
-      "Migrationen sind die Änderungen mit dem größten Sparpotenzial — und dem größten Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan und auf dem Fundament aus Infrastruktur als Code und Containern.",
+      "Lizenz-Migrationen haben das größte Sparpotenzial — und das größte Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan und auf dem Fundament aus Infrastruktur als Code und Containern.",
     title: "Server-Lizenzen ablösen",
     caption:
       "Wenn Windows-Server-Lizenzen jedes Jahr mehr Budget binden: Wir ziehen die Dienste, die nicht auf Windows angewiesen sind, Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
@@ -249,6 +260,10 @@ const services = [
   },
   {
     id: "cloud-migration",
+    groupTagline: "Raus aus dem Serverraum",
+    groupTitle: "Die letzte Station: in die Cloud",
+    groupSubtitle:
+      "Wenn Server als Code beschrieben und Anwendungen containerisiert sind, ist der Umzug in ein EU-Rechenzentrum ein kontrollierter Schritt — kein Sprung.",
     title: "Cloud-Umzug in die EU",
     caption:
       "Raus aus dem eigenen Serverraum, weg von alternder Hardware und Wartungsverträgen: Wir ziehen mit Ihnen zu Anbietern mit Rechenzentren in Deutschland und der EU. Ob sich das rechnet, zeigt der Kostenvergleich vorher — nicht nachher.",
@@ -401,14 +416,14 @@ const cta = {
     title={hero.title}
     subtitle={hero.subtitle}
     callToAction={bookCta}
-    callToAction2={{ text: "Leistungen im Detail", href: "#windows-to-linux" }}
+    callToAction2={{ text: "Leistungen im Detail", href: "#infrastructure-as-code" }}
   />
 
   <Features2
     tagline={overview.tagline}
     title={overview.title}
     subtitle={overview.subtitle}
-    columns={2}
+    columns={3}
     items={overview.items}
   >
     <Fragment slot="bg"

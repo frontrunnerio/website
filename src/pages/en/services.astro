@@ -14,7 +14,7 @@ const metadata = {
   title: "Services — cut IT costs, replace ageing systems, make changes safe",
   ignoreTitleTemplate: true,
   description:
-    "Seven services for small and mid-sized companies: replacing Windows, Oracle and MSSQL licences, cloud migration within the EU, infrastructure as code, containers, test environments, software delivery check.",
+    "Seven services for small and mid-sized companies: infrastructure as code, containers, test environments, replacing Windows, Oracle and MSSQL licences, cloud migration within the EU, software delivery check.",
 };
 
 const bookCta = {
@@ -32,30 +32,41 @@ const hero = {
 
 const overview = {
   tagline: "Overview",
-  title: "Two starting points, seven services",
+  title: "Three entry points, one path",
   subtitle:
-    "Most enquiries begin in one of two places. Every service can be booked on its own — you start where it hurts. The path is always the same: infrastructure as code, containers, migration, cloud.",
+    "Clients come to us in one of three situations. Each is an entry into the same path: infrastructure as code, containers, migration, cloud. Every service can be booked on its own — you start where it hurts.",
   items: [
     {
-      title: "It's about your servers",
+      title: "Every change is a risk",
       description:
-        "Ageing hardware, rising licence costs, knowledge held by one person, dependence on your IT provider. Start with <strong>infrastructure as code</strong>, then <strong>replacing server licences</strong> or <strong>cloud migration within the EU</strong> — the services move as containers along the way. No development team needed.",
-      icon: "tabler:server",
+        "Servers are one-offs, the knowledge lives in people's heads, updates are only tested in production. The entry into the foundation: <strong>infrastructure as code</strong>, <strong>containerising applications</strong>, <strong>test environments per change</strong>.",
+      icon: "tabler:shield-check",
       callToAction: {
         variant: "link" as const,
-        text: "To the server services",
+        text: "To the foundation",
+        href: "#infrastructure-as-code",
+      },
+    },
+    {
+      title: "Licences eat the budget",
+      description:
+        "Windows Server, Oracle, MSSQL: the invoices grow and switching feels too risky. <strong>Replacing server licences</strong> and <strong>replacing database licences</strong> — on the foundation we build alongside if needed.",
+      icon: "tabler:coin-euro",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the licence migrations",
         href: "#windows-to-linux",
       },
     },
     {
-      title: "It's about your application",
+      title: "The hardware is at its end",
       description:
-        "Every update is a gamble, bugs only show up in production, the database costs too much. Start with <strong>containerising applications</strong>, <strong>test environments per change</strong> or <strong>replacing database licences</strong>. If it is unclear where the problem lies, it begins with the <strong>software delivery check</strong>.",
-      icon: "tabler:app-window",
+        "The server room ages, the maintenance contract runs out, the data has to stay in the EU. <strong>Cloud migration within the EU</strong> — the last station on the path, safe because servers exist as code and applications as containers.",
+      icon: "tabler:cloud-upload",
       callToAction: {
         variant: "link" as const,
-        text: "To the application services",
-        href: "#containerization",
+        text: "To the cloud migration",
+        href: "#cloud-migration",
       },
     },
   ],
@@ -176,7 +187,7 @@ const services = [
     groupTagline: "Cut costs",
     groupTitle: "Save licence costs without endangering operations",
     groupSubtitle:
-      "Migrations are the changes with the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan and on the foundation of infrastructure as code and containers.",
+      "Licence migrations have the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan and on the foundation of infrastructure as code and containers.",
     title: "Replacing server licences",
     caption:
       "When Windows Server licences tie up more budget every year: we move the services that do not depend on Windows to Linux step by step — no downtime, permanent savings.",
@@ -249,6 +260,10 @@ const services = [
   },
   {
     id: "cloud-migration",
+    groupTagline: "Out of the server room",
+    groupTitle: "The last station: into the cloud",
+    groupSubtitle:
+      "Once servers are described as code and applications are containerised, moving to an EU data centre is a controlled step — not a leap.",
     title: "Cloud migration within the EU",
     caption:
       "Out of your own server room, away from ageing hardware and maintenance contracts: we move you to providers with data centres in Germany and the EU. Whether it pays off is shown by the cost comparison up front — not afterwards.",
@@ -399,14 +414,14 @@ const cta = {
     title={hero.title}
     subtitle={hero.subtitle}
     callToAction={bookCta}
-    callToAction2={{ text: "Services in detail", href: "#windows-to-linux" }}
+    callToAction2={{ text: "Services in detail", href: "#infrastructure-as-code" }}
   />
 
   <Features2
     tagline={overview.tagline}
     title={overview.title}
     subtitle={overview.subtitle}
-    columns={2}
+    columns={3}
     items={overview.items}
   >
     <Fragment slot="bg"
