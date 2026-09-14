@@ -21,7 +21,6 @@ export const getHeaderData = (lang: Lang) => ({
     {
       text: t(lang, "nav.book"),
       href: BOOKING_URL,
-      target: "_blank" as const,
       icon: "tabler:calendar",
     },
   ],

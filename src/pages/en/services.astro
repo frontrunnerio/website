@@ -20,7 +20,6 @@ const metadata = {
 const bookCta = {
   text: "Book an assessment call",
   href: BOOKING_URL,
-  target: "_blank" as const,
   icon: "tabler:calendar",
 };
 
@@ -401,14 +400,7 @@ const faqs = {
 const cta = {
   title: "Which service fits your situation?",
   subtitle: "We find out in a free 30-minute assessment call — no obligation.",
-  actions: [
-    { variant: "primary" as const, ...bookCta },
-    {
-      variant: "secondary" as const,
-      text: "Or send an email",
-      href: "mailto:info@frontrunner.io",
-    },
-  ],
+  actions: [{ variant: "primary" as const, ...bookCta }],
 };
 ---
 
@@ -448,7 +440,6 @@ const cta = {
         callToAction={{
           text: "Talk to us about this",
           href: BOOKING_URL,
-          target: "_blank",
           icon: "tabler:calendar",
         }}
       >

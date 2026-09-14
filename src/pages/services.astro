@@ -20,7 +20,6 @@ const metadata = {
 const bookCta = {
   text: "Erstgespräch buchen",
   href: BOOKING_URL,
-  target: "_blank" as const,
   icon: "tabler:calendar",
 };
 
@@ -403,14 +402,7 @@ const cta = {
   title: "Welche Leistung passt zu Ihrer Situation?",
   subtitle:
     "Im kostenlosen Erstgespräch finden wir es in 30 Minuten heraus — ohne Verpflichtung.",
-  actions: [
-    { variant: "primary" as const, ...bookCta },
-    {
-      variant: "secondary" as const,
-      text: "Oder per E-Mail anfragen",
-      href: "mailto:info@frontrunner.io",
-    },
-  ],
+  actions: [{ variant: "primary" as const, ...bookCta }],
 };
 ---
 
@@ -450,7 +442,6 @@ const cta = {
         callToAction={{
           text: "Dazu beraten lassen",
           href: BOOKING_URL,
-          target: "_blank",
           icon: "tabler:calendar",
         }}
       >

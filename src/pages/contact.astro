@@ -20,10 +20,8 @@ const hero = {
   callToAction: {
     text: "Erstgespräch buchen",
     href: BOOKING_URL,
-    target: "_blank" as const,
     icon: "tabler:calendar",
   },
-  callToAction2: { text: "E-Mail schreiben", href: `mailto:${CONTACT_EMAIL}` },
 };
 
 const direct = {
@@ -78,7 +76,6 @@ const expect = {
     title={hero.title}
     subtitle={hero.subtitle}
     callToAction={hero.callToAction}
-    callToAction2={hero.callToAction2}
   />
 
   <Steps2 title={expect.title} subtitle={expect.subtitle} items={expect.items}>

@@ -29,7 +29,6 @@ const hero = {
   primaryCta: {
     text: "Book a free assessment call",
     href: BOOKING_URL,
-    target: "_blank" as const,
     icon: "tabler:calendar",
   },
   secondaryCta: { text: "See our services", href: "/en/services" },
@@ -301,12 +300,7 @@ const cta = {
   primaryCta: {
     text: "Book a free assessment call",
     href: BOOKING_URL,
-    target: "_blank" as const,
     icon: "tabler:calendar",
-  },
-  secondaryCta: {
-    text: "Or send an email",
-    href: "mailto:info@frontrunner.io",
   },
   title: "Which change have you been putting off?",
   subtitle:
@@ -318,10 +312,7 @@ const heroActions = [
   { text: hero.secondaryCta.text, href: hero.secondaryCta.href },
 ];
 
-const ctaActions = [
-  { variant: "primary" as const, ...cta.primaryCta },
-  { variant: "secondary" as const, ...cta.secondaryCta },
-];
+const ctaActions = [{ variant: "primary" as const, ...cta.primaryCta }];
 ---
 
 <Layout metadata={metadata}>

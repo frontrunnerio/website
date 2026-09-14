@@ -29,7 +29,6 @@ const hero = {
   primaryCta: {
     text: "Kostenloses Erstgespräch buchen",
     href: BOOKING_URL,
-    target: "_blank" as const,
     icon: "tabler:calendar",
   },
   secondaryCta: { text: "Leistungen ansehen", href: "/services" },
@@ -302,12 +301,7 @@ const cta = {
   primaryCta: {
     text: "Kostenloses Erstgespräch buchen",
     href: BOOKING_URL,
-    target: "_blank" as const,
     icon: "tabler:calendar",
-  },
-  secondaryCta: {
-    text: "Oder per E-Mail anfragen",
-    href: "mailto:info@frontrunner.io",
   },
   title: "Welche Änderung schieben Sie schon länger vor sich her?",
   subtitle:
@@ -319,10 +313,7 @@ const heroActions = [
   { text: hero.secondaryCta.text, href: hero.secondaryCta.href },
 ];
 
-const ctaActions = [
-  { variant: "primary" as const, ...cta.primaryCta },
-  { variant: "secondary" as const, ...cta.secondaryCta },
-];
+const ctaActions = [{ variant: "primary" as const, ...cta.primaryCta }];
 ---
 
 <Layout metadata={metadata}>
