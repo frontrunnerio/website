@@ -14,6 +14,13 @@ export const ui = {
     "404.body":
       "But don't worry, you can find plenty of other things on our homepage.",
     "404.cta": "Back to homepage",
+    "svc.check": "Software delivery check",
+    "svc.iac": "Infrastructure as code",
+    "svc.containers": "Containerising applications",
+    "svc.reviewApps": "Test environments per change",
+    "svc.linux": "Replacing server licences",
+    "svc.postgres": "Replacing database licences",
+    "svc.cloud": "Cloud migration within the EU",
     "cta.requestFree": "Book a free assessment call",
   },
   de: {
@@ -32,6 +39,13 @@ export const ui = {
     "404.body":
       "Keine Sorge — auf unserer Startseite finden Sie viele andere Inhalte.",
     "404.cta": "Zurück zur Startseite",
+    "svc.check": "Software-Delivery-Check",
+    "svc.iac": "Infrastruktur als Code",
+    "svc.containers": "Anwendungen containerisieren",
+    "svc.reviewApps": "Testumgebung pro Änderung",
+    "svc.linux": "Server-Lizenzen ablösen",
+    "svc.postgres": "Datenbank-Lizenzen ablösen",
+    "svc.cloud": "Cloud-Umzug in die EU",
     "cta.requestFree": "Kostenloses Erstgespräch buchen",
   },
 } as const;
