@@ -1,53 +1,95 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Layout from "~/layouts/PageLayout.astro";
+import HeroText from "~/components/widgets/HeroText.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+
+import { BOOKING_URL, CONTACT_EMAIL, CONTACT_PHONE } from "~/data/site";
 
 const metadata = {
-  title: 'Contact',
-  description: 'Get in touch — we usually reply within one business day.',
+  title: "Contact",
+  description:
+    "Book a free assessment call or send us a message — we usually reply within one business day.",
 };
 
 const hero = {
-  tagline: 'Contact',
-  title: 'Get in touch.',
-};
-
-const form = {
-  title: 'Send us a message.',
-  subtitle: "Questions about our services, or want to set up a no-strings intro call? We usually reply within one business day.",
-  inputs: [
-    { type: 'text' as const, name: 'name', label: 'Name' },
-    { type: 'email' as const, name: 'email', label: 'Email' },
-  ],
-  textareaLabel: 'Your message',
-  disclaimer: 'By submitting this form you agree to the processing of your personal data per our Privacy Policy.',
-  description: 'We usually reply within 24 hours on business days.',
+  tagline: "Contact",
+  title: "The easiest first step: a conversation.",
+  subtitle:
+    "30 minutes, free, by video. You tell us what is coming up — we tell you honestly whether and how we can help.",
+  callToAction: {
+    text: "Book an assessment call",
+    href: BOOKING_URL,
+    target: "_blank" as const,
+    icon: "tabler:calendar",
+  },
+  callToAction2: { text: "Send an email", href: `mailto:${CONTACT_EMAIL}` },
 };
 
 const direct = {
-  title: 'Contact us directly',
+  title: "Or get in touch directly",
+  subtitle: "We usually reply within one business day.",
   items: [
-    { title: 'Email', description: 'info@frontrunner.io', icon: 'tabler:mail' },
-    { title: 'Phone', description: '+49 (0)160 6220730', icon: 'tabler:headset' },
-    { title: 'Location', description: 'Seychellenring 42, 13587 Berlin, Germany', icon: 'tabler:map-pin' },
+    {
+      title: "Email",
+      description: `<a href="mailto:${CONTACT_EMAIL}" class="hover:underline">${CONTACT_EMAIL}</a>`,
+      icon: "tabler:mail",
+    },
+    { title: "Phone", description: CONTACT_PHONE, icon: "tabler:headset" },
+    {
+      title: "Location",
+      description: "Berlin, Germany<br>Clients across Germany, mostly remote",
+      icon: "tabler:map-pin",
+    },
+  ],
+};
+
+const expect = {
+  title: "What to expect in the call",
+  subtitle:
+    "Not a sales pitch. A structured first conversation that leaves you better informed than before.",
+  items: [
+    {
+      title: "Your situation",
+      description:
+        "What is coming up, what hurts, what has been tried already? We listen and ask questions.",
+      icon: "tabler:message-circle",
+    },
+    {
+      title: "Our honest assessment",
+      description:
+        "Where do we see the biggest lever — and where would we advise against? Even if that means you do not need us.",
+      icon: "tabler:bulb",
+    },
+    {
+      title: "A concrete next step",
+      description:
+        "If it fits, you receive a written proposal for an assessment or pilot within a few days.",
+      icon: "tabler:arrow-right",
+    },
   ],
 };
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline={hero.tagline} title={hero.title} />
-
-  <ContactUs
-    id="form"
-    title={form.title}
-    subtitle={form.subtitle}
-    inputs={form.inputs}
-    textarea={{ label: form.textareaLabel }}
-    disclaimer={{ label: form.disclaimer }}
-    description={form.description}
+  <HeroText
+    tagline={hero.tagline}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    callToAction={hero.callToAction}
+    callToAction2={hero.callToAction2}
   />
 
-  <Features2 title={direct.title} items={direct.items} />
+  <Steps2 title={expect.title} subtitle={expect.subtitle} items={expect.items}>
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Steps2>
+
+  <Features2
+    title={direct.title}
+    subtitle={direct.subtitle}
+    items={direct.items}
+  />
 </Layout>

@@ -1,0 +1,460 @@
+---
+import Layout from "~/layouts/PageLayout.astro";
+import HeroText from "~/components/widgets/HeroText.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Content from "~/components/widgets/Content.astro";
+import Note from "~/components/widgets/Note.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+import FAQs from "~/components/widgets/FAQs.astro";
+import CallToAction from "~/components/widgets/CallToAction.astro";
+
+import { BOOKING_URL } from "~/data/site";
+
+const metadata = {
+  title:
+    "Services — CI/CD assessment, Infrastructure as Code, containers, review apps, Linux and PostgreSQL migration",
+  ignoreTitleTemplate: true,
+  description:
+    "Six services that make your IT more reliable and less expensive: CI/CD assessment, Infrastructure as Code, containerisation, review apps, migration from Windows to Linux and from Oracle/MSSQL to PostgreSQL.",
+};
+
+const bookCta = {
+  text: "Book an assessment call",
+  href: BOOKING_URL,
+  target: "_blank" as const,
+  icon: "tabler:calendar",
+};
+
+const hero = {
+  tagline: "Services",
+  title: "Six ways to make your IT more reliable and less expensive",
+  subtitle:
+    "Each service solves a concrete problem, has a clear outcome and can be delivered as a pilot within a few weeks. All services can be booked individually.",
+};
+
+const overview = {
+  tagline: "Overview",
+  title: "Three goals, six services",
+  subtitle:
+    "We group our services by what they do for you: create clarity, secure changes, cut costs.",
+  items: [
+    {
+      title: "1 · Create clarity",
+      description:
+        "<strong>CI/CD assessment</strong> — Where does your delivery lose time, where is it insecure? The diagnosis everything else builds on.",
+      icon: "tabler:search",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the assessment",
+        href: "#cicd-assessment",
+      },
+    },
+    {
+      title: "2 · Secure changes",
+      description:
+        "<strong>Infrastructure as Code</strong>, <strong>containerisation</strong> and <strong>review apps</strong> — the foundation that makes every change reproducible, testable and reversible.",
+      icon: "tabler:shield-check",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the services",
+        href: "#infrastructure-as-code",
+      },
+    },
+    {
+      title: "3 · Cut costs",
+      description:
+        "<strong>Windows → Linux</strong> and <strong>Oracle / MSSQL → PostgreSQL</strong> — migrations that save licence costs every year. Delivered safely, because the foundation is in place.",
+      icon: "tabler:coin-euro",
+      callToAction: {
+        variant: "link" as const,
+        text: "To the migrations",
+        href: "#windows-to-linux",
+      },
+    },
+  ],
+};
+
+const services = [
+  {
+    id: "cicd-assessment",
+    groupTagline: "Create clarity",
+    groupTitle: "Know where you stand",
+    groupSubtitle:
+      "Before anything changes, it has to be clear what is worth changing. The assessment delivers that diagnosis within days.",
+    title: "CI/CD assessment",
+    caption:
+      "Performance and security of your software delivery — honestly evaluated, clearly prioritised.",
+    image: {
+      src: "~/assets/images/service-assessment.jpg",
+      alt: "CI/CD assessment",
+    },
+    forWhom:
+      "For companies that build their own software and where releases take long, fail often, or nobody knows exactly how secure the path from code to production is.",
+    benefits: [
+      {
+        title: "You know where time and money are lost",
+        description:
+          "We measure build times, failure rates and waiting times and show which bottlenecks really slow your team down.",
+      },
+      {
+        title: "Security gaps become visible before someone else finds them",
+        description:
+          "Handling of credentials, dependencies, permissions and traceability — checked against common standards.",
+      },
+      {
+        title: "A prioritised list instead of a thick report",
+        description:
+          "What first? What delivers the most for the least effort? You get an order you can start with immediately.",
+      },
+      {
+        title: "A basis for decisions by management and IT",
+        description:
+          "Written in plain language, with effort estimates and expected benefit — so approving the next step is easy.",
+      },
+    ],
+    result:
+      "Outcome: written diagnosis with prioritised actions, typically within 1–2 weeks.",
+  },
+  {
+    id: "infrastructure-as-code",
+    groupTagline: "Secure changes",
+    groupTitle: "The foundation for reliable change",
+    groupSubtitle:
+      "Three building blocks that make every change reproducible, testable and, if in doubt, reversible.",
+    title: "Infrastructure as Code & configuration management",
+    caption:
+      "Servers, networks and configuration are described as code — versioned, traceable, repeatable.",
+    image: {
+      src: "~/assets/images/service-gitlab.jpg",
+      alt: "Infrastructure as Code",
+    },
+    forWhom:
+      "For companies whose servers were set up by hand, whose configuration exists only in people’s heads, and who have no second environment to test in.",
+    benefits: [
+      {
+        title: "No server is a one-off anymore",
+        description:
+          "Every environment can be rebuilt from code — identically, in minutes instead of days. That applies to test, staging and production.",
+      },
+      {
+        title: "Every change is documented and traceable",
+        description:
+          "Who changed what, when and why? The answer is in the version history, not in an email from three years ago.",
+      },
+      {
+        title: "Changes are reviewed before they are applied",
+        description:
+          "A review process like for application code: four eyes, automated checks, only then rollout.",
+      },
+      {
+        title: "Knowledge stays in the company",
+        description:
+          "When a colleague or a vendor leaves, the infrastructure remains understandable and operable.",
+      },
+    ],
+    result:
+      "Outcome: one pilot system fully as code, including onboarding your team into the workflow. Typically 3–6 weeks.",
+  },
+  {
+    id: "containerization",
+    title: "Containerise applications",
+    caption:
+      "Your application runs exactly the same on a laptop, in test and in production.",
+    image: {
+      src: "~/assets/images/service-consolidation.jpg",
+      alt: "Containerise applications",
+    },
+    forWhom:
+      "For companies where “it works on my machine” is a familiar phrase and deployments depend on the configuration of each individual server.",
+    benefits: [
+      {
+        title: "The end of “but it works on my machine”",
+        description:
+          "The application ships with its entire runtime environment. Differences between development, test and production disappear.",
+      },
+      {
+        title: "Deployments in minutes, rollbacks in seconds",
+        description:
+          "Starting a new version or returning to the old one becomes routine instead of a weekend project.",
+      },
+      {
+        title: "Independent of individual servers and operating systems",
+        description:
+          "Containerised applications run on any Linux host, in the cloud or in your own data centre — the basis for later migrations.",
+      },
+      {
+        title: "Prerequisite for review apps and modern CI/CD",
+        description:
+          "Once containerised, every change can be tested automatically in its own environment. The next step becomes easy.",
+      },
+    ],
+    result:
+      "Outcome: one application containerised and in operation, including build pipeline and documentation. Typically 2–5 weeks.",
+  },
+  {
+    id: "review-apps",
+    title: "Review apps: feedback before go-live",
+    caption:
+      "Every change automatically gets its own clickable test environment — straight from the merge request.",
+    image: { src: "~/assets/images/service-coaching.jpg", alt: "Review apps" },
+    forWhom:
+      "For companies where business users or customers only see changes after go-live — so problems only surface in production.",
+    benefits: [
+      {
+        title: "Business users see the change before it goes live",
+        description:
+          "A link, a running version, instant feedback. Misunderstandings get cleared up before they become expensive.",
+      },
+      {
+        title: "Bugs are found earlier — and fixed cheaper",
+        description:
+          "A bug in a review app costs minutes. The same bug in production costs hours, customers and nerves.",
+      },
+      {
+        title: "No more fighting over the one test environment",
+        description:
+          "Every change has its own environment. Nobody overwrites someone else’s work anymore.",
+      },
+      {
+        title: "Go-lives become boring",
+        description:
+          "What worked in the review app works in production. The Friday release loses its terror.",
+      },
+    ],
+    result:
+      "Outcome: review apps set up for one application, created and torn down automatically. Typically 2–4 weeks (requires containerisation).",
+  },
+  {
+    id: "windows-to-linux",
+    groupTagline: "Cut costs",
+    groupTitle: "Save licence costs without endangering operations",
+    groupSubtitle:
+      "Migrations are the changes with the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan.",
+    title: "Migrate Windows servers to Linux",
+    caption:
+      "Lower licence costs, fewer reboots, more automation — system by system.",
+    image: {
+      src: "~/assets/images/how-we-work.jpg",
+      alt: "Migration from Windows Server to Linux",
+    },
+    forWhom:
+      "For companies running Windows Server for services that run just as well or better on Linux — web servers, databases, application servers, file services, internal tools.",
+    benefits: [
+      {
+        title: "Licence costs disappear — permanently",
+        description:
+          "Windows Server and CAL licences are recurring costs. After the migration they are history for that system.",
+      },
+      {
+        title: "Fewer maintenance windows, fewer reboots",
+        description:
+          "Linux systems can be updated while running. The patch weekend becomes the exception.",
+      },
+      {
+        title: "Fully automatable",
+        description:
+          "Linux is the natural basis for Infrastructure as Code and containers. The migration is also your entry into reliable change.",
+      },
+      {
+        title: "No big bang",
+        description:
+          "We migrate one system after another, starting with the lowest-risk one. The old system stays untouched until the switch has succeeded.",
+      },
+    ],
+    result:
+      "Outcome: one system migrated to Linux, documented and in operation — plus a roadmap for the remaining systems. Typically 3–8 weeks.",
+  },
+  {
+    id: "database-migration",
+    title: "Migrate Oracle & MSSQL to PostgreSQL",
+    caption:
+      "Out of expensive database licences — with a clean migration, tests and a rollback plan.",
+    image: {
+      src: "~/assets/images/hero-image.jpg",
+      alt: "Database migration to PostgreSQL",
+    },
+    forWhom:
+      "For companies whose Oracle or Microsoft SQL Server licences tie up a significant part of the IT budget — for applications that can also run on PostgreSQL.",
+    benefits: [
+      {
+        title: "The biggest single saving in the IT budget",
+        description:
+          "Oracle and MSSQL licences are among the most expensive line items. PostgreSQL is open source, mature and free of licence fees.",
+      },
+      {
+        title: "Data and application are checked before the switch",
+        description:
+          "Schema, data, stored procedures and application code are analysed and tested before a single row moves to production.",
+      },
+      {
+        title: "Rollback plan included",
+        description:
+          "The old database keeps running in parallel until the new one has proven it can do everything. The switch is a flip, not a leap.",
+      },
+      {
+        title: "Future-proof and independent",
+        description:
+          "No licence audits, no price increases, no dependence on one vendor. PostgreSQL runs everywhere — including in containers.",
+      },
+    ],
+    result:
+      "Outcome: one database migrated, tested and handed over, including application adjustments. Typically 4–12 weeks depending on complexity.",
+  },
+];
+
+const combineNote = {
+  title: "Everything fits together:",
+  description:
+    "The assessment shows where to start. Infrastructure as Code and containers are the foundation. On that foundation, migrations become safe — and review apps keep every further change low-risk.",
+};
+
+const process = {
+  tagline: "Process",
+  title: "How every service runs",
+  subtitle:
+    "Whichever service you choose, we always work in the same three steps. That keeps the risk small and the outcome predictable.",
+  callToAction: bookCta,
+  items: [
+    {
+      title: "Assessment call",
+      description:
+        "30 minutes, free. We clarify what is coming up and whether we can help.",
+      icon: "tabler:phone-call",
+    },
+    {
+      title: "Concrete plan",
+      description:
+        "Written proposal with scope, effort, benefit and rollback plan.",
+      icon: "tabler:list-check",
+    },
+    {
+      title: "Pilot implementation",
+      description:
+        "One clearly scoped system is delivered. You see the result before deciding on more.",
+      icon: "tabler:rocket",
+    },
+  ],
+};
+
+const faqs = {
+  tagline: "FAQs",
+  title: "Questions about the services",
+  items: [
+    {
+      title: "Where should we start?",
+      description:
+        "If you are unsure: with the assessment. If you have a concrete goal — cutting licence costs, say — we go straight into an assessment call about that migration and check which foundation it needs.",
+    },
+    {
+      title: "How do you charge?",
+      description:
+        "Assessments and pilots have a fixed scope, and you know the price before we start. For the wider rollout we agree fixed prices per system or a time budget, whichever fits.",
+    },
+    {
+      title: "Do we have to change our tools?",
+      description:
+        "No. We work with what you have — GitLab, GitHub, Azure DevOps, Proxmox, VMware, cloud or your own data centre. We only recommend a switch when it clearly pays off.",
+    },
+    {
+      title: "What about our existing IT provider?",
+      description:
+        "We are happy to work with them. Our goal is that your company understands and owns the change — no matter who operates it later.",
+    },
+  ],
+};
+
+const cta = {
+  title: "Which service fits your situation?",
+  subtitle: "We find out in a free 30-minute assessment call — no obligation.",
+  actions: [
+    { variant: "primary" as const, ...bookCta },
+    {
+      variant: "secondary" as const,
+      text: "Or send an email",
+      href: "mailto:info@frontrunner.io",
+    },
+  ],
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    tagline={hero.tagline}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    callToAction={bookCta}
+    callToAction2={{ text: "Services in detail", href: "#cicd-assessment" }}
+  />
+
+  <Features2
+    tagline={overview.tagline}
+    title={overview.title}
+    subtitle={overview.subtitle}
+    columns={3}
+    items={overview.items}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Features2>
+
+  {
+    services.map((s, index) => (
+      <Content
+        id={s.id}
+        tagline={s.groupTagline}
+        title={s.groupTitle}
+        subtitle={s.groupSubtitle}
+        isReversed={index % 2 === 0}
+        isAfterContent={!s.groupTitle}
+        items={s.benefits}
+        image={s.image}
+        callToAction={{
+          text: "Talk to us about this",
+          href: BOOKING_URL,
+          target: "_blank",
+          icon: "tabler:calendar",
+        }}
+      >
+        <Fragment slot="content">
+          <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+            {s.title}
+          </h3>
+          <p class="mb-4">{s.caption}</p>
+          <p class="text-muted dark:text-slate-400 text-base mb-4">
+            {s.forWhom}
+          </p>
+          <p class="text-base font-medium">{s.result}</p>
+        </Fragment>
+      </Content>
+    ))
+  }
+
+  <Note title={combineNote.title} description={combineNote.description} />
+
+  <Steps2
+    tagline={process.tagline}
+    title={process.title}
+    subtitle={process.subtitle}
+    items={process.items}
+    callToAction={process.callToAction}
+  >
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Steps2>
+
+  <FAQs
+    tagline={faqs.tagline}
+    title={faqs.title}
+    classes={{ container: "max-w-6xl" }}
+    items={faqs.items}
+  />
+
+  <CallToAction actions={cta.actions}>
+    <Fragment slot="title">{cta.title}</Fragment>
+    <Fragment slot="subtitle">{cta.subtitle}</Fragment>
+  </CallToAction>
+</Layout>

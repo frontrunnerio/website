@@ -1,53 +1,96 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Layout from "~/layouts/PageLayout.astro";
+import HeroText from "~/components/widgets/HeroText.astro";
+import Features2 from "~/components/widgets/Features2.astro";
+import Steps2 from "~/components/widgets/Steps2.astro";
+
+import { BOOKING_URL, CONTACT_EMAIL, CONTACT_PHONE } from "~/data/site";
 
 const metadata = {
-  title: 'Kontakt',
-  description: 'Sprechen Sie uns an — wir melden uns innerhalb eines Werktages.',
+  title: "Kontakt",
+  description:
+    "Buchen Sie ein kostenloses Assessment-Gespräch oder schreiben Sie uns — wir melden uns innerhalb eines Werktages.",
 };
 
 const hero = {
-  tagline: 'Kontakt',
-  title: 'Sprechen Sie uns an.',
-};
-
-const form = {
-  title: 'Schreiben Sie uns eine Nachricht.',
-  subtitle: 'Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein unverbindliches Erstgespräch vereinbaren? Wir melden uns in der Regel innerhalb eines Werktages bei Ihnen.',
-  inputs: [
-    { type: 'text' as const, name: 'name', label: 'Name' },
-    { type: 'email' as const, name: 'email', label: 'E-Mail' },
-  ],
-  textareaLabel: 'Ihre Nachricht',
-  disclaimer: 'Mit dem Absenden dieses Formulars stimmen Sie der Verarbeitung Ihrer personenbezogenen Daten gemäß unserer Datenschutzerklärung zu.',
-  description: 'Wir antworten in der Regel innerhalb von 24 Stunden an Werktagen.',
+  tagline: "Kontakt",
+  title: "Der einfachste erste Schritt: ein Gespräch.",
+  subtitle:
+    "30 Minuten, kostenlos, per Video. Sie erzählen, was ansteht — wir sagen ehrlich, ob und wie wir helfen können.",
+  callToAction: {
+    text: "Assessment-Gespräch buchen",
+    href: BOOKING_URL,
+    target: "_blank" as const,
+    icon: "tabler:calendar",
+  },
+  callToAction2: { text: "E-Mail schreiben", href: `mailto:${CONTACT_EMAIL}` },
 };
 
 const direct = {
-  title: 'Direkt Kontakt aufnehmen',
+  title: "Oder direkt Kontakt aufnehmen",
+  subtitle: "Wir antworten in der Regel innerhalb eines Werktages.",
   items: [
-    { title: 'E-Mail', description: 'info@frontrunner.io', icon: 'tabler:mail' },
-    { title: 'Telefon', description: '+49 (0)160 6220730', icon: 'tabler:headset' },
-    { title: 'Standort', description: 'Seychellenring 42, 13587 Berlin, Deutschland', icon: 'tabler:map-pin' },
+    {
+      title: "E-Mail",
+      description: `<a href="mailto:${CONTACT_EMAIL}" class="hover:underline">${CONTACT_EMAIL}</a>`,
+      icon: "tabler:mail",
+    },
+    { title: "Telefon", description: CONTACT_PHONE, icon: "tabler:headset" },
+    {
+      title: "Standort",
+      description:
+        "Berlin, Deutschland<br>Kunden in ganz Deutschland, überwiegend remote",
+      icon: "tabler:map-pin",
+    },
+  ],
+};
+
+const expect = {
+  title: "Was Sie im Gespräch erwartet",
+  subtitle:
+    "Kein Verkaufsgespräch. Ein strukturiertes erstes Kennenlernen, an dessen Ende Sie klüger sind als vorher.",
+  items: [
+    {
+      title: "Ihre Situation",
+      description:
+        "Was steht an, was schmerzt, was wurde schon versucht? Wir hören zu und fragen nach.",
+      icon: "tabler:message-circle",
+    },
+    {
+      title: "Unsere ehrliche Einschätzung",
+      description:
+        "Wo sehen wir den größten Hebel — und wo raten wir ab? Auch, wenn das bedeutet, dass Sie uns nicht brauchen.",
+      icon: "tabler:bulb",
+    },
+    {
+      title: "Ein konkreter nächster Schritt",
+      description:
+        "Wenn es passt, erhalten Sie innerhalb weniger Tage einen schriftlichen Vorschlag für Assessment oder Pilot.",
+      icon: "tabler:arrow-right",
+    },
   ],
 };
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline={hero.tagline} title={hero.title} />
-
-  <ContactUs
-    id="form"
-    title={form.title}
-    subtitle={form.subtitle}
-    inputs={form.inputs}
-    textarea={{ label: form.textareaLabel }}
-    disclaimer={{ label: form.disclaimer }}
-    description={form.description}
+  <HeroText
+    tagline={hero.tagline}
+    title={hero.title}
+    subtitle={hero.subtitle}
+    callToAction={hero.callToAction}
+    callToAction2={hero.callToAction2}
   />
 
-  <Features2 title={direct.title} items={direct.items} />
+  <Steps2 title={expect.title} subtitle={expect.subtitle} items={expect.items}>
+    <Fragment slot="bg"
+      ><div class="absolute inset-0 bg-blue-50 dark:bg-transparent">
+      </div></Fragment
+    >
+  </Steps2>
+
+  <Features2
+    title={direct.title}
+    subtitle={direct.subtitle}
+    items={direct.items}
+  />
 </Layout>
