@@ -17,7 +17,7 @@ const metadata = {
     "Frontrunner IO — Veränderung? Aber sicher! IT-Modernisierung für den Mittelstand",
   ignoreTitleTemplate: true,
   description:
-    "Wir helfen kleinen und mittleren Unternehmen in Deutschland, Änderungen an ihrer IT planbar und risikoarm umzusetzen: Assessment, Plan, Pilot. Server, Datenbanken, Container, Cloud, CI/CD.",
+    "IT modernisieren, ohne den Betrieb zu riskieren: Wir helfen kleinen und mittleren Unternehmen, IT-Kosten zu senken und alte Systeme abzulösen — in kleinen Schritten mit klarem Ergebnis. Kostenloses Erstgespräch.",
 };
 
 const hero = {
@@ -25,9 +25,9 @@ const hero = {
   title:
     'Veränderung? <span class="text-accent dark:text-white highlight">Aber sicher!</span>',
   subtitle:
-    "Neue Server, neue Datenbank, neue Pipeline: Jede Änderung an Ihrer IT ist ein Risiko. Wir sorgen dafür, dass Änderungen planbar, nachvollziehbar und ohne Überraschungen ablaufen. Und dass Sie dabei Geld sparen statt draufzahlen.",
+    "Sie wollen IT-Kosten senken, alte Systeme ablösen oder endlich Ordnung in Ihre Infrastruktur bringen — aber jede Umstellung fühlt sich riskant an? Wir machen Veränderung planbar: kleine Schritte, klare Ergebnisse, kein Stillstand im Betrieb.",
   primaryCta: {
-    text: "Kostenloses Assessment-Gespräch buchen",
+    text: "Kostenloses Erstgespräch buchen",
     href: BOOKING_URL,
     target: "_blank" as const,
     icon: "tabler:calendar",
@@ -35,14 +35,14 @@ const hero = {
   secondaryCta: { text: "Leistungen ansehen", href: "/services" },
   image: {
     src: "~/assets/images/hero-image.jpg",
-    alt: "Frontrunner IO — Veränderung verlässlich machen",
+    alt: "Frontrunner IO — Veränderung? Aber sicher!",
   },
 };
 
 const promiseNote = {
   title: "Unser Ansatz:",
   description:
-    "Kein Big Bang. Erst verstehen, dann planen, dann im Kleinen beweisen — bevor etwas Großes umgestellt wird.",
+    "Keine Hauruck-Aktion. Erst verstehen, dann planen, dann im Kleinen beweisen — bevor etwas Großes umgestellt wird.",
 };
 
 const problems = {
@@ -50,7 +50,7 @@ const problems = {
   tagline: "Kommt Ihnen das bekannt vor?",
   title: "Warum Änderungen an der IT so oft schiefgehen",
   subtitle:
-    "Die meisten Ausfälle entstehen nicht durch Angriffe oder Hardware-Defekte, sondern durch Änderungen: ein Update, eine neue Konfiguration, eine Migration. Nicht, weil die Idee falsch war — sondern weil der Weg dorthin nicht abgesichert war.",
+    "Die meisten IT-Ausfälle entstehen nicht durch Angriffe oder kaputte Hardware, sondern durch Änderungen: ein Update, eine neue Einstellung, ein Umzug. Nicht, weil die Idee falsch war — sondern weil der Weg dorthin nicht abgesichert war.",
   items: [
     {
       title: "Das Wissen steckt in Köpfen, nicht in Systemen",
@@ -73,7 +73,7 @@ const problems = {
     {
       title: "Go-Live am Freitag, Bauchschmerzen am Wochenende",
       description:
-        "Änderungen werden erst in Produktion wirklich getestet, weil es keine Umgebung dafür gibt. Jeder Release ist eine kleine Mutprobe.",
+        "Änderungen werden erst in Produktion wirklich getestet, weil es keine Umgebung dafür gibt. Jedes Update ist eine kleine Mutprobe.",
       icon: "tabler:mood-sad",
     },
     {
@@ -99,11 +99,11 @@ const steps = {
     "Klein anfangen, sichtbar Ergebnisse liefern, dann skalieren. So bleibt das Risiko für Sie gering — und die Entscheidung für den nächsten Schritt einfach.",
   image: {
     src: "~/assets/images/how-we-work.jpg",
-    alt: "Ablauf: Assessment, Plan, Pilot",
+    alt: "Ablauf: Erstgespräch, Plan, Pilot",
   },
   items: [
     {
-      title: 'Schritt 1: <span class="font-medium">Assessment-Gespräch</span>',
+      title: 'Schritt 1: <span class="font-medium">Erstgespräch</span>',
       description:
         "30 Minuten, kostenlos, per Video. Sie schildern, was ansteht oder wo es hakt. Wir stellen die richtigen Fragen und sagen Ihnen ehrlich, ob und wo wir helfen können.",
       icon: "tabler:phone-call",
@@ -128,12 +128,12 @@ const services = {
   tagline: "Leistungen",
   title: "Womit wir Ihre IT verlässlicher und günstiger machen",
   subtitle:
-    "Sieben klar abgegrenzte Leistungen — einzeln buchbar, sinnvoll kombinierbar. Jede mit einem messbaren Ergebnis.",
+    "Jede Leistung löst ein konkretes Problem und ist einzeln buchbar. Sie starten dort, wo es am meisten weh tut — oder am meisten spart.",
   items: [
     {
       title: "Software-Delivery-Check",
       description:
-        "Wo verliert Ihre Software-Auslieferung Zeit, wo ist sie unsicher? Ein klarer Befund mit priorisierten Maßnahmen.",
+        "Updates dauern lange oder gehen schief? Wir finden heraus, wo es hakt — und was zuerst zu tun ist.",
       icon: "tabler:gauge",
       callToAction: {
         variant: "link" as const,
@@ -144,7 +144,7 @@ const services = {
     {
       title: "Infrastruktur als Code",
       description:
-        "Server und Konfiguration werden reproduzierbar, versioniert und dokumentiert. Schluss mit Unikaten.",
+        "Nur ein Kollege weiß, wie der Server eingerichtet ist? Wir machen Ihre Infrastruktur dokumentiert, prüfbar und in Minuten neu aufbaubar.",
       icon: "tabler:code",
       callToAction: {
         variant: "link" as const,
@@ -155,7 +155,7 @@ const services = {
     {
       title: "Anwendungen containerisieren",
       description:
-        "Ihre Anwendungen laufen überall gleich — auf dem Laptop, im Test und in Produktion.",
+        "„Bei mir läuft es aber“ — und im Betrieb dann nicht? Wir sorgen dafür, dass Ihre Anwendungen überall gleich laufen.",
       icon: "tabler:box",
       callToAction: {
         variant: "link" as const,
@@ -166,7 +166,7 @@ const services = {
     {
       title: "Testumgebung pro Änderung",
       description:
-        "Jede Änderung bekommt automatisch eine eigene Testumgebung. Feedback vor dem Go-Live statt danach.",
+        "Fehler fallen erst nach dem Update auf? Jede Änderung bekommt vorher eine eigene Testumgebung — zum Anklicken und Ausprobieren.",
       icon: "tabler:git-merge",
       callToAction: {
         variant: "link" as const,
@@ -177,7 +177,7 @@ const services = {
     {
       title: "Server-Lizenzen ablösen",
       description:
-        "Lizenzkosten sparen, ohne den Betrieb zu gefährden. Schrittweise, System für System.",
+        "Windows-Server-Lizenzen fressen Budget? Wir ziehen Ihre Systeme Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
       icon: "tabler:brand-windows",
       callToAction: {
         variant: "link" as const,
@@ -188,7 +188,7 @@ const services = {
     {
       title: "Datenbank-Lizenzen ablösen",
       description:
-        "Raus aus teuren Datenbanklizenzen — mit sauberer Migration, Tests und Rückfallplan.",
+        "Oracle oder Microsoft SQL Server sind Ihr teuerster IT-Posten? Wir migrieren auf PostgreSQL — geprüft, getestet, mit Rückfallplan.",
       icon: "tabler:database",
       callToAction: {
         variant: "link" as const,
@@ -199,7 +199,7 @@ const services = {
     {
       title: "Cloud-Umzug in die EU",
       description:
-        "Vom eigenen Serverraum in die Cloud — bei Anbietern in Deutschland und der EU. Zahlen, was Sie nutzen; Daten bleiben in Europa.",
+        "Eigener Serverraum, alte Hardware, Wartungsverträge? Wir ziehen mit Ihnen in die Cloud — bei Anbietern in Deutschland und der EU. Sie zahlen nur, was Sie nutzen.",
       icon: "tabler:cloud-upload",
       callToAction: {
         variant: "link" as const,
@@ -222,7 +222,7 @@ const about = {
   },
   items: [
     {
-      title: "Hands-on",
+      title: "Wir packen selbst an",
       description:
         "Wir schreiben den Code, richten die Systeme ein und stehen beim Go-Live daneben. Keine Folienberatung.",
     },
@@ -232,7 +232,7 @@ const about = {
         "Jeder Vorschlag ist so formuliert, dass Geschäftsführung und IT ihn gemeinsam bewerten können.",
     },
     {
-      title: "Ohne Lock-in",
+      title: "Keine Abhängigkeit",
       description:
         "Alles, was wir aufbauen, ist dokumentiert und gehört Ihnen. Ihr Team kann es danach selbst weiterführen.",
     },
@@ -261,9 +261,19 @@ const faqs = {
         "Für kleine und mittlere Unternehmen in Deutschland, die eigene Software betreiben oder entwickeln — typischerweise mit 20 bis 500 Mitarbeitenden und einem kleinen IT-Team oder externen Dienstleister. Wenn Sie Änderungen an Ihrer IT scheuen, weil sie riskant oder teuer sind, sind Sie richtig.",
     },
     {
-      title: "Was kostet das Assessment-Gespräch?",
+      title: "Was kostet das Erstgespräch?",
       description:
         "Nichts. 30 Minuten per Video, ohne Verpflichtung. Sie bekommen in jedem Fall eine ehrliche Einschätzung — auch wenn wir am Ende sagen, dass Sie uns nicht brauchen.",
+    },
+    {
+      title: "Was kostet ein Pilot?",
+      description:
+        "Das hängt vom Umfang ab. Sie erhalten vor dem Start ein Angebot mit Festpreis — keine offenen Stundenzettel, keine Überraschungen auf der Rechnung.",
+    },
+    {
+      title: "Wir haben kein eigenes Entwicklerteam — passt das trotzdem?",
+      description:
+        "Ja. Die meisten unserer Leistungen betreffen den Betrieb — Server, Datenbanken, Cloud — und nicht die Softwareentwicklung. Wir arbeiten mit Ihrem Administrator oder Ihrem IT-Dienstleister zusammen.",
     },
     {
       title: "Müssen wir alles auf einmal umstellen?",
@@ -290,7 +300,7 @@ const faqs = {
 
 const cta = {
   primaryCta: {
-    text: "Kostenloses Assessment-Gespräch buchen",
+    text: "Kostenloses Erstgespräch buchen",
     href: BOOKING_URL,
     target: "_blank" as const,
     icon: "tabler:calendar",

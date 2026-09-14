@@ -32,7 +32,7 @@ export const ui = {
     "404.body":
       "Keine Sorge — auf unserer Startseite finden Sie viele andere Inhalte.",
     "404.cta": "Zurück zur Startseite",
-    "cta.requestFree": "Kostenloses Assessment-Gespräch buchen",
+    "cta.requestFree": "Kostenloses Erstgespräch buchen",
   },
 } as const;
 

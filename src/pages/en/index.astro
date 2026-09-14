@@ -17,7 +17,7 @@ const metadata = {
     "Frontrunner IO — Change with confidence. IT modernisation for German SMEs",
   ignoreTitleTemplate: true,
   description:
-    "We help small and mid-sized companies in Germany make changes to their IT predictable and low-risk: assessment, plan, pilot. Servers, databases, containers, cloud, CI/CD.",
+    "Modernise your IT without putting operations at risk: we help small and mid-sized companies cut IT costs and replace ageing systems — in small steps with clear results. Free assessment call.",
 };
 
 const hero = {
@@ -25,7 +25,7 @@ const hero = {
   title:
     'Change with <span class="text-accent dark:text-white highlight">confidence</span>.',
   subtitle:
-    "A new server, a new database, a new pipeline: every change to your IT is a risk. We make changes predictable, traceable and free of surprises. And we make sure they save you money instead of costing more.",
+    "You want to cut IT costs, replace ageing systems or finally bring order to your infrastructure — but every change feels risky? We make change predictable: small steps, clear results, no downtime for the business.",
   primaryCta: {
     text: "Book a free assessment call",
     href: BOOKING_URL,
@@ -35,7 +35,7 @@ const hero = {
   secondaryCta: { text: "See our services", href: "/en/services" },
   image: {
     src: "~/assets/images/hero-image.jpg",
-    alt: "Frontrunner IO — Make change reliable",
+    alt: "Frontrunner IO — Change with confidence",
   },
 };
 
@@ -50,7 +50,7 @@ const problems = {
   tagline: "Sound familiar?",
   title: "Why IT changes go wrong so often",
   subtitle:
-    "Most outages aren't caused by attacks or failing hardware, but by changes: an update, a new configuration, a migration. Not because the idea was wrong, but because the path there wasn't secured.",
+    "Most IT outages aren't caused by attacks or broken hardware, but by changes: an update, a new setting, a move. Not because the idea was wrong, but because the path there wasn't secured.",
   items: [
     {
       title: "Knowledge lives in heads, not in systems",
@@ -73,7 +73,7 @@ const problems = {
     {
       title: "Go-live on Friday, stomach ache all weekend",
       description:
-        "Changes are only really tested in production because there's no environment for it. Every release is a small act of courage.",
+        "Changes are only really tested in production because there's no environment for it. Every update is a small act of courage.",
       icon: "tabler:mood-sad",
     },
     {
@@ -128,12 +128,12 @@ const services = {
   tagline: "Services",
   title: "How we make your IT more reliable and less expensive",
   subtitle:
-    "Seven clearly scoped services — bookable individually, sensible in combination. Each with a measurable outcome.",
+    "Each service solves one concrete problem and can be booked on its own. You start where it hurts most — or saves most.",
   items: [
     {
       title: "Software delivery check",
       description:
-        "Where does your software delivery lose time, where is it insecure? A clear diagnosis with prioritised actions.",
+        "Updates take forever or go wrong? We find out where things get stuck — and what to fix first.",
       icon: "tabler:gauge",
       callToAction: {
         variant: "link" as const,
@@ -144,7 +144,7 @@ const services = {
     {
       title: "Infrastructure as code",
       description:
-        "Servers and configuration become reproducible, versioned and documented. No more one-offs.",
+        "Only one colleague knows how the server is set up? We make your infrastructure documented, reviewable and rebuildable in minutes.",
       icon: "tabler:code",
       callToAction: {
         variant: "link" as const,
@@ -155,7 +155,7 @@ const services = {
     {
       title: "Containerising applications",
       description:
-        "Your applications run the same everywhere — on a laptop, in test and in production.",
+        "“Works on my machine” — but not in production? We make your applications run the same everywhere.",
       icon: "tabler:box",
       callToAction: {
         variant: "link" as const,
@@ -166,7 +166,7 @@ const services = {
     {
       title: "Test environments per change",
       description:
-        "Every change automatically gets its own test environment. Feedback before go-live instead of after.",
+        "Bugs only show up after the update? Every change gets its own test environment first — click through it, try it out.",
       icon: "tabler:git-merge",
       callToAction: {
         variant: "link" as const,
@@ -177,7 +177,7 @@ const services = {
     {
       title: "Replacing server licences",
       description:
-        "Save licence costs without endangering operations. Step by step, system by system.",
+        "Windows Server licences eating your budget? We move your systems to Linux step by step — no downtime, permanent savings.",
       icon: "tabler:brand-windows",
       callToAction: {
         variant: "link" as const,
@@ -188,7 +188,7 @@ const services = {
     {
       title: "Replacing database licences",
       description:
-        "Out of expensive database licences — with a clean migration, tests and a rollback plan.",
+        "Oracle or Microsoft SQL Server your biggest IT line item? We migrate to PostgreSQL — checked, tested, with a rollback plan.",
       icon: "tabler:database",
       callToAction: {
         variant: "link" as const,
@@ -199,7 +199,7 @@ const services = {
     {
       title: "Cloud migration within the EU",
       description:
-        "From your own server room into the cloud — with providers in Germany and the EU. Pay for what you use; data stays in Europe.",
+        "Your own server room, ageing hardware, maintenance contracts? We move you to the cloud — with providers in Germany and the EU. You pay only for what you use.",
       icon: "tabler:cloud-upload",
       callToAction: {
         variant: "link" as const,
@@ -263,6 +263,16 @@ const faqs = {
       title: "What does the assessment call cost?",
       description:
         "Nothing. 30 minutes by video, no obligation. You get an honest assessment either way — even if we end up telling you that you don't need us.",
+    },
+    {
+      title: "What does a pilot cost?",
+      description:
+        "That depends on the scope. You receive a fixed-price offer before we start — no open-ended timesheets, no surprises on the invoice.",
+    },
+    {
+      title: "We don't have our own developers — does this still fit?",
+      description:
+        "Yes. Most of our services concern operations — servers, databases, cloud — not software development. We work with your administrator or your IT provider.",
     },
     {
       title: "Do we have to switch everything at once?",

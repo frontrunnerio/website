@@ -11,11 +11,10 @@ import CallToAction from "~/components/widgets/CallToAction.astro";
 import { BOOKING_URL } from "~/data/site";
 
 const metadata = {
-  title:
-    "Services — CI/CD assessment, Infrastructure as Code, containers, review apps, Linux and PostgreSQL migration",
+  title: "Services — cut IT costs, replace ageing systems, make changes safe",
   ignoreTitleTemplate: true,
   description:
-    "Seven services that make your IT more reliable and less expensive: CI/CD assessment, Infrastructure as Code, containerisation, review apps, migration from Windows to Linux, from Oracle/MSSQL to PostgreSQL and to EU data centres.",
+    "Seven services for small and mid-sized companies: software delivery check, infrastructure as code, containers, test environments, replacing Windows, Oracle and MSSQL licences, cloud migration within the EU.",
 };
 
 const bookCta = {
@@ -29,7 +28,7 @@ const hero = {
   tagline: "Services",
   title: "Seven ways to make your IT more reliable and less expensive",
   subtitle:
-    "Each service solves a concrete problem, has a clear outcome and can be delivered as a pilot within a few weeks. All services can be booked individually.",
+    "Each service solves a problem you probably know: too expensive, too risky, too dependent. Each has a clear outcome, can be booked on its own and can be delivered as a pilot within a few weeks.",
 };
 
 const overview = {
@@ -41,18 +40,18 @@ const overview = {
     {
       title: "1 · Create clarity",
       description:
-        "<strong>CI/CD assessment</strong> — Where does your delivery lose time, where is it insecure? The diagnosis everything else builds on.",
+        "<strong>Software delivery check</strong> — Updates take forever or go wrong? We find out where things get stuck and what to fix first.",
       icon: "tabler:search",
       callToAction: {
         variant: "link" as const,
-        text: "To the assessment",
+        text: "To the check",
         href: "#cicd-assessment",
       },
     },
     {
       title: "2 · Secure changes",
       description:
-        "<strong>Infrastructure as Code</strong>, <strong>containerisation</strong> and <strong>review apps</strong> — the foundation that makes every change reproducible, testable and reversible.",
+        "<strong>Infrastructure as code</strong>, <strong>containerising applications</strong> and <strong>test environments per change</strong> — so every change is repeatable, testable and reversible.",
       icon: "tabler:shield-check",
       callToAction: {
         variant: "link" as const,
@@ -63,7 +62,7 @@ const overview = {
     {
       title: "3 · Cut costs",
       description:
-        "<strong>Windows → Linux</strong>, <strong>Oracle / MSSQL → PostgreSQL</strong> and <strong>cloud migration to EU data centres</strong> — migrations that save licence and hardware costs every year. Delivered safely, because the foundation is in place.",
+        "<strong>Replacing server licences</strong>, <strong>replacing database licences</strong> and <strong>cloud migration within the EU</strong> — moves that save licence and hardware costs every year. Delivered safely, because the foundation is in place.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
@@ -83,10 +82,10 @@ const services = [
       "Before anything changes, it has to be clear what is worth changing. The assessment delivers that diagnosis within days.",
     title: "Software delivery check",
     caption:
-      "CI/CD assessment: how fast and how safely does your software get from idea to production? Honestly evaluated, clearly prioritised.",
+      "Updates take forever, go wrong, or nobody knows how safe the path from change to production really is? We check your software delivery for speed and security — honestly evaluated, clearly prioritised.",
     image: {
       src: "~/assets/images/service-assessment.jpg",
-      alt: "CI/CD assessment",
+      alt: "Software delivery check",
     },
     forWhom:
       "For companies that build their own software and where releases take long, fail often, or nobody knows exactly how secure the path from code to production is.",
@@ -123,7 +122,7 @@ const services = [
       "Three building blocks that make every change reproducible, testable and, if in doubt, reversible.",
     title: "Infrastructure as code",
     caption:
-      "Infrastructure as Code & configuration management: servers, networks and settings are described as code — versioned, documented, rebuildable in minutes.",
+      "Only one colleague knows how the server is set up? We describe servers, network and settings as code — documented, reviewed, rebuildable in minutes.",
     image: {
       src: "~/assets/images/service-consolidation.jpg",
       alt: "Infrastructure as Code",
@@ -159,7 +158,7 @@ const services = [
     id: "containerization",
     title: "Containerising applications",
     caption:
-      "Containerisation: your application behaves exactly the same on a laptop, in test and in production.",
+      "“Works on my machine” — but not in production? We package your application so it runs exactly the same on a laptop, in test and in production.",
     image: {
       src: "~/assets/images/service-containers.jpg",
       alt: "Containerise applications",
@@ -195,7 +194,7 @@ const services = [
     id: "review-apps",
     title: "Test environments per change",
     caption:
-      "Review apps: every change automatically gets its own clickable test environment — straight from the merge request.",
+      "Bugs only show up after the update? Every change automatically gets its own clickable test environment first — for business users, customers and the team.",
     image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review apps" },
     forWhom:
       "For companies where business users or customers only see changes after go-live — so problems only surface in production.",
@@ -232,7 +231,7 @@ const services = [
       "Migrations are the changes with the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan.",
     title: "Replacing server licences",
     caption:
-      "Migration from Windows Server to Linux: fewer licence fees, fewer reboots, more automation — system by system.",
+      "Windows Server licences eating more budget every year? We move your systems to Linux step by step — no downtime, permanent savings.",
     image: {
       src: "~/assets/images/service-linux.jpg",
       alt: "Migration from Windows Server to Linux",
@@ -268,7 +267,7 @@ const services = [
     id: "database-migration",
     title: "Replacing database licences",
     caption:
-      "Migration from Oracle and Microsoft SQL Server to PostgreSQL: cleanly migrated, thoroughly tested, with a rollback plan.",
+      "Oracle or Microsoft SQL Server your biggest IT line item? We migrate to PostgreSQL — cleanly, thoroughly tested, with a rollback plan.",
     image: {
       src: "~/assets/images/service-postgres.jpg",
       alt: "Database migration to PostgreSQL",
@@ -304,7 +303,7 @@ const services = [
     id: "cloud-migration",
     title: "Cloud migration within the EU",
     caption:
-      "Cloud migration: from your own server room or oversized hosted servers to providers with data centres in Germany and the EU. You pay for what you use.",
+      "Your own server room, ageing hardware, maintenance contracts? We move you to the cloud — with providers running data centres in Germany and the EU. You pay only for what you use.",
     image: {
       src: "~/assets/images/service-cloud.jpg",
       alt: "Cloud migration to EU data centres",
@@ -341,7 +340,7 @@ const services = [
 const combineNote = {
   title: "Everything fits together:",
   description:
-    "The assessment shows where to start. Infrastructure as Code and containers are the foundation. On that foundation, migrations become safe — and review apps keep every further change low-risk.",
+    "The check shows where to start. Infrastructure as code and containers are the foundation. On that foundation, moves become safe — and test environments keep every further change low-risk.",
 };
 
 const process = {
@@ -379,7 +378,7 @@ const faqs = {
     {
       title: "Where should we start?",
       description:
-        "If you are unsure: with the assessment. If you have a concrete goal — cutting licence costs, say — we go straight into an assessment call about that migration and check which foundation it needs.",
+        "If you are unsure: with the software delivery check. If you have a concrete goal — cutting licence costs, say — we go straight into an assessment call about that migration and check which foundation it needs.",
     },
     {
       title: "How do you charge?",

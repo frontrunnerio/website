@@ -11,15 +11,14 @@ import CallToAction from "~/components/widgets/CallToAction.astro";
 import { BOOKING_URL } from "~/data/site";
 
 const metadata = {
-  title:
-    "Leistungen — CI/CD Assessment, Infrastructure as Code, Container, Review Apps, Linux- und PostgreSQL-Migration",
+  title: "Leistungen — IT-Kosten senken, Systeme ablösen, Änderungen absichern",
   ignoreTitleTemplate: true,
   description:
-    "Sieben Leistungen, die Ihre IT verlässlicher und günstiger machen: CI/CD Assessment, Infrastructure as Code, Containerisierung, Review Apps, Migration von Windows zu Linux, von Oracle/MSSQL zu PostgreSQL und in EU-Rechenzentren.",
+    "Sieben Leistungen für den Mittelstand: Software-Delivery-Check, Infrastruktur als Code, Container, Testumgebungen, Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Cloud-Umzug in die EU.",
 };
 
 const bookCta = {
-  text: "Assessment-Gespräch buchen",
+  text: "Erstgespräch buchen",
   href: BOOKING_URL,
   target: "_blank" as const,
   icon: "tabler:calendar",
@@ -29,7 +28,7 @@ const hero = {
   tagline: "Leistungen",
   title: "Sieben Wege, Ihre IT verlässlicher und günstiger zu machen",
   subtitle:
-    "Jede Leistung löst ein konkretes Problem, hat ein klares Ergebnis und lässt sich als Pilot in wenigen Wochen umsetzen. Alle Leistungen sind einzeln buchbar.",
+    "Jede Leistung löst ein Problem, das Sie wahrscheinlich kennen: zu teuer, zu riskant, zu abhängig. Jede hat ein klares Ergebnis, ist einzeln buchbar und lässt sich als Pilot in wenigen Wochen umsetzen.",
 };
 
 const overview = {
@@ -41,18 +40,18 @@ const overview = {
     {
       title: "1 · Klarheit schaffen",
       description:
-        "<strong>CI/CD Assessment</strong> — Wo verliert Ihre Auslieferung Zeit, wo ist sie unsicher? Der Befund, auf dem alles Weitere aufbaut.",
+        "<strong>Software-Delivery-Check</strong> — Updates dauern lange oder gehen schief? Wir finden heraus, wo es hakt und was zuerst zu tun ist.",
       icon: "tabler:search",
       callToAction: {
         variant: "link" as const,
-        text: "Zum Assessment",
+        text: "Zum Check",
         href: "#cicd-assessment",
       },
     },
     {
       title: "2 · Änderungen absichern",
       description:
-        "<strong>Infrastructure as Code</strong>, <strong>Containerisierung</strong> und <strong>Review Apps</strong> — das Fundament, damit jede Änderung reproduzierbar, testbar und rückgängig zu machen ist.",
+        "<strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong> und <strong>Testumgebung pro Änderung</strong> — damit jede Änderung wiederholbar, testbar und rückgängig zu machen ist.",
       icon: "tabler:shield-check",
       callToAction: {
         variant: "link" as const,
@@ -63,7 +62,7 @@ const overview = {
     {
       title: "3 · Kosten senken",
       description:
-        "<strong>Windows → Linux</strong>, <strong>Oracle / MSSQL → PostgreSQL</strong> und <strong>Cloud-Migration in EU-Rechenzentren</strong> — Migrationen, die jedes Jahr Lizenz- und Hardwarekosten sparen. Sicher umgesetzt, weil das Fundament steht.",
+        "<strong>Server-Lizenzen ablösen</strong>, <strong>Datenbank-Lizenzen ablösen</strong> und <strong>Cloud-Umzug in die EU</strong> — Umzüge, die jedes Jahr Lizenz- und Hardwarekosten sparen. Sicher umgesetzt, weil das Fundament steht.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
@@ -80,13 +79,13 @@ const services = [
     groupTagline: "Klarheit schaffen",
     groupTitle: "Wissen, wo Sie stehen",
     groupSubtitle:
-      "Bevor etwas geändert wird, muss klar sein, was sich lohnt. Das Assessment liefert diesen Befund in wenigen Tagen.",
+      "Bevor etwas geändert wird, muss klar sein, was sich lohnt. Der Check liefert diesen Befund in wenigen Tagen.",
     title: "Software-Delivery-Check",
     caption:
-      "CI/CD Assessment: Wie schnell und wie sicher kommt Ihre Software von der Idee in den Betrieb? Ehrlich bewertet, klar priorisiert.",
+      "Updates dauern lange, gehen schief, oder niemand weiß, wie sicher der Weg von der Änderung bis in den Betrieb ist? Wir prüfen Ihre Software-Auslieferung auf Tempo und Sicherheit — ehrlich bewertet, klar priorisiert.",
     image: {
       src: "~/assets/images/service-assessment.jpg",
-      alt: "CI/CD Assessment",
+      alt: "Software-Delivery-Check",
     },
     forWhom:
       "Für Unternehmen, die eigene Software entwickeln und bei denen Releases lange dauern, oft fehlschlagen oder niemand genau weiß, wie sicher der Weg von Code zu Produktion ist.",
@@ -124,7 +123,7 @@ const services = [
       "Drei Bausteine, die dafür sorgen, dass jede Änderung reproduzierbar, testbar und im Zweifel rückgängig zu machen ist.",
     title: "Infrastruktur als Code",
     caption:
-      "Infrastructure as Code & Konfigurationsmanagement: Server, Netzwerke und Einstellungen werden als Code beschrieben — versioniert, dokumentiert, in Minuten neu aufbaubar.",
+      "Nur ein Kollege weiß, wie der Server eingerichtet ist? Wir beschreiben Server, Netzwerk und Einstellungen als Code — dokumentiert, geprüft, in Minuten neu aufbaubar.",
     image: {
       src: "~/assets/images/service-consolidation.jpg",
       alt: "Infrastructure as Code",
@@ -160,7 +159,7 @@ const services = [
     id: "containerization",
     title: "Anwendungen containerisieren",
     caption:
-      "Containerisierung: Ihre Anwendung verhält sich auf dem Laptop, im Test und in Produktion exakt gleich.",
+      "„Bei mir läuft es aber“ — und im Betrieb dann nicht? Wir verpacken Ihre Anwendung so, dass sie auf dem Laptop, im Test und in Produktion exakt gleich läuft.",
     image: {
       src: "~/assets/images/service-containers.jpg",
       alt: "Anwendungen containerisieren",
@@ -196,7 +195,7 @@ const services = [
     id: "review-apps",
     title: "Testumgebung pro Änderung",
     caption:
-      "Review Apps: Jede Änderung bekommt automatisch eine eigene, klickbare Testumgebung — direkt aus dem Merge Request.",
+      "Fehler fallen erst nach dem Update auf? Jede Änderung bekommt vorher automatisch eine eigene, klickbare Testumgebung — für Fachabteilung, Kunden und Team.",
     image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review Apps" },
     forWhom:
       "Für Unternehmen, bei denen Fachabteilung oder Kunden Änderungen erst nach dem Go-Live sehen — und Fehler deshalb erst in Produktion auffallen.",
@@ -233,7 +232,7 @@ const services = [
       "Migrationen sind die Änderungen mit dem größten Sparpotenzial — und dem größten Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan.",
     title: "Server-Lizenzen ablösen",
     caption:
-      "Migration von Windows Server zu Linux: weniger Lizenzgebühren, weniger Neustarts, mehr Automatisierung — System für System.",
+      "Windows-Server-Lizenzen fressen jedes Jahr mehr Budget? Wir ziehen Ihre Systeme Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
     image: {
       src: "~/assets/images/service-linux.jpg",
       alt: "Migration von Windows Server zu Linux",
@@ -269,7 +268,7 @@ const services = [
     id: "database-migration",
     title: "Datenbank-Lizenzen ablösen",
     caption:
-      "Migration von Oracle und Microsoft SQL Server zu PostgreSQL: sauber migriert, gründlich getestet, mit Rückfallplan.",
+      "Oracle oder Microsoft SQL Server sind Ihr teuerster IT-Posten? Wir migrieren auf PostgreSQL — sauber, gründlich getestet, mit Rückfallplan.",
     image: {
       src: "~/assets/images/service-postgres.jpg",
       alt: "Datenbankmigration zu PostgreSQL",
@@ -305,7 +304,7 @@ const services = [
     id: "cloud-migration",
     title: "Cloud-Umzug in die EU",
     caption:
-      "Cloud-Migration: vom eigenen Serverraum oder überdimensionierten Hoster-Servern zu Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen, was Sie nutzen.",
+      "Eigener Serverraum, alternde Hardware, Wartungsverträge? Wir ziehen mit Ihnen in die Cloud — bei Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen nur, was Sie nutzen.",
     image: {
       src: "~/assets/images/service-cloud.jpg",
       alt: "Cloud-Migration in EU-Rechenzentren",
@@ -342,7 +341,7 @@ const services = [
 const combineNote = {
   title: "Alles greift ineinander:",
   description:
-    "Das Assessment zeigt, wo Sie starten. Infrastructure as Code und Container sind das Fundament. Auf diesem Fundament werden Migrationen sicher — und Review Apps machen jede weitere Änderung risikoarm.",
+    "Der Check zeigt, wo Sie starten. Infrastruktur als Code und Container sind das Fundament. Darauf werden Umzüge sicher — und Testumgebungen machen jede weitere Änderung risikoarm.",
 };
 
 const process = {
@@ -353,7 +352,7 @@ const process = {
   callToAction: bookCta,
   items: [
     {
-      title: "Assessment-Gespräch",
+      title: "Erstgespräch",
       description:
         "30 Minuten, kostenlos. Wir klären, was ansteht und ob wir helfen können.",
       icon: "tabler:phone-call",
@@ -380,12 +379,12 @@ const faqs = {
     {
       title: "In welcher Reihenfolge sollten wir anfangen?",
       description:
-        "Wenn Sie unsicher sind: mit dem Assessment. Wenn Sie ein konkretes Ziel haben — etwa Lizenzkosten senken — starten wir direkt mit dem Assessment-Gespräch zu genau dieser Migration und prüfen, welches Fundament dafür nötig ist.",
+        "Wenn Sie unsicher sind: mit dem Software-Delivery-Check. Wenn Sie ein konkretes Ziel haben — etwa Lizenzkosten senken — sprechen wir im Erstgespräch direkt über genau diesen Umzug und prüfen, welches Fundament dafür nötig ist.",
     },
     {
       title: "Wie berechnen Sie die Leistungen?",
       description:
-        "Assessment und Piloten haben einen festen Umfang und einen Festpreis, den Sie vor Beginn kennen. Für den weiteren Rollout vereinbaren wir je nach Bedarf Festpreise pro System oder ein Kontingent.",
+        "Check und Piloten haben einen festen Umfang und einen Festpreis, den Sie vor Beginn kennen. Für den weiteren Rollout vereinbaren wir je nach Bedarf Festpreise pro System oder ein Kontingent.",
     },
     {
       title: "Müssen wir unsere Werkzeuge wechseln?",
@@ -403,7 +402,7 @@ const faqs = {
 const cta = {
   title: "Welche Leistung passt zu Ihrer Situation?",
   subtitle:
-    "Im kostenlosen Assessment-Gespräch finden wir es in 30 Minuten heraus — ohne Verpflichtung.",
+    "Im kostenlosen Erstgespräch finden wir es in 30 Minuten heraus — ohne Verpflichtung.",
   actions: [
     { variant: "primary" as const, ...bookCta },
     {
