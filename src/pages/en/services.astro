@@ -15,7 +15,7 @@ const metadata = {
     "Services — CI/CD assessment, Infrastructure as Code, containers, review apps, Linux and PostgreSQL migration",
   ignoreTitleTemplate: true,
   description:
-    "Six services that make your IT more reliable and less expensive: CI/CD assessment, Infrastructure as Code, containerisation, review apps, migration from Windows to Linux and from Oracle/MSSQL to PostgreSQL.",
+    "Seven services that make your IT more reliable and less expensive: CI/CD assessment, Infrastructure as Code, containerisation, review apps, migration from Windows to Linux, from Oracle/MSSQL to PostgreSQL and to EU data centres.",
 };
 
 const bookCta = {
@@ -27,14 +27,14 @@ const bookCta = {
 
 const hero = {
   tagline: "Services",
-  title: "Six ways to make your IT more reliable and less expensive",
+  title: "Seven ways to make your IT more reliable and less expensive",
   subtitle:
     "Each service solves a concrete problem, has a clear outcome and can be delivered as a pilot within a few weeks. All services can be booked individually.",
 };
 
 const overview = {
   tagline: "Overview",
-  title: "Three goals, six services",
+  title: "Three goals, seven services",
   subtitle:
     "We group our services by what they do for you: create clarity, secure changes, cut costs.",
   items: [
@@ -63,7 +63,7 @@ const overview = {
     {
       title: "3 · Cut costs",
       description:
-        "<strong>Windows → Linux</strong> and <strong>Oracle / MSSQL → PostgreSQL</strong> — migrations that save licence costs every year. Delivered safely, because the foundation is in place.",
+        "<strong>Windows → Linux</strong>, <strong>Oracle / MSSQL → PostgreSQL</strong> and <strong>cloud migration to EU data centres</strong> — migrations that save licence and hardware costs every year. Delivered safely, because the foundation is in place.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
@@ -299,6 +299,42 @@ const services = [
     ],
     result:
       "Outcome: one database migrated, tested and handed over, including application adjustments. Typically 4–12 weeks depending on complexity.",
+  },
+  {
+    id: "cloud-migration",
+    title: "Cloud migration to EU data centres",
+    caption:
+      "From your own server room or oversized hosted servers into the cloud — with providers running data centres in Germany and the EU. You pay for what you use.",
+    image: {
+      src: "~/assets/images/default.png",
+      alt: "Cloud migration to EU data centres",
+    },
+    forWhom:
+      "For companies that depreciate their own hardware, pay maintenance contracts or rent servers that sit half empty most of the time — and whose data has to stay in the EU.",
+    benefits: [
+      {
+        title: "Pay for what you use — not for what you once bought",
+        description:
+          "No hardware depreciation, no maintenance contracts, no spare capacity for peaks that happen three times a year. Resources grow and shrink with demand.",
+      },
+      {
+        title: "Data stays in the EU",
+        description:
+          "We work with European providers or EU regions — data centres in Germany and the EU, GDPR-compliant, with no data transfers to third countries.",
+      },
+      {
+        title: "No more server room that someone has to look after",
+        description:
+          "Power, cooling, failed disks, spare parts — the provider takes care of that. Your team looks after applications, not tin.",
+      },
+      {
+        title: "Described as code, reproducible at any time",
+        description:
+          "The cloud environment is built from Infrastructure as Code. Switching providers stays possible at any time — no lock-in.",
+      },
+    ],
+    result:
+      "Outcome: one system or application migrated to an EU data centre, including a before/after cost comparison and operations documentation. Typically 3–8 weeks.",
   },
 ];
 

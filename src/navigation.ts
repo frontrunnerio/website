@@ -65,6 +65,11 @@ export const getFooterData = (lang: Lang) => ({
             getPermalink(localizedPath(lang, "/services")) +
             "#database-migration",
         },
+        {
+          text: "Cloud Migration (EU)",
+          href:
+            getPermalink(localizedPath(lang, "/services")) + "#cloud-migration",
+        },
       ],
     },
     {

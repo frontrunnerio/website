@@ -11,7 +11,7 @@ metadata:
   title:
     default: frontrunner.io
     template: '%s — frontrunner.io'
-  description: 'Change with confidence — IT modernisation for small and mid-sized companies in Germany: Infrastructure as Code, containers, Linux and PostgreSQL migration, CI/CD.'
+  description: 'Change with confidence — IT modernisation for small and mid-sized companies in Germany: Infrastructure as Code, containers, Linux, PostgreSQL and EU cloud migration, CI/CD.'
   robots:
     index: true
     follow: true

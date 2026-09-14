@@ -15,7 +15,7 @@ const metadata = {
     "Leistungen — CI/CD Assessment, Infrastructure as Code, Container, Review Apps, Linux- und PostgreSQL-Migration",
   ignoreTitleTemplate: true,
   description:
-    "Sechs Leistungen, die Ihre IT verlässlicher und günstiger machen: CI/CD Assessment, Infrastructure as Code, Containerisierung, Review Apps, Migration von Windows zu Linux und von Oracle/MSSQL zu PostgreSQL.",
+    "Sieben Leistungen, die Ihre IT verlässlicher und günstiger machen: CI/CD Assessment, Infrastructure as Code, Containerisierung, Review Apps, Migration von Windows zu Linux, von Oracle/MSSQL zu PostgreSQL und in EU-Rechenzentren.",
 };
 
 const bookCta = {
@@ -27,14 +27,14 @@ const bookCta = {
 
 const hero = {
   tagline: "Leistungen",
-  title: "Sechs Wege, Ihre IT verlässlicher und günstiger zu machen",
+  title: "Sieben Wege, Ihre IT verlässlicher und günstiger zu machen",
   subtitle:
     "Jede Leistung löst ein konkretes Problem, hat ein klares Ergebnis und lässt sich als Pilot in wenigen Wochen umsetzen. Alle Leistungen sind einzeln buchbar.",
 };
 
 const overview = {
   tagline: "Übersicht",
-  title: "Drei Ziele, sechs Leistungen",
+  title: "Drei Ziele, sieben Leistungen",
   subtitle:
     "Wir sortieren unsere Leistungen nach dem, was sie für Sie bewirken: Klarheit schaffen, Änderungen absichern, Kosten senken.",
   items: [
@@ -63,7 +63,7 @@ const overview = {
     {
       title: "3 · Kosten senken",
       description:
-        "<strong>Windows → Linux</strong> und <strong>Oracle / MSSQL → PostgreSQL</strong> — Migrationen, die jedes Jahr Lizenzkosten sparen. Sicher umgesetzt, weil das Fundament steht.",
+        "<strong>Windows → Linux</strong>, <strong>Oracle / MSSQL → PostgreSQL</strong> und <strong>Cloud-Migration in EU-Rechenzentren</strong> — Migrationen, die jedes Jahr Lizenz- und Hardwarekosten sparen. Sicher umgesetzt, weil das Fundament steht.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
@@ -300,6 +300,42 @@ const services = [
     ],
     result:
       "Ergebnis: Eine Datenbank migriert, getestet und übergeben, inklusive Anpassung der Anwendung. Typisch 4–12 Wochen je nach Komplexität.",
+  },
+  {
+    id: "cloud-migration",
+    title: "Cloud-Migration in EU-Rechenzentren",
+    caption:
+      "Vom eigenen Serverraum oder überdimensionierten Hoster-Servern in die Cloud — bei Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen, was Sie nutzen.",
+    image: {
+      src: "~/assets/images/default.png",
+      alt: "Cloud-Migration in EU-Rechenzentren",
+    },
+    forWhom:
+      "Für Unternehmen, die eigene Hardware abschreiben, Wartungsverträge bezahlen oder Server mieten, die die meiste Zeit halb leer laufen — und deren Daten in der EU bleiben müssen.",
+    benefits: [
+      {
+        title: "Bezahlen, was Sie nutzen — nicht, was Sie einmal gekauft haben",
+        description:
+          "Keine Hardware-Abschreibung, keine Wartungsverträge, keine Reserve für Lastspitzen, die dreimal im Jahr auftreten. Ressourcen wachsen und schrumpfen mit dem Bedarf.",
+      },
+      {
+        title: "Daten bleiben in der EU",
+        description:
+          "Wir arbeiten mit europäischen Anbietern oder EU-Regionen — Rechenzentren in Deutschland und der EU, DSGVO-konform, ohne Datentransfer in Drittländer.",
+      },
+      {
+        title: "Kein Serverraum mehr, um den sich jemand kümmern muss",
+        description:
+          "Strom, Kühlung, defekte Festplatten, Ersatzteile — das übernimmt der Anbieter. Ihr Team kümmert sich um Anwendungen, nicht um Blech.",
+      },
+      {
+        title: "Als Code beschrieben, jederzeit reproduzierbar",
+        description:
+          "Die Cloud-Umgebung entsteht aus Infrastructure as Code. Ein Anbieterwechsel bleibt jederzeit möglich — kein Lock-in.",
+      },
+    ],
+    result:
+      "Ergebnis: Ein System oder eine Anwendung in ein EU-Rechenzentrum migriert, inklusive Kostenvergleich vorher/nachher und Betriebsdokumentation. Typisch 3–8 Wochen.",
   },
 ];
 
