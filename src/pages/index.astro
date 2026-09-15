@@ -17,17 +17,17 @@ const metadata = {
     "Frontrunner IO — Veränderung? Aber sicher! IT-Modernisierung für den Mittelstand",
   ignoreTitleTemplate: true,
   description:
-    "IT modernisieren, ohne den Betrieb zu riskieren: Wir helfen kleinen und mittleren Unternehmen, IT-Kosten zu senken und alte Systeme abzulösen — in kleinen Schritten mit klarem Ergebnis. Kostenloses Erstgespräch.",
+    "IT ändern, ohne den Betrieb zu riskieren: Wir helfen kleinen und mittleren Unternehmen, den Betrieb zu modernisieren, Lizenzkosten zu senken und eigene Software sicher auszuliefern — in kleinen Schritten mit klarem Ergebnis. Kostenloses Erstgespräch.",
 };
 
 const hero = {
-  tagline: "IT-Modernisierung für den Mittelstand",
+  tagline: "IT-Änderungen für den Mittelstand — ohne Risiko für den Betrieb",
   title:
     'Veränderung? <span class="text-accent dark:text-white highlight">Aber sicher!</span>',
   subtitle:
-    "Sie wollen IT-Kosten senken, alte Systeme ablösen oder endlich Ordnung in Ihre Infrastruktur bringen — aber jede Umstellung fühlt sich riskant an? Wir machen Veränderung planbar: kleine Schritte, klare Ergebnisse, kein Stillstand im Betrieb.",
+    "Sie wollen den Betrieb modernisieren, Lizenzkosten senken oder eigene Software sicher ausliefern — aber jede Umstellung fühlt sich riskant an? Wir machen Veränderung planbar: kleine Schritte, klare Ergebnisse, kein Stillstand im Betrieb.",
   primaryCta: {
-    text: "Kostenloses Erstgespräch buchen",
+    text: "Kostenloses Erstgespräch anfragen",
     href: BOOKING_URL,
     icon: "tabler:calendar",
   },
@@ -54,14 +54,20 @@ const problems = {
     {
       title: "Das Wissen steckt in Köpfen, nicht in Systemen",
       description:
-        "Wie der Server damals aufgesetzt wurde, weiß nur ein Kollege. Wenn der im Urlaub ist, wartet die Änderung — oder wird riskant.",
+        "Wie der Server damals aufgesetzt wurde, weiß nur ein Kollege — oder der Dienstleister, der nichts dokumentiert hat. Ist der nicht da, wartet die Änderung oder wird riskant.",
       icon: "tabler:user-question",
     },
     {
-      title: "Jeder Server ist ein Unikat",
+      title: "Niemand weiß, wie lange ein Neuaufbau dauert",
       description:
-        "Manuell eingerichtet, über Jahre gewachsen, nirgends dokumentiert. Eine zweite, identische Umgebung aufzubauen ist unmöglich — und das Testen damit auch.",
+        "Fällt der Server aus oder verschlüsselt Ransomware die Platten: Wie lange dauert es, bis alles wieder läuft? Tage? Wochen? Es hat noch niemand ausprobiert.",
       icon: "tabler:server-off",
+    },
+    {
+      title: "Die Hardware ist am Ende",
+      description:
+        "Der Serverraum altert, der Wartungsvertrag läuft aus, Ersatzteile werden knapp. Ein Umzug steht an — aber jeder Umzug ist die größte Änderung von allen.",
+      icon: "tabler:building-warehouse",
     },
     {
       title: "Lizenzkosten steigen jedes Jahr",
@@ -72,7 +78,7 @@ const problems = {
     {
       title: "Go-Live am Freitag, Bauchschmerzen am Wochenende",
       description:
-        "Änderungen werden erst in Produktion wirklich getestet, weil es keine Umgebung dafür gibt. Jedes Update ist eine kleine Mutprobe.",
+        "Änderungen an der eigenen Software werden erst in Produktion wirklich getestet, weil es keine Umgebung dafür gibt. Jedes Update ist eine kleine Mutprobe.",
       icon: "tabler:mood-sad",
     },
     {
@@ -80,12 +86,6 @@ const problems = {
       description:
         "Ein Problem taucht auf — aber welche der zehn Änderungen der letzten Woche war es? Ohne Nachvollziehbarkeit wird jede Fehlersuche zum Ratespiel.",
       icon: "tabler:route-x",
-    },
-    {
-      title: "Abhängigkeit von einem einzelnen Dienstleister",
-      description:
-        "Der Systempartner kennt alles, dokumentiert nichts, und jede Änderung läuft über ihn. Das ist bequem — bis es das nicht mehr ist.",
-      icon: "tabler:lock",
     },
   ],
 };
@@ -132,7 +132,7 @@ const services = {
     {
       title: "Infrastruktur als Code",
       description:
-        "Server und Einstellungen werden als Code beschrieben: dokumentiert, prüfbar, in Minuten neu aufbaubar. Das Wissen steckt im System, nicht mehr in einem Kopf.",
+        "Server und Einstellungen werden als Code beschrieben: dokumentiert, prüfbar, in Minuten neu aufbaubar — auch nach einem Ausfall. Das Wissen steckt im System, nicht mehr in einem Kopf.",
       icon: "tabler:code",
       callToAction: {
         variant: "link" as const,
@@ -152,6 +152,17 @@ const services = {
       },
     },
     {
+      title: "Windows-Dienste auf Linux umziehen",
+      description:
+        "Webserver, Datenbanken, interne Tools ziehen Schritt für Schritt von Windows auf Linux — ohne Ausfall. Das spart Lizenzen und macht den Weg zu Container und Cloud frei.",
+      icon: "tabler:brand-windows",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#windows-to-linux",
+      },
+    },
+    {
       title: "Cloud-Umzug in die EU",
       description:
         "Vom eigenen Serverraum zu Anbietern mit Rechenzentren in Deutschland und der EU. Keine alternde Hardware, kein Wartungsvertrag — und die Daten bleiben in Europa.",
@@ -160,17 +171,6 @@ const services = {
         variant: "link" as const,
         text: "Mehr erfahren",
         href: "/services#cloud-migration",
-      },
-    },
-    {
-      title: "Server-Lizenzen ablösen",
-      description:
-        "Wir ziehen Dienste, die nicht auf Windows angewiesen sind — Webserver, Datenbanken, interne Tools — Schritt für Schritt auf Linux um. Ohne Ausfall, die Lizenzgebühren entfallen dauerhaft.",
-      icon: "tabler:brand-windows",
-      callToAction: {
-        variant: "link" as const,
-        text: "Mehr erfahren",
-        href: "/services#windows-to-linux",
       },
     },
     {
@@ -240,6 +240,11 @@ const about = {
       description:
         "Lieber ein Pilot, der läuft, als ein Konzept, das im Ordner landet.",
     },
+    {
+      title: "Arbeitsweise aus regulierten Branchen",
+      description:
+        "Nachvollziehbarkeit und Prüfbarkeit, wie Banken und Versicherer sie verlangen — in einer Größe, die zum Mittelstand passt.",
+    },
   ],
   callToAction: {
     text: "Mehr über Frontrunner IO",
@@ -299,7 +304,7 @@ const faqs = {
 
 const cta = {
   primaryCta: {
-    text: "Kostenloses Erstgespräch buchen",
+    text: "Kostenloses Erstgespräch anfragen",
     href: BOOKING_URL,
     icon: "tabler:calendar",
   },

@@ -14,20 +14,20 @@ const metadata = {
   title: "Services — cut IT costs, replace ageing systems, make changes safe",
   ignoreTitleTemplate: true,
   description:
-    "Seven services for small and mid-sized companies: infrastructure as code, containers, cloud migration within the EU, replacing Windows, Oracle and MSSQL licences, test environments, software delivery check.",
+    "Seven services for small and mid-sized companies: infrastructure as code, containers, Windows services to Linux, cloud migration within the EU, replacing Oracle and MSSQL licences, test environments, software delivery check.",
 };
 
 const bookCta = {
-  text: "Book an assessment call",
+  text: "Request an assessment call",
   href: BOOKING_URL,
   icon: "tabler:calendar",
 };
 
 const hero = {
   tagline: "Services",
-  title: "Seven ways to make your IT more reliable and less expensive",
+  title: "Three goals, one path: IT that is more reliable and less expensive",
   subtitle:
-    "Each service solves a problem you probably know: too expensive, too risky, too dependent. Each has a clear outcome, can be booked on its own and can be delivered as a pilot within a few weeks.",
+    "Modernise operations, cut licence costs, ship your own software safely. Each service has a clear outcome, can be booked on its own and can be delivered as a pilot within a few weeks.",
 };
 
 const overview = {
@@ -39,7 +39,7 @@ const overview = {
     {
       title: "Modernise operations",
       description:
-        "Servers are one-offs, the knowledge lives in people's heads, the hardware is ageing. <strong>Infrastructure as code</strong>, <strong>containerising applications</strong> and <strong>cloud migration within the EU</strong> make your IT reproducible — from your own server to an EU data centre. No development team needed.",
+        "Servers are one-offs, the knowledge lives in people's heads, the hardware is ageing. <strong>Infrastructure as code</strong>, <strong>containerising applications</strong>, <strong>moving Windows services to Linux</strong> and <strong>cloud migration within the EU</strong> make your IT reproducible — and back within hours after an outage. No development team needed.",
       icon: "tabler:server-cog",
       callToAction: {
         variant: "link" as const,
@@ -50,12 +50,12 @@ const overview = {
     {
       title: "Cut licence costs",
       description:
-        "Windows Server, Oracle, MSSQL: the invoices grow and switching feels too risky. <strong>Replacing server licences</strong> and <strong>replacing database licences</strong> — step by step, with a rollback plan, permanently cheaper.",
+        "Oracle and Microsoft SQL Server are among the most expensive items in the IT budget. <strong>Replacing database licences</strong> migrates to PostgreSQL — step by step, with a rollback plan, permanently cheaper. For applications you own or your vendor supports.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
         text: "To cutting licence costs",
-        href: "#windows-to-linux",
+        href: "#database-migration",
       },
     },
     {
@@ -78,7 +78,7 @@ const services = [
     groupTagline: "Modernise operations",
     groupTitle: "IT that can be rebuilt",
     groupSubtitle:
-      "Three building blocks that make servers and applications reproducible — documented, testable and, if in doubt, reversible. Deliverable with your administrator or IT provider, no development team needed.",
+      "Four building blocks that make servers and applications reproducible — documented, testable, back within hours after an outage. Deliverable with your administrator or IT provider, no development team needed.",
     title: "Infrastructure as code",
     caption:
       "Servers, network and settings as code: documented, reviewed, rebuildable in minutes. The knowledge lives in the system — not only with one colleague.",
@@ -93,6 +93,11 @@ const services = [
         title: "No server is a one-off anymore",
         description:
           "Every environment can be rebuilt from code — identically, in minutes instead of days. That applies to test, staging and production.",
+      },
+      {
+        title: "Recovery after an outage becomes predictable",
+        description:
+          "If a server fails or ransomware encrypts the disks, it is rebuilt from code — in hours instead of days. And you can rehearse that beforehand instead of doing it for the first time in an emergency.",
       },
       {
         title: "Every change is documented and traceable",
@@ -141,13 +146,49 @@ const services = [
           "Containerised applications run on any Linux host, in the cloud or in your own data centre — the basis for later migrations.",
       },
       {
-        title: "Prerequisite for review apps and modern CI/CD",
+        title: "Prerequisite for test environments per change",
         description:
           "Once containerised, every change can be tested automatically in its own environment. The next step becomes easy.",
       },
     ],
     result:
       "Outcome: one application containerised and in operation, including build pipeline and documentation.",
+  },
+  {
+    id: "windows-to-linux",
+    title: "Moving Windows services to Linux",
+    caption:
+      "Web servers, databases, application servers, internal tools: we move the services that do not depend on Windows to Linux step by step — no downtime. That saves licences and clears the path to containers and cloud.",
+    image: {
+      src: "~/assets/images/service-linux.jpg",
+      alt: "Migration from Windows Server to Linux",
+    },
+    forWhom:
+      "For companies running Windows Server for services that run just as well or better on Linux — web servers, databases, application servers, file services, internal tools. Active Directory, Exchange or your ERP stay where they are.",
+    benefits: [
+      {
+        title: "Fewer Windows licences, every year",
+        description:
+          "Every migrated Windows Server and CAL licence is one recurring invoice less. Whether that pays off on its own depends on how many servers you run — the path to containers and cloud is worth it regardless.",
+      },
+      {
+        title: "Fewer maintenance windows, fewer reboots",
+        description:
+          "Linux systems can be updated while running. The patch weekend becomes the exception.",
+      },
+      {
+        title: "Containers instead of manual work",
+        description:
+          "The services move as containers, the servers are described as code. That makes the migration the first step towards reliable change — and the stepping stone for a later cloud migration.",
+      },
+      {
+        title: "No big bang",
+        description:
+          "We migrate one system after another, starting with the lowest-risk one. The old system stays untouched until the switch has succeeded.",
+      },
+    ],
+    result:
+      "Outcome: one system migrated to Linux, documented and in operation — the services usually as containers — plus a roadmap for the remaining systems.",
   },
   {
     id: "cloud-migration",
@@ -183,50 +224,14 @@ const services = [
       },
     ],
     result:
-      "Outcome: one system or application migrated to an EU data centre, including a before/after cost comparison and operations documentation (requires containerisation).",
-  },
-  {
-    id: "windows-to-linux",
-    groupTagline: "Cut licence costs",
-    groupTitle: "Save licence costs without endangering operations",
-    groupSubtitle:
-      "Licence migrations have the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan and on the foundation of infrastructure as code and containers.",
-    title: "Replacing server licences",
-    caption:
-      "When Windows Server licences tie up more budget every year: we move the services that do not depend on Windows to Linux step by step — no downtime, permanent savings.",
-    image: {
-      src: "~/assets/images/service-linux.jpg",
-      alt: "Migration from Windows Server to Linux",
-    },
-    forWhom:
-      "For companies running Windows Server for services that run just as well or better on Linux — web servers, databases, application servers, file services, internal tools. Active Directory, Exchange or your ERP stay where they are.",
-    benefits: [
-      {
-        title: "Licence costs disappear — permanently",
-        description:
-          "Windows Server and CAL licences are recurring costs. After the migration they are history for that system.",
-      },
-      {
-        title: "Fewer maintenance windows, fewer reboots",
-        description:
-          "Linux systems can be updated while running. The patch weekend becomes the exception.",
-      },
-      {
-        title: "Containers instead of manual work",
-        description:
-          "The services move as containers, the servers are described as code. That makes the migration the first step towards reliable change — and the stepping stone for a later cloud migration.",
-      },
-      {
-        title: "No big bang",
-        description:
-          "We migrate one system after another, starting with the lowest-risk one. The old system stays untouched until the switch has succeeded.",
-      },
-    ],
-    result:
-      "Outcome: one system migrated to Linux, documented and in operation — plus a roadmap for the remaining systems (requires containerisation).",
+      "Outcome: one system or application migrated to an EU data centre — usually as containers — including a before/after cost comparison and operations documentation.",
   },
   {
     id: "database-migration",
+    groupTagline: "Cut licence costs",
+    groupTitle: "The database is the most expensive item — and the riskiest move",
+    groupSubtitle:
+      "Oracle and MSSQL licences have the biggest savings potential. The move carries the biggest risk. That is why we do it step by step, with a rollback plan and on the foundation of infrastructure as code and containers.",
     title: "Replacing database licences",
     caption:
       "Oracle and Microsoft SQL Server are among the most expensive items in an IT budget. We migrate to PostgreSQL — cleanly, thoroughly tested, with a rollback plan.",
@@ -296,13 +301,13 @@ const services = [
       },
     ],
     result:
-      "Outcome: review apps set up for one application, created and torn down automatically (requires containerisation).",
+      "Outcome: test environments (so-called review apps) set up for one application, created and torn down automatically. Requires a containerised application.",
   },
   {
     id: "cicd-assessment",
     title: "Software delivery check",
     caption:
-      "We check how fast and how safely your software gets from change to production — honestly evaluated, clearly prioritised. The diagnosis everything else builds on.",
+      "We check how fast and how safely your software gets from change to production — honestly evaluated, clearly prioritised. The diagnosis you use to decide what comes first.",
     image: {
       src: "~/assets/images/service-assessment.jpg",
       alt: "Software delivery check",
@@ -316,19 +321,9 @@ const services = [
           "We measure build times, failure rates and waiting times and show which bottlenecks really slow your team down.",
       },
       {
-        title: "Security gaps become visible before someone else finds them",
-        description:
-          "Handling of credentials, dependencies, permissions and traceability — checked against common standards.",
-      },
-      {
         title: "A prioritised list instead of a thick report",
         description:
           "What first? What delivers the most for the least effort? You get an order you can start with immediately.",
-      },
-      {
-        title: "A basis for decisions by management and IT",
-        description:
-          "Written in plain language, with effort estimates and expected benefit — so approving the next step is easy.",
       },
     ],
     result:
@@ -388,6 +383,11 @@ const faqs = {
       title: "Do we have to change our tools?",
       description:
         "No. We work with what you have — GitLab, GitHub, Azure DevOps, Proxmox, VMware, cloud or your own data centre. We only recommend a switch when it clearly pays off.",
+    },
+    {
+      title: "What happens after the pilot?",
+      description:
+        "You decide: carry it forward yourself, commission the next pilot, or agree a monthly allowance for questions, updates and reviews. Everything we build is documented and belongs to you — you are not dependent on us.",
     },
     {
       title: "What about our existing IT provider?",
