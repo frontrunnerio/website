@@ -17,17 +17,17 @@ const metadata = {
     "Frontrunner IO — Change with confidence. IT modernisation for German SMEs",
   ignoreTitleTemplate: true,
   description:
-    "Modernise your IT without putting operations at risk: we help small and mid-sized companies cut IT costs and replace ageing systems — in small steps with clear results. Free assessment call.",
+    "Change your IT without putting operations at risk: we help small and mid-sized companies modernise operations, cut licence costs and ship their own software safely — in small steps with clear results. Free assessment call.",
 };
 
 const hero = {
-  tagline: "IT modernisation for small and mid-sized companies",
+  tagline: "IT changes for small and mid-sized companies — without risking operations",
   title:
     'Change with <span class="text-accent dark:text-white highlight">confidence</span>.',
   subtitle:
-    "You want to cut IT costs, replace ageing systems or finally bring order to your infrastructure — but every change feels risky? We make change predictable: small steps, clear results, no downtime for the business.",
+    "You want to modernise operations, cut licence costs or ship your own software safely — but every change feels risky? We make change predictable: small steps, clear results, no downtime for the business.",
   primaryCta: {
-    text: "Book a free assessment call",
+    text: "Request a free assessment call",
     href: BOOKING_URL,
     icon: "tabler:calendar",
   },
@@ -54,14 +54,20 @@ const problems = {
     {
       title: "Knowledge lives in heads, not in systems",
       description:
-        "Only one colleague knows how that server was set up back then. When they're on holiday, the change waits — or gets risky.",
+        "Only one colleague knows how that server was set up back then — or the provider who documented nothing. When they're not around, the change waits or gets risky.",
       icon: "tabler:user-question",
     },
     {
-      title: "Every server is a one-off",
+      title: "Nobody knows how long a rebuild would take",
       description:
-        "Set up by hand, grown over years, documented nowhere. Building a second, identical environment is impossible — and so is testing.",
+        "If the server fails or ransomware encrypts the disks: how long until everything runs again? Days? Weeks? Nobody has ever tried.",
       icon: "tabler:server-off",
+    },
+    {
+      title: "The hardware is at its end",
+      description:
+        "The server room ages, the maintenance contract runs out, spare parts get scarce. A move is due — but a move is the biggest change of all.",
+      icon: "tabler:building-warehouse",
     },
     {
       title: "Licence costs rise every year",
@@ -72,7 +78,7 @@ const problems = {
     {
       title: "Go-live on Friday, stomach ache all weekend",
       description:
-        "Changes are only really tested in production because there's no environment for it. Every update is a small act of courage.",
+        "Changes to your own software are only really tested in production because there's no environment for it. Every update is a small act of courage.",
       icon: "tabler:mood-sad",
     },
     {
@@ -80,12 +86,6 @@ const problems = {
       description:
         "A problem shows up — but which of last week’s ten changes caused it? Without traceability, every investigation becomes guesswork.",
       icon: "tabler:route-x",
-    },
-    {
-      title: "Dependence on a single vendor",
-      description:
-        "Your IT partner knows everything, documents nothing, and every change goes through them. That's convenient — until it isn't.",
-      icon: "tabler:lock",
     },
   ],
 };
@@ -132,7 +132,7 @@ const services = {
     {
       title: "Infrastructure as code",
       description:
-        "Servers and settings are described as code: documented, reviewable, rebuildable in minutes. The knowledge lives in the system, not in one person's head.",
+        "Servers and settings are described as code: documented, reviewable, rebuildable in minutes — even after an outage. The knowledge lives in the system, not in one person's head.",
       icon: "tabler:code",
       callToAction: {
         variant: "link" as const,
@@ -152,6 +152,17 @@ const services = {
       },
     },
     {
+      title: "Moving Windows services to Linux",
+      description:
+        "Web servers, databases, internal tools move from Windows to Linux step by step — no downtime. That saves licences and clears the path to containers and cloud.",
+      icon: "tabler:brand-windows",
+      callToAction: {
+        variant: "link" as const,
+        text: "Learn more",
+        href: "/en/services#windows-to-linux",
+      },
+    },
+    {
       title: "Cloud migration within the EU",
       description:
         "From your own server room to providers with data centres in Germany and the EU. No ageing hardware, no maintenance contract — and the data stays in Europe.",
@@ -160,17 +171,6 @@ const services = {
         variant: "link" as const,
         text: "Learn more",
         href: "/en/services#cloud-migration",
-      },
-    },
-    {
-      title: "Replacing server licences",
-      description:
-        "We move the services that do not depend on Windows — web servers, databases, internal tools — to Linux step by step. No downtime, and the licence fees go away for good.",
-      icon: "tabler:brand-windows",
-      callToAction: {
-        variant: "link" as const,
-        text: "Learn more",
-        href: "/en/services#windows-to-linux",
       },
     },
     {
@@ -240,6 +240,11 @@ const about = {
       description:
         "Better a pilot that runs than a concept that ends up in a folder.",
     },
+    {
+      title: "Working practices from regulated industries",
+      description:
+        "Traceability and auditability as banks and insurers demand them — at a size that fits mid-sized companies.",
+    },
   ],
   callToAction: {
     text: "More about Frontrunner IO",
@@ -298,7 +303,7 @@ const faqs = {
 
 const cta = {
   primaryCta: {
-    text: "Book a free assessment call",
+    text: "Request a free assessment call",
     href: BOOKING_URL,
     icon: "tabler:calendar",
   },

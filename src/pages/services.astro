@@ -14,20 +14,20 @@ const metadata = {
   title: "Leistungen — IT-Kosten senken, Systeme ablösen, Änderungen absichern",
   ignoreTitleTemplate: true,
   description:
-    "Sieben Leistungen für den Mittelstand: Infrastruktur als Code, Container, Cloud-Umzug in die EU, Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Testumgebungen, Software-Delivery-Check.",
+    "Sieben Leistungen für den Mittelstand: Infrastruktur als Code, Container, Windows-Dienste auf Linux, Cloud-Umzug in die EU, Ablösung von Oracle- und MSSQL-Lizenzen, Testumgebungen, Software-Delivery-Check.",
 };
 
 const bookCta = {
-  text: "Erstgespräch buchen",
+  text: "Erstgespräch anfragen",
   href: BOOKING_URL,
   icon: "tabler:calendar",
 };
 
 const hero = {
   tagline: "Leistungen",
-  title: "Sieben Wege, Ihre IT verlässlicher und günstiger zu machen",
+  title: "Drei Ziele, ein Weg: Ihre IT verlässlicher und günstiger",
   subtitle:
-    "Jede Leistung löst ein Problem, das Sie wahrscheinlich kennen: zu teuer, zu riskant, zu abhängig. Jede hat ein klares Ergebnis, ist einzeln buchbar und lässt sich als Pilot in wenigen Wochen umsetzen.",
+    "Betrieb modernisieren, Lizenzkosten senken, eigene Software sicher ausliefern. Jede Leistung hat ein klares Ergebnis, ist einzeln buchbar und lässt sich als Pilot in wenigen Wochen umsetzen.",
 };
 
 const overview = {
@@ -39,7 +39,7 @@ const overview = {
     {
       title: "Betrieb modernisieren",
       description:
-        "Server sind Unikate, das Wissen steckt in Köpfen, die Hardware altert. <strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong> und <strong>Cloud-Umzug in die EU</strong> machen Ihre IT reproduzierbar — vom eigenen Server bis zum EU-Rechenzentrum. Kein Entwicklerteam nötig.",
+        "Server sind Unikate, das Wissen steckt in Köpfen, die Hardware altert. <strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong>, <strong>Windows-Dienste auf Linux umziehen</strong> und <strong>Cloud-Umzug in die EU</strong> machen Ihre IT reproduzierbar — und nach einem Ausfall in Stunden wieder da. Kein Entwicklerteam nötig.",
       icon: "tabler:server-cog",
       callToAction: {
         variant: "link" as const,
@@ -50,12 +50,12 @@ const overview = {
     {
       title: "Lizenzkosten senken",
       description:
-        "Windows Server, Oracle, MSSQL: Die Rechnungen steigen, ein Wechsel erscheint zu riskant. <strong>Server-Lizenzen ablösen</strong> und <strong>Datenbank-Lizenzen ablösen</strong> — schrittweise, mit Rückfallplan, dauerhaft günstiger.",
+        "Oracle und Microsoft SQL Server gehören zu den teuersten Posten im IT-Budget. <strong>Datenbank-Lizenzen ablösen</strong> migriert auf PostgreSQL — schrittweise, mit Rückfallplan, dauerhaft günstiger. Bei Anwendungen, die Ihnen gehören oder die Ihr Hersteller freigibt.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
         text: "Zu Lizenzkosten senken",
-        href: "#windows-to-linux",
+        href: "#database-migration",
       },
     },
     {
@@ -78,7 +78,7 @@ const services = [
     groupTagline: "Betrieb modernisieren",
     groupTitle: "Eine IT, die sich neu aufbauen lässt",
     groupSubtitle:
-      "Drei Bausteine, mit denen Server und Anwendungen reproduzierbar werden — dokumentiert, testbar, im Zweifel rückgängig zu machen. Umsetzbar mit Ihrem Administrator oder Systemhaus, kein Entwicklerteam nötig.",
+      "Vier Bausteine, mit denen Server und Anwendungen reproduzierbar werden — dokumentiert, testbar, nach einem Ausfall in Stunden wieder da. Umsetzbar mit Ihrem Administrator oder Systemhaus, kein Entwicklerteam nötig.",
     title: "Infrastruktur als Code",
     caption:
       "Server, Netzwerk und Einstellungen als Code: dokumentiert, geprüft, in Minuten neu aufbaubar. Das Wissen steckt im System — nicht mehr nur bei einem Kollegen.",
@@ -93,6 +93,11 @@ const services = [
         title: "Kein Server ist mehr ein Unikat",
         description:
           "Jede Umgebung lässt sich aus dem Code neu aufbauen — identisch, in Minuten statt Tagen. Das gilt für Test, Staging und Produktion.",
+      },
+      {
+        title: "Wiederherstellung nach Ausfall wird planbar",
+        description:
+          "Fällt ein Server aus oder verschlüsselt Ransomware die Platten, wird er aus dem Code neu aufgebaut — in Stunden statt in Tagen. Und Sie können das vorher üben, statt es im Ernstfall zum ersten Mal zu tun.",
       },
       {
         title: "Jede Änderung ist dokumentiert und nachvollziehbar",
@@ -141,13 +146,49 @@ const services = [
           "Containerisierte Anwendungen laufen auf jedem Linux-Host, in der Cloud oder im eigenen Rechenzentrum — die Grundlage für spätere Migrationen.",
       },
       {
-        title: "Voraussetzung für Review Apps und moderne CI/CD",
+        title: "Voraussetzung für Testumgebungen pro Änderung",
         description:
           "Wer containerisiert hat, kann jede Änderung automatisch in einer eigenen Umgebung testen. Der nächste Schritt wird einfach.",
       },
     ],
     result:
       "Ergebnis: Eine Anwendung containerisiert und im Betrieb, inklusive Build-Pipeline und Dokumentation.",
+  },
+  {
+    id: "windows-to-linux",
+    title: "Windows-Dienste auf Linux umziehen",
+    caption:
+      "Webserver, Datenbanken, Anwendungsserver, interne Tools: Wir ziehen die Dienste, die nicht auf Windows angewiesen sind, Schritt für Schritt auf Linux um — ohne Ausfall. Das spart Lizenzen und macht den Weg zu Container und Cloud frei.",
+    image: {
+      src: "~/assets/images/service-linux.jpg",
+      alt: "Migration von Windows Server zu Linux",
+    },
+    forWhom:
+      "Für Unternehmen, die Windows Server für Dienste betreiben, die genauso gut oder besser auf Linux laufen — Webserver, Datenbanken, Anwendungsserver, Dateidienste, interne Tools. Active Directory, Exchange oder Ihr ERP bleiben, wo sie sind.",
+    benefits: [
+      {
+        title: "Weniger Windows-Lizenzen, jedes Jahr",
+        description:
+          "Jede migrierte Windows-Server- und CAL-Lizenz ist eine wiederkehrende Rechnung weniger. Ob sich das allein rechnet, hängt von der Zahl Ihrer Server ab — der Weg zu Container und Cloud lohnt sich unabhängig davon.",
+      },
+      {
+        title: "Weniger Wartungsfenster, weniger Neustarts",
+        description:
+          "Linux-Systeme lassen sich im laufenden Betrieb aktualisieren. Das Patch-Wochenende wird zur Ausnahme.",
+      },
+      {
+        title: "Container statt Handarbeit",
+        description:
+          "Die Dienste ziehen als Container um, die Server sind als Code beschrieben. Damit ist die Migration gleichzeitig der erste Schritt zu verlässlichen Änderungen — und die Vorstufe für einen späteren Cloud-Umzug.",
+      },
+      {
+        title: "Kein Big Bang",
+        description:
+          "Wir migrieren ein System nach dem anderen, beginnend mit dem risikoärmsten. Das alte System bleibt bis zum erfolgreichen Umstieg unangetastet.",
+      },
+    ],
+    result:
+      "Ergebnis: Ein System auf Linux migriert, dokumentiert und im Betrieb — die Dienste in der Regel als Container — plus Roadmap für die weiteren Systeme.",
   },
   {
     id: "cloud-migration",
@@ -183,50 +224,14 @@ const services = [
       },
     ],
     result:
-      "Ergebnis: Ein System oder eine Anwendung in ein EU-Rechenzentrum migriert, inklusive Kostenvergleich vorher/nachher und Betriebsdokumentation (setzt Containerisierung voraus).",
-  },
-  {
-    id: "windows-to-linux",
-    groupTagline: "Lizenzkosten senken",
-    groupTitle: "Lizenzkosten sparen, ohne den Betrieb zu gefährden",
-    groupSubtitle:
-      "Lizenz-Migrationen haben das größte Sparpotenzial — und das größte Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan und auf dem Fundament aus Infrastruktur als Code und Containern.",
-    title: "Server-Lizenzen ablösen",
-    caption:
-      "Wenn Windows-Server-Lizenzen jedes Jahr mehr Budget binden: Wir ziehen die Dienste, die nicht auf Windows angewiesen sind, Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
-    image: {
-      src: "~/assets/images/service-linux.jpg",
-      alt: "Migration von Windows Server zu Linux",
-    },
-    forWhom:
-      "Für Unternehmen, die Windows Server für Dienste betreiben, die genauso gut oder besser auf Linux laufen — Webserver, Datenbanken, Anwendungsserver, Dateidienste, interne Tools. Active Directory, Exchange oder Ihr ERP bleiben, wo sie sind.",
-    benefits: [
-      {
-        title: "Lizenzkosten fallen weg — dauerhaft",
-        description:
-          "Windows-Server- und CAL-Lizenzen sind wiederkehrende Kosten. Nach der Migration sind sie für dieses System Geschichte.",
-      },
-      {
-        title: "Weniger Wartungsfenster, weniger Neustarts",
-        description:
-          "Linux-Systeme lassen sich im laufenden Betrieb aktualisieren. Das Patch-Wochenende wird zur Ausnahme.",
-      },
-      {
-        title: "Container statt Handarbeit",
-        description:
-          "Die Dienste ziehen als Container um, die Server sind als Code beschrieben. Damit ist die Migration gleichzeitig der erste Schritt zu verlässlichen Änderungen — und die Vorstufe für einen späteren Cloud-Umzug.",
-      },
-      {
-        title: "Kein Big Bang",
-        description:
-          "Wir migrieren ein System nach dem anderen, beginnend mit dem risikoärmsten. Das alte System bleibt bis zum erfolgreichen Umstieg unangetastet.",
-      },
-    ],
-    result:
-      "Ergebnis: Ein System auf Linux migriert, dokumentiert und im Betrieb — plus Roadmap für die weiteren Systeme (setzt Containerisierung voraus).",
+      "Ergebnis: Ein System oder eine Anwendung in ein EU-Rechenzentrum migriert — in der Regel als Container — inklusive Kostenvergleich vorher/nachher und Betriebsdokumentation.",
   },
   {
     id: "database-migration",
+    groupTagline: "Lizenzkosten senken",
+    groupTitle: "Die Datenbank ist der teuerste Posten — und der riskanteste Umzug",
+    groupSubtitle:
+      "Oracle- und MSSQL-Lizenzen haben das größte Sparpotenzial. Der Umzug hat das größte Risiko. Deshalb schrittweise, mit Rückfallplan und auf dem Fundament aus Infrastruktur als Code und Containern.",
     title: "Datenbank-Lizenzen ablösen",
     caption:
       "Oracle und Microsoft SQL Server gehören zu den teuersten Posten im IT-Budget. Wir migrieren auf PostgreSQL — sauber, gründlich getestet, mit Rückfallplan.",
@@ -296,13 +301,13 @@ const services = [
       },
     ],
     result:
-      "Ergebnis: Review Apps für eine Anwendung eingerichtet, automatisch erstellt und wieder abgebaut (setzt Containerisierung voraus).",
+      "Ergebnis: Testumgebungen (sogenannte Review Apps) für eine Anwendung eingerichtet, automatisch erstellt und wieder abgebaut. Setzt eine containerisierte Anwendung voraus.",
   },
   {
     id: "cicd-assessment",
     title: "Software-Delivery-Check",
     caption:
-      "Wir prüfen, wie schnell und wie sicher Ihre Software von der Änderung bis in den Betrieb kommt — ehrlich bewertet, klar priorisiert. Der Befund, auf dem alles Weitere aufbaut.",
+      "Wir prüfen, wie schnell und wie sicher Ihre Software von der Änderung bis in den Betrieb kommt — ehrlich bewertet, klar priorisiert. Der Befund, mit dem Sie entscheiden, was zuerst dran ist.",
     image: {
       src: "~/assets/images/service-assessment.jpg",
       alt: "Software-Delivery-Check",
@@ -316,20 +321,9 @@ const services = [
           "Wir messen Build-Zeiten, Fehlerraten und Wartezeiten und zeigen, welche Engpässe Ihr Team wirklich bremsen.",
       },
       {
-        title:
-          "Sicherheitslücken werden sichtbar, bevor jemand anderes sie findet",
-        description:
-          "Umgang mit Zugangsdaten, Abhängigkeiten, Berechtigungen und Nachvollziehbarkeit — geprüft gegen gängige Standards.",
-      },
-      {
         title: "Eine priorisierte Liste statt eines dicken Berichts",
         description:
           "Was zuerst? Was bringt am meisten für den geringsten Aufwand? Sie erhalten eine Reihenfolge, mit der Sie sofort starten können.",
-      },
-      {
-        title: "Eine Entscheidungsgrundlage für Geschäftsführung und IT",
-        description:
-          "Verständlich formuliert, mit Aufwandsschätzung und erwartetem Nutzen — damit die Freigabe für den nächsten Schritt leicht fällt.",
       },
     ],
     result:
@@ -389,6 +383,11 @@ const faqs = {
       title: "Müssen wir unsere Werkzeuge wechseln?",
       description:
         "Nein. Wir arbeiten mit dem, was Sie haben — GitLab, GitHub, Azure DevOps, Proxmox, VMware, Cloud oder eigenes Rechenzentrum. Wir empfehlen einen Wechsel nur, wenn er sich klar rechnet.",
+    },
+    {
+      title: "Was passiert nach dem Pilot?",
+      description:
+        "Sie entscheiden: selbst weiterführen, den nächsten Pilot beauftragen oder ein monatliches Kontingent für Fragen, Updates und Reviews vereinbaren. Alles, was wir aufbauen, ist dokumentiert und gehört Ihnen — Sie sind nicht auf uns angewiesen.",
     },
     {
       title: "Was ist mit unserem bestehenden IT-Dienstleister?",

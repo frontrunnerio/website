@@ -42,12 +42,12 @@ export const getFooterData = (lang: Lang) => {
             href: servicesPath + "#containerization",
           },
           {
-            text: t(lang, "svc.cloud"),
-            href: servicesPath + "#cloud-migration",
-          },
-          {
             text: t(lang, "svc.linux"),
             href: servicesPath + "#windows-to-linux",
+          },
+          {
+            text: t(lang, "svc.cloud"),
+            href: servicesPath + "#cloud-migration",
           },
           {
             text: t(lang, "svc.postgres"),
