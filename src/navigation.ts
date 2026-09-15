@@ -34,10 +34,6 @@ export const getFooterData = (lang: Lang) => {
         title: t(lang, "nav.services"),
         links: [
           {
-            text: t(lang, "svc.check"),
-            href: servicesPath + "#cicd-assessment",
-          },
-          {
             text: t(lang, "svc.iac"),
             href: servicesPath + "#infrastructure-as-code",
           },
@@ -46,8 +42,8 @@ export const getFooterData = (lang: Lang) => {
             href: servicesPath + "#containerization",
           },
           {
-            text: t(lang, "svc.reviewApps"),
-            href: servicesPath + "#review-apps",
+            text: t(lang, "svc.cloud"),
+            href: servicesPath + "#cloud-migration",
           },
           {
             text: t(lang, "svc.linux"),
@@ -58,8 +54,12 @@ export const getFooterData = (lang: Lang) => {
             href: servicesPath + "#database-migration",
           },
           {
-            text: t(lang, "svc.cloud"),
-            href: servicesPath + "#cloud-migration",
+            text: t(lang, "svc.reviewApps"),
+            href: servicesPath + "#review-apps",
+          },
+          {
+            text: t(lang, "svc.check"),
+            href: servicesPath + "#cicd-assessment",
           },
         ],
       },
