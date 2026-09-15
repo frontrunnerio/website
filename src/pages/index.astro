@@ -127,19 +127,8 @@ const services = {
   tagline: "Leistungen",
   title: "Womit wir Ihre IT verlässlicher und günstiger machen",
   subtitle:
-    "Jede Leistung löst ein konkretes Problem und ist einzeln buchbar. Sie starten dort, wo es am meisten weh tut — oder am meisten spart.",
+    "Jede Leistung löst ein konkretes Problem und ist einzeln buchbar. Sie starten dort, wo es am meisten weh tut — oder am meisten spart. Die Leistungen bauen aufeinander auf: Infrastruktur als Code, Container, Migration, Cloud.",
   items: [
-    {
-      title: "Software-Delivery-Check",
-      description:
-        "Wir schauen uns an, wie Ihre Software vom Code bis in den Betrieb kommt — und zeigen, wo Zeit verloren geht, wo Risiken liegen und was zuerst zu tun ist.",
-      icon: "tabler:gauge",
-      callToAction: {
-        variant: "link" as const,
-        text: "Mehr erfahren",
-        href: "/services#cicd-assessment",
-      },
-    },
     {
       title: "Infrastruktur als Code",
       description:
@@ -163,20 +152,20 @@ const services = {
       },
     },
     {
-      title: "Testumgebung pro Änderung",
+      title: "Cloud-Umzug in die EU",
       description:
-        "Jede Änderung bekommt vor dem Update automatisch eine eigene Testumgebung. Fachabteilung und Team klicken sich durch, bevor etwas live geht.",
-      icon: "tabler:git-merge",
+        "Vom eigenen Serverraum zu Anbietern mit Rechenzentren in Deutschland und der EU. Keine alternde Hardware, kein Wartungsvertrag — und die Daten bleiben in Europa.",
+      icon: "tabler:cloud-upload",
       callToAction: {
         variant: "link" as const,
         text: "Mehr erfahren",
-        href: "/services#review-apps",
+        href: "/services#cloud-migration",
       },
     },
     {
       title: "Server-Lizenzen ablösen",
       description:
-        "Wir ziehen Ihre Windows-Server Schritt für Schritt auf Linux um — ohne Ausfall. Die Lizenzgebühren entfallen dauerhaft.",
+        "Wir ziehen Dienste, die nicht auf Windows angewiesen sind — Webserver, Datenbanken, interne Tools — Schritt für Schritt auf Linux um. Ohne Ausfall, die Lizenzgebühren entfallen dauerhaft.",
       icon: "tabler:brand-windows",
       callToAction: {
         variant: "link" as const,
@@ -196,14 +185,25 @@ const services = {
       },
     },
     {
-      title: "Cloud-Umzug in die EU",
+      title: "Testumgebung pro Änderung",
       description:
-        "Vom eigenen Serverraum zu Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen nur, was Sie nutzen — und die Daten bleiben in Europa.",
-      icon: "tabler:cloud-upload",
+        "Jede Änderung bekommt vor dem Update automatisch eine eigene Testumgebung. Fachabteilung und Team klicken sich durch, bevor etwas live geht.",
+      icon: "tabler:git-merge",
       callToAction: {
         variant: "link" as const,
         text: "Mehr erfahren",
-        href: "/services#cloud-migration",
+        href: "/services#review-apps",
+      },
+    },
+    {
+      title: "Software-Delivery-Check",
+      description:
+        "Wir schauen uns an, wie Ihre Software vom Code bis in den Betrieb kommt — und zeigen, wo Zeit verloren geht, wo Risiken liegen und was zuerst zu tun ist.",
+      icon: "tabler:gauge",
+      callToAction: {
+        variant: "link" as const,
+        text: "Mehr erfahren",
+        href: "/services#cicd-assessment",
       },
     },
   ],
@@ -257,7 +257,7 @@ const faqs = {
     {
       title: "Für wen ist das Angebot gedacht?",
       description:
-        "Für kleine und mittlere Unternehmen in Deutschland, die eigene Software betreiben oder entwickeln — typischerweise mit 20 bis 500 Mitarbeitenden und einem kleinen IT-Team oder externen Dienstleister. Wenn Sie Änderungen an Ihrer IT scheuen, weil sie riskant oder teuer sind, sind Sie richtig.",
+        "Für kleine und mittlere Unternehmen in Deutschland, die Änderungen an ihrer IT scheuen, weil sie riskant oder teuer sind. Meist wollen unsere Kunden eines von drei Dingen: den Betrieb modernisieren, weil Server Unikate sind und die Hardware altert. Lizenzkosten senken, weil Windows Server, Oracle oder MSSQL das Budget binden. Oder eigene Software sicher ausliefern, weil Fehler erst in Produktion auffallen. Jede Leistung ist einzeln buchbar.",
     },
     {
       title: "Was kostet das Erstgespräch?",
@@ -272,7 +272,7 @@ const faqs = {
     {
       title: "Wir haben kein eigenes Entwicklerteam — passt das trotzdem?",
       description:
-        "Ja. Die meisten unserer Leistungen betreffen den Betrieb — Server, Datenbanken, Cloud — und nicht die Softwareentwicklung. Wir arbeiten mit Ihrem Administrator oder Ihrem IT-Dienstleister zusammen.",
+        "Ja, für alles, was Ihre Server betrifft: Server-Lizenzen ablösen, Cloud-Umzug, Infrastruktur als Code. Dafür arbeiten wir mit Ihrem Administrator oder Ihrem IT-Dienstleister zusammen. Container, Testumgebungen und Datenbankmigration für Ihre eigene Anwendung setzen voraus, dass jemand sie anpassen kann — das kann auch die Agentur oder der Hersteller sein, der sie gebaut hat.",
     },
     {
       title: "Müssen wir alles auf einmal umstellen?",
@@ -282,7 +282,7 @@ const faqs = {
     {
       title: "Wie schnell sehen wir Ergebnisse?",
       description:
-        "Den Plan erhalten Sie innerhalb von ein bis zwei Wochen nach dem Gespräch. Ein Pilot dauert je nach Umfang zwei bis acht Wochen. Kosteneinsparungen durch Lizenzwechsel werden ab dem Monat sichtbar, in dem das System umgezogen ist.",
+        "Den Plan erhalten Sie innerhalb von ein bis zwei Wochen nach dem Gespräch. Die Dauer des Piloten steht im Angebot — er ist bewusst so klein geschnitten, dass Sie das Ergebnis in Wochen sehen, nicht in Monaten. Kosteneinsparungen durch Lizenzwechsel werden ab dem Monat sichtbar, in dem das System umgezogen ist.",
     },
     {
       title: "Was passiert, wenn der Pilot nicht funktioniert?",

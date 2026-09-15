@@ -14,7 +14,7 @@ const metadata = {
   title: "Services — cut IT costs, replace ageing systems, make changes safe",
   ignoreTitleTemplate: true,
   description:
-    "Seven services for small and mid-sized companies: software delivery check, infrastructure as code, containers, test environments, replacing Windows, Oracle and MSSQL licences, cloud migration within the EU.",
+    "Seven services for small and mid-sized companies: infrastructure as code, containers, cloud migration within the EU, replacing Windows, Oracle and MSSQL licences, test environments, software delivery check.",
 };
 
 const bookCta = {
@@ -34,39 +34,39 @@ const overview = {
   tagline: "Overview",
   title: "Three goals, seven services",
   subtitle:
-    "We group our services by what they do for you: create clarity, secure changes, cut costs.",
+    "We sort by what you want to achieve. Every service can be booked on its own — the order follows your situation, not a package.",
   items: [
     {
-      title: "1 · Create clarity",
+      title: "Modernise operations",
       description:
-        "<strong>Software delivery check</strong> — We show where your software delivery loses time, where the risks are and what to fix first.",
-      icon: "tabler:search",
+        "Servers are one-offs, the knowledge lives in people's heads, the hardware is ageing. <strong>Infrastructure as code</strong>, <strong>containerising applications</strong> and <strong>cloud migration within the EU</strong> make your IT reproducible — from your own server to an EU data centre. No development team needed.",
+      icon: "tabler:server-cog",
       callToAction: {
         variant: "link" as const,
-        text: "To the check",
-        href: "#cicd-assessment",
-      },
-    },
-    {
-      title: "2 · Secure changes",
-      description:
-        "<strong>Infrastructure as code</strong>, <strong>containerising applications</strong> and <strong>test environments per change</strong> — so every change is repeatable, testable and reversible.",
-      icon: "tabler:shield-check",
-      callToAction: {
-        variant: "link" as const,
-        text: "To the services",
+        text: "To modernising operations",
         href: "#infrastructure-as-code",
       },
     },
     {
-      title: "3 · Cut costs",
+      title: "Cut licence costs",
       description:
-        "<strong>Replacing server licences</strong>, <strong>replacing database licences</strong> and <strong>cloud migration within the EU</strong> — moves that save licence and hardware costs every year. Delivered safely, because the foundation is in place.",
+        "Windows Server, Oracle, MSSQL: the invoices grow and switching feels too risky. <strong>Replacing server licences</strong> and <strong>replacing database licences</strong> — step by step, with a rollback plan, permanently cheaper.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
-        text: "To the migrations",
+        text: "To cutting licence costs",
         href: "#windows-to-linux",
+      },
+    },
+    {
+      title: "Ship your own software safely",
+      description:
+        "For companies that build their own applications or have them built. <strong>Test environments per change</strong> show every change before go-live, and the <strong>software delivery check</strong> shows where the path from code to production stalls.",
+      icon: "tabler:git-merge",
+      callToAction: {
+        variant: "link" as const,
+        text: "To shipping software",
+        href: "#review-apps",
       },
     },
   ],
@@ -74,51 +74,11 @@ const overview = {
 
 const services = [
   {
-    id: "cicd-assessment",
-    groupTagline: "Create clarity",
-    groupTitle: "Know where you stand",
-    groupSubtitle:
-      "Before anything changes, it has to be clear what is worth changing. The assessment delivers that diagnosis within days.",
-    title: "Software delivery check",
-    caption:
-      "We check how fast and how safely your software gets from change to production — honestly evaluated, clearly prioritised. The diagnosis everything else builds on.",
-    image: {
-      src: "~/assets/images/service-assessment.jpg",
-      alt: "Software delivery check",
-    },
-    forWhom:
-      "For companies that build their own software and where releases take long, fail often, or nobody knows exactly how secure the path from code to production is.",
-    benefits: [
-      {
-        title: "You know where time and money are lost",
-        description:
-          "We measure build times, failure rates and waiting times and show which bottlenecks really slow your team down.",
-      },
-      {
-        title: "Security gaps become visible before someone else finds them",
-        description:
-          "Handling of credentials, dependencies, permissions and traceability — checked against common standards.",
-      },
-      {
-        title: "A prioritised list instead of a thick report",
-        description:
-          "What first? What delivers the most for the least effort? You get an order you can start with immediately.",
-      },
-      {
-        title: "A basis for decisions by management and IT",
-        description:
-          "Written in plain language, with effort estimates and expected benefit — so approving the next step is easy.",
-      },
-    ],
-    result:
-      "Outcome: written diagnosis with prioritised actions.",
-  },
-  {
     id: "infrastructure-as-code",
-    groupTagline: "Secure changes",
-    groupTitle: "The foundation for reliable change",
+    groupTagline: "Modernise operations",
+    groupTitle: "IT that can be rebuilt",
     groupSubtitle:
-      "Three building blocks that make every change reproducible, testable and, if in doubt, reversible.",
+      "Three building blocks that make servers and applications reproducible — documented, testable and, if in doubt, reversible. Deliverable with your administrator or IT provider, no development team needed.",
     title: "Infrastructure as code",
     caption:
       "Servers, network and settings as code: documented, reviewed, rebuildable in minutes. The knowledge lives in the system — not only with one colleague.",
@@ -190,53 +150,56 @@ const services = [
       "Outcome: one application containerised and in operation, including build pipeline and documentation.",
   },
   {
-    id: "review-apps",
-    title: "Test environments per change",
+    id: "cloud-migration",
+    title: "Cloud migration within the EU",
     caption:
-      "Every change automatically gets its own clickable test environment first. Business users, customers and the team see the result before it goes live.",
-    image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review apps" },
+      "Out of your own server room, away from ageing hardware and maintenance contracts: we move you to providers with data centres in Germany and the EU. Whether it pays off is shown by the cost comparison up front — not afterwards.",
+    image: {
+      src: "~/assets/images/service-cloud.jpg",
+      alt: "Cloud migration to EU data centres",
+    },
     forWhom:
-      "For companies where business users or customers only see changes after go-live — so problems only surface in production.",
+      "For companies that depreciate their own hardware, pay maintenance contracts or rent servers that sit half empty most of the time — and whose data has to stay in the EU.",
     benefits: [
       {
-        title: "Business users see the change before it goes live",
+        title: "No more hardware that ages",
         description:
-          "A link, a running version, instant feedback. Misunderstandings get cleared up before they become expensive.",
+          "No depreciation, no maintenance contracts, no spare parts. Whether a dedicated server at a German hosting provider or scalable cloud: we calculate up front which is cheaper for your workload.",
       },
       {
-        title: "Bugs are found earlier — and fixed cheaper",
+        title: "Data stays in the EU",
         description:
-          "A bug in a review app costs minutes. The same bug in production costs hours, customers and nerves.",
+          "We work with European providers or EU regions — data centres in Germany and the EU, GDPR-compliant, with no data transfers to third countries.",
       },
       {
-        title: "No more fighting over the one test environment",
+        title: "No more server room that someone has to look after",
         description:
-          "Every change has its own environment. Nobody overwrites someone else’s work anymore.",
+          "Power, cooling, failed disks, spare parts — the provider takes care of that. Your team looks after applications, not tin.",
       },
       {
-        title: "Go-lives become boring",
+        title: "Described as code, reproducible at any time",
         description:
-          "What worked in the review app works in production. The Friday release loses its terror.",
+          "The applications move as containers, the environment is built from infrastructure as code. Switching providers stays possible at any time — no lock-in.",
       },
     ],
     result:
-      "Outcome: review apps set up for one application, created and torn down automatically (requires containerisation).",
+      "Outcome: one system or application migrated to an EU data centre, including a before/after cost comparison and operations documentation (requires containerisation).",
   },
   {
     id: "windows-to-linux",
-    groupTagline: "Cut costs",
+    groupTagline: "Cut licence costs",
     groupTitle: "Save licence costs without endangering operations",
     groupSubtitle:
-      "Migrations are the changes with the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan.",
+      "Licence migrations have the biggest savings potential — and the biggest risk. That is why we do them step by step, with a rollback plan and on the foundation of infrastructure as code and containers.",
     title: "Replacing server licences",
     caption:
-      "When Windows Server licences tie up more budget every year: we move your systems to Linux step by step — no downtime, permanent savings.",
+      "When Windows Server licences tie up more budget every year: we move the services that do not depend on Windows to Linux step by step — no downtime, permanent savings.",
     image: {
       src: "~/assets/images/service-linux.jpg",
       alt: "Migration from Windows Server to Linux",
     },
     forWhom:
-      "For companies running Windows Server for services that run just as well or better on Linux — web servers, databases, application servers, file services, internal tools.",
+      "For companies running Windows Server for services that run just as well or better on Linux — web servers, databases, application servers, file services, internal tools. Active Directory, Exchange or your ERP stay where they are.",
     benefits: [
       {
         title: "Licence costs disappear — permanently",
@@ -249,9 +212,9 @@ const services = [
           "Linux systems can be updated while running. The patch weekend becomes the exception.",
       },
       {
-        title: "Fully automatable",
+        title: "Containers instead of manual work",
         description:
-          "Linux is the natural basis for Infrastructure as Code and containers. The migration is also your entry into reliable change.",
+          "The services move as containers, the servers are described as code. That makes the migration the first step towards reliable change — and the stepping stone for a later cloud migration.",
       },
       {
         title: "No big bang",
@@ -260,7 +223,7 @@ const services = [
       },
     ],
     result:
-      "Outcome: one system migrated to Linux, documented and in operation — plus a roadmap for the remaining systems.",
+      "Outcome: one system migrated to Linux, documented and in operation — plus a roadmap for the remaining systems (requires containerisation).",
   },
   {
     id: "database-migration",
@@ -299,47 +262,84 @@ const services = [
       "Outcome: one database migrated, tested and handed over, including application adjustments.",
   },
   {
-    id: "cloud-migration",
-    title: "Cloud migration within the EU",
+    id: "review-apps",
+    groupTagline: "Ship your own software safely",
+    groupTitle: "For companies that build their own applications",
+    groupSubtitle:
+      "Whether in-house team or agency: these two services make sure changes to your software are checked before they go live — and that you know where your delivery loses time.",
+    title: "Test environments per change",
     caption:
-      "Out of your own server room, away from ageing hardware and maintenance contracts: we move you to providers with data centres in Germany and the EU. You pay only for what you use.",
-    image: {
-      src: "~/assets/images/service-cloud.jpg",
-      alt: "Cloud migration to EU data centres",
-    },
+      "Every change automatically gets its own clickable test environment first. Business users, customers and the team see the result before it goes live.",
+    image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review apps" },
     forWhom:
-      "For companies that depreciate their own hardware, pay maintenance contracts or rent servers that sit half empty most of the time — and whose data has to stay in the EU.",
+      "For companies where business users or customers only see changes after go-live — so problems only surface in production.",
     benefits: [
       {
-        title: "Pay for what you use — not for what you once bought",
+        title: "Business users see the change before it goes live",
         description:
-          "No hardware depreciation, no maintenance contracts, no spare capacity for peaks that happen three times a year. Resources grow and shrink with demand.",
+          "A link, a running version, instant feedback. Misunderstandings get cleared up before they become expensive.",
       },
       {
-        title: "Data stays in the EU",
+        title: "Bugs are found earlier — and fixed cheaper",
         description:
-          "We work with European providers or EU regions — data centres in Germany and the EU, GDPR-compliant, with no data transfers to third countries.",
+          "A bug in a review app costs minutes. The same bug in production costs hours, customers and nerves.",
       },
       {
-        title: "No more server room that someone has to look after",
+        title: "No more fighting over the one test environment",
         description:
-          "Power, cooling, failed disks, spare parts — the provider takes care of that. Your team looks after applications, not tin.",
+          "Every change has its own environment. Nobody overwrites someone else’s work anymore.",
       },
       {
-        title: "Described as code, reproducible at any time",
+        title: "Go-lives become boring",
         description:
-          "The cloud environment is built from Infrastructure as Code. Switching providers stays possible at any time — no lock-in.",
+          "What worked in the review app works in production. The Friday release loses its terror.",
       },
     ],
     result:
-      "Outcome: one system or application migrated to an EU data centre, including a before/after cost comparison and operations documentation.",
+      "Outcome: review apps set up for one application, created and torn down automatically (requires containerisation).",
   },
+  {
+    id: "cicd-assessment",
+    title: "Software delivery check",
+    caption:
+      "We check how fast and how safely your software gets from change to production — honestly evaluated, clearly prioritised. The diagnosis everything else builds on.",
+    image: {
+      src: "~/assets/images/service-assessment.jpg",
+      alt: "Software delivery check",
+    },
+    forWhom:
+      "For companies that build their own software and where releases take long, fail often, or nobody knows exactly how secure the path from code to production is.",
+    benefits: [
+      {
+        title: "You know where time and money are lost",
+        description:
+          "We measure build times, failure rates and waiting times and show which bottlenecks really slow your team down.",
+      },
+      {
+        title: "Security gaps become visible before someone else finds them",
+        description:
+          "Handling of credentials, dependencies, permissions and traceability — checked against common standards.",
+      },
+      {
+        title: "A prioritised list instead of a thick report",
+        description:
+          "What first? What delivers the most for the least effort? You get an order you can start with immediately.",
+      },
+      {
+        title: "A basis for decisions by management and IT",
+        description:
+          "Written in plain language, with effort estimates and expected benefit — so approving the next step is easy.",
+      },
+    ],
+    result:
+      "Outcome: written diagnosis with prioritised actions.",
+  }
 ];
 
 const combineNote = {
-  title: "Everything fits together:",
+  title: "One path, four stations:",
   description:
-    "The check shows where to start. Infrastructure as code and containers are the foundation. On that foundation, moves become safe — and test environments keep every further change low-risk.",
+    "Infrastructure as code describes the servers. Containers make the applications independent of them. Only then do systems move safely to Linux or PostgreSQL — and afterwards, if wanted, to the cloud. Test environments secure every further change. If it is unclear where to start, the check shows you.",
 };
 
 const process = {
@@ -377,7 +377,7 @@ const faqs = {
     {
       title: "Where should we start?",
       description:
-        "If you are unsure: with the software delivery check. If you have a concrete goal — cutting licence costs, say — we go straight into an assessment call about that migration and check which foundation it needs.",
+        "With whatever hurts right now or costs the most — usually a specific migration or an application whose updates are risky. In the assessment call we check which foundation it needs — usually infrastructure as code and containers, because the migrations build on them. Only if it is unclear where the problem lies is the software delivery check worth doing first.",
     },
     {
       title: "How do you charge?",
@@ -410,7 +410,7 @@ const cta = {
     title={hero.title}
     subtitle={hero.subtitle}
     callToAction={bookCta}
-    callToAction2={{ text: "Services in detail", href: "#cicd-assessment" }}
+    callToAction2={{ text: "Services in detail", href: "#infrastructure-as-code" }}
   />
 
   <Features2

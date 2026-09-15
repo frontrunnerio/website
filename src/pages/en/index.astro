@@ -127,19 +127,8 @@ const services = {
   tagline: "Services",
   title: "How we make your IT more reliable and less expensive",
   subtitle:
-    "Each service solves one concrete problem and can be booked on its own. You start where it hurts most — or saves most.",
+    "Each service solves one concrete problem and can be booked on its own. You start where it hurts most — or saves most. The services build on each other: infrastructure as code, containers, migration, cloud.",
   items: [
-    {
-      title: "Software delivery check",
-      description:
-        "We look at how your software gets from code to production — and show where time is lost, where the risks are and what to fix first.",
-      icon: "tabler:gauge",
-      callToAction: {
-        variant: "link" as const,
-        text: "Learn more",
-        href: "/en/services#cicd-assessment",
-      },
-    },
     {
       title: "Infrastructure as code",
       description:
@@ -163,20 +152,20 @@ const services = {
       },
     },
     {
-      title: "Test environments per change",
+      title: "Cloud migration within the EU",
       description:
-        "Every change automatically gets its own test environment before the update. Business users and the team click through it before anything goes live.",
-      icon: "tabler:git-merge",
+        "From your own server room to providers with data centres in Germany and the EU. No ageing hardware, no maintenance contract — and the data stays in Europe.",
+      icon: "tabler:cloud-upload",
       callToAction: {
         variant: "link" as const,
         text: "Learn more",
-        href: "/en/services#review-apps",
+        href: "/en/services#cloud-migration",
       },
     },
     {
       title: "Replacing server licences",
       description:
-        "We move your Windows servers to Linux step by step — no downtime. The licence fees go away for good.",
+        "We move the services that do not depend on Windows — web servers, databases, internal tools — to Linux step by step. No downtime, and the licence fees go away for good.",
       icon: "tabler:brand-windows",
       callToAction: {
         variant: "link" as const,
@@ -196,14 +185,25 @@ const services = {
       },
     },
     {
-      title: "Cloud migration within the EU",
+      title: "Test environments per change",
       description:
-        "From your own server room to providers with data centres in Germany and the EU. You pay only for what you use — and the data stays in Europe.",
-      icon: "tabler:cloud-upload",
+        "Every change automatically gets its own test environment before the update. Business users and the team click through it before anything goes live.",
+      icon: "tabler:git-merge",
       callToAction: {
         variant: "link" as const,
         text: "Learn more",
-        href: "/en/services#cloud-migration",
+        href: "/en/services#review-apps",
+      },
+    },
+    {
+      title: "Software delivery check",
+      description:
+        "We look at how your software gets from code to production — and show where time is lost, where the risks are and what to fix first.",
+      icon: "tabler:gauge",
+      callToAction: {
+        variant: "link" as const,
+        text: "Learn more",
+        href: "/en/services#cicd-assessment",
       },
     },
   ],
@@ -256,7 +256,7 @@ const faqs = {
     {
       title: "Who is this for?",
       description:
-        "Small and mid-sized companies in Germany that run or build their own software — typically 20 to 500 employees with a small IT team or an external provider. If you avoid changes to your IT because they feel risky or expensive, you're in the right place.",
+        "Small and mid-sized companies in Germany that avoid changes to their IT because they feel risky or expensive. Our clients usually want one of three things: modernise operations, because servers are one-offs and the hardware is ageing. Cut licence costs, because Windows Server, Oracle or MSSQL tie up the budget. Or ship their own software safely, because bugs only show up in production. Every service can be booked on its own.",
     },
     {
       title: "What does the assessment call cost?",
@@ -271,7 +271,7 @@ const faqs = {
     {
       title: "We don't have our own developers — does this still fit?",
       description:
-        "Yes. Most of our services concern operations — servers, databases, cloud — not software development. We work with your administrator or your IT provider.",
+        "Yes, for everything that concerns your servers: replacing server licences, cloud migration, infrastructure as code. For those we work with your administrator or your IT provider. Containers, test environments and database migration for your own application require someone who can change it — that can also be the agency or vendor that built it.",
     },
     {
       title: "Do we have to switch everything at once?",
@@ -281,7 +281,7 @@ const faqs = {
     {
       title: "How quickly will we see results?",
       description:
-        "You receive the plan within one to two weeks after the call. A pilot takes two to eight weeks depending on scope. Licence savings show up from the month the system is moved.",
+        "You receive the plan within one to two weeks after the call. The pilot's duration is part of the offer — it is deliberately scoped so small that you see the result in weeks, not months. Licence savings show up from the month the system is moved.",
     },
     {
       title: "What if the pilot doesn't work?",

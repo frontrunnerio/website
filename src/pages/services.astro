@@ -14,7 +14,7 @@ const metadata = {
   title: "Leistungen — IT-Kosten senken, Systeme ablösen, Änderungen absichern",
   ignoreTitleTemplate: true,
   description:
-    "Sieben Leistungen für den Mittelstand: Software-Delivery-Check, Infrastruktur als Code, Container, Testumgebungen, Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Cloud-Umzug in die EU.",
+    "Sieben Leistungen für den Mittelstand: Infrastruktur als Code, Container, Cloud-Umzug in die EU, Ablösung von Windows-, Oracle- und MSSQL-Lizenzen, Testumgebungen, Software-Delivery-Check.",
 };
 
 const bookCta = {
@@ -34,39 +34,39 @@ const overview = {
   tagline: "Übersicht",
   title: "Drei Ziele, sieben Leistungen",
   subtitle:
-    "Wir sortieren unsere Leistungen nach dem, was sie für Sie bewirken: Klarheit schaffen, Änderungen absichern, Kosten senken.",
+    "Wir sortieren nach dem, was Sie erreichen wollen. Jede Leistung ist einzeln buchbar — die Reihenfolge ergibt sich aus Ihrer Situation, nicht aus einem Paket.",
   items: [
     {
-      title: "1 · Klarheit schaffen",
+      title: "Betrieb modernisieren",
       description:
-        "<strong>Software-Delivery-Check</strong> — Wir zeigen, wo Ihre Software-Auslieferung Zeit verliert, wo Risiken liegen und was zuerst zu tun ist.",
-      icon: "tabler:search",
+        "Server sind Unikate, das Wissen steckt in Köpfen, die Hardware altert. <strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong> und <strong>Cloud-Umzug in die EU</strong> machen Ihre IT reproduzierbar — vom eigenen Server bis zum EU-Rechenzentrum. Kein Entwicklerteam nötig.",
+      icon: "tabler:server-cog",
       callToAction: {
         variant: "link" as const,
-        text: "Zum Check",
-        href: "#cicd-assessment",
-      },
-    },
-    {
-      title: "2 · Änderungen absichern",
-      description:
-        "<strong>Infrastruktur als Code</strong>, <strong>Anwendungen containerisieren</strong> und <strong>Testumgebung pro Änderung</strong> — damit jede Änderung wiederholbar, testbar und rückgängig zu machen ist.",
-      icon: "tabler:shield-check",
-      callToAction: {
-        variant: "link" as const,
-        text: "Zu den Leistungen",
+        text: "Zu Betrieb modernisieren",
         href: "#infrastructure-as-code",
       },
     },
     {
-      title: "3 · Kosten senken",
+      title: "Lizenzkosten senken",
       description:
-        "<strong>Server-Lizenzen ablösen</strong>, <strong>Datenbank-Lizenzen ablösen</strong> und <strong>Cloud-Umzug in die EU</strong> — Umzüge, die jedes Jahr Lizenz- und Hardwarekosten sparen. Sicher umgesetzt, weil das Fundament steht.",
+        "Windows Server, Oracle, MSSQL: Die Rechnungen steigen, ein Wechsel erscheint zu riskant. <strong>Server-Lizenzen ablösen</strong> und <strong>Datenbank-Lizenzen ablösen</strong> — schrittweise, mit Rückfallplan, dauerhaft günstiger.",
       icon: "tabler:coin-euro",
       callToAction: {
         variant: "link" as const,
-        text: "Zu den Migrationen",
+        text: "Zu Lizenzkosten senken",
         href: "#windows-to-linux",
+      },
+    },
+    {
+      title: "Eigene Software sicher ausliefern",
+      description:
+        "Für Unternehmen, die eigene Anwendungen entwickeln oder entwickeln lassen. <strong>Testumgebung pro Änderung</strong> zeigt jede Änderung vor dem Go-Live, der <strong>Software-Delivery-Check</strong> zeigt, wo der Weg von Code zu Produktion hakt.",
+      icon: "tabler:git-merge",
+      callToAction: {
+        variant: "link" as const,
+        text: "Zu Software ausliefern",
+        href: "#review-apps",
       },
     },
   ],
@@ -74,52 +74,11 @@ const overview = {
 
 const services = [
   {
-    id: "cicd-assessment",
-    groupTagline: "Klarheit schaffen",
-    groupTitle: "Wissen, wo Sie stehen",
-    groupSubtitle:
-      "Bevor etwas geändert wird, muss klar sein, was sich lohnt. Der Check liefert diesen Befund in wenigen Tagen.",
-    title: "Software-Delivery-Check",
-    caption:
-      "Wir prüfen, wie schnell und wie sicher Ihre Software von der Änderung bis in den Betrieb kommt — ehrlich bewertet, klar priorisiert. Der Befund, auf dem alles Weitere aufbaut.",
-    image: {
-      src: "~/assets/images/service-assessment.jpg",
-      alt: "Software-Delivery-Check",
-    },
-    forWhom:
-      "Für Unternehmen, die eigene Software entwickeln und bei denen Releases lange dauern, oft fehlschlagen oder niemand genau weiß, wie sicher der Weg von Code zu Produktion ist.",
-    benefits: [
-      {
-        title: "Sie wissen, wo Zeit und Geld verloren gehen",
-        description:
-          "Wir messen Build-Zeiten, Fehlerraten und Wartezeiten und zeigen, welche Engpässe Ihr Team wirklich bremsen.",
-      },
-      {
-        title:
-          "Sicherheitslücken werden sichtbar, bevor jemand anderes sie findet",
-        description:
-          "Umgang mit Zugangsdaten, Abhängigkeiten, Berechtigungen und Nachvollziehbarkeit — geprüft gegen gängige Standards.",
-      },
-      {
-        title: "Eine priorisierte Liste statt eines dicken Berichts",
-        description:
-          "Was zuerst? Was bringt am meisten für den geringsten Aufwand? Sie erhalten eine Reihenfolge, mit der Sie sofort starten können.",
-      },
-      {
-        title: "Eine Entscheidungsgrundlage für Geschäftsführung und IT",
-        description:
-          "Verständlich formuliert, mit Aufwandsschätzung und erwartetem Nutzen — damit die Freigabe für den nächsten Schritt leicht fällt.",
-      },
-    ],
-    result:
-      "Ergebnis: Schriftlicher Befund mit priorisierten Maßnahmen.",
-  },
-  {
     id: "infrastructure-as-code",
-    groupTagline: "Änderungen absichern",
-    groupTitle: "Das Fundament für verlässliche Änderungen",
+    groupTagline: "Betrieb modernisieren",
+    groupTitle: "Eine IT, die sich neu aufbauen lässt",
     groupSubtitle:
-      "Drei Bausteine, die dafür sorgen, dass jede Änderung reproduzierbar, testbar und im Zweifel rückgängig zu machen ist.",
+      "Drei Bausteine, mit denen Server und Anwendungen reproduzierbar werden — dokumentiert, testbar, im Zweifel rückgängig zu machen. Umsetzbar mit Ihrem Administrator oder Systemhaus, kein Entwicklerteam nötig.",
     title: "Infrastruktur als Code",
     caption:
       "Server, Netzwerk und Einstellungen als Code: dokumentiert, geprüft, in Minuten neu aufbaubar. Das Wissen steckt im System — nicht mehr nur bei einem Kollegen.",
@@ -191,53 +150,56 @@ const services = [
       "Ergebnis: Eine Anwendung containerisiert und im Betrieb, inklusive Build-Pipeline und Dokumentation.",
   },
   {
-    id: "review-apps",
-    title: "Testumgebung pro Änderung",
+    id: "cloud-migration",
+    title: "Cloud-Umzug in die EU",
     caption:
-      "Jede Änderung bekommt vorher automatisch eine eigene, klickbare Testumgebung. Fachabteilung, Kunden und Team sehen das Ergebnis, bevor es live geht.",
-    image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review Apps" },
+      "Raus aus dem eigenen Serverraum, weg von alternder Hardware und Wartungsverträgen: Wir ziehen mit Ihnen zu Anbietern mit Rechenzentren in Deutschland und der EU. Ob sich das rechnet, zeigt der Kostenvergleich vorher — nicht nachher.",
+    image: {
+      src: "~/assets/images/service-cloud.jpg",
+      alt: "Cloud-Migration in EU-Rechenzentren",
+    },
     forWhom:
-      "Für Unternehmen, bei denen Fachabteilung oder Kunden Änderungen erst nach dem Go-Live sehen — und Fehler deshalb erst in Produktion auffallen.",
+      "Für Unternehmen, die eigene Hardware abschreiben, Wartungsverträge bezahlen oder Server mieten, die die meiste Zeit halb leer laufen — und deren Daten in der EU bleiben müssen.",
     benefits: [
       {
-        title: "Fachabteilung sieht die Änderung, bevor sie live geht",
+        title: "Keine Hardware mehr, die altert",
         description:
-          "Ein Link, eine laufende Version, sofortiges Feedback. Missverständnisse werden geklärt, bevor sie teuer werden.",
+          "Keine Abschreibung, keine Wartungsverträge, keine Ersatzteile. Ob dedizierter Server bei einem deutschen Hoster oder skalierbare Cloud: Wir rechnen vorher durch, was für Ihre Last günstiger ist.",
       },
       {
-        title: "Fehler werden früher gefunden — und billiger behoben",
+        title: "Daten bleiben in der EU",
         description:
-          "Ein Fehler in der Review App kostet Minuten. Derselbe Fehler in Produktion kostet Stunden, Kunden und Nerven.",
+          "Wir arbeiten mit europäischen Anbietern oder EU-Regionen — Rechenzentren in Deutschland und der EU, DSGVO-konform, ohne Datentransfer in Drittländer.",
       },
       {
-        title: "Kein Streit mehr um die eine Testumgebung",
+        title: "Kein Serverraum mehr, um den sich jemand kümmern muss",
         description:
-          "Jede Änderung hat ihre eigene Umgebung. Niemand überschreibt mehr die Arbeit eines anderen.",
+          "Strom, Kühlung, defekte Festplatten, Ersatzteile — das übernimmt der Anbieter. Ihr Team kümmert sich um Anwendungen, nicht um Blech.",
       },
       {
-        title: "Go-Lives werden langweilig",
+        title: "Als Code beschrieben, jederzeit reproduzierbar",
         description:
-          "Was in der Review App funktioniert hat, funktioniert auch in Produktion. Der Freitag-Release verliert seinen Schrecken.",
+          "Die Anwendungen ziehen als Container um, die Umgebung entsteht aus Infrastruktur als Code. Ein Anbieterwechsel bleibt jederzeit möglich — kein Lock-in.",
       },
     ],
     result:
-      "Ergebnis: Review Apps für eine Anwendung eingerichtet, automatisch erstellt und wieder abgebaut (setzt Containerisierung voraus).",
+      "Ergebnis: Ein System oder eine Anwendung in ein EU-Rechenzentrum migriert, inklusive Kostenvergleich vorher/nachher und Betriebsdokumentation (setzt Containerisierung voraus).",
   },
   {
     id: "windows-to-linux",
-    groupTagline: "Kosten senken",
+    groupTagline: "Lizenzkosten senken",
     groupTitle: "Lizenzkosten sparen, ohne den Betrieb zu gefährden",
     groupSubtitle:
-      "Migrationen sind die Änderungen mit dem größten Sparpotenzial — und dem größten Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan.",
+      "Lizenz-Migrationen haben das größte Sparpotenzial — und das größte Risiko. Deshalb machen wir sie schrittweise, mit Rückfallplan und auf dem Fundament aus Infrastruktur als Code und Containern.",
     title: "Server-Lizenzen ablösen",
     caption:
-      "Wenn Windows-Server-Lizenzen jedes Jahr mehr Budget binden: Wir ziehen Ihre Systeme Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
+      "Wenn Windows-Server-Lizenzen jedes Jahr mehr Budget binden: Wir ziehen die Dienste, die nicht auf Windows angewiesen sind, Schritt für Schritt auf Linux um — ohne Ausfall, mit dauerhafter Ersparnis.",
     image: {
       src: "~/assets/images/service-linux.jpg",
       alt: "Migration von Windows Server zu Linux",
     },
     forWhom:
-      "Für Unternehmen, die Windows Server für Dienste betreiben, die genauso gut oder besser auf Linux laufen — Webserver, Datenbanken, Anwendungsserver, Dateidienste, interne Tools.",
+      "Für Unternehmen, die Windows Server für Dienste betreiben, die genauso gut oder besser auf Linux laufen — Webserver, Datenbanken, Anwendungsserver, Dateidienste, interne Tools. Active Directory, Exchange oder Ihr ERP bleiben, wo sie sind.",
     benefits: [
       {
         title: "Lizenzkosten fallen weg — dauerhaft",
@@ -250,9 +212,9 @@ const services = [
           "Linux-Systeme lassen sich im laufenden Betrieb aktualisieren. Das Patch-Wochenende wird zur Ausnahme.",
       },
       {
-        title: "Vollständig automatisierbar",
+        title: "Container statt Handarbeit",
         description:
-          "Linux ist die natürliche Basis für Infrastructure as Code und Container. Die Migration ist gleichzeitig der Einstieg in verlässliche Änderungen.",
+          "Die Dienste ziehen als Container um, die Server sind als Code beschrieben. Damit ist die Migration gleichzeitig der erste Schritt zu verlässlichen Änderungen — und die Vorstufe für einen späteren Cloud-Umzug.",
       },
       {
         title: "Kein Big Bang",
@@ -261,7 +223,7 @@ const services = [
       },
     ],
     result:
-      "Ergebnis: Ein System auf Linux migriert, dokumentiert und im Betrieb — plus Roadmap für die weiteren Systeme.",
+      "Ergebnis: Ein System auf Linux migriert, dokumentiert und im Betrieb — plus Roadmap für die weiteren Systeme (setzt Containerisierung voraus).",
   },
   {
     id: "database-migration",
@@ -300,47 +262,85 @@ const services = [
       "Ergebnis: Eine Datenbank migriert, getestet und übergeben, inklusive Anpassung der Anwendung.",
   },
   {
-    id: "cloud-migration",
-    title: "Cloud-Umzug in die EU",
+    id: "review-apps",
+    groupTagline: "Eigene Software sicher ausliefern",
+    groupTitle: "Für Unternehmen, die eigene Anwendungen entwickeln",
+    groupSubtitle:
+      "Ob Inhouse-Team oder Agentur: Diese beiden Leistungen sorgen dafür, dass Änderungen an Ihrer Software geprüft sind, bevor sie live gehen — und dass Sie wissen, wo Ihre Auslieferung Zeit verliert.",
+    title: "Testumgebung pro Änderung",
     caption:
-      "Raus aus dem eigenen Serverraum, weg von alternder Hardware und Wartungsverträgen: Wir ziehen mit Ihnen zu Anbietern mit Rechenzentren in Deutschland und der EU. Sie zahlen nur, was Sie nutzen.",
-    image: {
-      src: "~/assets/images/service-cloud.jpg",
-      alt: "Cloud-Migration in EU-Rechenzentren",
-    },
+      "Jede Änderung bekommt vorher automatisch eine eigene, klickbare Testumgebung. Fachabteilung, Kunden und Team sehen das Ergebnis, bevor es live geht.",
+    image: { src: "~/assets/images/service-gitlab.jpg", alt: "Review Apps" },
     forWhom:
-      "Für Unternehmen, die eigene Hardware abschreiben, Wartungsverträge bezahlen oder Server mieten, die die meiste Zeit halb leer laufen — und deren Daten in der EU bleiben müssen.",
+      "Für Unternehmen, bei denen Fachabteilung oder Kunden Änderungen erst nach dem Go-Live sehen — und Fehler deshalb erst in Produktion auffallen.",
     benefits: [
       {
-        title: "Bezahlen, was Sie nutzen — nicht, was Sie einmal gekauft haben",
+        title: "Fachabteilung sieht die Änderung, bevor sie live geht",
         description:
-          "Keine Hardware-Abschreibung, keine Wartungsverträge, keine Reserve für Lastspitzen, die dreimal im Jahr auftreten. Ressourcen wachsen und schrumpfen mit dem Bedarf.",
+          "Ein Link, eine laufende Version, sofortiges Feedback. Missverständnisse werden geklärt, bevor sie teuer werden.",
       },
       {
-        title: "Daten bleiben in der EU",
+        title: "Fehler werden früher gefunden — und billiger behoben",
         description:
-          "Wir arbeiten mit europäischen Anbietern oder EU-Regionen — Rechenzentren in Deutschland und der EU, DSGVO-konform, ohne Datentransfer in Drittländer.",
+          "Ein Fehler in der Review App kostet Minuten. Derselbe Fehler in Produktion kostet Stunden, Kunden und Nerven.",
       },
       {
-        title: "Kein Serverraum mehr, um den sich jemand kümmern muss",
+        title: "Kein Streit mehr um die eine Testumgebung",
         description:
-          "Strom, Kühlung, defekte Festplatten, Ersatzteile — das übernimmt der Anbieter. Ihr Team kümmert sich um Anwendungen, nicht um Blech.",
+          "Jede Änderung hat ihre eigene Umgebung. Niemand überschreibt mehr die Arbeit eines anderen.",
       },
       {
-        title: "Als Code beschrieben, jederzeit reproduzierbar",
+        title: "Go-Lives werden langweilig",
         description:
-          "Die Cloud-Umgebung entsteht aus Infrastructure as Code. Ein Anbieterwechsel bleibt jederzeit möglich — kein Lock-in.",
+          "Was in der Review App funktioniert hat, funktioniert auch in Produktion. Der Freitag-Release verliert seinen Schrecken.",
       },
     ],
     result:
-      "Ergebnis: Ein System oder eine Anwendung in ein EU-Rechenzentrum migriert, inklusive Kostenvergleich vorher/nachher und Betriebsdokumentation.",
+      "Ergebnis: Review Apps für eine Anwendung eingerichtet, automatisch erstellt und wieder abgebaut (setzt Containerisierung voraus).",
   },
+  {
+    id: "cicd-assessment",
+    title: "Software-Delivery-Check",
+    caption:
+      "Wir prüfen, wie schnell und wie sicher Ihre Software von der Änderung bis in den Betrieb kommt — ehrlich bewertet, klar priorisiert. Der Befund, auf dem alles Weitere aufbaut.",
+    image: {
+      src: "~/assets/images/service-assessment.jpg",
+      alt: "Software-Delivery-Check",
+    },
+    forWhom:
+      "Für Unternehmen, die eigene Software entwickeln und bei denen Releases lange dauern, oft fehlschlagen oder niemand genau weiß, wie sicher der Weg von Code zu Produktion ist.",
+    benefits: [
+      {
+        title: "Sie wissen, wo Zeit und Geld verloren gehen",
+        description:
+          "Wir messen Build-Zeiten, Fehlerraten und Wartezeiten und zeigen, welche Engpässe Ihr Team wirklich bremsen.",
+      },
+      {
+        title:
+          "Sicherheitslücken werden sichtbar, bevor jemand anderes sie findet",
+        description:
+          "Umgang mit Zugangsdaten, Abhängigkeiten, Berechtigungen und Nachvollziehbarkeit — geprüft gegen gängige Standards.",
+      },
+      {
+        title: "Eine priorisierte Liste statt eines dicken Berichts",
+        description:
+          "Was zuerst? Was bringt am meisten für den geringsten Aufwand? Sie erhalten eine Reihenfolge, mit der Sie sofort starten können.",
+      },
+      {
+        title: "Eine Entscheidungsgrundlage für Geschäftsführung und IT",
+        description:
+          "Verständlich formuliert, mit Aufwandsschätzung und erwartetem Nutzen — damit die Freigabe für den nächsten Schritt leicht fällt.",
+      },
+    ],
+    result:
+      "Ergebnis: Schriftlicher Befund mit priorisierten Maßnahmen.",
+  }
 ];
 
 const combineNote = {
-  title: "Alles greift ineinander:",
+  title: "Ein Weg, vier Stationen:",
   description:
-    "Der Check zeigt, wo Sie starten. Infrastruktur als Code und Container sind das Fundament. Darauf werden Umzüge sicher — und Testumgebungen machen jede weitere Änderung risikoarm.",
+    "Infrastruktur als Code beschreibt die Server. Container machen die Anwendungen unabhängig davon. Erst dann ziehen Systeme sicher auf Linux oder PostgreSQL um — und danach, wenn gewünscht, in die Cloud. Testumgebungen sichern jede weitere Änderung ab. Wenn unklar ist, wo Sie anfangen sollten, zeigt es der Check.",
 };
 
 const process = {
@@ -378,7 +378,7 @@ const faqs = {
     {
       title: "In welcher Reihenfolge sollten wir anfangen?",
       description:
-        "Wenn Sie unsicher sind: mit dem Software-Delivery-Check. Wenn Sie ein konkretes Ziel haben — etwa Lizenzkosten senken — sprechen wir im Erstgespräch direkt über genau diesen Umzug und prüfen, welches Fundament dafür nötig ist.",
+        "Mit dem, was gerade weh tut oder am meisten kostet — meist ein konkreter Umzug oder eine Anwendung, deren Updates riskant sind. Im Erstgespräch prüfen wir, welches Fundament dafür nötig ist — meist Infrastruktur als Code und Container, denn darauf bauen die Umzüge auf. Nur wenn unklar ist, wo es hakt, lohnt sich vorab der Software-Delivery-Check.",
     },
     {
       title: "Wie berechnen Sie die Leistungen?",
@@ -412,7 +412,7 @@ const cta = {
     title={hero.title}
     subtitle={hero.subtitle}
     callToAction={bookCta}
-    callToAction2={{ text: "Leistungen im Detail", href: "#cicd-assessment" }}
+    callToAction2={{ text: "Leistungen im Detail", href: "#infrastructure-as-code" }}
   />
 
   <Features2
